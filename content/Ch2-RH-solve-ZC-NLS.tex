@@ -1,5 +1,22 @@
 \chapter{RH 方法求解零边界的 NLS 方程}
+本章节我们以聚焦 NLS 方程为例, 介绍 RH 方法求解零边界非线性偏微分方程的基本步骤. 主要参考复旦大学范恩贵老师的讲义\cite{Fan-RH}.
 \section{聚焦 NLS 方程}
+对于二阶 AKNS 系统, 为表示方便, 我们引入 Pauli 矩阵
+\begin{equation}
+  \sigma_{1} = \begin{pmatrix}
+    0 & 1 \\
+    1 & 0
+  \end{pmatrix}, \quad
+  \sigma_{2} = \begin{pmatrix}
+    0 & -\rmi \\
+    \rmi & 0
+  \end{pmatrix}, \quad
+  \sigma_{3} = \begin{pmatrix}
+    1 & 0 \\
+    0 & -1
+  \end{pmatrix}
+\end{equation}
+下文如无特别声明, 默认 $ \sigma_{i}, i = 1,2,3 $ 表示 Pauli 矩阵.
 \subsection{特征函数}
 
 考虑聚焦 NLS 方程的初值问题 
@@ -13,14 +30,11 @@ q(x,0) = q_{0}(x) \in \mathcal{S}(\mathbb{R})
 %\end{equation}
 NLS 方程 (\ref{eq:Focus-NLS}) 具有如下矩阵形式的 Lax 对 
 \begin{align}
-  \psi_{x} + \rmi z \sigma_{3} \psi = P \psi \label{eq:Focus-NLS-Lax-x}\\
-  \psi_{t} + 2 \rmi z^2 \sigma_{3} \psi = Q \psi \label{eq:Focus-NLS-Lax-t}
+  \psi_{x}  &= -\rmi z \sigma_{3} \psi + P \psi \label{eq:Focus-NLS-Lax-x}\\
+  \psi_{t}  &= -2 \rmi z^2 \sigma_{3} \psi + Q \psi \label{eq:Focus-NLS-Lax-t}
 \end{align}
 其中 
 \begin{equation*}
-  \sigma_{3} = \begin{pmatrix}
-    1 & \\ & -1
-  \end{pmatrix}, \quad
   P = \begin{pmatrix}
     & q \\ -q^{*} & 
   \end{pmatrix}, \quad
@@ -28,7 +42,7 @@ NLS 方程 (\ref{eq:Focus-NLS}) 具有如下矩阵形式的 Lax 对
     \rmi |q|^2 & \rmi q_{x} \\ \rmi q_{x}^{*} & -\rmi |q|^2
   \end{pmatrix} + 2 z P
 \end{equation*}
-满足零曲率方程
+满足零曲率方程 $U_{t} - V_{x} + [U, V] = 0 $, 即
 \begin{equation}
   \left(P - \rmi z \sigma_{3}\right)_{t} - \left(Q - 2 \rmi z^2 \sigma_{3}\right)_{x} + \left[P - \rmi z \sigma_{3}, Q - 2 \rmi z^2 \sigma_{3} \right] = 0
 \end{equation}
@@ -180,7 +194,7 @@ NLS 方程 (\ref{eq:Focus-NLS}) 具有如下矩阵形式的 Lax 对
 \begin{equation*}
   e^{2 \rmi Z (x-y)} = e^{2 \rmi (x-y)\Re(z)}  e^{-2 \rmi (x-y)\Im(z)}, \quad   e^{- 2 \rmi Z (x-y)} = e^{- 2 \rmi (x-y)\Re(z)}  e^{2 \rmi (x-y)\Im(z)}  
 \end{equation*}
-因此当 $ q(x) \in L^{1}(\mathbb{R}) $ 时, 通过构造序列与 Neumann 级数, 可得 $ \mu_{1}^{\pm}, \mu_{1}^{-} $ 分别在 $ \mathbb{C}_{\pm} $ 解析性.
+因此当 $ q(x) \in L^{1}(\mathbb{R}) $ 时, 通过构造序列与 Neumann 级数, 可得 $ \mu_{1}^{+}, \mu_{1}^{-} $ 分别在 $ \mathbb{C}_{\pm} $ 解析性.
 
 \begin{remark}
 上面 Voltarra 积分的推导: 考虑到 $ e^{\hat{\sigma}_{3}} X = e^{\sigma_{3}} X e^{-\sigma_{3}} $ ,故有
