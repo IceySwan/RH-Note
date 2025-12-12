@@ -1158,4 +1158,20 @@
 
 \renewcommand{\theequation}{\thesection.\arabic{equation}} % 修改 equation 计数方式
 \@addtoreset{equation}{section}
-  
+
+% 自定义符号
+\newcommand{\rme}{\mathrm{e}}
+\newcommand{\rmi}{\mathrm{i}}
+\newcommand{\rmd}{\mathrm{d}}
+\renewcommand{\Re}{\mathrm{Re}}
+\renewcommand{\Im}{\mathrm{Im}}
+\newcommand{\diag}{\mathrm{diag}}
+% 一些自定义命令
+\newcommand{\thmref}[1]{Theorem.~\ref{#1}~}
+\newcommand{\defref}[1]{Definition~\ref{#1}~}
+\newcommand{\propref}[1]{Proposition~\ref{#1}~}
+\newcommand{\lemref}[1]{Lemma~\ref{#1}~}
+
+% 自定义算符
+\DeclareMathOperator*{\tr}{tr}
+\DeclareMathOperator*{\Res}{Res}

@@ -2,27 +2,31 @@
     lang=cn, 
     newtx,10pt, 
     scheme=english, 
+    %device=pad,
+    color=blue,
     oneside, 
 %    citestyle=gb7714-2015, 
 %    bibstyle=gb7714-2015
-]{simplebook}
+]{elegantbook}
 %\ExecuteBibliographyOptions{sorting=none}
-\title{RH 学习笔记}
-\subtitle{RH 学习笔记}
+\title{Riemann-Hilbert 学习笔记}
+\subtitle{利用反散射数据对称关系初探局部与非局部动力系统}
 \author{Icey Swan}
 \institute{zzu math}
-\date{\today}
-\version{0.0.2}
-\bioinfo{自定义}{信息}
+\date{\zhtoday}
+\version{beta-0.3.5}
+\bioinfo{版权}{\ccbyncsa}
 
-\extrainfo{注意：本模板自 2023 年 1 月 1 日开始，不再更新和维护！}
+\extrainfo{起著甲辰尽丁未凡历三年余}
 
-\setcounter{tocdepth}{3}
-\logo{logo-blue.png}
-\cover{cover.jpg}
+%\setcounter{tocdepth}{2}
+\logo{Logo.png}
+\cover{cover.png}
 
 % 本文档命令
+\usepackage{ulem}
 \usepackage{array}
+
 %\usepackage{extarrows}
 \newcommand{\ccr}[1]{\makecell{{\color{#1}\rule{1cm}{1cm}}}}
 
@@ -30,17 +34,17 @@
 \definecolor{customcolor}{RGB}{32,178,170}
 \colorlet{coverlinecolor}{customcolor}
 \usepackage{cprotect}
-
+\usepackage{ccicons}
 \addbibresource[location=local]{reference.bib} % 参考文献，不要删除
-%defbibheading{bibintoc}[\refname]{\section*{#1}} % 更改参考文献从 chapter 到 section
 \begin{document}
 
-%\maketitle
+\maketitle
 \frontmatter
 
-
 \input{content/Ch0-preface.tex}
+
 \tableofcontents
+
 \mainmatter
 
 \input{content/Ch1-pre-knowledges.tex}
@@ -51,7 +55,6 @@
 % Add citation command
 \nocite{*}
 \printbibliography[heading=bibintoc, title=\ebibname]
-
-% Add bibliography style and bibliography commands
-%\printbibliography[heading=bibintoc, title=\ebibname]
+%\appendix
+%\input{content/Ch99-Acknowledgment.tex}
 \end{document}

@@ -1,6 +1,6 @@
 \chapter{预备知识}
 \section{Plemelj 公式}
-\begin{theorem}{Abel 定理}
+\begin{theorem}{Abel 定理} \label{ch1-thm:Abel}
   设 $ A \in \mathbb{C} $, 对矩阵微分方程 $ Y_{x} = A(x)Y $, 可得标量微分方程
   \begin{equation}
     (\det Y)_{x} = \tr(A) \det Y
@@ -247,7 +247,7 @@
 \end{remark}
 
 \begin{remark}
-  RH 方法的关键思想就是改变积分路径, 通过跳跃矩阵的分解情况, 确定对积分路径进行一系列形变, 再取极限去除跳跃矩阵为单位阵的情形, 将其化解为可解的 RH 问题, 所以一个自然的问题就是: ``为什么可以扔掉跳跃矩阵为单位阵的路径? 或者说为什么跳跃矩阵对对 RH 问题的解不产生贡献.''
+  RH 方法的关键思想就是改变积分路径, 通过跳跃矩阵的分解情况, 确定对积分路径进行一系列形变, 再取极限去除跳跃矩阵为单位阵的情形, 将其化解为可解的 RH 问题, 所以一个自然的问题就是:「为什么可以扔掉跳跃矩阵为单位阵的路径? 或者说为什么跳跃矩阵对对 RH 问题的解不产生贡献.」
 
   这很容易通过表达式 (\ref{eq:RH-solution}) 看出, 我们将积分路径分解为 $ \sum = \sum_{1} + \sum_{2} $ 且 
   \begin{equation}
@@ -266,3 +266,26 @@
   \end{equation}
   易得 RH 问题 $ (\sum, v(z)) $ 的解与 $ (\sum_{1}, v_{1}(z)) $ 的解相同, 即跳跃矩阵为单位阵的路径 $ \sum_{2} $ 对 RH 问题的解无贡献, 可以舍去. 只求 $ \sum_{1} $ 上的 RH 问题
 \end{remark}
+
+\begin{lemma}
+  若 $ AB = BA $, 其中 $ A, B $ 为 $ n $ 阶复矩阵, 则 $ A, B $ 有相同的特征向量. 
+\end{lemma}
+考虑常系数齐次线性方程组 
+\begin{equation}
+  \frac{dy}{dx} = Ay \label{ch1-eq:A-linear-system}
+\end{equation}
+\begin{corollary}
+  设 $ n $ 阶复矩阵有 $ n $ 个互不相同的特征值 $ \lambda_{1}, \cdots, \lambda_{n} $, $r_{i}$ 为 $ \lambda_{i} $ 对应的特征向量, 则矩阵函数 
+  \begin{equation}
+    \Phi_{x} = (e^{\lambda_{1}} r_{1}, e^{\lambda_{2}} r_{2}, \cdots, e^{\lambda_{n}} r_{n} ) = (r_{1}, \cdots, r_{n}) \diag{(e^{\lambda_{1}}, \cdots, e^{\lambda_{n}})}
+  \end{equation}
+  为 \eqref{ch1-eq:A-linear-system} 的基解矩阵. 现考虑如下偏微分方程组 
+  \begin{align}
+    \frac{\partial y}{\partial x} &= A y \label{ch1-eq:AB-linear-system-x}\\
+    \frac{\partial y}{\partial t} &= By \label{ch1-eq:AB-linear-system-t}
+  \end{align}
+  则由 \eqref{ch1-eq:AB-linear-system-x} 得 $ y = e^{Ax} c(t) $, 其中 $ c(t) $ 为与 $ x $ 无关的列向量. 将其带入 \eqref{ch1-eq:AB-linear-system-t}, 可得 $ e^{Ax} c(t) = B e^{A x} c(t) $, 由于 $ AB = BA \implies B e^{A x} = e^{A x} B \implies $
+  
+  故 $ c(t) = e^{Bt} c_{0} $, 其中 $ c_{0} $ 为常列向量. 故偏微分方程组 \eqref{ch1-eq:AB-linear-system-x} - \eqref{ch1-eq:AB-linear-system-t} 的解为 
+  
+\end{corollary}

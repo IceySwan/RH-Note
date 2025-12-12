@@ -142,7 +142,7 @@
   \RequirePackage[lite]{mtpro2}
 }{\relax}
 
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{1}
 \renewcommand{\baselinestretch}{1.2}
 
 \PassOptionsToPackage{no-math}{fontspec}
@@ -820,7 +820,7 @@
   introductionsty/.style={
     enhanced,
     breakable,
-    colback=structurecolor!10,
+    colback=white,
     colframe=structurecolor,
     fonttitle=\bfseries,
     colbacktitle=structurecolor,
@@ -1127,6 +1127,7 @@
 \newcommand{\rmd}{\mathrm{d}}
 \renewcommand{\Re}{\mathrm{Re}}
 \renewcommand{\Im}{\mathrm{Im}}
+\newcommand{\diag}{\mathrm{diag}}
 % 一些自定义命令
 \newcommand{\thmref}[1]{Theorem.~\ref{#1}~}
 \newcommand{\defref}[1]{Definition~\ref{#1}~}
