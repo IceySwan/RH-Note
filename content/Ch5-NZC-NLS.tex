@@ -1,0 +1,681 @@
+\chapter{RH 方法求解非零边界 NLS 方程}
+本章节对应范恩贵第六章, 本章节和 \ref{ch2-ZC-NLS} 有很多部分极为相似, 读者可反复对比阅读. 令关于本章节内容感谢师妹齐伟纳提供的众多帮助.
+
+相比于零边界问题, 非零边界在求解渐进谱问题时除了谱参数 $k$, 对角化谱参数矩阵还会出现另一个参数--特征值 $\lambda$, 通常其为 $ k $ 的多值函数, 为了避免在 Riemann 面上讨论反散射的复杂性, Zakharov 和 Shabat 注意到可通过仿射变换 $ z = k + \lambda $, 其中 $ k = k(z) $, $ \lambda = \lambda(z) $ 为 $ z $ 的单值函数, 从而在 $ z $ 平面上讨论反散射或 RH 问题, 本部分和范恩贵第六章行文思路类似, 但修改符号使其更加易读.
+
+在正式开始之前, 我们简单说下大致思路: 如何去掉边界条件, 如何去掉谱参数中的多值性.
+\begin{outline}[大致思路]
+
+	考虑非零边界的 NLS 方程,
+	\begin{align}
+		\rmi q_{t} + q_{xx} + 2 q | q|^2 & = 0,      \\
+		\lim_{x \to \pm \infty} q(x,t)   & = q_{\pm}
+	\end{align}
+	它的 Lax 对为
+	\begin{equation}
+		\begin{aligned}
+			 & \Phi_x = U \Phi, \quad U = -\rmi k \sigma_3 + Q,                                          \\
+			 & \Phi_t = V \Phi, \quad V = -2\rmi k^2 \sigma_3 + \rmi \sigma_{3} (Q_{x} - Q^{2}) - 2 k Q,
+		\end{aligned}
+	\end{equation}
+	其中 $ Q = \diag(q, -q^{*}) $.
+	我们分三步解决上面两个问题:
+
+	Step1: 为去掉 $ t $, 做变换 $ q = \hat{q} e^{2 \rmi q_{0}^{2} t}, \Phi = e^{\rmi q_{0}^{2} t \sigma_{3}} \hat{\Phi} $, 则原方程化为
+	\begin{align}
+		\rmi q_{t} + q_{xx} + 2 q (|q|^{2}-q_{0}^{2}) & = 0,                            \\
+		\lim_{x \to \pm \infty} q(x,t)                & = q_{\pm} e^{2 \rmi q_{0}^2 t},
+	\end{align}
+	对应的 Lax 对为
+	\begin{align}
+		\hat{\Phi}_{x} & = X \hat{\Phi}, \quad X = U,                             \\
+		\hat{\Phi}_{t} & = T \hat{\Phi}, \quad T = V - \rmi q_{0}^{2} \sigma_{3}.
+	\end{align}
+	Step2: 此时虽消去 $t$, 但仍存在 $ x$, 故我们取 $ x \to \infty $ 的渐进状态, 得到渐进谱问题
+	\begin{align}
+		\Phi_{x} & = X_{\pm} \Phi, \quad X_{\pm} = \rmi k \sigma_{3} + Q_{\pm},                                \\
+		\Phi_{t} & = T_{\pm} \Phi, \quad T_{\pm} = -2 k X_{\pm}, \quad Q_{\pm} = \diag(q_{\pm}, -q_{\pm}^{*}).
+	\end{align}
+	为表示方便, 我们记 $ \hat{q}=q, \hat{\Phi} = \Phi$ , 但需要注意变换前后 $ q, \Phi $ 的含义不同, 以及变换前后 Lax 对的空间部分不变, 时间部分仅相差一个常数项.
+
+	Step3: 引入仿射变换 $ z = k + \lambda$, 在 Riemann 面上消去多值问题
+	然后即可进入零边界问题的 RH 求解流程, 参见 \ref{ch2-ZC-NLS}.
+
+\end{outline}
+
+\section{非零边界的 NLS 方程}
+考虑非零边界的 NLS 方程,
+\begin{align}
+	\rmi q_{t} + q_{xx} + 2 q | q|^2 = 0, \label{ch5-eq:NLS-equation-origin} \\
+	\lim_{x \to \pm \infty} q(x,t) = q_{\pm}
+\end{align}其中 $ q_{\pm}$ 与 $t$ 无关且 $ |q_{\pm}| = q_0 > 0 $. \eqref{ch5-eq:NLS-equation-origin} 的 Lax 对为,
+\begin{equation} \label{ch5-eq:NLS-Lax-pair-origin}
+	\begin{aligned}
+		 & \Phi_x = U \Phi, \quad U = -\rmi k \sigma_3 + Q,                                          \\
+		 & \Phi_t = V \Phi, \quad V = -2\rmi k^2 \sigma_3 + \rmi \sigma_{3} (Q_{x} - Q^{2}) - 2 k Q,
+	\end{aligned}
+\end{equation}
+其中 $ Q = \diag(q, -q^{*}) $.
+
+接下来我们考虑如何将边界条件转化为与 $ t $ 无关的形式, 同时为了使得渐进谱问题的时空矩阵出现线性关系, 还需对 Lax 对也做适当调整.
+\begin{proposition}
+	做变换
+	\begin{equation}
+		q \to \hat{q} e^{2 \rmi q_{0}^2 t}, \quad \Phi \to e^{\rmi q_{0}^{2} t \sigma_{3}} \hat{\Phi},
+	\end{equation}
+	则 NLS 方程 \eqref{ch5-eq:NLS-equation-origin} 和边界条件化为
+	\begin{align}
+		\rmi \hat{q}_{t} + \hat{q}_{xx} + 2 \hat{q} (|\hat{q}|^{2}-q_{0}^{2}) & = 0, \label{ch5-eq:NLS-equation-transform}                 \\
+		\lim_{x \to \pm \infty} \hat{q}(x,t)                                  & = q_{\pm}, \label{ch5-eq:NLS-boundary-condition-transform}
+	\end{align}
+	对应的 Lax 对为
+	\begin{equation}
+		\hat{\Phi}_{x} = X \hat{\Phi}, \quad \hat{\Phi}_{t} = T \hat{\Phi}, \label{ch5-eq:NLS-Lax-pair-transform}
+	\end{equation}
+	其中
+	\begin{equation}
+		X = U = \rmi k \sigma_{3} + Q, \quad T = V- \rmi q_{0}^{2} \sigma_{3} -2 \rmi k^2 \sigma_{3} + 2 k Q + \rmi \sigma_{3} (Q_{x} - Q^{2} + q_{0}^{2} I).
+	\end{equation}
+\end{proposition}
+\begin{remark}
+	注意到 $ X = U $, $ T = V - \rmi q_{0}^{2} \sigma_{3} $, 因此变换前后 Lax 对的空间部分不变, 时间部分仅相差一个常数项, 这使得我们在求解非零边界问题时可以直接使用变换前的空间部分, 而时间部分则需要进行适当调整.
+\end{remark}
+\begin{proof}
+	将 $ q = \hat{q} e^{2 \rmi q_{0}^2 t} $ 代入原方程 \eqref{ch5-eq:NLS-equation-origin}，得到
+	\begin{equation}
+		\begin{aligned}
+			\rmi(\hat{q}_{t} + 2 \rmi q_{0}^2 \hat{q}) + \hat{q}_{xx} e^{2 \rmi q_{0}^2 t} + 2 \hat{q} e^{2 \rmi q_{0}^2 t} |\hat{q} e^{2 \rmi q_{0}^2 t}|^2 = 0, \\
+			\implies \rmi \hat{q}_{t} + \hat{q}_{xx} + 2 \hat{q} (|\hat{q}|^2 - q_{0}^2) = 0.
+		\end{aligned} \label{ch5-eq:NLS-equation-transform-2}
+	\end{equation}
+	Lax 对变为
+	\begin{equation}
+		\begin{aligned}
+			 & \hat{\Phi}_{x} = (-\rmi k \sigma_{3} + Q) \hat{\Phi},                                                                                                   \\
+			 & \hat{\Phi}_{t} = (-2 \rmi k^2 \sigma_{3} - 2 k Q + \rmi \sigma_{3} (Q_{x} - Q^{2} + 2 q_{0}^{2} I)) \hat{\Phi}. \label{ch5-eq:NLS-Lax-pair-transform-2}
+		\end{aligned}
+	\end{equation}
+\end{proof}
+\section{Riemann 面和单值化坐标}
+令 $ x \to \pm \infty $, 并利用边值条件 \eqref{ch5-eq:NLS-boundary-condition-transform}, 可得
+\begin{equation}
+	\lim_{x\to \pm \infty} Q_{x} - Q^{2} + 2 q_{0}^{2}I = 0
+\end{equation}
+可得到渐进谱问题
+\begin{equation}
+	\Phi_{x}= X_{\pm} \Phi, \quad \Phi_{t} = T_{\pm} \Phi, \label{ch5-eq:NLS-asymptotic-Lax-pair}
+\end{equation}
+其中
+\begin{equation}
+	X_{\pm} = \rmi k \sigma_{3} + Q_{\pm}, \quad T_{\pm} = -2 k X_{\pm}, Q_{\pm} = \diag(q_{\pm}, -q_{\pm}^{*}).
+\end{equation}
+对 $ X_{\pm} $ 求特征值, 可得特征方程
+\begin{equation}
+	|\zeta I - X_{\pm}| = (\zeta - \rmi k)(\zeta + \rmi k) + q_{0}^{2} = 0 \implies -\zeta^{2} = k^{2} + q_{0}^{2}
+\end{equation}
+易见 $ X_{\pm} $ 存在两个特征值 $ \zeta= \pm \rmi \lambda $, 其中 $ \lambda^{2} = k^{2}+ q_{0}^{2}$. 这里面临两个问题
+\begin{enumerate}
+	\item $ k \in \mathbb{C} \implies \lambda $ 为 $ k $ 的多值函数,
+	\item $ k \in \mathcal{S} \implies \lambda $ 为 $ k $ 的单值函数, 但此时 $ \lambda $ 的定义域为 Riemann 面.
+\end{enumerate}
+在 Riemann 面上讨论反散射问题较为复杂, 为避免多值性和 Riemann 面的复杂性, 可引入一个放射参数 $ z $, 使得从参数 $ k $ 的复平面转移到 $ z $ 的复平面上进行讨论 RH 问题.
+
+为此, 首先考虑方程
+\begin{equation}
+	\lambda^{2} = k^{2} + q_{0}^{2} = (k+ \rmi q_{0})(k - \rmi q_{0}) \label{ch5-eq:lambda-k-relation}
+\end{equation}
+决定的 Riemann 面, 其由支割线 $ [-\rmi q_{0}, \rmi q_{0}] $ 割开的两张 $ k$-平面 $ \mathcal{S}_{1}, \mathcal{S}_{2} $ 组成, 其中支点为 $ k = \pm \rmi q_{0} $. 在这样的 Reimann 面上, $ \lambda $ 为 $ k $ 的单值函数, 由两个单值解析分支组成, 函数值相差一个符号, 因此可以在 $ \mathcal{S}_{1}$ 上引入局部极坐标, 有
+\begin{equation}
+	k + \rmi q_{0} = r_{1} e^{\rmi \theta_{1}}, \quad k - \rmi q_{0} = r_{2} e^{\rmi \theta_{2}}, \quad -\pi/2 < \theta_{1}, \theta_{2} < 3\pi/2,
+	\label{ch5-eq:k-polar-coordinates}
+\end{equation}
+\begin{note}
+	这里 $ q > 0 $, 则有 $ \Re(k+\rmi q_{0}) = \Re(k - \rmi q_{0}) \implies \theta_{1} = \theta_{2} $ 或 $ \theta_{1} = \theta_{2} + \pi $.
+\end{note}
+则可以写出 Riemann 面上的两个单值解析分支函数
+\begin{equation}
+	\lambda(k) = \begin{cases}
+		\sqrt{r_{1} r_{2}} e^{\frac{\theta_{1} + \theta_{2}}{2}}, \quad k \in \mathcal{S}_{1}, \\
+		-\sqrt{r_{1} r_{2}} e^{\frac{\theta_{1} + \theta_{2}}{2}}, \quad k \in \mathcal{S}_{2}.
+	\end{cases}
+\end{equation}
+和
+\begin{equation}
+	\Im(\lambda(k)) = \begin{cases}
+		\sqrt{r_{1} r_{2}} \sin\frac{\theta_{1} + \theta_{2}}{2}, \quad k \in \mathcal{S}_{1}, \\
+		-\sqrt{r_{1} r_{2}} \sin\frac{\theta_{1} + \theta_{2}}{2}, \quad k \in \mathcal{S}_{2}.
+	\end{cases}
+\end{equation}
+定义单值化变量 $ z = k + \lambda $, 则由 \eqref{ch5-eq:lambda-k-relation} 可得
+\begin{equation}
+	\lambda^{2} = k^{2} + q^{2}_{0} = (z-k)^{2} \implies q_{0}^{2} = 2 z k + z^{2} \implies k(z) = \frac{1}{2}(z - \frac{q_{0}^{2}}{z}).
+\end{equation}
+同理有 $ \lambda(z) = \frac{1}{2}(z + \frac{q_{0}^{2}}{z}) $, 由 \eqref{ch5-eq:k-polar-coordinates}, 可得
+\begin{align}
+	\Im(k) > 0 & \implies 0 < \frac{\theta_{1} + \theta_{2}}{2} < \pi \implies \sin{\frac{\theta_{1}+\theta_{2}}{2}} > 0,    \\
+	\Im(k) < 0 & \implies \pi < \frac{\theta_{1} + \theta_{2}}{2} < 2\pi \implies \sin{\frac{\theta_{1}+\theta_{2}}{2}} < 0.
+\end{align}
+因此, 变换 \eqref{ch5-eq:k-polar-coordinates} 具有如下性质:
+\begin{enumerate}
+	\item 将 $\mathcal{S}_{1} $ 的 $ \Im(k)>0 $ 和 $ \mathcal{S}_{2} $ 的 $ \Im(k) < 0 $ 映射到 $ z $ 平面上 $ \Im(\lambda) > 0 $,
+	\item 将 $\mathcal{S}_{1} $ 的 $ \Im(k)<0 $ 和 $ \mathcal{S}_{2} $ 的 $ \Im(k) > 0 $ 映射到 $ z $ 平面上 $ \Im(\lambda) < 0 $.
+	\item 将 $ \mathcal{S}_{1} , \mathcal{S}_{2} $ 的支割线 $ [-\rmi q_{0}, \rmi q_{0}] $ 映为 $ \lambda $ 的割线 $ [-q_{0}, q_{0}] $.
+\end{enumerate}
+对 $ \lambda(z) = \frac{1}{2}(z + \frac{q_{0}^{2}}{z}) $ 利用 Joukowsky 变换
+\begin{definition}[Joukowsky 变换]
+	设 $z$ 为复平面 $\mathbb{C}$ 上的复变量, Joukowsky 变换是一个定义在去掉原点的复平面 $\mathbb{C} \setminus \{0\}$ 上的解析函数, 其标准形式定义为:
+	\begin{equation}
+		w = f(z) = z + \frac{1}{z}
+	\end{equation}
+	在更一般的流体力学应用中, 常引入一个非零实常数 $c > 0$, 其一般形式定义为:
+	\begin{equation}
+		w = f(z) = z + \frac{c^2}{z}
+	\end{equation}
+	该变换除了在临界点 $z = \pm c$ 处导数为零外, 在定义域内处处是一个共形映射.
+\end{definition}
+% 下面是 Joukowsky 变换的 mma 代码
+% Manipulate[
+% Module[{f, c, R, z, plotZ, plotW}, c = 1;
+%  f[zVar_] := zVar + c^2/zVar;
+%  (*计算半径，强制圆通过 z=c*)
+%  R = Abs[c - (x0 + I y0)];
+%  z[t_] := (x0 + I y0) + R Exp[I t];
+%
+%  plotZ =
+%   ParametricPlot[ReIm[z[t]], {t, 0, 2 Pi}, PlotStyle -> {Thick, Blue},
+%     PlotRange -> {{-3, 3}, {-3, 3}}, GridLines -> Automatic,
+%    Epilog -> {Red, PointSize[0.02], Point[{{c, 0}, {-c, 0}}], Black,
+%      PointSize[0.02], Point[{x0, y0}]}, PlotLabel -> "z-平面 (红点为临界点 c)"];
+%  plotW =
+%   ParametricPlot[ReIm[f[z[t]]], {t, 0, 2 Pi},
+%    PlotStyle -> {Thick, Red}, PlotRange -> {{-3, 3}, {-3, 3}},
+%    GridLines -> Automatic, PlotLabel -> "w-平面 (变换后形状)"];
+%  GraphicsRow[{plotZ, plotW}, ImageSize -> 700]
+%  ],
+% (*定义滑动条*)
+% Style["调整圆心位置以改变翼型:", Bold], {{x0, -0.1, "圆心 x 坐标 (厚度)"}, -0.5, 0,
+%  Appearance -> "Labeled"}, {{y0, 0.15, "圆心 y 坐标 (弯度)"}, -0.5, 0.5,
+%  Appearance -> "Labeled"}
+% ]
+
+\begin{equation}
+	\lambda(z) = \frac{z^{2} + q_{0} ^{2}}{2 z} = \frac{|z|^{2} z + q_{0}^{2} z^{2}}{2 |z^{2}|} = \frac{(|z|^{2}-q_{0}^{2})z + q_{0}^{2}(z + z^{*})}{2 |z|^{2}} = \frac{1}{2|z|^{2}}\left[(|z|^{2}-q_{0}^{2})z + 2 q_{0}^{2} \Re(z)\right].
+\end{equation}
+故
+\begin{equation}
+	\Im(\lambda(z)) = \frac{1}{2|z|^{2}}(|z|^{2}-q_{0}^{2})\Im(z).
+\end{equation}
+易见 Joukowsky 变换具有如下映射性质
+\begin{enumerate}
+	\item 将 $ \Im(\lambda) > 0 $ 映为 $ D^{+} = \{z \in \mathbb{C}: (|z|^{2} - q_{0}^{2})\Im z > 0\}$;
+	\item 将 $ \Im(\lambda) < 0 $ 映为 $ D^{-} = \{z \in \mathbb{C}: (|z|^{2} - q_{0}^{2})\Im z < 0\}$;
+	\item 将割线 $ [-q_{0}, q_{0}] $ 映为圆 $ C_{0} = \{z \in \mathbb{C}: |z| = q_{0}\}$;
+\end{enumerate}
+对于 $ k \in \mathcal{S}_{1} $ 有
+\begin{equation}
+	z = k + \sqrt{k^{2}+q_{0}^{2}} = k + k(1+\frac{q_{0}^{2}}{k^{2}} + \cdots) = 2k + o(k^{-1}) \to \infty, \quad k \to \infty,
+\end{equation}
+对于 $ k \in \mathcal{S}_{2} $ 有
+\begin{equation}
+	z = k - \sqrt{k^{2}+q_{0}^{2}} = k - k(1+\frac{q_{0}^{2}}{k^{2}} + \cdots) = -\frac{q_{0}^{2}}{2k} + o(k^{-1}) \to 0, \quad k \to \infty,
+\end{equation}
+因此, 对于 $ k \to \infty $, $ z $ 有两种渐进状态:
+\begin{equation}
+	z \in \mathcal{S}_{1}: k \to \infty \implies z \to \infty, \quad z \in \mathcal{S}_{2}: k \to \infty \implies z \to 0.
+\end{equation}
+\section{Jost 函数的解析性, 对称性和渐进性}
+\subsection{Jost 函数}
+矩阵 $ X_{\pm} $ 具有两个特征值 $ \pm \rmi \lambda $, $ T_{\pm} $ 具有两个特征值 $ \mp 2\rmi k \lambda $, 且 $ X_{\pm}, T_{\pm} $ 可利用同一矩阵对角化使得
+\begin{equation}
+	X_{\pm} = Y_{\pm} (\rmi \lambda \sigma_{3}) Y_{\pm}^{-1}, \quad T_{\pm} = Y_{\pm} (-2 \rmi k \lambda \sigma_{3}) Y_{\pm}^{-1},
+	\label{ch5-eq:X-T-diagonalization}
+\end{equation}
+其中
+\begin{equation}
+	Y_{\pm} = \begin{pmatrix}
+		1                          & \frac{\rmi q_{\pm}}{z} \\
+		\frac{\rmi q_{\pm}^{*}}{z} & 1
+	\end{pmatrix}.
+\end{equation}
+将 \eqref{ch5-eq:X-T-diagonalization} 带入 \eqref{ch5-eq:NLS-asymptotic-Lax-pair}
+\begin{equation}
+	(Y_{\pm}^{-1} \Phi)_{x} = \rmi \lambda \sigma_{3}(Y_{\pm}^{-1} \Phi), \quad (Y_{\pm}^{-1} \Phi)_{t} = -2 \rmi k \lambda \sigma_{3}(Y_{\pm}^{-1} \Phi).
+	\label{ch5-eq:diagonalized-Lax-pair}
+\end{equation}
+可得渐进谱问题 \eqref{ch5-eq:NLS-asymptotic-Lax-pair} 的解
+\begin{equation}
+	\Phi = Y_{\pm} e^{\rmi \theta(z) \sigma_{3}}, \quad \theta(z) = \lambda(z) x - 2 k(z) \lambda(z) t.
+\end{equation}
+因此 Lax 对 \eqref{ch5-eq:NLS-Lax-pair-transform} 的 Jost 函数 $ \Phi_{\pm} $ 可定义为满足如下边界条件的解
+\begin{equation}
+	\Phi_{\pm} \sim Y_{\pm} e^{\rmi \theta(z) \sigma_{3}}, \quad x \to \pm \infty.
+\end{equation}
+于是对原始 Lax 对 \eqref{ch5-eq:NLS-Lax-pair-origin} 做变换
+\begin{equation}
+	\mu_{\pm} = \Phi_{\pm}e^{-\rmi \theta(z)\sigma_{3}}, \quad x \to \pm \infty,
+\end{equation}
+则
+\begin{equation}
+	\mu_{\pm} \sim Y_{\pm}, \quad x \to \pm \infty,
+\end{equation}
+并得到等价 Lax 对
+\begin{align}
+	(Y_{\pm}^{-1} \mu_{\pm})_{x} + \rmi \lambda [Y_{\pm}^{-1}\mu_{\pm}, \sigma_{3}] = Y_{\pm}^{-1} \Delta Q_{\pm} \mu_{\pm}, \\
+	(Y_{\pm}^{-1} \mu_{\pm})_{t} - 2 \rmi k \lambda [Y_{\pm}^{-1}\mu_{\pm}, \sigma_{3}] = Y_{\pm}^{-1} \Delta T_{\pm} \mu_{\pm},
+\end{align}
+其中 $ \Delta Q_{\pm} = Q - Q_{\pm} $, $ \Delta T_{\pm} = T - T_{\pm} $. 上面两个式子可写为全微分形式
+\begin{equation}
+	\rmd (e^{-\rmi \theta(z) \hat{\sigma}_{3}} Y_{\pm}^{-1} \mu_{\pm}) = e^{-\rmi \theta(z) \hat{\sigma}_{3}} [Y_{\pm}^{-1} (\Delta Q_{\pm} \rmd x + \Delta T_{\pm} \rmd t) \mu_{\pm}]. \label{ch5-eq:NLS-Lax-pair-differential-form}
+\end{equation}
+\begin{proof}[这个证明存在问题，需要重新梳理]
+	记
+	\begin{equation}
+		\begin{aligned}
+			X = \rmi k \sigma_{3} + Q = (\rmi k \sigma_{3} + Q_{\pm}) + (Q - Q_{\pm}) = X_{\pm} + \Delta Q_{\pm} \\
+			\implies \Phi_{x} = X_{\pm} \Phi + \Delta Q_{\pm} \Phi \implies \Phi_{\pm,x} = (X_{\pm} + \Delta Q_{\pm}) \Phi_{\pm}.
+		\end{aligned}
+	\end{equation}
+	又 $ \Delta X_{\pm} = X - X_{\pm} = Q - Q_{\pm} = \Delta Q_{\pm} $, 因此
+	\begin{equation}
+		\begin{aligned}
+			\mu_{\pm} & = \Phi_{\pm} e^{-\rmi \theta(z) \sigma_{3}} \implies \Phi_{\pm} = \mu_{\pm} e^{\rmi \theta(z) \sigma_{3}}                                                                                                                   \\
+			          & \implies \Phi_{\pm,x} = \mu_{\pm,x} e^{\rmi \theta(z) \sigma_{3}} + \mu_{\pm} e^{\rmi \theta(z) \sigma_{3}} (\rmi \lambda \sigma_{3}) = (\mu_{\pm,x} + \rmi \lambda [\mu_{\pm}, \sigma_{3}]) e^{\rmi \theta(z) \sigma_{3}}.
+		\end{aligned}
+	\end{equation}
+	则
+	\begin{equation}
+		\begin{aligned}
+			(Y^{-1}_{\pm} \Phi_{\pm})_{x} & = \left[ Y^{-1}_{\pm} \mu_{\pm} e^{\rmi \theta(z) \sigma_{3}}\right] = \left(Y_{\pm}^{-1} \mu_{\pm}\right)_{x} e^{\rmi \theta(z) \sigma_{3}} + Y_{\pm}^{-1}\mu_{\pm} \rmi \lambda \sigma_{3} e^{\rmi \theta(z) \sigma_{3}} \\
+			                              & = \rmi \lambda \sigma_{3}Y_{\pm}^{-1} \mu_{\pm} e^{\rmi \theta(z) \sigma_{3}} + Y_{\pm}^{-1} \Delta Q_{\pm} \mu_{\pm} e^{\rmi \theta(z) \sigma_{3}}                                                                        \\
+			\implies                      & \left(Y_{\pm}^{-1} \mu_{\pm}\right)_{x} + \rmi \lambda \left[Y_{\pm}^{-1}\mu_{\pm}, \sigma_{3}\right] = Y_{\pm}^{-1} \Delta Q_{\pm} \mu_{\pm}.
+		\end{aligned}
+	\end{equation}
+\end{proof}
+对全微分形式 \eqref{ch5-eq:NLS-Lax-pair-differential-form} 沿特殊路径 $(-\infty, t) \to (x, t) \to (x, -\infty) $ 和 $ (\infty, t) \to (x, t) \to (x, -\infty) $ 分别积分, 可得 Jost 函数的 Volterra 积分方程
+\begin{align}
+	\mu_{-}(x,t,z) & = Y_{-} + \int_{-\infty}^{x} Y_{-} e^{\rmi \lambda (x-y) \hat{\sigma}_{3}} Y_{-}^{-1} \Delta Q_{-}(y,t) \mu_{-}(y,t,z) \rmd y, \label{ch5-eq:NLS-Jost-function-Volterra-integral-equation-minus} \\
+	\mu_{+}(x,t,z) & = Y_{+} - \int_{x}^{\infty} Y_{+} e^{\rmi \lambda (x-y) \hat{\sigma}_{3}} Y_{+}^{-1} \Delta Q_{+}(y,t) \mu_{+}(y,t,z) \rmd y. \label{ch5-eq:NLS-Jost-function-Volterra-integral-equation-plus}
+\end{align}
+\begin{proof}[Volterra 积分的推导]
+	由 \eqref{ch5-eq:NLS-Lax-pair-differential-form}, 两边同时沿 $(-\infty, t) \to (x, t) $ 路径对 $ x $ 积分, 可得
+	\begin{equation}
+		\begin{aligned}
+			e^{-\rmi \theta(z) \hat{\sigma}_{3}} Y_{-}^{-1} \mu_{-}|^{x}_{-\infty}                                                 & = \int_{-\infty}^{x} e^{-\rmi \theta(z) \hat{\sigma}_{3}} Y_{-}^{-1} \Delta Q_{-} \mu_{-} \rmd y,                              \\
+			e^{-\rmi \theta(z) \hat{\sigma}_{3}} Y_{-}^{-1} \mu_{-}(x,t,z) - e^{-\rmi \theta(z) \hat{\sigma}_{3}} Y_{-}^{-1} Y_{-} & = \int_{-\infty}^{x} e^{-\rmi \theta(z) \hat{\sigma}_{3}} Y_{-}^{-1} \Delta Q_{-} \mu_{-} \rmd y,                              \\
+			\implies \mu_{-}(x,t,z)                                                                                                & = Y_{-} + \int_{-\infty}^{x} Y_{-} e^{\rmi \lambda (x-y) \hat{\sigma}_{3}} Y_{-}^{-1} \Delta Q_{-}(y,t) \mu_{-}(y,t,z) \rmd y.
+		\end{aligned}
+	\end{equation}
+\end{proof}
+\subsection{$\mu_{\pm}$ 的依赖性}
+由于 $ \Phi_{\pm} = \mu_{\pm} e^{\rmi \theta(z) \sigma_{3}} $ 满足 Lax 对 \eqref{ch5-eq:NLS-Lax-pair-transform}, 且其解线性相关, 因此存在与 $ x, t $ 无关的矩阵 $ S(z) $ 使得
+\begin{equation}
+	\Phi_{+} = \Phi_{-} S(z) \implies \mu_{+} e^{\rmi \theta(z) \sigma_{3}} = \mu_{-} e^{\rmi \theta(z) \sigma_{3}} S(z) \implies \mu_{+} = \mu_{-} S(z).
+\end{equation}
+即
+\begin{equation}
+	\mu_{+}(x,t,z) = \mu_{-}(x,t,z) S(z).
+\end{equation}
+其中 $ S(z) = (s_{ij}(z)) $ 与 $ x, t $ 无关, 称为散射矩阵.
+\subsection{$\mu_{\pm}$ 和 $S(z)$ 的解析性}
+\begin{theorem}
+	对于 $ q(x) -q_{\pm} \in L^{1}(\mathbb{R}) $, 由 \eqref{ch5-eq:NLS-Jost-function-Volterra-integral-equation-minus} 和 \eqref{ch5-eq:NLS-Jost-function-Volterra-integral-equation-plus} 定义的特征函数 $ \mu_{\pm} $ 存在且唯一.
+\end{theorem}
+\begin{proof}
+	不妨记 $ \mu_{\pm} = (\mu_{\pm,1}, \mu_{\pm,2}) $, 仅证明 $ \mu_{-,1} $. 由令 $ w(x,t,z) = Y_{-}^{-1} \mu_{-,1} $, 可将 \eqref{ch5-eq:NLS-Jost-function-Volterra-integral-equation-minus} 中 $ \mu_{-,1} $ 的积分方程写为
+	\begin{equation}
+		w(x,t,z) = \begin{pmatrix}
+			1 \\
+			0
+		\end{pmatrix} + \int_{-\infty}^{x} F w(y,t,z) \rmd y.
+	\end{equation}
+	其中
+	\begin{equation}
+		F = F(x-y, z) = \diag(1, e^{-2 \rmi \lambda (x-y)}) Y_{-}^{-1} \Delta X_{-}(y,t) Y_{-}.
+	\end{equation}
+	记 $ D_{-}^{\epsilon} = D_{-} \ \left( B_{\epsilon}(\rmi q_{0}) \cup B_{\epsilon}(- \rmi q_{0})\right) $, 其中 $ B_{\epsilon}(\pm \rmi q_{0}) = \{ z \in \mathbb{C} : |z \mp \rmi q_{0}| < \epsilon \} $, 且 $ 0 < \epsilon < 1 $. 定义地推序列
+	\begin{align}
+		w^{0}     & = (1, 0)^{T},                                                           \\
+		w^{(n+1)} & = \int_{-\infty}^{x}F w^{(n)}(y,t,z) \rmd y, \quad n = 0, 1, 2, \cdots.
+	\end{align}
+	由此构建 Neumann 级数
+	\begin{equation}
+		w(x,t,z) = \sum_{n=0}^{\infty} w^{(n)}(x,t,z).
+		\label{ch5-eq:NLS-Jost-function-Volterra-integral-equation-minus-Neumann-series}
+	\end{equation}
+	接下来只需证明 $ w(x, t, z) $ 为方程 \eqref{ch5-eq:NLS-Jost-function-Volterra-integral-equation-minus} 在 $D_{-}^{\epsilon} $ 上的解. 仅需证明级数收敛且唯一即可.
+
+	\textbf{A. $w(x,t,z)$的存在性}
+
+	定义向量的 $ L^{1} $ 范数为 $ \|w\|_{1} = |w_{1}| + |w_{2}| $, 则
+	\begin{equation}
+		\|w^{(n+1)}\|_{1} \leq \int_{-\infty}^{x} \|F\|_{1} \|w^{(n)}\|_{1} \rmd y,
+		\label{ch5-eq:NLS-Jost-function-Volterra-integral-equation-minus-iteration-estimate}
+	\end{equation}
+	直接计算可得如下估计
+	\begin{align}
+		\|F \| = \| \diag(1, e^{-2 \rmi \lambda (x-y)}) \|Y_{-}^{-1}\| \| \Delta X_{-}(y,t) \| \| Y_{-} \|,                                                                             \\
+		c_{\epsilon} = \max_{z \in D_{-}^{\epsilon}} \|Y_{-}^{-1}\| \| Y_{-} \| = \max_{z \in D_{-}^{\epsilon}} \frac{4(1+ q/|z|)^{2}}{1+q_{0}^{2}/z^{2}} < 4(1+\epsilon^{2})/\epsilon, \\
+		\| \diag(1, e^{-2 \rmi \lambda (x-y)})\| \leq 1+ e^{2\Im\lambda (x-y)} \leq 2,                                                                                                  \\
+		\| \Delta X_{-} \| \leq | q(x) - q_{-} |
+	\end{align}
+	将上述估计带入 \eqref{ch5-eq:NLS-Jost-function-Volterra-integral-equation-minus-iteration-estimate}，可得
+	\begin{equation}
+		\|w^{(n+1)}(x,t,z)\|_{1} \leq 2 c_{\epsilon} \int_{-\infty}^{x} |u-u_{-}| \|w^{(n)}(y,t,z) \| \rmd y.
+		\label{ch5-eq:NLS-Jost-function-Volterra-integral-equation-minus-iteration-estimate-2}
+	\end{equation}
+	不妨记
+	\begin{equation}
+		\rho(x,t) = 2 c_{\epsilon} \int_{-\infty}^{x} |u-u_{-}| \rmd y,
+	\end{equation}
+	则易得当 $ q(x) - q_{-} \in L^{1}(\mathbb{R}) $ 时，对于任意固定 $ (x,t) $, $ \rho(x,t) < \infty $ 积分存在. 且
+	\begin{equation}
+		\rho_{x}(x,t) = 2 c_{\epsilon} |u-u_{-}|, \quad w^{1} = \rho(x,t),
+	\end{equation}
+	由数学归纳法, 假设 $ \|w^{(n)}\|_{1} \leq \frac{\rho^{n}}{n!} $, 则由 \eqref{ch5-eq:NLS-Jost-function-Volterra-integral-equation-minus-iteration-estimate-2} 可得
+	\begin{equation}
+		\begin{aligned}
+			\|w^{(n+1)}\| & \leq 2 c_{\epsilon} \int_{-\infty}^{x} |u-u_{-}| \frac{\rho^{n}(x,n)}{n!} \rmd y       \\
+			              & = \int_{\infty}^{x} \rho_{x}(x,t) \rho^{n}(x,n)/n! \rmd y = \frac{\rho^{n+1}}{(n+1)!}.
+		\end{aligned}
+	\end{equation}
+	由此可得 \eqref{ch5-eq:NLS-Jost-function-Volterra-integral-equation-minus} 的级数解积分收敛且有界, 另外由于 $ w^{(0)}, F$ 对于 $z$ 的解析性, 递推可得 $ w^{(n)}, n \geq 1 $ 时解析.
+
+	由于 $ q(x) - q_{-} \in L^{1}(\mathbb{R}_{-}) $, 则对 $ x \leq a \in \mathbb{R}$ 及 $ z \in D_{-}^{\epsilon} $, 有
+	\begin{equation}
+		\rho(x,t) \leq 2 c_{\epsilon} \int_{-\infty}^{a} |u-u_{-}| \rmd y = \sigma < \infty,
+	\end{equation}
+	其中 $ \sigma $ 为与 $ x$ 无关的常数, 故
+	\begin{equation}
+		\|w^{(n)}\|_{1} \leq \frac{\sigma^{n}}{n!},
+	\end{equation}
+	故 \eqref{ch5-eq:NLS-Jost-function-Volterra-integral-equation-minus-Neumann-series} 定义的 Neumann 级数在 $ x \in (-\infty,\infty) $ 上绝对一致收敛, 且在 $ z \in D_{-}^{\epsilon} $ 内解析.
+	利用 (6.4.14)-(6.4.15), 有
+	\begin{equation}
+		\begin{aligned}
+			w(x,t,z) & = w^{(0)} + \sum_{n=1}^{\infty} w^{(n)}                                                                                                            \\
+			         & = w^{(0)} + \sum_{n=1}^{\infty} \int_{-\infty}^{x} F w^{(n)}(y,t,z) \rmd y = w^{0} + \int_{-\infty}^{x} F \sum_{0}^{+\infty} w^{(n)}(y,t,z) \rmd y \\
+			         & = w^{(0)} + \int_{-\infty}^{x} F w(y,t,z) \rmd y,
+		\end{aligned}
+	\end{equation}
+	故 (6.4.15) 定义的 $ w(x,t,z) $ 是方程 \eqref{ch5-eq:NLS-Jost-function-Volterra-integral-equation-minus} 的解.
+
+	\textbf{B. $w(x,t,z)$的唯一性: }
+
+	为证明唯一性, 不妨设 $ \tilde{w}(x,t,z) $ 也是方程 \eqref{ch5-eq:NLS-Jost-function-Volterra-integral-equation-minus} 的解, 令 $ h = \tilde{w}(x,t,z) - w(x,t,z)$, 则
+	\begin{equation}
+		\|h(x,t,z)\| \leq \int_{-\infty}^{x} \| F \| h(y,t,z) \rmd y.
+	\end{equation}
+	利用 (6.4.17)-(6.4.20) 估计得
+	\begin{equation}
+		\|h(x,t,z)\| \leq 2 c_{\epsilon} \int_{-\infty}^{x} |q-q_{-}| \|h(y,t,z)\| \rmd y = \int_{-\infty}^{x} \rho_{x}(y,t) \|h(y,t,z)\| \rmd y.
+	\end{equation}
+	由 Gronwall 不等式可得 $ h(x,t,z) = 0 $, 从而证明了 $ w(x,t,z) $ 的唯一性.
+	%因此，级数 \eqref{ch5-eq:NLS-Jost-function-Volterra-integral-equation-minus} 在 $D_{-}^{\epsilon} $ 上收敛，从而证明了 $ w(x, t, z) $ 的存在性.
+
+\end{proof}
+由 Lax 对 \eqref{ch5-eq:NLS-Lax-pair-transform} 可得 $\tr(X) = \tr(T) = 0$, 由 Abel 定理可得
+\begin{equation}
+	\det(\Phi_{\pm})_{x} = \det(\Phi_{\pm})_{t} = 0 \implies \det(\Phi_{\pm}) = c,
+\end{equation}
+而由变换(6.4.3)可得
+\begin{equation}
+	\det(\mu_{\pm}) = \det(\Phi_{\pm} e^{\rmi \theta(z) \sigma_{3}}) = \det(\Phi_{\pm}).
+\end{equation}
+故 $ \det(\mu_{\pm}) = c $ 与 $x,t $ 无关, 再利用 (6.4.4) 有
+\begin{equation}
+	\det(\mu_{\pm}) = \lim_{x \to \pm \infty} \det(\mu_{\pm}) = \det(Y_{\pm}) = \gamma \neq 0
+\end{equation}
+故 $\mu_{\pm}$ 可逆, 计算可得
+\begin{align}
+	\mu_{+}^{-1} & = \frac{1}{\gamma} \begin{pmatrix} \mu_{+}^{(22)} & -\mu_{+}^{(12)} \\ -\mu_{+}^{(21)} & \mu_{+}^{(11)} \end{pmatrix} = (\hat{\mu}_{+}^{-}, \hat{\mu}_{+}^{+})^{T}, \\
+	\mu_{-}^{-1} & = \frac{1}{\gamma} \begin{pmatrix} \mu_{-}^{(22)} & -\mu_{-}^{(12)} \\ -\mu_{-}^{(21)} & \mu_{-}^{(11)} \end{pmatrix} = (\hat{\mu}_{-}^{+}, \hat{\mu}_{-}^{-})^{T}.
+\end{align}
+由 (6.4.11), (6.4.28) 可得 $ \det{S} = 1 $, 且
+\begin{equation}
+	\begin{aligned}
+		e^{\rmi \theta(z) \hat{\sigma}_{3} } S(z) & = e^{\rmi \theta(z) \hat{\sigma}_{3}} \begin{pmatrix} s_{11} & s_{12} \\ s_{21} & s_{22} \end{pmatrix} = \mu_{-}^{-1} \mu_{+}                                                                                                                                                 \\
+		                                          & = \begin{pmatrix} \hat{\mu}_{-}^{+} \\ \hat{\mu}_{-}^{-} \end{pmatrix} \begin{pmatrix} \mu_{+,1} & \mu_{+,2} \end{pmatrix} = \begin{pmatrix} \hat{\mu}_{-}^{+}\mu_{+,1} & \hat{\mu}_{-}^{+}\mu_{+,2} \\ \hat{\mu}_{-}^{-}\mu_{+,1} & \hat{\mu}_{-}^{-}\mu_{+,2} \end{pmatrix}
+	\end{aligned}
+\end{equation}
+由此可见, $ s_{11}(z) $ 在 $D^{+}$ 上解析, $ s_{22}(z)$ 在 $D^{-}$ 上解析, $s_{12}(z), s_{21}(z)$ 连续到边界 $ \sum $.
+
+\begin{remark}
+	这里也可以用另一种方法证明 $S(z)$ 的解析性, 将 (6.4.11) 展开得
+	\begin{align}
+		\mu_{+,1}(z) & = s_{11}(z) \mu_{-,1}(z) + s_{21}(z) e^{-2 \rmi \theta(z)} \mu_{-,2}(z), \\
+		\mu_{+,2}(z) & = s_{12}(z) e^{2 \rmi \theta(z)} \mu_{-,1}(z)  = s_{22}(z) \mu_{-,2}(z),
+	\end{align}
+	则
+	\begin{align}
+		s_{11}(z) = \frac{1}{\gamma}\det(\mu_{+,1}, \mu_{-,2}), \quad           & s_{21}(z) = \frac{1}{\gamma} e^{2 \rmi theta(z)} \det(\mu_{-,1}, \mu_{+,1}), \\
+		s_{12}(z) = \frac{1}{\gamma} e^{-2 \rmi theta(z)} \det(\mu_{+,2}, \quad & \mu_{-,2}), \quad s_{22}(z) = \frac{1}{\gamma}\det(\mu_{-,1}, \mu_{+,2}).
+	\end{align}
+	由 $ \mu_{\pm} $ 各列的解析性可知, $ s_{11}$ 在 $D^{+}$ 上解析, $s_{22}$ 在 $D^{-}$ 上解析, $s_{12}, s_{21}$ 连续到边界.
+\end{remark}
+\subsection{$\mu_{\pm}$ 和 $S(z)$ 的对称性}
+\begin{theorem}
+	$\mu_{\pm}$ 和 $S(z)$ 具有如下对称性
+	\begin{align}
+		\mu_{\pm}(x,t,z) & = - \sigma \mu_{\pm}^{*}(x,t,z^{*}) \sigma                           \\
+		\mu_{\pm}(x,t,z) & = \frac{\rmi}{z} \mu_{\pm}(x,t, -\frac{q_{0}}{z}) \sigma_{3} Q_{\pm} \\
+		S^{*}(z^{*})     & = - \sigma S(z) \sigma                                               \\
+		S(z)             & = (\sigma_{3}Q_{-} )^{-1} S(-\frac{q_{0}^{2}}{z} )(\sigma_{3} Q_{+})
+	\end{align}
+	其中 $\sigma = \rmi \sigma_{2}$, $\sigma_{3} $ 为 Pauli 矩阵.
+\end{theorem}
+
+\begin{proof}
+	由
+	\begin{equation}
+		\left[ Y_{\pm}^{-1} \mu_{\pm}(z) \right]_{x} + \rmi \lambda \left[ Y_{\pm}^{-1}(z) \mu_{\pm}(z), \sigma_{3} \right] = Y_{\pm}^{-1}(z) \Delta{Q_{\pm}(z)} \mu_{\pm}(z)
+	\end{equation}
+	将 $ z \to z^{*} $, 再对方程两边同时共轭得
+	\begin{equation}
+		\left[Y_{\pm}^{-1}(z) \mu_{\pm}(z^{*}) \right]_{x}^{*} - \rmi \lambda^{*}(z^{*}) \left[ Y_{\pm}^{-1} \mu_{\pm}^{*}(z^{*}), \sigma_{3} \right] = Y_{\pm}^{-1*}(z^{*}) \Delta{Q_{\pm}^{*}(z^{*})} \mu_{\pm}^{*}(z^{*})
+	\end{equation}
+	对两边同时乘以 $ \sigma $ 得
+	\begin{equation}
+		\sigma \left[Y_{\pm}^{-1}(z) \mu_{\pm}(z^{*}) \right]_{x}^{*} \sigma - \rmi \lambda^{*}(z^{*}) \sigma \left[ Y_{\pm}^{-1} \mu_{\pm}^{*}(z^{*}), \sigma_{3} \right] \sigma = \sigma Y_{\pm}^{-1*}(z^{*}) \Delta{Q_{\pm}^{*}(z^{*})} \mu_{\pm}^{*}(z^{*}) \sigma
+	\end{equation}
+	由 $ Y_{\pm}, \Delta{Q_{\pm}}, \lambda $ 定义, 注意到
+	\begin{equation}
+		\sigma Y_{\pm}^{-1*}(z^{*}) \sigma = - Y_{\pm}^{-1}(z), \quad \lambda^{*}(z^{*}) = \lambda(z), \quad \sigma \Delta Q_{\pm}^{*}(z^{*}) \sigma = - \Delta Q_{\pm}(z).
+	\end{equation}
+	则有
+	\begin{equation}
+		\left[ Y_{\pm}^{-1}(z) \sigma \mu_{\pm}^{*}(z^{*}) \sigma \right]_{x} + \rmi \lambda(z) \left[  Y_{\pm}^{-1}(z) \sigma \mu_{\pm}^{*}(z^{*}) \sigma, \sigma_{3} \right] = Y_{\pm}^{-1}(z) \Delta{Q_{\pm}(z)} \sigma \mu_{\pm}^{*}(z^{*}) \sigma
+	\end{equation}
+	由 (6.4.41)-(6.4.45) 可得 $ \mu_{\pm}(x,t,z) $ 和 $ -\sigma \mu_{\pm}^{*}(x,t,z^{*}) \sigma $ 都满足同一线性齐次微分方程族, 且具有相同的渐近性
+	\begin{equation}
+		\mu_{\pm}(x,t,z) \sim Y_{\pm}, \quad -\sigma \mu_{\pm}^{*}(x,t,z^{*}) \sigma \sim -\sigma Y_{\pm}^{*} \sigma = Y_{\pm}, \quad x \to \pm \infty,
+	\end{equation}
+	故二者相等, 即
+	\begin{equation}
+		\mu_{\pm}(x,t,z) = -\sigma \mu_{\pm}^{*}(x,t,z^{*}) \sigma.
+	\end{equation}
+	接下来考虑 $ S(z) $ 的对称性, 将 (6.4.10) 改写为
+	\begin{equation}
+		S(z) = e^{-\rmi \theta(z) \hat{\sigma}_{3}} \mu_{-}^{-1}(x,t,z) \mu_{+}(x,t,z),
+	\end{equation}
+	注意到 $ \theta^{*}(z^{*}) = \theta(z) $, $ \sigma e^{-\rmi \theta(z) \hat{\sigma}_{3}} \sigma = - e^{-\rmi \theta(z) \hat{\sigma}_{3}} $, 并利用 (6.4.46) 可得
+	\begin{equation}
+		\begin{aligned}
+			-\sigma S^{*}(z^{*}) & = \sigma e^{-\rmi \theta(z) \hat{\sigma}_{3}} \mu_{-}^{-1*}(x,t,z^{*}) \mu_{+}^{*}(x,t,z^{*}) \sigma                                                                                                                                   \\
+			                     & = e^{-\rmi \theta(z) \hat{\sigma}_{3}} \mu_{-}^{-1}(x,t,z) \mu_{+}(x,t,z) = S(z)                                                                                                                                                       \\
+			                     & = \left( -\sigma e^{-\rmi \theta(z) \hat{\sigma}_{3}} \sigma \right) \left( \sigma \mu_{-}^{-1}(x,t,z^{*}) \sigma \right) \left( -\sigma \mu_{+}^{*}(x,t,z^{*})\sigma \right) \left( -\sigma e^{- \theta(z) \sigma_{3}} \sigma \right) \\
+			                     & = e^{-\rmi \theta(z) \sigma_{3}} \mu_{-}^{-1} \mu_{+} e^{\rmi \theta(z) \sigma_{3}} = e^{-rmi \theta(z) \hat{\sigma}_{3}} \mu_{-}^{-1} \mu_{+} = S(z)
+		\end{aligned}
+	\end{equation}
+\end{proof}
+\subsection{$\mu_{\pm}$ 和 $S(z)$ 的渐近性}
+由 Lax 对(6.4.5) -(6.4.6)出发, 易见
+\begin{align}
+	\mu_{\pm} & = I + \frac{\rmi}{z} \sigma_{3} Q + O(z^{-2}), \quad z \to \infty. \label{ch5-eq:z-infty} \\
+	\mu_{\pm} & = \frac{\rmi}{z} \sigma_{3} Q_{\pm} + O(1), \quad z \to 0. \label{ch5-eq:z-0}
+\end{align}
+更进一步可得
+\begin{equation}
+	S(z) = I + O(z^{-1}), \quad z \to \infty, \quad S(z) = \diag(\frac{q_{-}}{q_{+}}, \frac{q_{+}}{q_{-}}), \quad z \to 0.
+\end{equation}
+\begin{remark}
+	这里书上有错误, 需要重新证明
+\end{remark}
+\begin{proof}
+	注意到
+	\begin{equation}
+		Y_{\pm} = I + \frac{\rmi}{z} \sigma_{3} Q_{\pm} + O(z^{-2}), \quad Y_{\pm}^{-1} = \frac{1}{\gamma} (I - \frac{\rmi}{z} \sigma_{3} Q_{\pm} + O(z^{-2})),
+	\end{equation}
+	在 $ z = \infty $ 处展开
+	\begin{equation}
+		\mu_{\pm} = \mu_{0}^{\pm} + \frac{\mu_{1}^{\pm}}{z} + \frac{\mu_{2}^{\pm}}{z^{2}}, \quad z \to \infty,
+	\end{equation}
+	将 (6.4.50)-(6.4.51) 带入 Lax 对(6.4.5)-(6.4.6) 中, 可得
+	\begin{equation}
+		\begin{aligned}
+			  & \left[ ( I + \frac{\rmi}{z} Q_{\pm} \sigma_{3} ) (\mu_{\pm} + \frac{\mu_{1}^{\pm}}{z} +\cdots )\right]_{x} + \frac{\rmi}{2} ( z + \frac{q_{0}^{2}}{z} ) \left[ (I + \frac{\rmi}{z} \sigma_{3} Q_{\pm}) (\mu_{0}^{\pm} + \frac{\mu_{1}^{\pm}}{z} +\cdots ), \sigma_{3} \right]                                                                                        \\
+			= & (I + \frac{\rmi}{z} \sigma_{3} Q_{\pm}) (Q - Q_{\pm}) (\mu_{0}^{\pm} + \frac{\mu_{1}^{\pm}}{z} ) \left[ (I + \frac{\rmi}{z}Q_{\pm} \sigma_{3}) (\mu_{0}^{\pm} + \frac{\mu_{1}^{\pm}}{z} )\right]_{t} - \frac{\rmi}{2}(z^{2} - \frac{q_{0}^{4}}{z^{2}}) \left[ (I + \frac{\rmi}{z} \sigma_{3} Q_{\pm}) (\mu_{0}^{\pm} + \frac{\mu_{1}^{\pm}}{z} ), \sigma_{3} \right] \\
+			= & -(I + \frac{\rmi}{z} \sigma_{3} Q_{\pm}) (z - \frac{q_{0}^{2}}{z}) (Q - Q_{\pm}) (\mu_{0}^{\pm} + \frac{\mu_{1}^{\pm}}{z} +\cdots )
+		\end{aligned}
+	\end{equation}
+	比较上式中 $ z $ 的各次幂系数可得
+	\begin{align}
+		z^{1} :  & \quad [\mu_{0}^{\pm}, \sigma_{3}] = 0, \label{ch5-eq:z1}                                                                                      \\
+		z^{0} :  & \quad \mu_{0,x}^{\pm} + \frac{\rmi}{2} [\mu_{1}^{\pm} + \rmi \sigma_{3} Q_{\pm}, \sigma_{3}] = (Q - Q_{\pm}) \mu_{0}^{\pm}, \label{ch5-eq:z0} \\
+		z^{-1} : & \quad \frac{\rmi}{2} [\mu_{1}^{\pm} + \rmi \sigma_{3} Q_{\pm}, \sigma_{3}] = (Q - Q_{\pm}) \mu_{0}^{\pm}. \label{ch5-eq:z-1}
+	\end{align}
+	由 \eqref{ch5-eq:z1} 可得 $ \mu_{0}^{\pm} $ 为对角矩阵, 由 \eqref{ch5-eq:z0} 和 \eqref{ch5-eq:z-1} 可得 $ \mu_{0,x}^{\pm} = 0 $, 故 (6.4.51) 可同时对 $x,z$ 取极限, 且可随意交换顺序
+	\begin{equation}
+		\lim_{z \to \infty} Y_{\pm} = \lim_{z \to \infty} \lim_{x \to \pm \infty} \mu_{\pm} = \lim_{x \to \pm \infty} \lim_{z \to \infty} \mu_{0}^{\pm} = \mu_{0}^{\pm}.
+	\end{equation}
+	由 (6.4.4) 可得上述左侧为 $I$, 故 $ \mu_{0}^{\pm} = I $, 带入 (6.4.55) 可得
+	\begin{equation}
+		\frac{1}{2} [\mu_{1}^{\pm}, \sigma_{3}] = \rmi Q
+	\end{equation}
+	又由于 $ \mu_{\pm} = \mu_{0}^{\pm} + \frac{\mu_{1}^{\pm}}{z} + O(z^{-2}) $, 可得 $ \mu_{1}^{\pm} $ 对角线上元素为 $ 0 $, 故 $ [\mu_{1}^{\pm}, \sigma_{3}] = 2 \mu_{1}^{\pm} \sigma_{3} $, 故上式可化为 $ \mu_{1}^{\pm} = \rmi \sigma_{3} Q $. 由此可得 \eqref{ch5-eq:z-infty}, 进一步可得
+	\begin{equation}
+		q(x,t) = - \rmi (\mu_{1}^{\pm})_{12} = -\rmi \lim_{z \to \infty} z (\mu_{\pm})_{12}.
+	\end{equation}
+\end{proof}
+
+\section{相关广义 RH 问题}
+由 (6.3.31) - (6.3.32) 可定义分片解析矩阵
+\begin{equation}
+	M^{+} = (\frac{\mu_{+,1}}{s_{11}}, \mu_{-,2}), \quad M^{-} = (\mu_{-,1}, \frac{\mu_{+,2}}{s_{22}}).
+\end{equation}
+利用 Jost 函数和散射系数的渐进性, 容易证明
+\begin{equation}
+	M^{\pm} = I + O(z^{-1}), \quad z \to \infty,
+	\quad M^{\pm} = \frac{1}{z} \sigma_{3} Q_{\pm} + O(1), \quad z \to 0.
+\end{equation}
+由此我们可得到下面广义 RH 问题
+\begin{theorem}
+	\begin{enumerate}
+		\item $ M^{\pm}(x,t,z) $ 在 $ \mathbb{C} \setminus \sum $ 上亚纯
+		\item $ M^{-}(x,t,z) = M^{+}(x,t,z) (I - G(x,t,z)), z \in \sum $
+		\item $ M^{\pm}(x,t,z) $ 在零点集 $ \{z : s_{11}(z) = s_{22}(z) = 0 \} $ 上满足留数条件
+		\item $M ^{\pm}= I + O(z^{-1}), z \to \infty$
+		\item $ M^{\pm} = \frac{\rmi}{z} \sigma_{3} Q_{\pm} + O(1), z \to 0 $
+	\end{enumerate}
+	其中跳跃矩阵为
+	\begin{equation}
+		G(x,t,z) = e^{\rmi \theta(z) \hat{\sigma}_{3}} \begin{pmatrix} 0 & -\tilde{\rho}(z) \\ \rho(z) & \rho(z) \tilde{\rho}(z) \end{pmatrix},
+	\end{equation}
+	这里反射系数为 $ \rho(z) = s_{21}/s_{11}, \tilde{\rho}(z) = s_{12}/s_{22} $, 并且 NLS 方程解可表示为
+	\begin{equation}
+		q(x,t) = -\rmi \lim_{z \to \infty} (z M_{+})_{12}.
+	\end{equation}
+\end{theorem}
+
+\section{离散谱和留数条件}
+假设 $z_{n}, n= 1, 2, \cdots, N $ 是 $ s_{11}(z) $ 在 $D^{+}$ 上的零点, 则由对称性 (6.4.39)-(6.4.40) 可得
+\begin{equation}
+	s_{11}(z_{n}) = 0 \iff s_{22}(z_{n}^{*}) = 0 \iff s_{22}(-\frac{q_{0}^{2}}{z_{n}}) = 0 \iff s_{11}(-\frac{q_{0}^{2}}{z_{n}^{*}}) = 0
+\end{equation}
+因此我们有四个离散谱 $ z_{n}, -q_{0}^{2}/z_{n}^{*}, z_{n}^{*}, -q_{0}^{2}/z_{n}, n = 1, \cdots, N $. 我们对这 $ 4N $ 个离散谱重新编号, 记
+\begin{equation}
+	\xi_{n} = z_{n}, \quad \xi_{n+N} = -q_{0}^{2}/z_{n}^{*},
+\end{equation}
+则离散谱集合为$Z = \{\xi_{n} : n = 1, 2, \cdots, 2N \} $, $k$-复平面和 $ z$-复平面上的离散谱点分布和对应情况见图 6.2
+% 此处插入图片
+首先, 对 $z = \xi_{n}$, 由 $s_{11}(\xi_{n}) = 0$, 以及 (6.4.33) 推知 $\mu_{+,1}(\xi_{n})$ 与 $e^{\rmi \theta(\xi_{n}) \mu_{-,2}(\xi_{n})}$ 线性相关, 即
+\begin{equation}
+	\mu_{+,1}(\xi_{n}) = b_{n} e^{\rmi \theta(\xi_{n})} \mu_{-,2}(\xi_{n}), \quad n = 1, 2, \cdots, 2 N,
+\end{equation}
+其中 $b_{n}$ 为与 $x, t$ 无关的常数, 由此可计算留数
+\begin{equation}
+	\Res_{z = \xi_{n}} \frac{\mu_{+,1}(z)}{s_{11}(z)} = \frac{\mu_{+, 1}(\xi_{n})}{s_{1}'(\xi_{n})} = C_{n} e^{\rmi \theta(\xi_{n})} \mu_{-,2}(\xi_{n}), \quad C_{n} = \frac{b_{n}}{s_{11}'(\xi_{n})}.
+\end{equation}
+同理, 对 $z = \xi_{n}^{*}$, 由 $s_{22}(\xi_{n}^{*}) = 0$, 以及 (6.4.34) 可得
+\begin{equation}
+	\mu_{+,2}(\xi_{n}^{*}) = \tilde{b}_{n} e^{-\rmi \theta(\xi_{n}^{*})} \mu_{-,1}(\xi_{n}^{*}), \quad n = 1, 2, \cdots, 2 N,
+\end{equation}
+其中 $d_{n}$ 为与 $x, t$ 无关但与 $b_{n}$ 相关的常数, 事实上, 对于上式两边同时取共轭, 在左乘 $ \sigma $ 后, 利用 (6.4.46) 可得
+\begin{equation}
+	\sigma \mu_{+,2}^{*}(\xi_{n}^{*}) \sigma = d^{*} e^{ -2 \rmi \theta^{*}(\xi_{n}^{*})} \sigma \mu_{-,1}^{*}(\xi_{n}^{*}), \quad n = 1, 2, \cdots, 2 N,
+\end{equation}
+由对称性 (6.4.35)-(6.4.28) 得到
+\begin{equation}
+	\mu_{+, 1}(\xi_{n}) = -d^{*} e^{-2 \rmi \theta(\xi_{n})} \mu_{-, 2}(\xi_{n}), \quad n = 1, 2, \cdots, 2 N,
+\end{equation}
+与 (5.6.2) 比较可得 $d_{n}^{*} = -b_{n}$, 由 (6.4.4) 计算留数
+\begin{equation}
+	\Res_{z = \xi_{n}^{*}} \frac{\mu_{+, 2}(z)}{s_{22}(z)} = \frac{\mu_{+, 2}(\xi_{n}^{*})}{s_{22}'(\xi_{n}^{*})} = -D_{n} e^{-\rmi \theta(\xi_{n}^{*})} \mu_{-,1}(\xi_{n}^{*}), \quad D_{n} = \frac{d_{n}}{s_{22}'(\xi_{n}^{*})}.
+\end{equation}
+由对称性 (6.4.39) 可得
+\begin{equation}
+	D_{n}^{*} = \left( \frac{d_{n}}{s_{22}'(\xi_{n}^{*})} \right)^{*} = -\frac{b_{n}}{s_{11}'(\xi_{n})} = -C_{n}.
+\end{equation}
+最后由 (6.6.3) 和 (6.6.7), 我们给出 $M^{\pm}$ 的留数条件
+\begin{align}
+	%\Res_{z = \xi_{n}} M^{+} & = \lim_{z \to \xi_{n}} M^{+} \begin{pmatrix} 0 & C_{n} e^{\rmi \theta(\xi_{n})} \\ 0 & 0 \end{pmatrix}, \\
+	%\Res_{z = \xi_{n}^{*}} M^{-} & = \lim_{z \to \xi_{n}^{*}} M^{-} \begin{pmatrix} 0 & 0 \\ -D_{n} e^{-\rmi \theta(\xi_{n}^{*})} & 0 \end{pmatrix}.	
+	\Res_{z = \xi_{n}} M^{+}     & = (C_{n} e^{\rmi \theta(\xi_{n})} \mu_{-,2}(x, t, \xi_{n}), 0),              \\
+	\Res_{z = \xi_{n}^{*}} M^{-} & = (0, -C_{n}^{*} e^{\rmi \theta(\xi_{n}^{*})} \mu_{-,1}(x, t, \xi_{n}^{*})).
+\end{align}
+\begin{remark}
+	这里结果疑似有误
+\end{remark}
+\section{RH 问题的可解性}
+\subsection{重构公式}
+为利用 Plemelj 公式求解 RH 问题, 我们需要去除 $M$ 的奇性, 将原来的 RH 问题转化为规范 RH 问题, 将 (6.5.5) 改写为
+\begin{equation}
+	\begin{aligned}
+		  & M^{-} - I - \frac{\rmi}{z} \sigma_{3} Q_{-} - \sum_{n=1}^{2N} \frac{\Res_{z = \xi_{n}^{*}} M^{-}}{z - \xi_{n}^{*}} - \sum_{n=1}^{2N} \frac{\Res_{z=\xi_{n}} M^{+}}{z - \xi_{n}}            \\
+		= & M^{+} - I - \frac{\rmi}{z} \sigma_{3} Q_{-} - \sum_{n=1}^{2N} \frac{\Res_{z = \xi_{n}^{*}} M^{-}}{z - \xi_{n}^{*}} - \sum_{n=1}^{2N} \frac{\Res_{z=\xi_{n}} M^{+}}{z - \xi_{n}} - M^{*} G.
+	\end{aligned}
+\end{equation}
+上述方程左边前四项在 $D^{-}$ 上解析, 且第五项极点为 $z = \xi \in D^{+}$, 因此在 $D^{-}$ 上解析. 于是 (6.7.1) 左边在 $D^{-}$ 上解析且渐近于 $O(1/z), (z \to \infty)$.
+
+同理 (6.7.1) 右边前五项 $D^{+}$ 上解析, 且 $O(1/z), (z \to \infty)$. 于是由 Plemelj 公式可得
+\begin{equation}
+	M(x,t,z) = I + \frac{\rmi}{z} \sigma_{3} Q_{-} + \sum_{n=1}^{2N} \frac{\Res_{z = \xi_{n}^{*}} M^{-}}{z - \xi_{n}^{*}} + \sum_{n=1}^{2N} \frac{\Res_{z=\xi_{n}} M^{+}}{z - \xi_{n}} + \frac{1}{2\pi \rmi} \int_{\sum} \frac{M(s) G(x,t,s)}{s - z} \rmd s. \quad z \in \mathbb{C} \setminus \sum
+\end{equation}
+分别在 $D^{+}$ 和 $D^{-}$ 上考虑 (6.7.2) 的第二, 第一列:
+函数在点 $ z = \xi_{n} \in D^{+} $ 上, 考虑 $M^{+}$ 的 12 位置元素, 有
+\begin{equation}
+	\mu_{-, 2} = \begin{pmatrix}
+		\frac{\rmi q_{-}}{\xi_{n}} \\ 1
+	\end{pmatrix}
+	- \sum_{k=1}^{2N} \frac{C_{k}^{*} e^{\rmi \theta(\xi_{k}^{*})} \mu_{-, 1}(\xi_{k}^{*})}{\xi_{n} - \xi_{k}^{*}} + \frac{1}{2\pi \rmi} \int_{\sum} \frac{(M^{+} G)_{2}}{s - \xi_{n}} \rmd s, \quad n = 1, 2, \cdots, 2 N.
+\end{equation}
+函数在点 $ z = \xi_{n}^{*} \in D^{-} $ 上, 考虑 $M^{-}$ 的 21 位置元素, 有
+\begin{equation}
+	\mu_{-, 1} = \begin{pmatrix}
+		1 \\ -\frac{\rmi q_{-}}{\xi_{n}^{*}}
+	\end{pmatrix}
+	+ \sum_{k=1}^{2N} \frac{C_{k} e^{\rmi \theta(\xi_{k})} \mu_{-, 2}(\xi_{k})}{\xi_{n}^{*} - \xi_{k}} + \frac{1}{2\pi \rmi} \int_{\sum} \frac{(M^{-} G)_{1}}{s - \xi_{n}^{*}} \rmd s, \quad n = 1, 2, \cdots, 2 N.
+\end{equation}
+故 $z \to \infty$ 时, (6.7.2) 的渐近展开为
+\begin{equation}
+	M(x,t,z) = I \frac{1}{z} \left\{ \rmi \sigma_{3} Q_{-} + \sum_{n=1}^{2N} \left( \Res_{\xi_{n}} M^{+} + \Res_{\xi_{n}^{*}} M^{-} \right) - \frac{1}{2\pi \rmi} \int_{\sum} M^{+}(s) G(s) \rmd s \right\} + O(z^{-2}).
+\end{equation}
+取 $M = M^{+}$, 比较矩阵 (6.7.5), (6.4.48) 的 12 位置元素, 可得 NLS 方程位势函数和 RH 问题解相联系的重构公式
+\begin{equation}
+	q(x,t) = -\rmi \lim_{z \to \infty} z (M^{+})_{12} = q_{-} + \sum_{n=1}^{2N} C_{n}^{*} e^{\rmi \theta(\xi_{n}^{*})} \mu_{-, 1}^{(1)}(\xi_{n}^{*}) + \frac{1}{2\pi} \int_{\sum} (M^{+}(s) G(s))_{12} \rmd s.
+\end{equation}
+\subsection{迹公式和 $\theta$ 条件}
+由前面指导 $s_{11}$ 和 $s_{22}$ 分别在 $D^{+}$ 和 $D^{-}$ 上解析, 其离散零点分别为 $ \{\xi_{n}\} $ 和 $ \{\xi_{n}^{*}\} $, 则
+\begin{equation}
+	\beta^{+} = s_{11}(z) \prod_{j=1}^{2N} \frac{z - \xi_{j}^{*}}{z - \xi_{j}}, \quad \beta^{-} = s_{22}(z) \prod_{j=1}^{2N} \frac{z - \xi_{j}}{z - \xi_{j}^{*}}.
+\end{equation}
+仍在 $D^{+}$ 和 $D^{-}$ 上分别解析, 但不再有零点, 且 $ \beta^{+} \beta^{-} = s_{11} s_{22}, z \in \sum $. 由 Plemelj 公式可得
