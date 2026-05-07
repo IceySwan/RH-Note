@@ -1,291 +1,291 @@
 \chapter{预备知识}
 \section{Plemelj 公式}
 \begin{theorem}{Abel 定理} \label{ch1-thm:Abel}
-  设 $ A \in \mathbb{C} $, 对矩阵微分方程 $ Y_{x} = A(x)Y $, 可得标量微分方程
-  \begin{equation}
-    (\det Y)_{x} = \tr(A) \det Y
-  \end{equation}
-  从而有 
-  \begin{equation}
-    \det \left(Y(x)\right) = \det \left(Y(x_{0})\right) \cdot \exp{\int_{x_{0}}^{x} \rm{tr}(A(t)) \rmd t} 
-  \end{equation}
+	设 $ A \in \mathbb{C} $, 对矩阵微分方程 $ Y_{x} = A(x)Y $, 可得标量微分方程
+	\begin{equation}
+		(\det Y)_{x} = \tr(A) \det Y
+	\end{equation}
+	从而有
+	\begin{equation}
+		\det \left(Y(x)\right) = \det \left(Y(x_{0})\right) \cdot \exp{\int_{x_{0}}^{x} \rm{tr}(A(t)) \rmd t}
+	\end{equation}
 \end{theorem}
 
-\begin{theorem}{Morera}\label{Thm-Morera}
-  如果 $ f(z) $ 在单连通区域 $ D $ 内连续, 且对于 $ D $ 内任意闭曲线 $ \sum $, 有 $ \int_{\sum} f(z) \rmd z = 0 $, 则有 $ f(z) $ 在 $ D $ 内解析
+\begin{theorem}{Morera 定理}\label{Thm-Morera}
+	如果 $ f(z) $ 在单连通区域 $ D $ 内连续, 且对于 $ D $ 内任意闭曲线 $ \sum $, 有 $ \int_{\sum} f(z) \rmd z = 0 $, 则有 $ f(z) $ 在 $ D $ 内解析
 \end{theorem}
 \begin{definition}{Schwartz 空间}
-  欧几里得空间 $ \mathbb{R}^{n} $ 上的 Schwartz 空间 $ \mathcal{S}(\mathbb{R}^{n}) $ 定义为
-  \begin{equation}
-    \mathcal{S}(\mathbb{R}^{n}) = \left\{ f \in C^{\infty}(\mathbb{R^{n}}) : \| f \|_{\alpha, \beta} = \sum_{x \in \mathbb{R}^{n}} | x^{\alpha} \partial_{\beta}f(x) | < \infty, \alpha, \beta \in \mathbb{Z} \right\}
-  \end{equation}
-  其中 $ \alpha, \beta $ 为多重指标, $ \partial_{\beta} = \partial_{x_{1}}^{\beta_{1}} \cdots \partial_{x_{n}}^{\beta_{n}} $. $ f $ 称为速降函数或 Schwartz 函数. 
+	欧几里得空间 $ \mathbb{R}^{n} $ 上的 Schwartz 空间 $ \mathcal{S}(\mathbb{R}^{n}) $ 定义为
+	\begin{equation}
+		\mathcal{S}(\mathbb{R}^{n}) = \left\{ f \in C^{\infty}(\mathbb{R^{n}}) : \| f \|_{\alpha, \beta} = \sum_{x \in \mathbb{R}^{n}} | x^{\alpha} \partial_{\beta}f(x) | < \infty, \alpha, \beta \in \mathbb{Z} \right\}
+	\end{equation}
+	其中 $ \alpha, \beta $ 为多重指标, $ \partial_{\beta} = \partial_{x_{1}}^{\beta_{1}} \cdots \partial_{x_{n}}^{\beta_{n}} $. $ f $ 称为速降函数或 Schwartz 函数.
 \end{definition}
 简单来说，速降函数是指当 $ x \to \infty $ 时趋近于零的速度比所有的多项式的倒数都快，并且任意阶的导数都有这种性质的函数。
 \begin{theorem}{Painleve 开拓定理}\label{Thm-Painleve}
-  设 $ D_{1}, D_{2} $ 为两个没有公共点的区域, 边界为 $ \Gamma $, 并设 $ f_{1}(z), f_{2}(z) $ 分别在 $ D_{1}, D_{2} $ 内解析, 在 $ D_{1} + \Gamma, D_{2} + \Gamma $ 上连续, 且 $ f_{1}(z) = f_{2}(z), \forall z \in \Gamma $, 则
-  \begin{equation}
-    f(z) = \begin{cases}
-      f_{1}(z), &z \in D_{1} , \\
-      f_{1}(z) = f_{2}(z), &z \in \Gamma, \\
-      f_{2}(z), &z \in D_{2}
-    \end{cases}
-  \end{equation}
-  在 $ D_{1} + D_{2} + \Gamma $ 内解析.
+	设 $ D_{1}, D_{2} $ 为两个没有公共点的区域, 边界为 $ \Gamma $, 并设 $ f_{1}(z), f_{2}(z) $ 分别在 $ D_{1}, D_{2} $ 内解析, 在 $ D_{1} + \Gamma, D_{2} + \Gamma $ 上连续, 且 $ f_{1}(z) = f_{2}(z), \forall z \in \Gamma $, 则
+	\begin{equation}
+		f(z) = \begin{cases}
+			f_{1}(z),            & z \in D_{1} , \\
+			f_{1}(z) = f_{2}(z), & z \in \Gamma, \\
+			f_{2}(z),            & z \in D_{2}
+		\end{cases}
+	\end{equation}
+	在 $ D_{1} + D_{2} + \Gamma $ 内解析.
 \end{theorem}
 \begin{proof}
-  显然 $ f(Z) $ 在 $ D_{1} + D_{2} + \Gamma $ 上连续, 根据定理 \ref{Thm-Morera}, 只需证明 $ f(z) $ 沿任何闭曲线 $ \sum $ 的积分为 $ 0 $.
+	显然 $ f(Z) $ 在 $ D_{1} + D_{2} + \Gamma $ 上连续, 根据定理 \cref{Thm-Morera}, 只需证明 $ f(z) $ 沿任何闭曲线 $ \sum $ 的积分为 $ 0 $.
 
-  如果 $ \sum \subset D_{1} $, 或 $ \sum \subset D_{1} $, 则由 $ f(z) $ 的解析性可得
-  \begin{equation}
-    \int_{\sum} f(z) \rmd z = 0
-  \end{equation}
-  如果 $ \sum $ 同时包含于 $ D_{1}, D_{2} $ 内, 把 $ \Gamma $ 在 $ \sum $ 内的曲线记为 $ C_{\gamma} $, 则
-  \begin{equation}
-    \int_{C_{1} + C_{\gamma}} f(z) \rmd z = 0, \quad \int_{C_{1} + C_{\gamma}}^{-} f(z) \rmd z = 0
-  \end{equation}
-  故 
-  \begin{equation}
-    \int_{\sum} f(z) \rmd z =  \int_{C_{1} + C_{2}} f(z) \rmd z = \int_{C_{1} + C_{\gamma}} f(z) \rmd z = \int_{C_{1} + C_{\gamma}^{-}} f(z) \rmd z = 0.
-  \end{equation} 
+	如果 $ \sum \subset D_{1} $, 或 $ \sum \subset D_{1} $, 则由 $ f(z) $ 的解析性可得
+	\begin{equation}
+		\int_{\sum} f(z) \rmd z = 0
+	\end{equation}
+	如果 $ \sum $ 同时包含于 $ D_{1}, D_{2} $ 内, 把 $ \Gamma $ 在 $ \sum $ 内的曲线记为 $ C_{\gamma} $, 则
+	\begin{equation}
+		\int_{C_{1} + C_{\gamma}} f(z) \rmd z = 0, \quad \int_{C_{1} + C_{\gamma}}^{-} f(z) \rmd z = 0
+	\end{equation}
+	故
+	\begin{equation}
+		\int_{\sum} f(z) \rmd z =  \int_{C_{1} + C_{2}} f(z) \rmd z = \int_{C_{1} + C_{\gamma}} f(z) \rmd z = \int_{C_{1} + C_{\gamma}^{-}} f(z) \rmd z = 0.
+	\end{equation}
 \end{proof}
 \begin{lemma}
-  设  $ f(\xi) $ 在 $ z \in \sum$ 满足 $ \mu $ 次 H\"older 条件, 且 $ z' \to z$ 时, $ h/d $ 有界, 其中 
-  \begin{equation}
-    h = | z' - z|, \quad d = \min_{\xi \in \sum} |\xi - z' | ,
-  \end{equation} 则 
-  \begin{equation}
-      \lim_{z' \to z} \frac{1}{2 \pi \rmi} \int_{\sum} \frac{f(\xi) - f(z)}{\xi - z'} \rmd \xi = \frac{1}{2 \pi \rmi} \int_{\sum} \frac{f(\xi) - f(z)}{\xi - z} \rmd \xi 
-  \end{equation}
+	设  $ f(\xi) $ 在 $ z \in \sum$ 满足 $ \mu $ 次 H\"older 条件, 且 $ z' \to z$ 时, $ h/d $ 有界, 其中
+	\begin{equation}
+		h = | z' - z|, \quad d = \min_{\xi \in \sum} |\xi - z' | ,
+	\end{equation} 则
+	\begin{equation}
+		\lim_{z' \to z} \frac{1}{2 \pi \rmi} \int_{\sum} \frac{f(\xi) - f(z)}{\xi - z'} \rmd \xi = \frac{1}{2 \pi \rmi} \int_{\sum} \frac{f(\xi) - f(z)}{\xi - z} \rmd \xi
+	\end{equation}
 \end{lemma}
 \begin{proof}
-  \begin{equation}
-    \begin{aligned}
-      &\frac{1}{2 \pi \rmi} \int_{\sum} \frac{f(\xi) - f(z)}{\xi - z'} \,\rmd \xi - \frac{1}{2 \pi \rmi} \int_{\sum} \frac{f(\xi) - f(z)}{\xi - z} \,\rmd \xi \\
-      =& \frac{1}{2\pi \rmi} \int_{\sum} \frac{(\xi - z)(f(\xi) - f(z)) -(\xi - z')(f(\xi) - f(z)) }{(\xi - z')(\xi - z)} \,\rmd \xi = \frac{1}{2\pi \rmi} \int_{\sum} \frac{z' - z}{\xi - z} \cdot \frac{f(\xi) - f(z)}{\xi - z} \,\rmd \xi \\
-      =& \frac{1}{2\pi \rmi} \int_{\sum} \frac{h}{d} M \frac{(\xi - z)^{\mu}}{\xi - z} \, \rmd \xi = \Delta_{1} + \Delta_{2} 
-    \end{aligned}
-  \end{equation}
-  其中
-  \begin{equation}
-    \begin{aligned}
-      | \Delta_{1} | &\leq \frac{hM}{2 \pi d} \int_{C_{\delta}} \frac{(\xi - z)^{\mu}}{\xi - z} \, \rmd | \xi | \leq \frac{hM}{2 \pi d} \int_{0}^{\delta} t^{\mu - 1} \, \rmd t = \frac{hM}{2 \pi d \delta} \delta^{\mu} (C_{\delta} = \{ | \xi - z | \leq \delta \} ) \\
-      | \Delta_{2} | & =  \left| \frac{1}{2\pi} \int_{\sum \setminus  C_{\delta}} \frac{(f(\xi) - f(z))(z-z')}{\xi - z} \, \rmd \xi \right|
-    \end{aligned}
-  \end{equation}
-  由于 $ \sum \setminus  C_{\delta} $ 不包含 $ z $, 故 $ \Delta_2 $ 为关于 $ z' $ 的连续函数, 则
-  \begin{equation}
-    | \Delta_{2} | =  \left| \frac{1}{2\pi \rmi} \int_{\sum \setminus  C_{\delta}} \frac{f(\xi) - f(z)}{\xi - z'} \, \rmd \xi - \frac{1}{2\pi} \int_{\sum \setminus  C_{\delta}} \frac{f(\xi) - f(z)}{\xi - z} \, \rmd \xi \right| < | \Delta_1 |
-  \end{equation}
-  取 $ \delta \to 0 $, 可令 $ | \Delta_1 | < \frac{\epsilon}{2} $, 故 $ | \Delta_1 | + | \Delta_2 | < \epsilon $
+	\begin{equation}
+		\begin{aligned}
+			  & \frac{1}{2 \pi \rmi} \int_{\sum} \frac{f(\xi) - f(z)}{\xi - z'} \,\rmd \xi - \frac{1}{2 \pi \rmi} \int_{\sum} \frac{f(\xi) - f(z)}{\xi - z} \,\rmd \xi                                                                              \\
+			= & \frac{1}{2\pi \rmi} \int_{\sum} \frac{(\xi - z)(f(\xi) - f(z)) -(\xi - z')(f(\xi) - f(z)) }{(\xi - z')(\xi - z)} \,\rmd \xi = \frac{1}{2\pi \rmi} \int_{\sum} \frac{z' - z}{\xi - z} \cdot \frac{f(\xi) - f(z)}{\xi - z} \,\rmd \xi \\
+			= & \frac{1}{2\pi \rmi} \int_{\sum} \frac{h}{d} M \frac{(\xi - z)^{\mu}}{\xi - z} \, \rmd \xi = \Delta_{1} + \Delta_{2}
+		\end{aligned}
+	\end{equation}
+	其中
+	\begin{equation}
+		\begin{aligned}
+			| \Delta_{1} | & \leq \frac{hM}{2 \pi d} \int_{C_{\delta}} \frac{(\xi - z)^{\mu}}{\xi - z} \, \rmd | \xi | \leq \frac{hM}{2 \pi d} \int_{0}^{\delta} t^{\mu - 1} \, \rmd t = \frac{hM}{2 \pi d \delta} \delta^{\mu} (C_{\delta} = \{ | \xi - z | \leq \delta \} ) \\
+			| \Delta_{2} | & =  \left| \frac{1}{2\pi} \int_{\sum \setminus  C_{\delta}} \frac{(f(\xi) - f(z))(z-z')}{\xi - z} \, \rmd \xi \right|
+		\end{aligned}
+	\end{equation}
+	由于 $ \sum \setminus  C_{\delta} $ 不包含 $ z $, 故 $ \Delta_2 $ 为关于 $ z' $ 的连续函数, 则
+	\begin{equation}
+		| \Delta_{2} | =  \left| \frac{1}{2\pi \rmi} \int_{\sum \setminus  C_{\delta}} \frac{f(\xi) - f(z)}{\xi - z'} \, \rmd \xi - \frac{1}{2\pi} \int_{\sum \setminus  C_{\delta}} \frac{f(\xi) - f(z)}{\xi - z} \, \rmd \xi \right| < | \Delta_1 |
+	\end{equation}
+	取 $ \delta \to 0 $, 可令 $ | \Delta_1 | < \frac{\epsilon}{2} $, 故 $ | \Delta_1 | + | \Delta_2 | < \epsilon $
 \end{proof}
 
-\begin{theorem}{Plemelj}
-  设 $ z \in \sum $ 为正则点, 且不为边界点, $ f(\xi) $ 在 $ z $ 点满足 $ \mu $ 次 H\"older 条件, 且 $ z' \to z $ 时, $ h/d $ 有界, 其中 $ h = | z' - z|, \quad d = \min_{\xi \in \sum} |\xi - z' | $, 则
-  \begin{align}
-    F_{+} &= \lim_{\substack{z' \to z \\ z' \in \sum_{+}}} F(z') = F(z) + \frac{1}{2}f(z) \label{eq:Plemelj-1}\\
-    F_{-} &= \lim_{\substack{z' \to z \\ z' \in \sum_{-}}} F(z') = F(z) - \frac{1}{2}f(z)\label{eq:Plemelj-2}
-  \end{align}
+\begin{theorem}{Plemelj 定理}
+	设 $ z \in \sum $ 为正则点, 且不为边界点, $ f(\xi) $ 在 $ z $ 点满足 $ \mu $ 次 H\"older 条件, 且 $ z' \to z $ 时, $ h/d $ 有界, 其中 $ h = | z' - z|, \quad d = \min_{\xi \in \sum} |\xi - z' | $, 则
+	\begin{align}
+		F_{+} & = \lim_{\substack{z' \to z \\ z' \in \sum_{+}}} F(z') = F(z) + \frac{1}{2}f(z) \label{eq:Plemelj-1}\\
+		F_{-} & = \lim_{\substack{z' \to z \\ z' \in \sum_{-}}} F(z') = F(z) - \frac{1}{2}f(z)\label{eq:Plemelj-2}
+	\end{align}
 \end{theorem}
 \begin{proof}
-  首先证明闭区线情形: 
-  \begin{equation}
-    \begin{aligned}
-      F_{+} &= \lim_{\substack{z' \to z \\ z' \in \sum_{+}}} F(z') = \lim_{z' - z} \int_{\sum} \frac{1}{2 \pi \rmi} \frac{f(\xi)}{\xi - z'} \, \rmd \xi \\
-            &= \lim_{z' - z} \int_{\sum} \frac{1}{2 \pi \rmi} \frac{f(\xi) - f(z)}{\xi - z'} \, \rmd \xi + \frac{f(\xi)}{2 \pi \rmi} \int_{\sum} \frac{1}{\xi - z'} \, \rmd \xi \\
-            &= \lim_{z' - z} \frac{1}{2 \pi \rmi} \int_{\sum_{+}}  \frac{f(\xi) - f(z)}{\xi - z'}  \rmd \xi + f(z) \\
-            &= \lim_{z' - z} \frac{1}{2 \pi \rmi} \int_{\sum_{+}}  \frac{f(\xi)}{\xi - z'}  \rmd \xi - \frac{f(z)}{2 \pi \rmi} \int_{\sum_{+}}  \frac{1}{\xi - z'}  \rmd \xi+ f(z) \\
-            &= F(z) + \frac{1}{2}f(z)
-    \end{aligned}
-  \end{equation}
-  $ F_{-}(z') $ 同理, 下证 $ \sum $ 为开曲线情形, 则可补充 $ \sum' $, s.t. $ \sum \cup \sum' $ 为闭曲线, 且定义 $ \forall \xi \in \sum', f(\xi) = 0 $, 则
-  \begin{equation}
-    F(z) = \frac{1}{2 \pi \rmi} \int_{\sum}  \frac{f(z)}{\xi - z}  \rmd \xi = \frac{1}{2 \pi \rmi} \int_{\sum \cup \sum'}  \frac{f(z)}{\xi - z}  \rmd \xi.
-  \end{equation}
-  则由开曲线情形可得
-  \begin{equation}
-    \begin{aligned}
-      F_{+}(z) &= \lim_{\substack{z' \to z \\ z' \in +\sum}} \int_{\sum \cup \sum'}  \frac{f(\xi)}{\xi - z}  \rmd \xi = \int_{\sum \cup \sum'}  \frac{f(\xi) - f(z)}{\xi - z}  \rmd \xi + \frac{f(z)}{2 \pi \rmi} \int_{\sum \cup \sum'} \frac{1}{\xi - z'} \rmd \xi \\
-      &= \frac{1}{2 \pi \rmi} \int_{\sum} \frac{f(\xi) - f(z)}{\xi - z} \rmd \xi - \frac{f(z)}{2 \pi \rmi} \int_{\sum'} \frac{1}{\xi - z} \rmd \xi + f(z) = F(z) + \frac{1}{2}f(z)
-    \end{aligned}
-  \end{equation}
-  $ F_{-}(z') $ 同理
+	首先证明闭区线情形:
+	\begin{equation}
+		\begin{aligned}
+			F_{+} & = \lim_{\substack{z' \to z \newline z' \in \sum_{+}}} F(z') = \lim_{z' - z} \int_{\sum} \frac{1}{2 \pi \rmi} \frac{f(\xi)}{\xi - z'} \, \rmd \xi                      \\
+			      & = \lim_{z' - z} \int_{\sum} \frac{1}{2 \pi \rmi} \frac{f(\xi) - f(z)}{\xi - z'} \, \rmd \xi + \frac{f(\xi)}{2 \pi \rmi} \int_{\sum} \frac{1}{\xi - z'} \, \rmd \xi    \\
+			      & = \lim_{z' - z} \frac{1}{2 \pi \rmi} \int_{\sum_{+}}  \frac{f(\xi) - f(z)}{\xi - z'}  \rmd \xi + f(z)                                                                 \\
+			      & = \lim_{z' - z} \frac{1}{2 \pi \rmi} \int_{\sum_{+}}  \frac{f(\xi)}{\xi - z'}  \rmd \xi - \frac{f(z)}{2 \pi \rmi} \int_{\sum_{+}}  \frac{1}{\xi - z'}  \rmd \xi+ f(z) \\
+			      & = F(z) + \frac{1}{2}f(z)
+		\end{aligned}
+	\end{equation}
+	$ F_{-}(z') $ 同理, 下证 $ \sum $ 为开曲线情形, 则可补充 $ \sum' $, s.t. $ \sum \cup \sum' $ 为闭曲线, 且定义 $ \forall \xi \in \sum', f(\xi) = 0 $, 则
+	\begin{equation}
+		F(z) = \frac{1}{2 \pi \rmi} \int_{\sum}  \frac{f(z)}{\xi - z}  \rmd \xi = \frac{1}{2 \pi \rmi} \int_{\sum \cup \sum'}  \frac{f(z)}{\xi - z}  \rmd \xi.
+	\end{equation}
+	则由开曲线情形可得
+	\begin{equation}
+		\begin{aligned}
+			F_{+}(z) & = \lim_{\substack{z' \to z                                                                                                                                                  \\ z' \in +\sum}} \int_{\sum \cup \sum'}  \frac{f(\xi)}{\xi - z}  \rmd \xi = \int_{\sum \cup \sum'}  \frac{f(\xi) - f(z)}{\xi - z}  \rmd \xi + \frac{f(z)}{2 \pi \rmi} \int_{\sum \cup \sum'} \frac{1}{\xi - z'} \rmd \xi \\
+			         & = \frac{1}{2 \pi \rmi} \int_{\sum} \frac{f(\xi) - f(z)}{\xi - z} \rmd \xi - \frac{f(z)}{2 \pi \rmi} \int_{\sum'} \frac{1}{\xi - z} \rmd \xi + f(z) = F(z) + \frac{1}{2}f(z)
+		\end{aligned}
+	\end{equation}
+	$ F_{-}(z') $ 同理
 \end{proof}
 
 \begin{remark}
-  如果 $ z \in \sum $ 为一个角点, 在其两切线的夹角为 $ \alpha $, 则可
-  \begin{equation}\begin{aligned}
-      F_{+}(z) &= \lim_{\substack{z' \to z \\ z' \in D}} \frac{1}{2 \pi \rmi} \int_{\sum}  \frac{f(\xi)}{\xi - z}  \rmd \xi = \frac{1}{2 \pi \rmi} \int_{\sum}  \frac{f(\xi) - f(z)}{\xi - z}  \rmd \xi + \frac{\alpha}{2 \pi} f(z) + (1 - \frac{\alpha}{2 \pi}) f(z) \\
-              &= F(z) - \frac{\alpha}{2 \pi} f(z) \label{eq:arc-Plemelj-1}
-    \end{aligned}\end{equation}
-  \begin{equation}\begin{aligned}
-      F_{-}(z) & = \frac{1}{2 \pi \rmi} \int_{\sum}  \frac{f(\xi) - f(z)}{\xi - z}  \rmd \xi = \frac{1}{2 \pi \rmi} \int_{\sum}  \frac{f(\xi) - f(z)}{\xi - z}  \rmd \xi + \frac{\alpha}{2 \pi} f(z) - \frac{\alpha}{2 \pi}) f(z) \\
-              &= F(z) - \frac{\alpha}{2 \pi} f(z) \label{eq:arc-Plemelj-2}
-    \end{aligned}\end{equation}
+	如果 $ z \in \sum $ 为一个角点, 在其两切线的夹角为 $ \alpha $, 则可
+	\begin{equation}\begin{aligned}
+			F_{+}(z) & = \lim_{\substack{z' \to z \newline z' \in D}} \frac{1}{2 \pi \rmi} \int_{\sum}  \frac{f(\xi)}{\xi - z}  \rmd \xi = \frac{1}{2 \pi \rmi} \int_{\sum}  \frac{f(\xi) - f(z)}{\xi - z}  \rmd \xi + \frac{\alpha}{2 \pi} f(z) + (1 - \frac{\alpha}{2 \pi}) f(z) \\
+			         & = F(z) - \frac{\alpha}{2 \pi} f(z) \label{eq:arc-Plemelj-1}
+		\end{aligned}\end{equation}
+	\begin{equation}\begin{aligned}
+			F_{-}(z) & = \frac{1}{2 \pi \rmi} \int_{\sum}  \frac{f(\xi) - f(z)}{\xi - z}  \rmd \xi = \frac{1}{2 \pi \rmi} \int_{\sum}  \frac{f(\xi) - f(z)}{\xi - z}  \rmd \xi + \frac{\alpha}{2 \pi} f(z) - \frac{\alpha}{2 \pi}) f(z) \\
+			         & = F(z) - \frac{\alpha}{2 \pi} f(z) \label{eq:arc-Plemelj-2}
+		\end{aligned}\end{equation}
 \end{remark}
 \begin{definition}{Plemelj 公式}
-  由 (\ref{eq:Plemelj-1}) - (\ref{eq:Plemelj-2}), (\ref{eq:arc-Plemelj-1}) - (\ref{eq:arc-Plemelj-2}) 可以看出, 无论 $ z $ 是正则点还是角点, 都有 
-\begin{align}
-  F_{+}(z) - F_{-}(z) &= f(z), \quad z \in \sum \\
-  F_{+}(z) - F_{-}(z) &= \frac{1}{\pi \rmi} \int_{\sum} \frac{f(\xi)}{\xi - z} \rmd \xi =: H(f)(z)
-\end{align}
-称为标量 RH 问题, 其解可用 Cauchy 积分给出
-\begin{equation}
-  F(z) = A + \frac{1}{2 \pi \rmi} \int_{\sum} \frac{f(\xi)}{\xi - z} \rmd \xi, \quad z \in \mathbb{C}
-\end{equation}
-其中 $ A $ 为任意常数, 一般被边值或渐进条件决定, 这一公式被称为 Plemelj 公式. 
+	由 \eqref{eq:Plemelj-1} - \eqref{eq:Plemelj-2}, \eqref{eq:arc-Plemelj-1} - \eqref{eq:arc-Plemelj-2} 可以看出, 无论 $ z $ 是正则点还是角点, 都有
+	\begin{align}
+		F_{+}(z) - F_{-}(z) & = f(z), \quad z \in \sum                                                    \\
+		F_{+}(z) - F_{-}(z) & = \frac{1}{\pi \rmi} \int_{\sum} \frac{f(\xi)}{\xi - z} \rmd \xi =: H(f)(z)
+	\end{align}
+	称为标量 RH 问题, 其解可用 Cauchy 积分给出
+	\begin{equation}
+		F(z) = A + \frac{1}{2 \pi \rmi} \int_{\sum} \frac{f(\xi)}{\xi - z} \rmd \xi, \quad z \in \mathbb{C}
+	\end{equation}
+	其中 $ A $ 为任意常数, 一般被边值或渐进条件决定, 这一公式被称为 Plemelj 公式.
 \end{definition}
 
 
 对于如下 RH 问题
 \begin{equation}
-  G_{+}(z) = G_{-}(z)v(z), \quad z\in \sum
+	G_{+}(z) = G_{-}(z)v(z), \quad z\in \sum
 \end{equation}
 只需两边取 $ \log $ 变换则有
 \begin{equation}
-  \log{G_{+}(z)}- \log{G_{-}(z)} =  \log{v(z)}, \quad z\in \sum
+	\log{G_{+}(z)}- \log{G_{-}(z)} =  \log{v(z)}, \quad z\in \sum
 \end{equation}
-由 Plemelj 公式, 则有 
+由 Plemelj 公式, 则有
 \begin{equation}
-  \log{G(z)} = A + \frac{1}{2 \pi \rmi} \int_{\sum} \frac{v(\xi)}{\xi - z} \rmd \xi \implies G(z) = B \exp{\left( \frac{1}{2 \pi \rmi} \int_{\sum} \frac{f(\xi)}{\xi - z} \rmd \xi \right)}, \quad z\in \sum
+	\log{G(z)} = A + \frac{1}{2 \pi \rmi} \int_{\sum} \frac{v(\xi)}{\xi - z} \rmd \xi \implies G(z) = B \exp{\left( \frac{1}{2 \pi \rmi} \int_{\sum} \frac{f(\xi)}{\xi - z} \rmd \xi \right)}, \quad z\in \sum
 \end{equation}
-其中 $ B $ 为任意常数. 
+其中 $ B $ 为任意常数.
 
 \section{矩阵 RH 问题}
 \begin{definition}{RH 问题}
-  设 $ \sum $ 为复平面 $ \mathbb{C} $ 内的有向路径, 假设存在一个 $ {\sum} ^{0} $ 上的光滑映射 $ v(z) : \sum \to GL(n,\mathbb{C}) $, 则 $ (\sum, v) $ 决定了一个 RH 问题, 寻找一个 $ n $ 阶矩阵 $ M(z) $ 满足 
-  \begin{align}
-    M(z) \in C, \quad ( \mathbb{C}\setminus  \sum ) \label{eq:RH-analytical-condition}\\
-    M_{+}(z) = M_{-}(z)v(z), \quad z\in \sum \label{eq:RH-Matrix-jump-condition}\\
-    M(z) \to I ,\quad z \to \infty \label{eq:RH-Matrix-asymptotic-condition}
-  \end{align}
-  其中 $ M_{\pm} $ 表示在正负区域内 $ z' \to z $ 时的极限, $ \sum $ 称为跳跃曲线, $ v(z) $ 称为跳跃矩阵. 
+	设 $ \sum $ 为复平面 $ \mathbb{C} $ 内的有向路径, 假设存在一个 $ {\sum} ^{0} $ 上的光滑映射 $ v(z) : \sum \to GL(n,\mathbb{C}) $, 则 $ (\sum, v) $ 决定了一个 RH 问题, 寻找一个 $ n $ 阶矩阵 $ M(z) $ 满足
+	\begin{align}
+		M(z) \in C, \quad ( \mathbb{C}\setminus  \sum ) \label{eq:RH-analytical-condition} \\
+		M_{+}(z) = M_{-}(z)v(z), \quad z\in \sum \label{eq:RH-Matrix-jump-condition}       \\
+		M(z) \to I ,\quad z \to \infty \label{eq:RH-Matrix-asymptotic-condition}
+	\end{align}
+	其中 $ M_{\pm} $ 表示在正负区域内 $ z' \to z $ 时的极限, $ \sum $ 称为跳跃曲线, $ v(z) $ 称为跳跃矩阵.
 \end{definition}
 
 根据 Beadls-Coifman 定理, 如上 RH 问题的解可通过如下方式构造: 不妨设跳跃矩阵 $ v(z) $ 具有如下分解
 \begin{equation}
-  v = (b_{-})^{-1}b_{+}
+	v = (b_{-})^{-1}b_{+}
 \end{equation}
 由此, 可构造
 \begin{equation}
-  w_{+} = b_{+} - I, \quad w_{-} = I - b_{-}
+	w_{+} = b_{+} - I, \quad w_{-} = I - b_{-}
 \end{equation}
 进一步可定义 Cauchy 投影算子
 \begin{equation}
-  (C_{\pm} f)(z) = \lim_{\substack{z' \to z \in \sum \\ z' \in \pm \sum}} \frac{1}{2 \pi \rmi} \int_{\sum} \frac{f(\xi)}{\xi - z'} \rmd \xi \label{eq:Cauchy-projection}
+	(C_{\pm} f)(z) = \lim_{\substack{z' \to z \in \sum \\ z' \in \pm \sum}} \frac{1}{2 \pi \rmi} \int_{\sum} \frac{f(\xi)}{\xi - z'} \rmd \xi \label{eq:Cauchy-projection}
 \end{equation}
 则可以证明如果 $ f(z) \in L^{2}(\sum) $, 则 $ C_{\pm} : L^{2} \to L^{2} $ 的有界算子, 且 $ C_{+} - C_{-} = 1 $, 再定义算子
 \begin{equation}
-  C_{w}f = C_{+}(fw_{-}) - C_{-}(fw_{+}) \label{eq:Cauchy-projection-operator}
+	C_{w}f = C_{+}(fw_{-}) - C_{-}(fw_{+}) \label{eq:Cauchy-projection-operator}
 \end{equation}
 则 $ C_{w}: L^{2} \cap L^{\infty} \to L^2 $ 的有界算子.
 
 \begin{theorem}
-  设 $ \det v = 1 $, 算子 $ I - C_{w} $ 在 $ L^{2}(\sum) $ 上可逆, $ \mu \in I +L^{2}(\sum) $ 为下列方程
-  \begin{equation}
-    (I - C_{w}) \mu = I \label{eq:RH-singular-integral} %\label{eq:Cauchy-projection-solution}
-  \end{equation}
-  的解, 且 
-  \begin{equation}
-    (I -C_{w})(\mu - I) = C_{w}I + C_{+}w_{-} + C_{-}w_{+} \in L^{2}(\sum) 
-  \end{equation}
-  则 
-  \begin{equation}
-    M(z) = I + \frac{1}{2 \pi \rmi} \int_{\sum} \frac{\mu(\xi) w(\xi)}{\xi - z} \rmd \xi \label{eq:RH-singular-integral-matrix}
-  \end{equation}
-  为上述 RH 问题的唯一解, RH 问题 $ M(z) $ 的可解等价于奇异积分方程 (\ref{eq:RH-singular-integral}).
+	设 $ \det v = 1 $, 算子 $ I - C_{w} $ 在 $ L^{2}(\sum) $ 上可逆, $ \mu \in I +L^{2}(\sum) $ 为下列方程
+	\begin{equation}
+		(I - C_{w}) \mu = I \label{eq:RH-singular-integral} %\label{eq:Cauchy-projection-solution}
+	\end{equation}
+	的解, 且
+	\begin{equation}
+		(I -C_{w})(\mu - I) = C_{w}I + C_{+}w_{-} + C_{-}w_{+} \in L^{2}(\sum)
+	\end{equation}
+	则
+	\begin{equation}
+		M(z) = I + \frac{1}{2 \pi \rmi} \int_{\sum} \frac{\mu(\xi) w(\xi)}{\xi - z} \rmd \xi \label{eq:RH-singular-integral-matrix}
+	\end{equation}
+	为上述 RH 问题的唯一解, RH 问题 $ M(z) $ 的可解等价于奇异积分方程 \eqref{eq:RH-singular-integral}.
 \end{theorem}
 \begin{proof}
-  只需证明 (\ref{eq:RH-singular-integral-matrix}) 满足 (\ref{eq:RH-singular-integral})
-  \begin{equation}
-    \begin{aligned}
-    M_{+} &= I + \lim_{z' \to z \in \sum} \frac{1}{2 \pi \rmi }\int_{\sum} \frac{\mu(\xi) w(\xi)}{\xi - z} \rmd \xi \overset{(\ref{eq:Cauchy-projection})}{=} I + C_{+}(\mu w) \\
-          &= I + C_{+}(\mu w_{-}) + C_{+}(\mu w_{+}) = I + C_{+}(\mu w_{-}) + C_{-}(\mu w_{+}) +   C_{+}(\mu w_{+}) + C_{-}(\mu w_{+}) \\
-          &\overset{(\ref{eq:Cauchy-projection-operator})}{=} I + C_{w}(\mu) + \mu w_{+} \overset{(\ref{eq:RH-singular-integral})}{=} \mu + \mu w_{+} = \mu (I + w_{+}) = \mu b_{+}
-    \end{aligned}
-  \end{equation}
-同理有
-\begin{equation}
-  M_{-}(z) = \mu b_{-}
-\end{equation}
-故有
-\begin{equation}
-  M_{+}(z) = \mu b_{+} = \mu b_{-}(b_{-})^{-1} b_{+} = M_{-}(z)v(z)
-\end{equation}
-下证唯一性, 先证 $ M $ 可逆, 对 (\ref{eq:RH-Matrix-jump-condition}) 取行列式, 并注意到 $ \det v(z) = 1 $, 则 $ \det M_{+}(z) = \det M_{-}(z) $. 故由 Painleve 开拓定理得 $ \det M(z) $ 在 $ \mathbb{C} $ 上解析. 由 (\ref{eq:RH-Matrix-asymptotic-condition}) 得
-\begin{equation}
-  \det M(z) \to 1, z \to \infty
-\end{equation}
-故由 Liouville 定理可知 $ \det M(z) = c $, 再由渐进条件得 $ c = 1 $, 故 $ M(z) $ 可逆.
+	只需证明 \eqref{eq:RH-singular-integral-matrix} 满足 \eqref{eq:RH-singular-integral}
+	\begin{equation}
+		\begin{aligned}
+			M_{+} & = I + \lim_{z' \to z \in \sum} \frac{1}{2 \pi \rmi }\int_{\sum} \frac{\mu(\xi) w(\xi)}{\xi - z} \rmd \xi \overset{\eqref{eq:Cauchy-projection}}{=} I + C_{+}(\mu w)      \\
+			      & = I + C_{+}(\mu w_{-}) + C_{+}(\mu w_{+}) = I + C_{+}(\mu w_{-}) + C_{-}(\mu w_{+}) +   C_{+}(\mu w_{+}) + C_{-}(\mu w_{+})                                              \\
+			      & \overset{\eqref{eq:Cauchy-projection-operator}}{=} I + C_{w}(\mu) + \mu w_{+} \overset{\eqref{eq:RH-singular-integral}}{=} \mu + \mu w_{+} = \mu (I + w_{+}) = \mu b_{+}
+		\end{aligned}
+	\end{equation}
+	同理有
+	\begin{equation}
+		M_{-}(z) = \mu b_{-}
+	\end{equation}
+	故有
+	\begin{equation}
+		M_{+}(z) = \mu b_{+} = \mu b_{-}(b_{-})^{-1} b_{+} = M_{-}(z)v(z)
+	\end{equation}
+	下证唯一性, 先证 $ M $ 可逆, 对 \eqref{eq:RH-Matrix-jump-condition} 取行列式, 并注意到 $ \det v(z) = 1 $, 则 $ \det M_{+}(z) = \det M_{-}(z) $. 故由 Painleve 开拓定理得 $ \det M(z) $ 在 $ \mathbb{C} $ 上解析. 由 \eqref{eq:RH-Matrix-asymptotic-condition} 得
+	\begin{equation}
+		\det M(z) \to 1, z \to \infty
+	\end{equation}
+	故由 Liouville 定理可知 $ \det M(z) = c $, 再由渐进条件得 $ c = 1 $, 故 $ M(z) $ 可逆.
 
-设 $ \widetilde{M} $ 为上述 RH 问题的另一个解, 则 $ \widetilde{M} $ 可逆, 且在 $ \mathbb{C} \setminus  \sum $ 上解析, 且在 $ \sum $ 上满足 
-\begin{equation}
-  (M \widetilde{M}^{-1}) = M_{+} \widetilde{M}_{+}^{-1} = M_{-} v (\widetilde{M}_{-} v)^{-1} = M_{-}(\widetilde{M}_{-})^{-1} = (M \widetilde{M}^{-1})_{-}
-\end{equation}
-由 Painleve 开拓定理, $ M \widetilde{M}^{-1} $ 在 $ \mathbb{C} $ 上解析. 另外由 $ M, \widetilde{M} \to I $, 故 $ M \widetilde{M}^{-1} $ 有界, 故为常矩阵. 由渐进性得 
-\begin{equation}
-  M \widetilde{M}^{-1} = I \implies M = \widetilde{M}
-\end{equation} 
+	设 $ \widetilde{M} $ 为上述 RH 问题的另一个解, 则 $ \widetilde{M} $ 可逆, 且在 $ \mathbb{C} \setminus  \sum $ 上解析, 且在 $ \sum $ 上满足
+	\begin{equation}
+		(M \widetilde{M}^{-1}) = M_{+} \widetilde{M}_{+}^{-1} = M_{-} v (\widetilde{M}_{-} v)^{-1} = M_{-}(\widetilde{M}_{-})^{-1} = (M \widetilde{M}^{-1})_{-}
+	\end{equation}
+	由 Painleve 开拓定理, $ M \widetilde{M}^{-1} $ 在 $ \mathbb{C} $ 上解析. 另外由 $ M, \widetilde{M} \to I $, 故 $ M \widetilde{M}^{-1} $ 有界, 故为常矩阵. 由渐进性得
+	\begin{equation}
+		M \widetilde{M}^{-1} = I \implies M = \widetilde{M}
+	\end{equation}
 \end{proof}
 
 \begin{remark}
-由 RH 问题解的唯一性, RH 问题 (\ref{eq:RH-analytical-condition}) - (\ref{eq:RH-Matrix-asymptotic-condition}) 的解与跳跃矩阵 $ v(z) $ 的分解无关, 因此可以考虑 $ v(z) $ 的平凡解
-\begin{equation}
-  b_{-} = I, \quad b_{+} = v
-\end{equation}
-故可构造
-\begin{equation}
-  \begin{aligned}
-    w_{-} = 0, \quad w_{+} = v - I, \quad w = v - I \\
-    C_{w}f =  C_{+}(fw_{-}) + C_{-}(fw_{+}) = C_{+}(f(v - I)), \quad \mu = (I - C_{w})^{-1}I
-  \end{aligned}
-\end{equation}
-则 RH 问题的解可表示为
-\begin{equation}
-  M(z) = I + \frac{1}{2 \pi \rmi} \int_{+\sum} \frac{\mu(\xi) (v(\xi) - I)}{\xi - z}  \rmd \xi \label{eq:RH-solution}
-\end{equation}
+	由 RH 问题解的唯一性, RH 问题 \eqref{eq:RH-analytical-condition} - \eqref{eq:RH-Matrix-asymptotic-condition} 的解与跳跃矩阵 $ v(z) $ 的分解无关, 因此可以考虑 $ v(z) $ 的平凡解
+	\begin{equation}
+		b_{-} = I, \quad b_{+} = v
+	\end{equation}
+	故可构造
+	\begin{equation}
+		\begin{aligned}
+			w_{-} = 0, \quad w_{+} = v - I, \quad w = v - I \\
+			C_{w}f =  C_{+}(fw_{-}) + C_{-}(fw_{+}) = C_{+}(f(v - I)), \quad \mu = (I - C_{w})^{-1}I
+		\end{aligned}
+	\end{equation}
+	则 RH 问题的解可表示为
+	\begin{equation}
+		M(z) = I + \frac{1}{2 \pi \rmi} \int_{+\sum} \frac{\mu(\xi) (v(\xi) - I)}{\xi - z}  \rmd \xi \label{eq:RH-solution}
+	\end{equation}
 \end{remark}
 
 \begin{remark}
-  RH 方法的关键思想就是改变积分路径, 通过跳跃矩阵的分解情况, 确定对积分路径进行一系列形变, 再取极限去除跳跃矩阵为单位阵的情形, 将其化解为可解的 RH 问题, 所以一个自然的问题就是:「为什么可以扔掉跳跃矩阵为单位阵的路径? 或者说为什么跳跃矩阵对对 RH 问题的解不产生贡献.」
+	RH 方法的关键思想就是改变积分路径, 通过跳跃矩阵的分解情况, 确定对积分路径进行一系列形变, 再取极限去除跳跃矩阵为单位阵的情形, 将其化解为可解的 RH 问题, 所以一个自然的问题就是:「为什么可以扔掉跳跃矩阵为单位阵的路径? 或者说为什么跳跃矩阵对对 RH 问题的解不产生贡献.」
 
-  这很容易通过表达式 (\ref{eq:RH-solution}) 看出, 我们将积分路径分解为 $ \sum = \sum_{1} + \sum_{2} $ 且 
-  \begin{equation}
-    v = \begin{cases}
-      v_1 \neq I \quad \sum_{1}, \\
-      v_1 = I \quad \sum_{2}
-    \end{cases}
-  \end{equation}
-  则在 $ \sum_{1} $ 上, $ v- I = v_{1} - I \neq 0 $, 在 $ \sum_{2} $ 上, $ v- I = v_{1} - I = 0 $, 故
-  \begin{equation}
-    \begin{aligned}
-      M(z) &= I + \frac{1}{2 \pi \rmi} \int_{\sum} \frac{\mu(\xi) (v(\xi) - I)}{\xi - z}  \rmd \xi \\
-        &= I + \frac{1}{2 \pi \rmi} \int_{\sum_{1}} \frac{\mu(\xi) (v_{1}(\xi) - I)}{\xi - z}  \rmd \xi + \frac{1}{2 \pi \rmi} \int_{\sum_{2}} \frac{\mu(\xi) (v_{2}(\xi) - I)}{\xi - z}  \rmd \xi \\
-        &= I + \frac{1}{2 \pi \rmi} \int_{\sum_1} \frac{\mu(\xi) (v_{1}(\xi) - I)}{\xi - z}  \rmd \xi
-    \end{aligned}
-  \end{equation}
-  易得 RH 问题 $ (\sum, v(z)) $ 的解与 $ (\sum_{1}, v_{1}(z)) $ 的解相同, 即跳跃矩阵为单位阵的路径 $ \sum_{2} $ 对 RH 问题的解无贡献, 可以舍去. 只求 $ \sum_{1} $ 上的 RH 问题
+	这很容易通过表达式 \eqref{eq:RH-solution} 看出, 我们将积分路径分解为 $ \sum = \sum_{1} + \sum_{2} $ 且
+	\begin{equation}
+		v = \begin{cases}
+			v_1 \neq I \quad \sum_{1}, \\
+			v_1 = I \quad \sum_{2}
+		\end{cases}
+	\end{equation}
+	则在 $ \sum_{1} $ 上, $ v- I = v_{1} - I \neq 0 $, 在 $ \sum_{2} $ 上, $ v- I = v_{1} - I = 0 $, 故
+	\begin{equation}
+		\begin{aligned}
+			M(z) & = I + \frac{1}{2 \pi \rmi} \int_{\sum} \frac{\mu(\xi) (v(\xi) - I)}{\xi - z}  \rmd \xi                                                                                                    \\
+			     & = I + \frac{1}{2 \pi \rmi} \int_{\sum_{1}} \frac{\mu(\xi) (v_{1}(\xi) - I)}{\xi - z}  \rmd \xi + \frac{1}{2 \pi \rmi} \int_{\sum_{2}} \frac{\mu(\xi) (v_{2}(\xi) - I)}{\xi - z}  \rmd \xi \\
+			     & = I + \frac{1}{2 \pi \rmi} \int_{\sum_1} \frac{\mu(\xi) (v_{1}(\xi) - I)}{\xi - z}  \rmd \xi
+		\end{aligned}
+	\end{equation}
+	易得 RH 问题 $ (\sum, v(z)) $ 的解与 $ (\sum_{1}, v_{1}(z)) $ 的解相同, 即跳跃矩阵为单位阵的路径 $ \sum_{2} $ 对 RH 问题的解无贡献, 可以舍去. 只求 $ \sum_{1} $ 上的 RH 问题
 \end{remark}
 
 \begin{lemma}
-  若 $ AB = BA $, 其中 $ A, B $ 为 $ n $ 阶复矩阵, 则 $ A, B $ 有相同的特征向量. 
+	若 $ AB = BA $, 其中 $ A, B $ 为 $ n $ 阶复矩阵, 则 $ A, B $ 有相同的特征向量.
 \end{lemma}
-考虑常系数齐次线性方程组 
+考虑常系数齐次线性方程组
 \begin{equation}
-  \frac{dy}{dx} = Ay \label{ch1-eq:A-linear-system}
+	\frac{dy}{dx} = Ay \label{ch1-eq:A-linear-system}
 \end{equation}
 \begin{corollary}
-  设 $ n $ 阶复矩阵有 $ n $ 个互不相同的特征值 $ \lambda_{1}, \cdots, \lambda_{n} $, $r_{i}$ 为 $ \lambda_{i} $ 对应的特征向量, 则矩阵函数 
-  \begin{equation}
-    \Phi_{x} = (e^{\lambda_{1}} r_{1}, e^{\lambda_{2}} r_{2}, \cdots, e^{\lambda_{n}} r_{n} ) = (r_{1}, \cdots, r_{n}) \diag{(e^{\lambda_{1}}, \cdots, e^{\lambda_{n}})}
-  \end{equation}
-  为 \eqref{ch1-eq:A-linear-system} 的基解矩阵. 现考虑如下偏微分方程组 
-  \begin{align}
-    \frac{\partial y}{\partial x} &= A y \label{ch1-eq:AB-linear-system-x}\\
-    \frac{\partial y}{\partial t} &= By \label{ch1-eq:AB-linear-system-t}
-  \end{align}
-  则由 \eqref{ch1-eq:AB-linear-system-x} 得 $ y = e^{Ax} c(t) $, 其中 $ c(t) $ 为与 $ x $ 无关的列向量. 将其带入 \eqref{ch1-eq:AB-linear-system-t}, 可得 $ e^{Ax} c(t) = B e^{A x} c(t) $, 由于 $ AB = BA \implies B e^{A x} = e^{A x} B \implies $
-  
-  故 $ c(t) = e^{Bt} c_{0} $, 其中 $ c_{0} $ 为常列向量. 故偏微分方程组 \eqref{ch1-eq:AB-linear-system-x} - \eqref{ch1-eq:AB-linear-system-t} 的解为 
-  
+	设 $ n $ 阶复矩阵有 $ n $ 个互不相同的特征值 $ \lambda_{1}, \cdots, \lambda_{n} $, $r_{i}$ 为 $ \lambda_{i} $ 对应的特征向量, 则矩阵函数
+	\begin{equation}
+		\Phi_{x} = (e^{\lambda_{1}} r_{1}, e^{\lambda_{2}} r_{2}, \cdots, e^{\lambda_{n}} r_{n} ) = (r_{1}, \cdots, r_{n}) \diag{(e^{\lambda_{1}}, \cdots, e^{\lambda_{n}})}
+	\end{equation}
+	为 \eqref{ch1-eq:A-linear-system} 的基解矩阵. 现考虑如下偏微分方程组
+	\begin{align}
+		\frac{\partial y}{\partial x} & = A y \label{ch1-eq:AB-linear-system-x} \\
+		\frac{\partial y}{\partial t} & = By \label{ch1-eq:AB-linear-system-t}
+	\end{align}
+	则由 \eqref{ch1-eq:AB-linear-system-x} 得 $ y = e^{Ax} c(t) $, 其中 $ c(t) $ 为与 $ x $ 无关的列向量. 将其带入 \eqref{ch1-eq:AB-linear-system-t}, 可得 $ e^{Ax} c(t) = B e^{A x} c(t) $, 由于 $ AB = BA \implies B e^{A x} = e^{A x} B \implies $
+
+	故 $ c(t) = e^{Bt} c_{0} $, 其中 $ c_{0} $ 为常列向量. 故偏微分方程组 \eqref{ch1-eq:AB-linear-system-x} - \eqref{ch1-eq:AB-linear-system-t} 的解为
+
 \end{corollary}

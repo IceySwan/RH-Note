@@ -1,74 +1,78 @@
 \chapter{三阶AKNS方程组的逆时空约化}
-本章节我们将眼光放在 $ 3 \times 3 $ 反时空非局域 AKNS 系统上, 在学完本章节后会更加体会到如何利用 RH 方法处理反散射数据的对称性求解逆时空问题. 本章接分为三个部分, 首先介绍三阶 AKNS 方程组的约化, 这一部分基本照抄了君言师姐的论文, 第二部分为利用 RH 方法求解耦合 NLS 方程的 $N$ 孤子解, 这部分参考了王灯山的论文\cite{Wang2010JMP}, 第三部分则介绍利用 RH 方法求解三阶反时空 NLS 方程组的 N 孤子解, 这一部分是笔者的原创内容, 构成了笔者的第一篇论文. 
+本章节我们将眼光放在 $ 3 \times 3 $ 反时空非局域 AKNS 系统上, 在学完本章节后会更加体会到如何利用 RH 方法处理反散射数据的对称性求解逆时空问题. 本章接分为三个部分, 首先介绍三阶 AKNS 方程组的约化, 这一部分基本照抄了君言师姐的论文, 第二部分为利用 RH 方法求解耦合 NLS 方程的 $N$ 孤子解, 这部分参考了王灯山的论文\cite{Wang2010JMP}, 第三部分则介绍利用 RH 方法求解三阶反时空 NLS 方程组的 N 孤子解, 这一部分是笔者的原创内容, 构成了笔者的第一篇论文.
 \section{AKNS 方程组的约化}
 首先考虑 $ 3 \times 3 $ AKNS 系统, 它的 Lax 对为
 \begin{align}
-    \Phi_{x} &= U \Phi = (-\rmi \lambda \Lambda + Q)\Phi, \label{ch4-eq:AKNS-Lax-Pair-x}\\
-    \Phi_{t} &= V \Phi = \left[2 \rmi \lambda^{2} \Lambda + R\right]\Phi,  \label{ch4-eq:AKNS-Lax-Pair-t}
+    \Phi_{x} & = U \Phi = (-\rmi \lambda \Lambda + Q)\Phi, \label{ch4-eq:AKNS-Lax-Pair-x}                  \\
+    \Phi_{t} & = V \Phi = \left[2 \rmi \lambda^{2} \Lambda + R\right]\Phi,  \label{ch4-eq:AKNS-Lax-Pair-t}
 \end{align}
 其中 $R=- 2\lambda Q + \rmi(Q^{2} + Q_{x})\Lambda $, 且
 \begin{equation}
     Q = \begin{pmatrix}
-        0 & 0 & p \\
-        0 & 0 & q \\
+        0      & 0      & p \\
+        0      & 0      & q \\
         -r_{1} & -r_{2} & 0
     \end{pmatrix}, \quad
     \Lambda = \begin{pmatrix}
-        -1 & 0 & 0 \\
-        0 & -1 & 0 \\
-        0 & 0 & 1
+        -1 & 0  & 0 \\
+        0  & -1 & 0 \\
+        0  & 0  & 1
     \end{pmatrix}
 \end{equation}
 其中 $ r_{1} = ap_{1} + bq_{1}, r_{2} = cp_{1} + dq_{1}$, 这里 $ p_{1} $ 可能为 $ p, p(-x), p(-t), p(-x,-t)$ 及其共轭, $ q_{1} $同理, 且 $ a, b, c, d \in \mathbb{C} $ 为任意复数. 由零曲率方程得
 \begin{subequations}
     \begin{align}
-       (13): \quad & \rmi p_{t} + p_{xx} + 2p(pr_{1} + qr_{2}) = 0, \\
-       (23): \quad & \rmi q_{t} + q_{xx} + 2q(pr_{1} + qr_{2}) = 0, \\
+        (13): \quad & \rmi p_{t} + p_{xx} + 2p(pr_{1} + qr_{2}) = 0,        \\
+        (23): \quad & \rmi q_{t} + q_{xx} + 2q(pr_{1} + qr_{2}) = 0,        \\
         (31): \quad & -\rmi r_{1t} + r_{1xx} + 2r_{1}(pr_{1} + qr_{2}) = 0, \\
         (32): \quad & -\rmi r_{2t} + r_{2xx} + 2r_{2}(pr_{1} + qr_{2}) = 0.
     \end{align} \label{ch4-eq:4-component-AKNS-components}
 \end{subequations}
 由上面得到的四分量方程, 考虑相容性条件. 我们有 $ p_{1} $ 只可能为 $ p^{*}(x,t), p^{*}(-x,t), p(x,-t), p(-x,-t) $, $ q_1 $ 同理. 则得到如下四种约化
-\begin{align}
-    r_{1} &= a p^{*}(x,t) + b q^{*}(x,t), \quad r_{2} = b^{*} p^{*}(x,t) + d q^{*}(x,t), \quad a, d \in \mathbb{R} \label{ch4-eq:reduction-local},\\
-    r_{1} &= a p^{*}(-x,t) + b q^{*}(-x,t), \quad r_{2} = b^{*} p^{*}(-x,t) + d q^{*}(-x,t), \quad a, d \in \mathbb{R} \label{ch4-eq:reduction-reverse-x},\\
-    r_{1} &= a p(x,-t) + b q(x,-t), \quad r_{2} = b p(x,-t) + d q(x,-t), \label{ch4-eq:reduction-reverse-t}\\
-    r_{1} &= a p(-x,-t) + b q(-x,-t) , \quad r_{2} = c p(-x,-t) + d q(-x,-t), \label{ch4-eq:reduction-reverse-x-t}
-\end{align}
+\begin{subequations}
+    \begin{align}
+        r_{1} & = a p^{*}(x,t) + b q^{*}(x,t), \quad r_{2} = b^{*} p^{*}(x,t) + d q^{*}(x,t), \quad a, d \in \mathbb{R} \label{ch4-eq:reduction-local},         \\
+        r_{1} & = a p^{*}(-x,t) + b q^{*}(-x,t), \quad r_{2} = b^{*} p^{*}(-x,t) + d q^{*}(-x,t), \quad a, d \in \mathbb{R} \label{ch4-eq:reduction-reverse-x}, \\
+        r_{1} & = a p(x,-t) + b q(x,-t), \quad r_{2} = b p(x,-t) + d q(x,-t), \label{ch4-eq:reduction-reverse-t}                                                \\
+        r_{1} & = a p(-x,-t) + b q(-x,-t) , \quad r_{2} = c p(-x,-t) + d q(-x,-t), \label{ch4-eq:reduction-reverse-x-t}
+    \end{align}
+\end{subequations}
 \begin{remark}
-    这里的相容性条件指通过 \eqref{ch4-eq:4-component-AKNS-components} 划分为两份量方程, 考虑利用 (13), (23) 式化为 (31) 式, 要将 $\rmi p_{t} $ 变为 $ - \rmi r_{1t} $, 则要么 $ t \to -t $, 要么做共轭. 由于对 $ t $ 求导, 故与 $ x $ 无关, 只能选择 上述四种情形. 
+    这里的相容性条件指通过 \eqref{ch4-eq:4-component-AKNS-components} 划分为两份量方程, 考虑利用 (13), (23) 式化为 (31) 式, 要将 $\rmi p_{t} $ 变为 $ - \rmi r_{1t} $, 则要么 $ t \to -t $, 要么做共轭. 由于对 $ t $ 求导, 故与 $ x $ 无关, 只能选择 上述四种情形.
 \end{remark}
 若进一步考虑将其约化为单分量方程, 则有如下三种可能
-\begin{align}
-    q(x,t) &= p(-x,t), \quad a = d, \label{ch4-eq:reduction-q1}\\
-    q(x,t) &= p^{*}(x,-t), \quad a = d^{*} \label{ch4-eq:reduction-q2},\\
-    q(x,t) &= p^{*}(-x,-t), \quad a = d^{*} \label{ch4-eq:reduction-q3},
-\end{align}
+\begin{subequations}
+    \begin{align}
+        q(x,t) & = p(-x,t), \quad a = d, \label{ch4-eq:reduction-q1}          \\
+        q(x,t) & = p^{*}(x,-t), \quad a = d^{*} \label{ch4-eq:reduction-q2},  \\
+        q(x,t) & = p^{*}(-x,-t), \quad a = d^{*} \label{ch4-eq:reduction-q3},
+    \end{align}
+\end{subequations}
 接下来我们讨论可能的约化情况, 为表示方便, 记 $ \Delta = pr_{1} + qr_{2} $.
 \subsection*{情形 1. $p_{1} = p^{*}, q_{1} = q^{*}$}
 此时我们有 $ r_1 = ap^{*} + bq^{*}, r_2 = cp^{*} + dq^{*} $, 带入 \eqref{ch4-eq:4-component-AKNS-components}, 得到
 \begin{subequations}
     \begin{align}
-        (13): & \quad ip_{t} + p_{xx} + 2p \Delta = 0 \\
-        (23): & \quad iq_{t} + q_{xx} + 2q \Delta = 0 \\
+        (13): & \quad ip_{t} + p_{xx} + 2p \Delta = 0                                                                           \\
+        (23): & \quad iq_{t} + q_{xx} + 2q \Delta = 0                                                                           \\
         (31): & \quad a(- \rmi p^{*}_{t} + p_{xx}^{*} + 2 p^{*} \Delta) + b(- \rmi q^{*}_{t} + q_{xx}^{*} + 2 q^{*} \Delta) = 0 \\
         (32): & \quad c(- \rmi p^{*}_{t} + p_{xx}^{*} + 2 p^{*} \Delta) + d(- \rmi q^{*}_{t} + q_{xx}^{*} + 2 q^{*} \Delta) = 0
     \end{align}
 \end{subequations}
-要利用 (13), (23) 式消去 (31), (32) 式, 则需要 $\Delta = \Delta^{*} $, 
+要利用 (13), (23) 式消去 (31), (32) 式, 则需要 $\Delta = \Delta^{*} $,
 \begin{align}
-    \Delta &= a p p^{*} + b p q^{*} + c p^{*} q + d q q^{*}\\
-    \Delta^{*} &= a^{*} p^{*} p + b^{*} p^{*} q + c^{*} p q^{*} + d^{*} q^{*} q
+    \Delta     & = a p p^{*} + b p q^{*} + c p^{*} q + d q q^{*}                 \\
+    \Delta^{*} & = a^{*} p^{*} p + b^{*} p^{*} q + c^{*} p q^{*} + d^{*} q^{*} q
 \end{align}
-可得 $ a, d \in \mathbb{R}, c = b^{*} $. 此时我们有 
+可得 $ a, d \in \mathbb{R}, c = b^{*} $. 此时我们有
 \begin{align}
-    (31) &= a (12)^{*} + b (13)^{*} \\
-    (32) &= b^{*} (12)^{*} + d (13)^{*}
+    (31) & = a (12)^{*} + b (13)^{*}     \\
+    (32) & = b^{*} (12)^{*} + d (13)^{*}
 \end{align}
 方程约化为
 \begin{align}
-    \rmi p_{t} + p_{xx} + 2p \left( a p p^{*} + b p q^{*} + b^{*} p^{*} q + d q q^{*} \right) &= 0 \label{ch4-eq:Coupled-NLS-p}\\
-    \rmi q_{t} + q_{xx} + 2q \left( a p p^{*} + b p q^{*} + b^{*} p^{*} q + d q q^{*} \right) &= 0 \label{ch4-eq:Coupled-NLS-q}
+    \rmi p_{t} + p_{xx} + 2p \left( a p p^{*} + b p q^{*} + b^{*} p^{*} q + d q q^{*} \right) & = 0 \label{ch4-eq:Coupled-NLS-p} \\
+    \rmi q_{t} + q_{xx} + 2q \left( a p p^{*} + b p q^{*} + b^{*} p^{*} q + d q q^{*} \right) & = 0 \label{ch4-eq:Coupled-NLS-q}
 \end{align}
 这个方程即为文献\cite{Wang2010JMP} 提出的具有四波混频效应的耦合广义NLS方程. 下面我们进一步约化, 尝试把两个方程约化为一个方程. 这里 $ q $ 可取 $ p(-x), p^{*}(-t), p^{*}(-x,-t) $.
 \subsubsection*{Case 1.1 $ q = p(-x) $}
@@ -76,13 +80,13 @@
 \begin{equation}
     \rmi p_{t} + p_{xx} + 2p \left[ a p p^{*} + b p p^{*}(-x) + b p^{*} p(-x) + a p(-x) p^{*}(-x) \right] = 0
 \end{equation}
-即单分量反空间非局域 NLS 方程. 
+即单分量反空间非局域 NLS 方程.
 \subsubsection*{Case 1.2 $ q = p^{*}(-t) $}
 此时 $ a=d $, 则 $ r_{1} = a p^{*} + b p(-x,-t), r_{2} = b^{*} p^{*} + a p(-x,-t) $ 方程约化为
 \begin{equation}
     \rmi p_{t} + p_{xx} + 2p \left[ a p p^{*} + b p p(-t) + b^{*} p^{*} p^{*}(-t) + a p(-t) p^{*}(-t) \right] = 0
 \end{equation}
-即单分量反时间非局域 NLS 方程. 
+即单分量反时间非局域 NLS 方程.
 \subsubsection*{Case 1.3 $ q = p^{*}(-x,-t) $}
 此时 $ a=d $, 则 $ r_{1} = a p^{*} + b p(-x,-t), r_{2} = b^{*} p^{*} + a p(-x,-t) $ 方程约化为
 \begin{equation}
@@ -92,20 +96,20 @@
 \subsection*{情形 2. $ p_1 = p^{*}(-x), q_1 = q^{*}(-x) $}
 此时 $ r_1 = ap^{*}(-x) + bq^{*}(-x), r_2 = cp^{*}(-x) + dq^{*}(-x) $, 要消去 \eqref{ch4-eq:4-component-AKNS-components} 中 $(31), (32)$ 式, 只需 $ \Delta = \Delta^{*}(-x) $, 其中
 \begin{align}
-    \Delta &= ap^{*}(-x)p + bq^{*}(-x)p + c^{*}p^{*}(-x)q + dq^{*}(-x)q \\
-    \Delta^{*}(-x) &= a^{*}pp^{*}(-x) + b^{*}qp^{*}(-x) + c^{*}pq^{*}(-x) + d^{*}qq^{*}(-x) 
+    \Delta         & = ap^{*}(-x)p + bq^{*}(-x)p + c^{*}p^{*}(-x)q + dq^{*}(-x)q             \\
+    \Delta^{*}(-x) & = a^{*}pp^{*}(-x) + b^{*}qp^{*}(-x) + c^{*}pq^{*}(-x) + d^{*}qq^{*}(-x)
 \end{align}
-则 $ a,d \in \mathbb{R}, b = c^{*} \in \mathbb{C} $, 此时 
+则 $ a,d \in \mathbb{R}, b = c^{*} \in \mathbb{C} $, 此时
 \begin{align}
-    (31) &= a(13)^{*}(-x) + b(23)^{*}(-x), \\
-    (32) &= b^{*}(13)(-x) + d(23)^{*}(-x),
+    (31) & = a(13)^{*}(-x) + b(23)^{*}(-x), \\
+    (32) & = b^{*}(13)(-x) + d(23)^{*}(-x),
 \end{align}
 方程 \eqref{ch4-eq:4-component-AKNS-components} 约化为
 \begin{align}
-    \rmi p_{t} + p_{xx} + 2p \left[ a p p^{*}(-x) + b p q^{*}(-x) + b^{*}p^{*}(-x)q + d q^{*}(-x) q \right] &= 0, \label{ch4-eq:reduction-inverse-x-p}\\
-    \rmi q_{t} + q_{xx} + 2q \left[ a p p^{*}(-x) + b p q^{*}(-x) + b^{*}p^{*}(-x)q + d q^{*}(-x) q \right] &= 0\label{ch4-eq:reduction-inverse-x-q}
+    \rmi p_{t} + p_{xx} + 2p \left[ a p p^{*}(-x) + b p q^{*}(-x) + b^{*}p^{*}(-x)q + d q^{*}(-x) q \right] & = 0, \label{ch4-eq:reduction-inverse-x-p} \\
+    \rmi q_{t} + q_{xx} + 2q \left[ a p p^{*}(-x) + b p q^{*}(-x) + b^{*}p^{*}(-x)q + d q^{*}(-x) q \right] & = 0\label{ch4-eq:reduction-inverse-x-q}
 \end{align}
-则 q 可取 $ p^{*}(-t), p(-x), p^{*}(-x,-t) $. 
+则 q 可取 $ p^{*}(-t), p(-x), p^{*}(-x,-t) $.
 
 \subsubsection*{Case 2.1 $ q = p(-x) $}
 此时 $ a=d $, 方程约化为
@@ -127,26 +131,26 @@
 
 \subsection*{情形 3. $ p_1 = p(-t), q_1 = q(-t) $}
 此时 $r_1 = ap(-t) + bq(-t), r_2 = cp(-t) + dq(-t)$
-要约化 (31) (32), 需要 $ \Delta(-t) = \Delta $, 其中 
+要约化 (31) (32), 需要 $ \Delta(-t) = \Delta $, 其中
 \begin{equation}
     \begin{aligned}
-        \Delta &= app(-t) + bpq(-t) + cp(-t)q + dqq(-t) \\
-        \Delta(-t) &= ap(-t)p + bp(-t)q + cpq(-t) + dq(-t)q
+        \Delta     & = app(-t) + bpq(-t) + cp(-t)q + dqq(-t) \\
+        \Delta(-t) & = ap(-t)p + bp(-t)q + cpq(-t) + dq(-t)q
     \end{aligned}
-\end{equation} 
+\end{equation}
 则 $ b=c $, 此时有
 \begin{equation*}
     \begin{aligned}
-        (31) &= a(13)(-t) + b(23)(-t), \\
-        (32) &= b(13)(-t) + d(23)(-t),
+        (31) & = a(13)(-t) + b(23)(-t), \\
+        (32) & = b(13)(-t) + d(23)(-t),
     \end{aligned}
 \end{equation*}
 方程约化为
 \begin{align}
-    ip_{t} + p_{xx} + 2p \left[ app(-t) + bpq(-t) + bp(-t)q + dqq(-t) \right] = 0, \label{ch4-eq:reduction-inverse-t-p}\\
+    ip_{t} + p_{xx} + 2p \left[ app(-t) + bpq(-t) + bp(-t)q + dqq(-t) \right] = 0, \label{ch4-eq:reduction-inverse-t-p} \\
     iq_{t} + q_{xx} + 2q \left[ app(-t) + bpq(-t) + bp(-t)q + dqq(-t) \right] = 0, \label{ch4-eq:reduction-inverse-t-q}
 \end{align}
-q 取值同上. 
+q 取值同上.
 
 \subsubsection*{Case 3.1 $ q = p(-x) $}
 此时 $ a = d $, 方程约化为
@@ -168,20 +172,20 @@ q 取值同上.
 \end{equation}
 
 \subsection*{情形 4. $ p_{1} = p(-x,-t), q_{1} = q(-x,-t) $}
-此时有 $r_1 = ap(-x,-t) + bq(-x,-t), r_2 = cp(-x,-t) + dq(-x,-t) $, 要约化 (31) (32), 需要 $ \Delta(-x,-t) = \Delta $, 其中 
+此时有 $r_1 = ap(-x,-t) + bq(-x,-t), r_2 = cp(-x,-t) + dq(-x,-t) $, 要约化 (31) (32), 需要 $ \Delta(-x,-t) = \Delta $, 其中
 \begin{align}
-    \Delta &= app(-x,-t) + bpq(-x,-t) + cp(-x,-t)q + dq(-x,-t)q \\
-    \Delta(-x,-t) &= ap(-x,-t)p + bp(-x,-t)q + cpq(-x,-t) + dqq(-x,-t)
+    \Delta        & = app(-x,-t) + bpq(-x,-t) + cp(-x,-t)q + dq(-x,-t)q \\
+    \Delta(-x,-t) & = ap(-x,-t)p + bp(-x,-t)q + cpq(-x,-t) + dqq(-x,-t)
 \end{align}
 则 $ \Delta(-x,-t) = \Delta $, 只需 $ b=c $, 此时有
 \begin{align}
-    (31) &= a(13)(-x,-t) + b(23)(-x,-t) \\
-    (32) &= b(13)(-x,-t) + d(23)(-x,-t)
+    (31) & = a(13)(-x,-t) + b(23)(-x,-t) \\
+    (32) & = b(13)(-x,-t) + d(23)(-x,-t)
 \end{align}
 方程约化为
 \begin{align}
-        ip_{t} + p_{xx} + 2p \left[ app(-x,-t) + bpq(-x,-t) + bp(-x,-t)q + dqq(-x,-t) \right] = 0, \label{ch4-eq:reduction-inverse-xt-p}\\
-        iq_{t} + q_{xx} + 2q \left[ app(-x,-t) + bpq(-x,-t) + bp(-x,-t)q + dqq(-x,-t) \right] = 0, \label{ch4-eq:reduction-inverse-xt-q}
+    ip_{t} + p_{xx} + 2p \left[ app(-x,-t) + bpq(-x,-t) + bp(-x,-t)q + dqq(-x,-t) \right] = 0, \label{ch4-eq:reduction-inverse-xt-p} \\
+    iq_{t} + q_{xx} + 2q \left[ app(-x,-t) + bpq(-x,-t) + bp(-x,-t)q + dqq(-x,-t) \right] = 0, \label{ch4-eq:reduction-inverse-xt-q}
 \end{align}
 
 \subsubsection*{Case 4.1 继续增加约化条件 $ q = p(-x,t) $}
@@ -201,33 +205,33 @@ q 取值同上.
 \begin{equation}
     ip_t + p_{xx} + 2p \left[ app(-x,-t) + bpp^{*} + bp(-x,-t)p^{*}(-x,-t) + a^{*}p^{*}p^{*}(-x,-t) \right] = 0
 \end{equation}
-至此, 我们推导出所有可能的约化情况. 
+至此, 我们推导出所有可能的约化情况.
 
 \section{利用 RH 方法求解广义耦合非线性 NLS 方程}
-本部分我们将利用 RH 方法求解零边界的耦合 NLS 方程 \eqref{ch4-eq:Coupled-NLS-p}, \eqref{ch4-eq:Coupled-NLS-q}. 故 $ x, t \to \pm \infty $ 时, $ p, q \to 0 $, 则 Jost 渐近解为 $ \phi = J e^{\theta}$, 其中 $ \theta = -\rmi \lambda \Lambda x + 2 \rmi \lambda^{2} t \Lambda $, $ J $ 为在无穷远处与 $ (x,t) $ 的无关的函数, 将其带入 Lax 对 \eqref{ch4-eq:AKNS-Lax-Pair-x}-\eqref{ch4-eq:AKNS-Lax-Pair-t} 得 
+本部分我们将利用 RH 方法求解零边界的耦合 NLS 方程 \eqref{ch4-eq:Coupled-NLS-p}, \eqref{ch4-eq:Coupled-NLS-q}. 故 $ x, t \to \pm \infty $ 时, $ p, q \to 0 $, 则 Jost 渐近解为 $ \phi = J e^{\theta}$, 其中 $ \theta = -\rmi \lambda \Lambda x + 2 \rmi \lambda^{2} t \Lambda $, $ J $ 为在无穷远处与 $ (x,t) $ 的无关的函数, 将其带入 Lax 对 \eqref{ch4-eq:AKNS-Lax-Pair-x}-\eqref{ch4-eq:AKNS-Lax-Pair-t} 得
 \begin{equation}
     J_{x} = -\rmi \lambda [\Lambda, J] + Q J, \quad J_{t} = 2 \rmi \lambda^{2} [\Lambda, J] + R J, \label{ch4-eq:ANKS-Lax-mod}
-\end{equation} 
-容易发现 $ Q^{\dagger} = - M_{0} Q M_{0}^{-1} $ 其中 
+\end{equation}
+容易发现 $ Q^{\dagger} = - M_{0} Q M_{0}^{-1} $ 其中
 \begin{equation}
     M_{0} = \begin{pmatrix}
-            a & b^{*} & 0 \\ b & d & 0 \\ 0 & 0 & 1 
-        \end{pmatrix}, \quad
+        a & b^{*} & 0 \\ b & d & 0 \\ 0 & 0 & 1
+    \end{pmatrix}, \quad
     M_{1} = \begin{pmatrix}
-            a & b^{*} & 0 \\ b & d & 0 \\ 0 & 0 & -1 
-        \end{pmatrix}, \quad
+        a & b^{*} & 0 \\ b & d & 0 \\ 0 & 0 & -1
+    \end{pmatrix}, \quad
     M_{2} = \begin{pmatrix}
-            a & b & 0 \\ b & d & 0 \\ 0 & 0 & 1
-        \end{pmatrix}, \quad
+        a & b & 0 \\ b & d & 0 \\ 0 & 0 & 1
+    \end{pmatrix}, \quad
     M_{3} = \begin{pmatrix}
-            a & b & 0 \\ b & d & 0 \\ 0 & 0 & -1
-        \end{pmatrix},
+        a & b & 0 \\ b & d & 0 \\ 0 & 0 & -1
+    \end{pmatrix},
 \end{equation}
-接下来我们考虑驻定解问题, 将 Jost 矩阵 $ J_{\pm}(x,\lambda) $ 带入 Lax 对\eqref{ch4-eq:AKNS-Lax-Pair-x} 可得 
+接下来我们考虑驻定解问题, 将 Jost 矩阵 $ J_{\pm}(x,\lambda) $ 带入 Lax 对\eqref{ch4-eq:AKNS-Lax-Pair-x} 可得
 \begin{equation}
-    J_{\pm}(x,\lambda) \to I, \quad x \to \pm \infty \label{ch4-eq:Jost-boundary}
+    J_{+}(x,\lambda) \to I, \quad x \to +\infty, \quad J_{-}(x,\lambda) \to I, \quad x \to -\infty \label{ch4-eq:Jost-boundary}
 \end{equation}
-利用 $\tr(Q) = 0 $ 及 Abel 定理 \thmref{ch1-thm:Abel} 我们有 
+利用 $\tr(Q) = 0 $ 及 Abel 定理 \cref{ch1-thm:Abel} 我们有
 \begin{equation}
     \det(J_{\pm}) = 1, \forall x \in \mathbb{R} \label{ch4-eq:det-Jost}
 \end{equation}
@@ -235,29 +239,29 @@ q 取值同上.
 \begin{equation}
     J_{-} E = J_{+} E S(\lambda), \quad \lambda \in \mathbb{R} \label{ch4-eq:Jost-symmetry-1}
 \end{equation}
-其中 $ S(\lambda) = \left[s_{ij}(\lambda)\right]_{3 \times 3} $ 为散射矩阵, 且 $ \det(S(\lambda)) = 1 $. 对 \eqref{ch4-eq:AKNS-Lax-Pair-x} 变换得 
+其中 $ S(\lambda) = \left[s_{ij}(\lambda)\right]_{3 \times 3} $ 为散射矩阵, 且 $ \det(S(\lambda)) = 1 $. 对 \eqref{ch4-eq:AKNS-Lax-Pair-x} 变换得
 \begin{equation}
     \phi_{x} + \rmi \lambda \Lambda \phi = Q \phi
 \end{equation}
 若将 $ Q \phi $ 设为非齐次项, 注意到等号左侧的解为 $ E $, 利用变分法及 \eqref{ch4-eq:Jost-boundary}, 我们有如下 Volterra 积分
 \begin{align}
-    J_{-}(x, \lambda) &= I + \int_{-\infty}^{x} e^{\rmi \lambda \Lambda (y-x)} Q(y) J_{-}(y, \lambda) e^{-\rmi \lambda \Lambda (x-y)} \, \rmd y, \label{ch4-eq:volterra-J1} \\
-    J_{+}(x, \lambda) &= I - \int_{x}^{+\infty} e^{\rmi \lambda \Lambda (y-x)} Q(y) J_{+}(y, \lambda) e^{-\rmi \lambda \Lambda (x-y)} \, \rmd y \label{ch4-eq:volterra-J2}
+    J_{-}(x, \lambda) & = I + \int_{-\infty}^{x} e^{\rmi \lambda \Lambda (y-x)} Q(y) J_{-}(y, \lambda) e^{-\rmi \lambda \Lambda (x-y)} \, \rmd y, \label{ch4-eq:volterra-J1} \\
+    J_{+}(x, \lambda) & = I - \int_{x}^{+\infty} e^{\rmi \lambda \Lambda (y-x)} Q(y) J_{+}(y, \lambda) e^{-\rmi \lambda \Lambda (x-y)} \, \rmd y \label{ch4-eq:volterra-J2}
 \end{align}
-故若等号右侧积分收敛, 则 $ J_{\pm} $ 可在复平面进行解析延拓. 若记 $ J_{\pm} = ([J_{\pm}]^{1}, [J_{\pm}]^{2}, [J_{\pm}]^{3}) $, 则有 $ [J_{+}]^{1}, [J_{+}^{2}] $ 仅包含 $ e^{\rmi \lambda (y-x)} $, $ [J_{+}^{3}] $ 仅包含 $ e^{-\rmi \lambda (x-y)} $, 则 $ \lambda \in \mathbb{C}_{+} $ 时, $ [J_{+}]^{3} \to 0 $, 故 $ [J_{+}]^{3} $ 在 $ \mathbb{C}_{-} $ 解析, 同理可得 $ [J_{+}]^{1}, [J_{+}]^{2}, [J_{-}]^{3} $ 在 $ \lambda \in \mathbb{C}_{+} $ 时解析, $ [J_{-}]^{1}, [J_{-}]^{2} $ 在 $ \lambda \in \mathbb{C}_{-} $ 时解析. 若设 $ \phi = [\phi_{1}, \phi_{2}, \phi_{3}], \quad \psi = [\psi_{1}, \psi_{2}, \psi_{3}] $, 则
+故若等号右侧积分收敛, 则 $ J_{\pm} $ 可在复平面进行解析延拓. 若记 $ J_{\pm} = ([J_{\pm}]^{1}, [J_{\pm}]^{2}, [J_{\pm}]^{3}) $, 则有 $ [J_{+}]^{1}, [J_{+}^{2}] $ 仅包含 $ e^{\rmi \lambda (y-x)} $, $ [J_{+}]^{3} $ 仅包含 $ e^{-\rmi \lambda (x-y)} $, 则 $ \lambda \in \mathbb{C}_{+} $ 时, $ [J_{+}]^{3} \to 0 $, 故 $ [J_{+}]^{3} $ 在 $ \mathbb{C}_{-} $ 解析, 同理可得 $ [J_{+}]^{1}, [J_{+}]^{2}, [J_{-}]^{3} $ 在 $ \lambda \in \mathbb{C}_{+} $ 时解析, $ [J_{-}]^{1}, [J_{-}]^{2} $ 在 $ \lambda \in \mathbb{C}_{-} $ 时解析. 若设 $ \phi = [\phi_{1}, \phi_{2}, \phi_{3}], \quad \psi = [\psi_{1}, \psi_{2}, \psi_{3}] $, 则
 \begin{align}
-    P^{+} &= [\psi_{1}, \psi_{2}, \phi_{3}]e^{\rmi \lambda \Lambda x} = J_{+}H_{2} + J_{-}H_{1}, \label{ch4-eq:RHP-P1} \\
-    P^{-} &= [\phi_{1}, \phi_{2}, \psi_{3}]e^{\rmi \lambda \Lambda x} = J_{-}H_{2} + J_{+}H_{1}, \label{ch4-eq:RHP-P2}
+    P^{+} & = [\psi_{1}, \psi_{2}, \phi_{3}]e^{\rmi \lambda \Lambda x} = J_{+}H_{2} + J_{-}H_{1}, \label{ch4-eq:RHP-P1} \\
+    P^{-} & = [\phi_{1}, \phi_{2}, \psi_{3}]e^{\rmi \lambda \Lambda x} = J_{-}H_{2} + J_{+}H_{1}, \label{ch4-eq:RHP-P2}
 \end{align}
 其中 $ H_{1} = \diag(0,0,1), H_{2} = \diag(1,1,0) $, 则 $ P^{+} $ 在 $ \mathbb{C}_{+} $ 解析, $ P^{-} $ 在 $ \mathbb{C}_{-} $ 解析. 联系 \eqref{ch4-eq:RHP-P1} 及 Volterra 积分\eqref{ch4-eq:volterra-J2}, 可得
 \begin{equation}
     P^{+}(x,\lambda) \to I,  (\lambda \in \mathbb{C}_{+}), \quad P^{-}(x,\lambda) \to I (\lambda \in \mathbb{C}_{-}), \label{ch4-eq:RHP-normalization}
 \end{equation}
-我们现在考虑 \eqref{ch4-eq:ANKS-Lax-mod} 的伴随问题 
+我们现在考虑 \eqref{ch4-eq:ANKS-Lax-mod} 的伴随问题
 \begin{equation}
     K_{x} = - \rmi\lambda [\Lambda, K] - K Q, \label{ch4-eq:Lax-adjoint}
 \end{equation}
-并设 $ J_{\pm}^{-1} $ 为伴随问题的 Jost 矩阵, 若记 
+并设 $ J_{\pm}^{-1} $ 为伴随问题的 Jost 矩阵, 若记
 \begin{equation}
     \phi^{-1} = (\hat{\phi}_{1}, \hat{\phi}_{2}, \hat{\phi}_{3})^{T}, \quad \psi^{-1} = (\hat{\psi}_{1}, \hat{\psi}_{2}, \hat{\psi}_{3})^{T},
 \end{equation}
@@ -265,26 +269,26 @@ q 取值同上.
 \begin{equation}
     P^{-} = e^{-\rmi \lambda \Lambda x}(\hat{\psi}_{1}, \hat{\psi}_{2}, \hat{\phi}_{3})^{T} = H_{2}J_{+}^{-1} + H_{1} J_{-}^{-1}, \quad \lambda \in \mathbb{C}_{-} \label{ch4-eq:RHP-P-minus}
 \end{equation}
-同理有 $ P^{-}(x,\lambda) \to I, \lambda \in \mathbb{C}_{-} $. 现在我们得到 $ P_{\pm} $ 分别在 $ \mathbb{C}_{\pm} $ 解析, 且满足
+同理有 $ P^{-}(x,\lambda) \to I, \lambda \in \mathbb{C}_{-} $. 现在我们得到 $ P^{\pm} $ 分别在 $ \mathbb{C}_{\pm} $ 解析, 且满足
 \begin{equation}
     P^{-}(x,\lambda) P^{+}(x,\lambda) = G(x,\lambda), \quad \lambda \in \mathbb{R} \label{ch4-eq:RHP-jump}
 \end{equation}
-其中 
+其中
 \begin{equation}
-    G(x,\lambda) = E \left[H_{1} + H_{2} S(\lambda)\right] \left[H_{1} + S^{-1}(\lambda) H_{2}\right] E^{-1},
+    G(x,\lambda) = E \left[H_{1} + H_{2} S(\lambda)\right] \left[H_{1} + S^{-1}(\lambda) H_{2}\right] E^{-1}, \label{ch4-eq:RHP-jump-matrix}
 \end{equation}
-则我们得到一个 RHP, 即寻找满足 \eqref{ch4-eq:RHP-jump} 及 \eqref{ch4-eq:RHP-normalization} 的矩阵函数 $ P(\lambda) $. 
+则我们得到一个 RHP, 接下来只需寻找满足 \eqref{ch4-eq:RHP-jump} 及 \eqref{ch4-eq:RHP-normalization} 的矩阵函数 $ P^{\pm}(\lambda) $.
 
-若 $ \det(P^{\pm}(\lambda)) $ 在各自区域无零点, 则 RHP 唯一可解, 且此时 $ P_{\pm} $ 和 $ J_{\pm} $ 满足如下关系: 
+若 $ \det(P^{\pm}(\lambda)) $ 在各自区域无零点, 则 RHP 唯一可解, 由 \eqref{ch4-eq:RHP-jump-matrix}, 此时 $ P_{\pm} $ 和 $ J_{\pm} $ 满足如下关系:
 \begin{equation}
-    \det{P^{+}(x,\lambda)} = s_{3}(\lambda), \quad \det{P^{-}(x,\lambda)} = \hat{s}_{3}(\lambda), \label{ch4-eq:det-P-s}
+    \det{P^{+}(x,\lambda)} = s_{33}(\lambda), \quad \det{P^{-}(x,\lambda)} = \hat{s}_{33}(\lambda), \label{ch4-eq:det-P-s}
 \end{equation}
-其中 $ \hat{s}_{33} = (S^{-1})_{33} = s_{11}s_{22} - s_{12}s_{21} $. 为表示方便, 我们设 
+其中 $ \hat{s}_{33} = (S^{-1})_{33} = s_{11}s_{22} - s_{12}s_{21} $. 为表示方便, 我们设
 \begin{align}
     \{\lambda_{k} \in \mathbb{C}_{+}: 1 \leq k \leq N\} \implies s_{33}(\lambda_{k}) = 0, \\
     \{\hat{\lambda}_{k} \in \mathbb{C}_{-}: 1 \leq k \leq N\} \implies \hat{s}_{33}(\hat{\lambda}_{k}) = 0,
 \end{align}
-且 $ \lambda_{k}, \hat{\lambda}_{k} $ 均为简单零点(一阶). 此时 $ \ker\left(P^{+}(\lambda)\right), \ker\left(P^{-}(\lambda)\right) $ 有唯一的特征向量 $ v_{k}, \hat{v}_{k} $, 且满足 
+且 $ \lambda_{k}, \hat{\lambda}_{k} $ 均为简单零点(一阶). 此时 $ \ker\left(P^{+}(\lambda)\right), \ker\left(P^{-}(\lambda)\right) $ 有唯一的特征向量 $ v_{k}, \hat{v}_{k} $, 且满足
 \begin{equation}
     P^{+}(\lambda_{k}) v_{k} = 0, \quad \hat{v}_{k} P^{-}(\hat{\lambda}_{k}) = 0, \quad 1 \leq k \leq N \label{ch4-eq:RHP-kernel}
 \end{equation}
@@ -292,129 +296,144 @@ q 取值同上.
 \begin{equation}
     P^{+}(x,\lambda) = I + \frac{1}{\lambda} P_{1}^{+}(\lambda) + O(\lambda^{-2}), \quad \lambda \to \infty
 \end{equation}
-将其带入 \eqref{ch4-eq:AKNS-Lax-Pair-x}, 可得 
+将其带入 \eqref{ch4-eq:AKNS-Lax-Pair-x}, 可得
 \begin{equation}
     Q = \rmi [\Lambda, P_{1}^{+}] = - \begin{pmatrix}
         0 & 0 & 2 \rmi P_{13} \\ 0 & 0 & 2 \rmi P_{23} \\ -2 \rmi P_{31} & -2 \rmi P_{32} & 0
     \end{pmatrix}, \label{ch4-eq:Q-from-P1}
 \end{equation}
-其中 $ P_{1}^{+} = \left(P_{ij}\right) $, 利用 $ Q^{\dagger} = M_{0} Q M_{0}^{-1} $, 则有 
+其中 $ P_{1}^{+} = \left(P_{ij}\right) $, 利用 $ Q^{\dagger} = M_{0} Q M_{0}^{-1} $ 及 $ J_{x} = - \rmi \lambda [\Lambda, J] + Q J$ 有
 \begin{equation}
     \left( J_{+}^{\dagger} \right)_{x} = - \rmi \lambda [\Lambda, J_{+}^{\dagger}] + J_{+}^{\dagger} P^{\dagger}
-    \implies \left( J_{+}^{\dagger} M_{0} \right)_{x} = - \rmi \lambda [\Lambda, J_{+}^{\dagger} M_{0}] + J_{+}^{\dagger} M_{0} Q, 
+    \implies \left( J_{+}^{\dagger} M_{0} \right)_{x} = - \rmi \lambda [\Lambda, J_{+}^{\dagger} M_{0}] + J_{+}^{\dagger} M_{0} Q,
 \end{equation}
 故 $ J_{\pm}^{\dagger} M_{0} $ 亦为伴随问题 \eqref{ch4-eq:Lax-adjoint} 的解, 又 $ J_{\pm}^{-1} $ 也为伴随问题的解, 故二者线性相关, 即 $ J_{\pm}^{\dagger} M_{0} = C J_{\pm}^{-1} $, 其中 $ C $ 为常数矩阵. 不失一般性, 不妨取 $ C = M_{0} $, 则
 \begin{equation}
     J_{\pm}^{\dagger} = M_{0} J_{\pm}^{-1} M_{0}^{-1}, \label{ch4-eq:Jost-symmetry-2}
 \end{equation}
-同理有 $ \left( P^{+} \right)^{\dagger}(\lambda^{*}) = M_{0} P^{-}(\lambda) M_{0}^{-1} $. 联立 \eqref{ch4-eq:Jost-symmetry-2} 可得 $ S^{\dagger}(\lambda^{*}) = M_{0} S^{-1}(\lambda) M_{0}^{-1} $, 故 $ \hat{\lambda}_{k} = \lambda_{k}^{*} $ 为 $ \hat{s}_{33}(\lambda) $ 的零点. 
+同理有 $ \left( P^{+} \right)^{\dagger}(\lambda^{*}) = M_{0} P^{-}(\lambda) M_{0}^{-1} $. 联立 \eqref{ch4-eq:Jost-symmetry-1} 可得 $ S^{\dagger}(\lambda^{*}) = M_{0} S^{-1}(\lambda) M_{0}^{-1} $, 故 $ \hat{\lambda}_{k} = \lambda_{k}^{*} $ 为 $ \hat{s}_{33}(\lambda) $ 的零点.
 
 接下来考虑 $ v_{k}, \hat{v}_{k} $ 的关系, 对 \eqref{ch4-eq:RHP-kernel} 做 Hermit 变换, 可得
 \begin{equation}
+    v^{\dagger}(P^{+})^{\dagger}(\lambda^{*}) = v_{k}^{\dagger}M_{0}P^{-}(\lambda)M_{0}^{-1} = 0 \implies
     v_{k}^{\dagger} M_{0} P^{-}(\hat{\lambda}_{k}) = 0 \implies \hat{v}_{k} = v_{k}^{\dagger} M_{0} \label{ch4-eq:RHP-vector-symmetry}
 \end{equation}
-为找到孤子解, 我们设 $ G(x,\lambda) = I $, 仿照上一章节我们有: 
+为找到孤子解, 我们设 $ G(x,\lambda) = I $, 仿照上一章节我们有:
 \begin{equation}
     P^{+}(\lambda) = I + \sum_{j,k=1}^{N} \frac{v_{j} \left(M^{-1}\right)_{jk} \hat{v}_{k}}{\lambda - \hat{\lambda}_{k}}
 \end{equation}
-其中 $ M_{jk} = \frac{\hat{v}_{j} v_{k}}{\hat{\lambda}_{j} - \lambda_{k}} $. 其中 $ \lambda_{k}, \hat{\lambda}_{k} $ 与 $ t $ 无关, 为找出 $ v(x,t) $, 将 $ x $ 带入 $ P^{+}v_{k} = 0 $, 由 \eqref{ch4-eq:AKNS-Lax-Pair-x} 得
-\begin{align}
-    P^{+}(\lambda_{k},x) \left(\frac{d v_{k}}{dx}+ \rmi \lambda_{k} \Lambda v_{k}\right) = 0 \\
-    \implies \frac{d v_{k}}{dx} = - \rmi \lambda \Lambda v_{k} \implies v_{k}(x,t) = e^{\theta} v_{k0}.
-\end{align}
-其中 $ \theta_{k} = - \rmi \lambda_{k} x + 2 \rmi \lambda_{k}^{2} t $. 同理可得 $ \hat{v}_{k}(x,t) = v_{k0}^{\dagger} M_{0} e^{\hat{\theta}_{k}} $, 其中 $ \hat{\theta}_{k} = \rmi \hat{\lambda}_{k} x - 2 \rmi \hat{\lambda}_{k}^{2} t $, 则
+其中 $ M_{jk} = \frac{\hat{v}_{j} v_{k}}{\hat{\lambda}_{j} - \lambda_{k}} $. 其中 $ \lambda_{k}, \hat{\lambda}_{k}, v_{k}, \hat{v}_{k} $ 与 $ t $ 无关, 为找出 $ v_{k}(x,t) $, 将 $ P^{+}v_{k} = 0 $ 带入 \eqref{ch4-eq:AKNS-Lax-Pair-x}-\eqref{ch4-eq:AKNS-Lax-Pair-t} 得
+\begin{equation}
+    \begin{aligned}
+        \begin{cases}
+            P^{+}_{x} = - \rmi \lambda [\Lambda, P^{+}] + Q P^{+}, \\
+            P^{+}_{t} = 2 \rmi \lambda^{2} [\Lambda, P^{+}] + R P^{+},
+        \end{cases}
+         & \implies
+        \begin{cases}
+            P^{+}(\lambda_{k},x) \left(\frac{d v_{k}}{dx}+ \rmi \lambda_{k} \Lambda v_{k}\right) = 0, \\
+            P^{+}(\lambda_{k},x) \left(\frac{d v_{k}}{dt} - 2 \rmi \lambda_{k}^{2} \Lambda v_{k}\right) = 0,
+        \end{cases} \\
+        \begin{cases}
+            v_{kx} = - \rmi \lambda_{k} \Lambda v_{k}, \\
+            v_{kt} = 2 \rmi \lambda_{k}^{2} \Lambda v_{k},
+        \end{cases}
+         & \implies v_{k}(x,t) = e^{\theta} v_{k0}.
+    \end{aligned}
+\end{equation}
+同理可得 $ \hat{v}_{k}(x,t) = v_{k0}^{\dagger} M_{0} e^{\hat{\theta}_{k}} $, 其中 $ \hat{\theta}_{k} = \rmi \hat{\lambda}_{k} x - 2 \rmi \hat{\lambda}_{k}^{2} t $, 则
 \begin{equation}
     p(x,t) = - 2 \rmi P_{12} = - 2 \rmi \left( \sum_{j,k=1}^{N} v_{j}(M^{-1})_{jk} \hat{v}_{k}\right)_{12} \label{ch4-eq:NLS-solution-q}
 \end{equation}
-其余 $ q, r_{1}, r_{2} $ 类似. 我们若取 $ v_{k0} = (\alpha_{k}, \beta_{k}, 1)^{T} $, 则 $ M_{jk} $ 可化简为 
+其余 $ q, r_{1}, r_{2} $ 类似. 我们若取 $ v_{k0} = (\alpha_{k}, \beta_{k}, 1)^{T} $, 则 $ M_{jk} $ 可化简为
 \begin{equation}
     \begin{aligned}
-    M_{jk} &= \frac{\hat{v}_{j}v_{k}}{\lambda^{*}-\lambda_{k}} = \frac{1}{\lambda_{j}^{*}-\lambda_{k}} v_{j}^{\dagger} M_{0} v_{k} \\
-    &= \frac{1}{\lambda^{*}-\lambda_{k}}  (\alpha_{j}^{*}, \beta_{j}^{*}, 1) e^{\theta_{j}^{*}\Lambda} M_{0} e^{\theta_{j}\Lambda} ( \alpha_{k}, \beta_{k}, 1)^{T}\\
-    &= \frac{1}{\lambda^{*}-\lambda_{k}} (\alpha_{j}^{*}, \beta_{j}^{*}, 1) M_{0} e^{(\theta_{j}^{*}+\theta_{j})\Lambda} ( \alpha_{k}, \beta_{k}, 1)^{T} \Leftarrow (M_{0} e^{\theta_{j}\Lambda}=e^{\theta_{j}\Lambda} M_{0})\\
-    &= \frac{1}{\lambda_{j}^{*}-\lambda_{k}}\left[(a \alpha_{j}^{*}\alpha_{k}+ b\beta_{j}^{*}\alpha_{k}+ b^{*}\alpha_{j}^{*}\beta_{k}+d \beta_{j}^{*}\beta_{k})\rme^{-(\theta_{k}+\theta_{j}^{*})} + \rme^{\theta_{k}+\theta_{j}^{*}}\right]
+        M_{jk} & = \frac{\hat{v}_{j}v_{k}}{\lambda^{*}-\lambda_{k}} = \frac{1}{\lambda_{j}^{*}-\lambda_{k}} v_{j}^{\dagger} M_{0} v_{k}                                                                                                                  \\
+               & = \frac{1}{\lambda^{*}-\lambda_{k}}  (\alpha_{j}^{*}, \beta_{j}^{*}, 1) e^{\theta_{j}^{*}\Lambda} M_{0} e^{\theta_{j}\Lambda} ( \alpha_{k}, \beta_{k}, 1)^{T}                                                                           \\
+               & = \frac{1}{\lambda^{*}-\lambda_{k}} (\alpha_{j}^{*}, \beta_{j}^{*}, 1) M_{0} e^{(\theta_{j}^{*}+\theta_{j})\Lambda} ( \alpha_{k}, \beta_{k}, 1)^{T} \Leftarrow (M_{0} e^{\theta_{j}\Lambda}=e^{\theta_{j}\Lambda} M_{0})                \\
+               & = \frac{1}{\lambda_{j}^{*}-\lambda_{k}}\left[(a \alpha_{j}^{*}\alpha_{k}+ b\beta_{j}^{*}\alpha_{k}+ b^{*}\alpha_{j}^{*}\beta_{k}+d \beta_{j}^{*}\beta_{k})\rme^{-(\theta_{k}+\theta_{j}^{*})} + \rme^{\theta_{k}+\theta_{j}^{*}}\right]
     \end{aligned}
 \end{equation}
-则 
+则
 \begin{equation}
     p(x,t) = 2 \rmi \sum_{j,k=1}^{N} \alpha_{k} \rme^{-(\theta_{k}^{*}-\theta_{j})}(M^{-1})_{jk},
 \end{equation}
 
 \section{三种逆时空约化下的散射数据对称性}
-本节我们仿照上一章节, 先考虑 \eqref{ch4-eq:reduction-reverse-x}-\eqref{ch4-eq:reduction-reverse-x-t} 三种约化下的散射数据对称性. 下一节进一步考虑增加 \eqref{ch4-eq:reduction-q1}-\eqref{ch4-eq:reduction-q3} 时的散射数据对称性. 
-
-为表示方便, 不妨设 $ \zeta_{k} \in \mathbb{C}_{+}, \bar{\zeta}_{k} \in \mathbb{C}_{-} $ 为离散特征值, $ v_{k0}, \bar{v}_{k0} $ 为对应的特征向量. 则有一下三个定理: 
+本节我们仿照上一章节, 先考虑 \eqref{ch4-eq:reduction-reverse-x}-\eqref{ch4-eq:reduction-reverse-x-t} 三种约化下的散射数据对称性. 下一节进一步考虑增加 \eqref{ch4-eq:reduction-q1}-\eqref{ch4-eq:reduction-q3} 时的散射数据对称性.
+\subsection{三种约化对称性}
+为表示方便, 不妨设 $ \zeta_{k} \in \mathbb{C}_{+}, \bar{\zeta}_{k} \in \mathbb{C}_{-} $ 为离散特征值, $ v_{k0}, \bar{v}_{k0} $ 为对应的特征向量. 则有一下三个定理:
 
 \begin{theorem}[逆空间] \label{ch4-thm:inverse-space}
     对于逆空间 NLS 方程 \eqref{ch4-eq:reduction-inverse-x-p}-\eqref{ch4-eq:reduction-inverse-x-q}, 如果 $ \zeta $ 是一个特征值, 则 $ -\zeta^{*} $ 也是一个特征值. 因此，非纯虚特征值总是以 $ (\zeta, -\zeta^{*}) $ 的形式成对出现，它们位于复平面的同一半平面。对称关系如下：
     \begin{enumerate}
-        \item 若 $ (\zeta_{k}, \hat{\zeta_{k}}) \in \mathbb{C_{+}} $,对应的特征向量为 $ v_{k0}, \hat{v}_{k0}$, 则满足 $\hat{\mathbf{v}}_{k0} = M_{1}^{T}\mathbf{v}_{k0}^{*}$.
-        \item 
-        若 $ (\bar{\zeta_{k}}, \hat{\bar{\zeta_{k}}}) \in \mathbb{C_{-}} $, 对应的特征向量为 $ \bar{v}_{k0}, \hat{\bar{v}}_{k0}$, 则满足满足 $\hat{\bar{\mathbf{v}}}_{k0} = \bar{\mathbf{v}}_{k0}^{*}M_{1}^{T}$.
+        \item 若 $ (\zeta_{k}, \hat{\zeta_{k}}) \in \mathbb{C_{+}} $,对应的特征向量为 $ v_{k0}, \hat{v}_{k0}$, 则满足 $\hat{v}_{k0} = {v}_{k0}^{\dagger}M_{1}$.
+        \item
+              若 $ (\bar{\zeta_{k}}, \hat{\bar{\zeta_{k}}}) \in \mathbb{C_{-}} $, 对应的特征向量为 $ \bar{v}_{k0}, \hat{\bar{v}}_{k0}$, 则满足满足 $\hat{\bar{v}}_{k0} = \bar{v}_{k0}^{*}M_{1}^{T}$.
     \end{enumerate}
     更进一步, 若 $\zeta_{k} \in i\mathbb{R}_{\pm}$, 则 $\hat{\zeta}_{k} = -\zeta_{k}^{*} = \zeta_{k}$, 我们设 $ a = d $, 且 $ b \in \mathbb{R} $ 为实数, 则
     \begin{enumerate}
-        \item 若 $\zeta_{k} \in \mathbb{R}_{+}$ 为纯虚数, 则对应的特征向量为 $v_{k0} = (\alpha_{k}, \alpha_{k}, 1)^{T}$.
-        \item 若 $\zeta_{k} \in \mathbb{R}_{-}$ 为纯虚数, 则对应的特征向量为 $\bar{v}_{k0} = (\bar{\alpha}_{k}, \bar{\alpha}_{k}, 1)^{T}$.
+        \item 若 $\zeta_{k} \in \mathbb{R}_{+}$ 为纯虚数, 则对应的特征向量为 $v_{k0} = (\alpha_{k}, \alpha_{k}^{*}, 1)^{T}$.
+        \item 若 $\zeta_{k} \in \mathbb{R}_{-}$ 为纯虚数, 则对应的特征向量为 $\bar{v}_{k0} = (\bar{\alpha}_{k}, \bar{\alpha}_{k}^{*}, 1)^{T}$.
     \end{enumerate}
 \end{theorem}
 
 在证明开始之前, 我们仿照上一章节, 先建立离散数据之间的关系, 考虑离散数据 $ \{\zeta_{k}, \bar{\zeta}_{k}, \alpha_{k}, \beta_{k}, \bar{\alpha}_{k}, \bar{\beta}_{k}, 1 \leq k \leq N\} $ 及原谱问题 $Y_{x} = MY$ 和伴随谱问题 $K_{x} = -KM $
 \begin{align}
-    Y_{x} &= - \rmi \zeta \Lambda Y + Q Y \label{eq:3-NLS-eigenvalue-problem},  \\
-    K_{x} &= \rmi \zeta K \Lambda - K Q \label{eq:3-NLS-adjoint-eigenvalue-problem},
+    Y_{x} & = - \rmi \zeta \Lambda Y + Q Y \label{eq:3-NLS-eigenvalue-problem},       \\
+    K_{x} & = \rmi \zeta K \Lambda - K Q \label{eq:3-NLS-adjoint-eigenvalue-problem},
 \end{align}
 其中
 \begin{equation}
     Q(x)=\begin{pmatrix}
-        0 & 0 & p(x,0) \\
-        0 & 0 & q(x,0) \\
+        0           & 0           & p(x,0) \\
+        0           & 0           & q(x,0) \\
         -r_{1}(x,0) & -r_{2}(x,0) & 0
     \end{pmatrix}
 \end{equation}
 这里 $ p(x,0), q(x,0), r_{1}(x,0), r_{2}(x,0) $ 分别为 $ p(x,t), q(x,t), r_{1}(x,t), r_{2}(x,t) $ 在 $ t=0 $ 时的初值. 离散散射数据与离散特征值及特征向量的关系如下: 若 $ \zeta_{k} \in \mathbb{C}_{+} $ 为原谱问题 \eqref{eq:3-NLS-eigenvalue-problem} 的离散特征值, 则存在非零向量 $ v_{k0} = (\alpha_{k}, \beta_{k}, \gamma_{k})^{T} $, 使得对应的离散特征函数 $ Y_{k}(x) $ 满足
 \begin{align}
-    Y_{k}(x) &\to \left(\alpha_{k} \rme^{-\rmi \zeta_{k} x}, \beta_{k} \rme^{-\rmi \zeta_{k} x}, 0\right)^T, \quad x \to -\infty, \\
-    \quad 
-    Y_{k}(x) &\to \left(0, 0, -\gamma_{k} \rme^{\rmi \zeta_{k} x}\right)^T, \quad x \to +\infty \label{eq:large-x-asymptotics-of-reverse-x-3d-NLS-eigenfunction}
+    Y_{k}(x) & \to \left(\alpha_{k} \rme^{-\rmi \zeta_{k} x}, \beta_{k} \rme^{-\rmi \zeta_{k} x}, 0\right)^T, \quad x \to -\infty,                                \\
+    \quad
+    Y_{k}(x) & \to \left(0, 0, -\gamma_{k} \rme^{\rmi \zeta_{k} x}\right)^T, \quad x \to +\infty \label{eq:large-x-asymptotics-of-reverse-x-3d-NLS-eigenfunction}
 \end{align}
 同理, 若 $ \bar{\zeta}_{k} \in \mathbb{C}_{-} $ 为伴随谱问题 \eqref{eq:3-NLS-adjoint-eigenvalue-problem} 的离散特征值, 则存在非零向量 $ \bar{v}_{k0} = (\bar{\alpha}_{k}, \bar{\beta}_{k}, \bar{\gamma}_{k}) $, 使得对应的离散特征函数 $ K_{k}(x) $ 满足
 \begin{align}
-    K_{k}(x) &\to \left(\bar{\alpha}_{k} \rme^{-\rmi \bar{\zeta}_{k} x},\bar{\beta}_{k} \rme^{-\rmi \bar{\zeta}_{k} x}, 0\right)M_{0}, \quad x \to -\infty, \\
-    K_{k}(x) &\to \left(0, 0, -\bar{\gamma}_{k}\rme^{\rmi \bar{\zeta}_{k}x}\right)M_{0}, \quad x \to +\infty \label{eq:large-x-asymptotics-of-reverse-x-3d-NLS-adjoint-eigenfunction}
+    K_{k}(x) & \to \left(\bar{\alpha}_{k} \rme^{-\rmi \bar{\zeta}_{k} x},\bar{\beta}_{k} \rme^{-\rmi \bar{\zeta}_{k} x}, 0\right)M_{0}, \quad x \to -\infty,                           \\
+    K_{k}(x) & \to \left(0, 0, -\bar{\gamma}_{k}\rme^{\rmi \bar{\zeta}_{k}x}\right)M_{0}, \quad x \to +\infty \label{eq:large-x-asymptotics-of-reverse-x-3d-NLS-adjoint-eigenfunction}
 \end{align}
-鉴于此联系, 为了推导(离散)散射数据的对称关系, 我们将利用特征值问题中离散特征模的对称关系 \eqref{eq:3-NLS-eigenvalue-problem}-\eqref{eq:3-NLS-adjoint-eigenvalue-problem}. 
+鉴于此联系, 为了推导(离散)散射数据的对称关系, 我们将利用特征值问题中离散特征模的对称关系 \eqref{eq:3-NLS-eigenvalue-problem}-\eqref{eq:3-NLS-adjoint-eigenvalue-problem}.
 \begin{proof}
     此时 $ r_{1}(x,0) = a p^{*}(-x,0) + b q^{*}(x,0), r_{2}(x,0) = b p^{*}(-x,0) + d q^{*}(x,0) $, 则势函数矩阵 $ Q $ 为
     \begin{equation}
         Q(x) = \begin{pmatrix}
-            0 & 0 & p(x,0) \\ 
-            0 & 0 & q(x,0) \\ 
-            -\left[a p^{*}(-x,0)+ b q^{*}(x,0)\right] & -\left[b p^{*}(-x,0) + d q^{*}(x,0)\right] & 0 
+            0                                         & 0                                          & p(x,0) \\
+            0                                         & 0                                          & q(x,0) \\
+            -\left[a p^{*}(-x,0)+ b q^{*}(x,0)\right] & -\left[b p^{*}(-x,0) + d q^{*}(x,0)\right] & 0
         \end{pmatrix},
     \end{equation}
     很容易发现 $ Q^{\dagger}(-x) = M_{1} Q(x) M_{1}^{-1} $, 所以我们对 \eqref{eq:3-NLS-eigenvalue-problem} 式先共轭转置, 再进行变量替换 $ x \to -x $, 则有
     \begin{equation}
         \begin{aligned}
-            Y_{x} = - \rmi \zeta \Lambda Y + Q Y \implies -Y_{x}(-x) &= - \rmi \zeta \Lambda Y(-x) + Q(-x) Y(-x) \\
-            \implies -Y_{x}^{\dagger}(-x) &= \rmi \zeta^{*} Y^{\dagger}(-x) \Lambda + Y^{\dagger}(-x) Q^{\dagger}(-x) \\
-            &=\rmi \zeta^{*} Y^{\dagger}(-x)\Lambda + Y^{\dagger}(-x) M_{1} Q(x) M_{1}^{-1},
+            Y_{x} = - \rmi \zeta \Lambda Y + Q Y \implies -Y_{x}(-x) & = - \rmi \zeta \Lambda Y(-x) + Q(-x) Y(-x)                                      \\
+            \implies -Y_{x}^{\dagger}(-x)                            & = \rmi \zeta^{*} Y^{\dagger}(-x) \Lambda + Y^{\dagger}(-x) Q^{\dagger}(-x)      \\
+                                                                     & =\rmi \zeta^{*} Y^{\dagger}(-x)\Lambda + Y^{\dagger}(-x) M_{1} Q(x) M_{1}^{-1},
         \end{aligned}
     \end{equation}
     故
     \begin{equation}
-         \hat{Y}(x) = \hat{Y}(x) [\rmi \hat{\zeta} \Lambda - Q(x)] \label{ch4-eq:reverse-x-symmetry-relation}
+        \hat{Y}_{x}(x) = \hat{Y}(x) [\rmi \hat{\zeta} \Lambda - Q(x)] \label{ch4-eq:reverse-x-symmetry-relation}
     \end{equation}
     其中
     \begin{equation}
-    \hat{Y}(x) = \omega Y(-x)^{\dagger}M, \quad \hat{\zeta} = -\zeta^{*}, \label{ch4-eq:reverse-x-symmetry-parameters}
+        \hat{Y}(x) = \omega Y(-x)^{\dagger}M, \quad \hat{\zeta} = -\zeta^{*}, \label{ch4-eq:reverse-x-symmetry-parameters}
     \end{equation}
     这里 $ \omega $ 为任意非零常数, 故 \eqref{ch4-eq:reverse-x-symmetry-relation} 显示若 $ \zeta_{k} \in \mathbb{C}_{+} $ 为散射问题 \eqref{eq:3-NLS-eigenvalue-problem} 的特征值, 则 $ \hat{\zeta}_{k} = -\zeta_{k}^{*} \in \mathbb{C}_{+} $ 亦为特征值. 此外, $\zeta_{k}$ 的特征函数 $ Y_{k}(x) $ 与 $\zeta_{k}$ 的特征函数 $ Y_{k}(x) $ 之间满足关系式 \eqref{ch4-eq:reverse-x-symmetry-parameters}. 利用 $\zeta_{k}$ 的特征函数 $ Y_{k}(x) $ 在 $ x \to \infty $ 处的渐近形式 \eqref{eq:large-x-asymptotics-of-reverse-x-3d-NLS-eigenfunction}, 而 $\hat{\zeta_{k}}$ 的 $\hat{Y}_{k} $ 在$ x \to \infty $ 处的渐近形式与 \eqref{eq:large-x-asymptotics-of-reverse-x-3d-NLS-eigenfunction} 相同, 只是将 $\zeta_{k}, \alpha_{k}, \beta_{k}, \gamma_{k} $ 和 $\gamma_{k} $ 分别替换为 $\hat{\zeta}_{k}, \hat{\alpha}_{k}, \hat{\beta}_{k}, \bar{\gamma}_{k} $ 和 $\hat{\gamma}_{k} $. 利用这些渐近形式, 可得
     \begin{equation}
         \begin{aligned}
-            \hat{\alpha}_{k} &= - \omega(a \alpha_{k}^{*} + b^{*} \beta_{k}^{*}), \\
-            \hat{\beta}_{k} &= - \omega(b \alpha_{k}^{*} + d \beta_{k}^{*}), \\
-            \hat{\gamma}_{k} &= - \omega \gamma_{k}^{*}
+            \hat{\alpha}_{k} & = - \omega(a \alpha_{k}^{*} + b^{*} \beta_{k}^{*}), \\
+            \hat{\beta}_{k}  & = - \omega(b \alpha_{k}^{*} + d \beta_{k}^{*}),     \\
+            \hat{\gamma}_{k} & = \omega \gamma_{k}^{*}
         \end{aligned} \implies \hat{v}_{k0} = - \omega M^{T} v^{*}_{k0} \label{eq:reverse-x-vector-relation}
     \end{equation}
     故若 $ \zeta_{k} \in \mathbb{C}_{+} $, 则 $ \hat{\zeta}_{k} \neq \zeta_{k} $, 且对应的特征向量满足 $ \hat{v}_{k0} = - \omega M^{T} v^{*}_{k0} $, 带入 $N$ 孤子解公式 \eqref{ch4-eq:NLS-solution-q}, 常数 $ \omega $ 可被消去, 不失一般性, 取 $ -\omega = 1 $, 则有 $ \hat{v}_{k0} = M^{T} v^{*}_{k0} $.
@@ -427,54 +446,60 @@ q 取值同上.
 \begin{theorem}[逆时间] \label{ch4-thm:inverse-time}
     这种情况下 $ b = c $, $ p_{1}=p(x,-t), q_{1} = q(x,-t) $
 
-    对于逆时间 NLS 方程 \eqref{ch4-eq:reduction-inverse-t-p}-\eqref{ch4-eq:reduction-inverse-t-q}. 若 $ \zeta $ 是特征值, 则 $ -\zeta $ 也是特征值. 因此, 离散谱关于原点对称, 特征值总是以 $(\zeta, -\zeta)$ 的形式成对出现 ，位于复平面的相对半平面中. 
-    
-    若 $ \zeta_{k} \in \mathbb{C}_{+} $ 且 $ \bar{\zeta}_{k} = -\zeta_{k} \in \mathbb{C}_{-} $, 其对应的特征向量 $ \mathbf{v}_{k0} $ 和 $ \bar{\mathbf{v}}_{k0} $ 满足关系 $ \bar{\mathbf{v}}_{k0} = \mathbf{v}_{k0}^{T}M_{2} $.
+    对于逆时间 NLS 方程 \eqref{ch4-eq:reduction-inverse-t-p}-\eqref{ch4-eq:reduction-inverse-t-q}. 若 $ \zeta $ 是特征值, 则 $ -\zeta $ 也是特征值. 因此, 离散谱关于原点对称, 特征值总是以 $(\zeta, -\zeta)$ 的形式成对出现 ，位于复平面的相对半平面中.
+
+    若 $ \zeta_{k} \in \mathbb{C}_{+} $ 且 $ \bar{\zeta}_{k} = -\zeta_{k} \in \mathbb{C}_{-} $, 其对应的特征向量 $ v_{k0} $ 和 $ \bar{v}_{k0} $ 满足关系 $ \bar{v}_{k0} = v_{k0}^{T}M_{2} $.
 \end{theorem}
 \begin{proof}
     显然有 $ Q^{T}(x) = -M_{2} P(x) M_{2}^{-1} $, 其中 $Q(x)$ 为
     \begin{equation}
         Q(x) = \begin{pmatrix}
-            0 & 0 & p(x,0) \\ 0 & 0 & q(x,0) \\ -r_{1}(x,0) & -r_{2}(x,0) & 0 
+            0 & 0 & p(x,0) \\ 0 & 0 & q(x,0) \\ -r_{1}(x,0) & -r_{2}(x,0) & 0
         \end{pmatrix},
     \end{equation}
     对 \eqref{eq:3-NLS-eigenvalue-problem} 同时转置, 并利用上述势函数的对称性, 我们得到
     \begin{equation}
-       \begin{aligned}
-            Y_{x}(x) = \rmi \zeta \Lambda Y + QY &\implies  Y_{x}(x) = \rmi \zeta \Lambda Y(x) + Q(x)Y(x) \\
-             &\implies Y_{x}^{T}(x) = \rmi \zeta Y^{T}(x) \Lambda + Y^{T}(x) Q^{T}(x) = \rmi \zeta Y^{T}(x) \Lambda - Y^{T}(x) M_{2} Q(x) M_{2}^{-1} \\
-             &\implies Y_{x}^{T}(x) M_{2} = \rmi \zeta Y^{T}(x) \Lambda M_{2} - Y^{T}(x) M_{2} Q(x) \\
-             &\implies \hat{Y}_{x}(t) = -\hat{Y}(t)\left[\rmi \hat{\zeta}\Lambda + Q(t)\right],
-         \end{aligned}
+        \begin{aligned}
+            Y_{x}(x) = \rmi \zeta \Lambda Y + QY & \implies  Y_{x}(x) = \rmi \zeta \Lambda Y(x) + Q(x)Y(x)                                                                                \\
+                                                 & \implies Y_{x}^{T}(x) = \rmi \zeta Y^{T}(x) \Lambda + Y^{T}(x) Q^{T}(x) = \rmi \zeta Y^{T}(x) \Lambda - Y^{T}(x) M_{2} Q(x) M_{2}^{-1} \\
+                                                 & \implies Y_{x}^{T}(x) M_{2} = \rmi \zeta Y^{T}(x) \Lambda M_{2} - Y^{T}(x) M_{2} Q(x)                                                  \\
+                                                 & \implies \hat{Y}_{x}(t) = -\hat{Y}(t)\left[\rmi \hat{\zeta}\Lambda + Q(t)\right],
+        \end{aligned}
     \end{equation}
-    其中 
+    其中
     \begin{equation}
-    \hat{Y}(t) = Y(-t)^{T}M_{2}, \quad \hat{\zeta} = -\zeta 
-    \end{equation} 
-    这意味着 $ (\hat{\zeta}, \hat{Y}(t)) $ 满足伴随特征值问题 \eqref{eq:3-NLS-adjoint-eigenvalue-problem}.  因此, 若 $ \zeta_{k} \in \mathbb{C_{+}} $ 为散射问题 \eqref{eq:3-NLS-eigenvalue-problem} 的特征值, 则 $ \hat{\zeta}_{k} = -\zeta_{k} \in \mathbb{C}_{-} $ 亦为伴随散射问题 \eqref{eq:3-NLS-adjoint-eigenvalue-problem} 的特征值, 故 $ \hat{v}_{k} = v_{k}^{T} M_{2} $. 
-    这意味着 $ (\hat{\zeta}, \hat{Y}(t)) $ 满足伴随特征值问题 \eqref{eq:3-NLS-adjoint-eigenvalue-problem}.  因此, 若 $ \zeta_{k} \in \mathbb{C_{+}} $ 为散射问题 \eqref{eq:3-NLS-eigenvalue-problem} 的特征值, 则 $ \hat{\zeta}_{k} = -\zeta_{k} \in \mathbb{C}_{-} $ 亦为伴随散射问题 \eqref{eq:3-NLS-adjoint-eigenvalue-problem} 的特征值, 故 $ \hat{v}_{k} = v_{k}^{T} M_{2} $. 
+        \hat{Y}(t) = Y(-t)^{T}M_{2}, \quad \hat{\zeta} = -\zeta
+    \end{equation}
+    这意味着 $ (\hat{\zeta}, \hat{Y}(t)) $ 满足伴随特征值问题 \eqref{eq:3-NLS-adjoint-eigenvalue-problem}.  因此, 若 $ \zeta_{k} \in \mathbb{C_{+}} $ 为散射问题 \eqref{eq:3-NLS-eigenvalue-problem} 的特征值, 则 $ \hat{\zeta}_{k} = -\zeta_{k} \in \mathbb{C}_{-} $ 亦为伴随散射问题 \eqref{eq:3-NLS-adjoint-eigenvalue-problem} 的特征值, 故 $ \hat{v}_{k} = v_{k}^{T} M_{2} $.
+    这意味着 $ (\hat{\zeta}, \hat{Y}(t)) $ 满足伴随特征值问题 \eqref{eq:3-NLS-adjoint-eigenvalue-problem}.  因此, 若 $ \zeta_{k} \in \mathbb{C_{+}} $ 为散射问题 \eqref{eq:3-NLS-eigenvalue-problem} 的特征值, 则 $ \hat{\zeta}_{k} = -\zeta_{k} \in \mathbb{C}_{-} $ 亦为伴随散射问题 \eqref{eq:3-NLS-adjoint-eigenvalue-problem} 的特征值, 故 $ \hat{v}_{k} = v_{k}^{T} M_{2} $.
     这意味着 $ (\hat{\zeta}, \hat{Y}(t)) $ 满足伴随特征值问题 \eqref{eq:3-NLS-adjoint-eigenvalue-problem}.  因此, 若 $ \zeta_{k} \in \mathbb{C_{+}} $ 为散射问题 \eqref{eq:3-NLS-eigenvalue-problem} 的特征值, 则 $ \hat{\zeta}_{k} = -\zeta_{k} \in \mathbb{C}_{-} $ 亦为伴随散射问题 \eqref
-    {eq:3-NLS-adjoint-eigenvalue-problem} 的特征值, 故 $ \hat{v}_{k} = v_{k}^{T} M_{2} $. 
+    {eq:3-NLS-adjoint-eigenvalue-problem} 的特征值, 故 $ \hat{v}_{k} = v_{k}^{T} M_{2} $.
 \end{proof}
 
 \begin{theorem}[逆时空] \label{ch4-thm:inverse-space-time}
     这种情形下 $ b = c $, $ p_{1} = p(-x,-t), q_{1} = q(-x,-t) $
 
-    对于逆时空方程 \eqref{ch4-eq:reduction-inverse-xt-p}-\eqref{ch4-eq:reduction-inverse-xt-q}, $ \zeta \in \mathbb{C}_{+}$ 可以为任意值, 且 $ \bar{\zeta} = \zeta $ 亦为特征值. 因此, 离散谱无对称性限制, 特征值可以位于复平面的任意位置, 然而其对应的特征向量必须满足 ${v}_{k0} = v_{k0}^{T}M_{3} $. 进一步若设 $ a=d $, 则
+    对于逆时空方程 \eqref{ch4-eq:reduction-inverse-xt-p}-\eqref{ch4-eq:reduction-inverse-xt-q}, $ \zeta \in \mathbb{C}_{+}$ 可以为任意值, 且 $ \bar{\zeta} = \zeta $ 亦为任意特征值. 因此, 离散谱无对称性限制, 特征值可以位于复平面的任意位置, 然而其对应的特征向量必须满足 ${v}_{k0} = v_{k0}^{T}M_{3} $. 进一步若设 $ a=d $, 则
     \begin{equation}
-        v_{k0}=(\alpha_{k}, -\alpha_{k}, 1)^{T}, \quad \bar{v}_{k0} = (\bar{\alpha}_{k}, -\bar{\alpha}_{k}, 1) \label{eq:3-NLS-reverse-x-t-eigenvector-symmetry}
+        v_{k0}=(\alpha_{k}, \sigma \alpha_{k}, 1)^{T}, \quad \bar{v}_{k0} = (\bar{\alpha}_{k}, \sigma \bar{\alpha}_{k}, 1) \label{eq:3-NLS-reverse-x-t-eigenvector-symmetry}
     \end{equation}
-\end{theorem}  
+\end{theorem}
 \begin{proof}
     对于逆时空方程情形, 势函数矩阵 $ Q(x) $ 满足
     \begin{equation}
         Q(x) = \begin{pmatrix}
-            0 & 0 & p(x,0) \\ 0 & 0 & q(x,0) \\ -r_{1}(-x,0) & -r_{2}(-x,0) & 0 
+            0 & 0 & p(x,0) \\ 0 & 0 & q(x,0) \\ -r_{1}(-x,0) & -r_{2}(-x,0) & 0
         \end{pmatrix},
     \end{equation}
-    很容易发现 $ Q^{T}(-x) = M_{3} Q(x) M_{3}^{-1} $, 易得 
+    很容易发现 $ Q^{T}(-x) = M_{3} Q(x) M_{3}^{-1} $, 易得
     \begin{equation}
-        \hat{Y}_{x}(x) = -\rmi \hat{\zeta} \hat{Y}(x) \Lambda - \hat{Y}(x) P(x) = -\hat{Y}(x)(\rmi \hat{\zeta}\Lambda + P(x))
+        \begin{aligned}
+            Y_{x} = - \rmi \zeta \Lambda Y + Q Y & \implies -Y_{x}(-x) = - \rmi \zeta \Lambda Y(x) + Q(-x) Y(-x)                           \\
+                                                 & \implies -Y_{x}^{T}(-x) = -\rmi \zeta Y^{T}(-x) \Lambda + Y^{T}(-x) Q^{T}(-x)           \\
+                                                 & \implies Y_{x}^{T}(-x) = \rmi \zeta Y^{T}(-x) \Lambda - Y^{T}(-x) M_{3} Q(x) M_{3}^{-1} \\
+                                                 & \implies Y_{x}^{T}(-x) M_{3} =  Y^{T}(-x)M_{3} [\rmi \zeta \Lambda - Q(x)]              \\
+                                                 & \implies \hat{Y}_{x}(x) = \hat{Y}(x) [\rmi \hat{\zeta} \Lambda - Q(x)]
+        \end{aligned}
     \end{equation}
     其中
     \begin{equation}
@@ -487,15 +512,34 @@ q 取值同上.
     其中 $ \omega_{k} $ 为某个常数. 利用该关系式以及特征函数 $ Y_{k}(x) $ 在 $ x \to \infty $ 处的渐近形式 \eqref{eq:large-x-asymptotics-of-reverse-x-3d-NLS-eigenfunction}, 我们得到
     \begin{equation}
         \begin{aligned}
-            \alpha_{k} &= - \omega_{k} (a \alpha_{k} + b \beta_{k}), \\
-            \beta_{k} &= - \omega_{k} (b \alpha_{k} + d \beta_{k}), \\
-            \gamma_{k} &= \omega_{k} \gamma_{k}
+            \alpha_{k} & = - \omega_{k} (a \alpha_{k} + b \beta_{k}), \\
+            \beta_{k}  & = - \omega_{k} (b \alpha_{k} + d \beta_{k}), \\
+            \gamma_{k} & = \omega_{k} \gamma_{k}
         \end{aligned}
     \end{equation}
-    因此 $\omega_{k} = 1$, and $\alpha_{k} = \sigma \beta_{k}, a+1 = -\sigma b $, where $\sigma = \pm 1 $. 
-    不失一般性, 我们可以放缩 $v_{k0}$ 使得 $\gamma_{k} = 1$, then $v_{k0} = (\alpha_{k}, -\alpha_{k}, 1)^{T} $.
+    因此 $\omega_{k} = 1$, and $\alpha_{k} = \sigma \beta_{k}, a+1 = -\sigma b $, where $\sigma = \pm 1 $.
+    不失一般性, 我们可以放缩 $v_{k0}$ 使得 $\gamma_{k} = 1$, 此时 $v_{k0} = (\alpha_{k}, \sigma \alpha_{k}, 1)^{T} $.
 \end{proof}
-这一部分显示相比于 $ 2 \times 2 $ NLS 方程, $ 3\times 3 $ NLS 没有那么好的性质, 只能使用转置和共轭转置的方式求解, 尤其是逆空间和逆时空情形相比 $ 2 \times 2 $ NLS 方程的性质更差, 这是因为二阶矩阵存在 Pauli 矩阵基底, 而三阶矩阵不存在类似的完备基底. 
+这一部分显示相比于 $ 2 \times 2 $ NLS 方程, $ 3\times 3 $ NLS 没有那么好的性质, 只能使用转置和共轭转置的方式求解, 尤其是逆空间和逆时空情形相比 $ 2 \times 2 $ NLS 方程的性质更差, 这是因为二阶矩阵存在 Pauli 矩阵基底, 而三阶矩阵不存在类似的完备基底.
+\subsection{三种约化下解的动力学分析}
+\subsubsection{逆时空}
+考虑函数
+\begin{equation}
+    \begin{aligned}
+        p(x,t) & = \frac{2 \rmi \alpha_{1} (\zeta_{1} - \bar{\zeta}_{1})}{e^{-2 \rmi \zeta_{1} x + 4 \rmi \zeta_{1}^{2} t} + 2 \alpha_{1} \bar{\alpha}_{1} e^{-2 \rmi \bar{\zeta}_{1} x + 4 \rmi \bar{\zeta}_{1}^{2} t}}                               \\
+               & = 2 \frac{\rmi \alpha_{1} (\zeta_{1} - \bar{\zeta}_{1}) e^{2\rmi \zeta_{1} x - 4 \rmi \bar{\zeta}_{1}^{2}t}}{1+ 2\alpha \bar{\alpha}_{1} e^{2 \rmi (\zeta_{1} - \bar{\zeta}_{1}) x - 4 \rmi (\zeta_{1}^{2} - \bar{\zeta}_{1}^{2}) t}}
+    \end{aligned}
+\end{equation}
+则可得波速 $ V = \frac{\Im(\bar{\zeta}_{1}^{2} - \zeta_{1}^{2})}{\Im(\bar{\zeta}_{1} - \zeta_{1})} $, 则
+\begin{equation}
+    | p | = 2 |\alpha_{1} | |\zeta_{1} - \bar{\zeta}_{1} | \frac{e^{\omega_{1} t}}{1+2\alpha_{1}\bar{\alpha}_{1}e^{\rmi \omega_{2} t}}
+\end{equation}
+其中
+\begin{align}
+    \omega_{1} & = 2V \Im(\zeta_{1}) + 4 \Im(\zeta_{1}^{2}),                                         \\
+    \omega_{2} & = -2V \Re(\bar{\zeta}_{1} - \zeta_{1}) + 4 \Re(\bar{\zeta}_{1}^{2} - \zeta_{1}^{2})
+\end{align}
+则若 $ \Re(\omega_{1}) \neq 0 $, 则解在 $ t \to \infty $ 时爆炸; 若 $ \Re(\omega_{2}) \neq 0 $, 则解会周期性的坍塌.
 
 \section{进一步考虑 12 种逆时空约化情形}
-占位, 
+接下来考虑 $ p, q $ 的约化关系, 占位,

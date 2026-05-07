@@ -2,15 +2,15 @@
 本章节我们考虑非局部 NLS 方程的三种逆问题, 主要参考杨建科老师的文章\cite{YANG2019328}. 在正式开始之前, 我们需要先介绍耦合方程(coupled equations) 和非局部方程(nonlocal equations) 的定义.
 
 \begin{definition}[耦合方程]
-若一系统由两个或多个相互依赖的场函数组成，例如
-\begin{equation}
-    \rmi q_{t} + q_{xx} - 2q^{2}r = 0, \quad \rmi r_{t} - r_{xx} - 2r^{2}q = 0,
-\end{equation}
-其中 $q(x,t)$ 与 $r(x,t)$ 为彼此耦合的复函数，则称该系统为一组耦合方程. 
+    若一系统由两个或多个相互依赖的场函数组成，例如
+    \begin{equation}
+        \rmi q_{t} + q_{xx} - 2q^{2}r = 0, \quad \rmi r_{t} - r_{xx} - 2r^{2}q = 0,
+    \end{equation}
+    其中 $q(x,t)$ 与 $r(x,t)$ 为彼此耦合的复函数，则称该系统为一组耦合方程.
 \end{definition}
 
 \begin{definition}[非局部方程]
-若方程中某个场函数在空间或时间反演后仍与原场发生耦合, 如$ r(x,t) = \sigma q(\epsilon_{1} x, \epsilon_{2} t)$ 或 $\sigma q^{*}(\epsilon_{1} x, \epsilon_{2} t)$, 其中 $\epsilon_{i} = \pm 1$, 且不同时为 $1$, $\sigma = \pm 1$, 且则所得单个方程称为非局部方程. 
+    若方程中某个场函数在空间或时间反演后仍与原场发生耦合, 如$ r(x,t) = \sigma q(\epsilon_{1} x, \epsilon_{2} t)$ 或 $\sigma q^{*}(\epsilon_{1} x, \epsilon_{2} t)$, 其中 $\epsilon_{i} = \pm 1$, 且不同时为 $1$, $\sigma = \pm 1$, 且则所得单个方程称为非局部方程.
 \end{definition}
 
 \section{非局部 NLS 方程及其约化}
@@ -18,14 +18,14 @@
 \begin{equation}
     \rmi q_{t} + q_{xx} - 2q^{2}r = 0, \quad \rmi r_{t} - r_{xx} - 2r^{2}q = 0, \label{eq:coupled-NLS}
 \end{equation}
-其中 $r(x,t)$ 为 $q(x,t)$ 的某种约化形式. 考曲率方程可得如下四种约化, 
+其中 $r(x,t)$ 为 $q(x,t)$ 的某种约化形式. 考曲率方程可得如下四种约化,
 \begin{subequations}
-\begin{align}
-    r(x,t) &= -q^{*}(x,t), \label{eq:local-NLS-reduction}\\
-    r(x,t) &= -q^{*}(-x,t), \label{eq:reverse-x-NLS-reduction}\\
-    r(x,t) &= -q(x,-t), \label{eq:reverse-t-NLS-reduction}\\
-    r(x,t) &= -q(-x,-t), \label{eq:reverse-x-t-NLS-reduction}
-\end{align}
+    \begin{align}
+        r(x,t) & = -q^{*}(x,t), \label{eq:local-NLS-reduction}      \\
+        r(x,t) & = -q^{*}(-x,t), \label{eq:reverse-x-NLS-reduction} \\
+        r(x,t) & = -q(x,-t), \label{eq:reverse-t-NLS-reduction}     \\
+        r(x,t) & = -q(-x,-t), \label{eq:reverse-x-t-NLS-reduction}
+    \end{align}
 \end{subequations}
 分别带入上面约化, 我们得到局部 NLS 方程
 \begin{equation}
@@ -46,18 +46,18 @@
 
 \section{耦合 NLS 方程的 N 孤子解}
 
-我们推导反空间, 反时间和反时空 NLS 方程\eqref{eq:reverse-x-NLS}-\eqref{eq:reverse-x-t-NLS} 的 N 孤子解的基本思路是承认这些方程是耦合NLS\eqref{eq:coupled-NLS} 的约化形式. 为此我们只需利用 RH 方法先求出耦合 NLS 方程 $N$ 孤子解的形式, 然后对 Lax 对施加对应的约化条件, 则可得到对应的非局部 NLS 方程的 $N$ 孤子解. 具体地, 我们考虑耦合 NLS 方程\eqref{eq:coupled-NLS}, 其 Lax 对为: 
+我们推导反空间, 反时间和反时空 NLS 方程\eqref{eq:reverse-x-NLS}-\eqref{eq:reverse-x-t-NLS} 的 N 孤子解的基本思路是承认这些方程是耦合NLS\eqref{eq:coupled-NLS} 的约化形式. 为此我们只需利用 RH 方法先求出耦合 NLS 方程 $N$ 孤子解的形式, 然后对 Lax 对施加对应的约化条件, 则可得到对应的非局部 NLS 方程的 $N$ 孤子解. 具体地, 我们考虑耦合 NLS 方程\eqref{eq:coupled-NLS}, 其 Lax 对为:
 
 \begin{align}
-    Y_{x} &= MY = \rmi \zeta \sigma_{3} + Q, \\
-    Y_{t} &= NY = -2 \rmi \zeta^{2} \sigma_{3} + R,
+    Y_{x} & = MY = \rmi \zeta \sigma_{3} + Q,        \\
+    Y_{t} & = NY = -2 \rmi \zeta^{2} \sigma_{3} + R,
 \end{align}
 其中 $R= -2 \rmi \zeta^{2} \sigma_{3} + 2\zeta Q - \rmi(Q^{2}+Q_{x})\sigma_{3}$
 \begin{equation}
     Q = \begin{pmatrix}
-        0 & q(x,t) \\
+        0      & q(x,t) \\
         r(x,t) & 0
-    \end{pmatrix}, 
+    \end{pmatrix},
 \end{equation}
 利用 RH 方法, 我们得到耦合 NLS 方程\eqref{eq:coupled-NLS} 的 N 孤子解可以显式地写为
 \begin{equation}
@@ -65,30 +65,30 @@
 \end{equation}
 其中 $M$ 是一个 $ N \times N $ 矩阵, $F, G$ 是 $ (N+1) \times (N+1) $ 矩阵. 矩阵 $M$ 的元素 $M_{jk}$由下式给出:
 \begin{equation}
-    M_{jk} = \frac{\bar{v}_{j}v_{k}}{\bar{\zeta_{j}}-\zeta_{k}}, \quad v_{k}(x,t)= \rme^{\theta_{k}\Lambda} v_{k0}, \quad \bar{v}_{k}(x,t) = \bar{v}_{k0}\rme^{\bar{\theta}_{k}\Lambda} 
+    M_{jk} = \frac{\bar{v}_{j}v_{k}}{\bar{\zeta_{j}}-\zeta_{k}}, \quad v_{k}(x,t)= \rme^{\theta_{k}\Lambda} v_{k0}, \quad \bar{v}_{k}(x,t) = \bar{v}_{k0}\rme^{\bar{\theta}_{k}\Lambda}
 \end{equation}
 其中 $\zeta_{k} \in \mathbb{C}_{+}$, $\bar{\zeta}_{k} \in \mathbb{C}_{-}$ 是特征值, $v_{k0} = (a_{k}, b_{k})^{T}, \bar{v}_{k0} = (\bar{a}_{k}, \bar{b}_{k})$ 是对应的特征向量, 若记 $ \theta_{k} = -\rmi \zeta_{k} x - 2 \rmi \zeta_{k}^{2}t$, $\bar{\theta}_{k} = \rmi \bar{\zeta}_{k} x + 2 \rmi \bar{\zeta}_{k}^{2}t $, 则
 \begin{equation}
     F = \begin{pmatrix}
-        0 & a_{1} \rme^{\theta_{1}} & \cdots & a_{N} \rme^{\theta_{N}} \\
-        \bar{b}_{1} \rme^{-\bar{\theta}_{1}} & M_{11} & \cdots & M_{1N} \\
-        \vdots & \vdots & \ddots & \vdots \\
-        \bar{b}_{N} \rme^{-\bar{\theta}_{N}} & M_{N1} & \cdots & M_{NN}
-    \end{pmatrix} 
-    \quad 
+        0                                    & a_{1} \rme^{\theta_{1}} & \cdots & a_{N} \rme^{\theta_{N}} \\
+        \bar{b}_{1} \rme^{-\bar{\theta}_{1}} & M_{11}                  & \cdots & M_{1N}                  \\
+        \vdots                               & \vdots                  & \ddots & \vdots                  \\
+        \bar{b}_{N} \rme^{-\bar{\theta}_{N}} & M_{N1}                  & \cdots & M_{NN}
+    \end{pmatrix}
+    \quad
     G = \begin{pmatrix}
-        0 & b_{1} \rme^{-\bar{\theta}_{1}} & \cdots & b_{N} \rme^{-\bar{\theta}_{N}} \\
-        \bar{a}_{1} \rme^{\theta_{1}} & M_{11} & \cdots & M_{1N} \\
-        \vdots & \vdots & \ddots & \vdots \\
-        \bar{a}_{N} \rme^{\theta_{N}} & M_{N1} & \cdots & M_{NN}
+        0                             & b_{1} \rme^{-\bar{\theta}_{1}} & \cdots & b_{N} \rme^{-\bar{\theta}_{N}} \\
+        \bar{a}_{1} \rme^{\theta_{1}} & M_{11}                         & \cdots & M_{1N}                         \\
+        \vdots                        & \vdots                         & \ddots & \vdots                         \\
+        \bar{a}_{N} \rme^{\theta_{N}} & M_{N1}                         & \cdots & M_{NN}
     \end{pmatrix}
 \end{equation}
 \section{非局部 NLS 方程的对称关系}
-我们首先给出逆空间 NLS 方程\eqref{eq:reverse-x-NLS}和逆时间 NLS 方程\eqref{eq:reverse-t-NLS}的散射数据的对称关系. 逆时空 NLS 方程\eqref{eq:reverse-x-t-NLS}的散射数据的对称关系可以用类似的方法得到. 
+我们首先给出逆空间 NLS 方程\eqref{eq:reverse-x-NLS}和逆时间 NLS 方程\eqref{eq:reverse-t-NLS}的散射数据的对称关系. 逆时空 NLS 方程\eqref{eq:reverse-x-t-NLS}的散射数据的对称关系可以用类似的方法得到.
 \subsection{逆空间 NLS 方程}
 
 \begin{theorem} \label{thm:NLS-inverse-x}
-    对于逆空间方程\eqref{eq:reverse-x-NLS}, 若 $ \zeta $ 是一个特征值, 则 $ -\zeta^{*} $ 也是一个特征值. 因此, 非纯虚特征值成对出现, 即 $(\zeta, -\zeta^{*})$, 且它们位于复平面的同一半平面上. 特征向量的对称关系如下: 
+    对于逆空间方程\eqref{eq:reverse-x-NLS}, 若 $ \zeta $ 是一个特征值, 则 $ -\zeta^{*} $ 也是一个特征值. 因此, 非纯虚特征值成对出现, 即 $(\zeta, -\zeta^{*})$, 且它们位于复平面的同一半平面上. 特征向量的对称关系如下:
     \begin{enumerate}
         \item 若 $ (\zeta_{k}, \hat{\zeta_{k}}) \in \mathbb{C_{+}}$, 则 $\hat{\zeta_{k}} = - \zeta^{*}_{k} $, 它们的列特征向量满足关系 $\hat{v}_{k0} = \sigma_{1} v_{k0}^{*}$.
         \item 若 $ \zeta_{k} \in i\mathbb{R}_{+} $, 其特征向量为 $v_{k0} = (1, e^{\rmi\theta_{k}})^{T} $, 其中 $ \theta_{k} $ 为实常数.
@@ -96,21 +96,23 @@
         \item 若 $ \bar{\zeta_{k}} \in i\mathbb{R}_{-} $, 其特征向量为 $\bar{v}_{k0} = (1 ,e^{\rmi\bar{\theta}_{k}})$, 其中 $ \bar{\theta}_{k} $ 为实常数.
     \end{enumerate}
 \end{theorem}
-为了证明上述定理, 我们先考虑局部 NLS 方程\eqref{eq:local-NLS}, 它是在约化 \eqref{eq:local-NLS-reduction}下得到的, 在第二章我们得到它的反散射数据为 $ \bar{\zeta_{k}} = \zeta^{*}_{k} $, $\bar{v}_{k0} = v_{k0}^{*T} $. 
+为了证明上述定理, 我们先考虑局部 NLS 方程\eqref{eq:local-NLS}, 它是在约化 \eqref{eq:local-NLS-reduction}下得到的, 在第二章我们得到它的反散射数据为 $ \bar{\zeta_{k}} = \zeta^{*}_{k} $, $\bar{v}_{k0} = v_{k0}^{*T} $.
 
-因此我们可以看到非局部 NLS 和局部 NLS 方程的散射数据的对称关系是不同的. 特别地, 对于逆空间和逆时空 NLS 方程, 上下半平面的特征值是完全独立的. 这种独立性允许出现新的特征值配置, 从而产生新的多孤子解类型. 我们将在下一节详细讨论这些新的类型. 
+因此我们可以看到非局部 NLS 和局部 NLS 方程的散射数据的对称关系是不同的. 特别地, 对于逆空间和逆时空 NLS 方程, 上下半平面的特征值是完全独立的. 这种独立性允许出现新的特征值配置, 从而产生新的多孤子解类型. 我们将在下一节详细讨论这些新的类型.
 
-在证明定理\ref{thm:NLS-inverse-x}之前, 我们先建立离散散射数据 $ \{\zeta_{k}, \bar{\zeta}_{k}, a_{k}, b_{k}, \bar{a}_{k}, \bar{b}_{k}\}(1\leq k \leq N) $ 和特征值问题 $ Y_{x} = MY $ 及其伴随问题 $ K_{x} = -KM $ 中的离散特征值的联系, 不妨设
+在证明定理\cref{thm:NLS-inverse-x}之前, 我们先建立离散散射数据 $ \{\zeta_{k}, \bar{\zeta}_{k}, a_{k}, b_{k}, \bar{a}_{k}, \bar{b}_{k}\}(1\leq k \leq N) $ 和特征值问题 $ Y_{x} = MY $ 及其伴随问题 $ K_{x} = -KM $ 中的离散特征值的联系, 不妨设
 \begin{subequations}
-\begin{align}
-    Y_{x} = \rmi \zeta \sigma_{3} Y + Q_{0} Y, \label{eq:reverse-x-NLS-eigenvalue}\\
-    K_{x} = -\rmi \zeta \sigma_{3} K - K Q_{0} \label{eq:reverse-x-NLS-adjoint-eigenvalue}
-\end{align}
+    \begin{align}
+        Y_{x} = \rmi \zeta \sigma_{3} Y + Q_{0} Y, \label{eq:reverse-x-NLS-eigenvalue} \\
+        K_{x} = -\rmi \zeta \sigma_{3} K - K Q_{0} \label{eq:reverse-x-NLS-adjoint-eigenvalue}
+    \end{align}
 \end{subequations}
 其中 $ Q_{0}(x) = Q(x,0) $, 即在时间 $ t = 0 $ 时刻的势矩阵.
+
 \begin{remark}
-    这里使用 $ Q_{0}(x) = Q(x,0) $ 是因为在空间谱问题中, 时间 $t$ 被视为固定参数, 故选择驻定解. 实际上也可使用时间谱问题求解, 取 $R_{0}(t) = R(0,t)$, 但过程更加复杂. 
+    这里使用 $ Q_{0}(x) = Q(x,0) $ 是因为在空间谱问题中, 时间 $t$ 被视为固定参数, 故选择驻定解. 实际上也可使用时间谱问题求解, 取 $R_{0}(t) = R(0,t)$, 但过程更加复杂.
 \end{remark}
+
 对于任意离散散射数据 $ \{ \zeta_{k}, a_{k}, b_{k} \} $, 其中 $ \zeta \in \mathbb{C_{+}} $ 是特征值问题\eqref{eq:reverse-x-NLS-eigenvalue}的特征值, 其离散特征函数 $ Y_{k} $ 具有如下渐近行为
 \begin{equation}
     Y_{k}(x) \to \begin{bmatrix} a_{k} \rme^{-\rmi \zeta_{k} x} \\ 0 \end{bmatrix}, x \to -\infty, \quad Y_{k}(x) \to \begin{bmatrix} 0 \\ -b_{k} \rme^{\rmi \zeta_{k} x} \end{bmatrix}, x \to +\infty \label{eq:large-x-asymptotics-of-reverse-x-NLS-eigenfunction}
@@ -119,33 +121,33 @@
 \begin{equation}
     K_{k}(x) \to \begin{bmatrix} \bar{a}_{k} \rme^{-\rmi \bar{\zeta}_{k} x} & 0 \end{bmatrix}, x \to -\infty, \quad K_{k}(x) \to \begin{bmatrix} 0 & -\bar{b}_{k}\rme^{-\rmi \bar{\zeta}_{k}x} \end{bmatrix}, x \to +\infty \label{eq:large-x-asymptotics-of-reverse-x-NLS-adjoint-eigenfunction}
 \end{equation}
-利用上面渐近行为, 以及对应特征问题 \eqref{eq:reverse-x-NLS-eigenvalue}-\eqref{eq:reverse-x-NLS-adjoint-eigenvalue}, 我们可以利用对称关系求解\thmref{thm:NLS-inverse-x}-\thmref{thm:NLS-inverse-x-t}
+利用上面渐近行为, 以及对应特征问题 \eqref{eq:reverse-x-NLS-eigenvalue}-\eqref{eq:reverse-x-NLS-adjoint-eigenvalue}, 我们可以利用对称关系求解\cref{thm:NLS-inverse-x}-\cref{thm:NLS-inverse-x-t}
 
 \begin{proof}
     逆空间 NLS 方程\eqref{eq:reverse-x-NLS} 是从耦合薛定谔方程\eqref{eq:coupled-NLS} 在约化条件\eqref{eq:reverse-x-NLS-reduction} 下导出的, 位势矩阵 $ Q_{0} $ 为
     \begin{equation}
         Q_{0} = \begin{pmatrix}
-            0 & q(x,0) \\
+            0            & q(x,0) \\
             -q^{*}(-x,0) & 0
         \end{pmatrix}
     \end{equation}
     明显地, 我们有 $ Q_{0}^{*}(-x) = - \sigma^{-1}_{1} Q_{0} \sigma_{1} $, 故
     \begin{equation}
         \begin{aligned}
-            Y_{x} = \rmi \zeta \sigma_{3} Y + Q_{0} Y &\implies -Y_{x}(-x) = \rmi \zeta \sigma_{3} Y(-x) + Q_{0}(-x)Y(-x) \\
-            &\implies -Y_{-x}^{*}(-x) = -\rmi \zeta^{*} \sigma_{3} Y^{*}(-x) + Q_{0}^{*}(-x)Y^{*}(-x) \\
-            &\implies - \alpha \sigma_{1}Y_{-x}^{*}(-x) = -\rmi \alpha \sigma_{1} \zeta^{*} \sigma_{3} Y^{*}(-x) - \alpha \sigma_{1} (\sigma_{1}^{-1}Q_{0}\sigma_{1})Y^{*}(-x) \\ 
-            &\implies \alpha \sigma_{1}Y_{-x}^{*}(-x) = \alpha \left[\rmi  (-\zeta^{*}) \sigma_{3} Y^{*}(-x) + Q_{0} \right]\sigma_{1}Y^{*}(-x) \\
+            Y_{x} = \rmi \zeta \sigma_{3} Y + Q_{0} Y & \implies -Y_{x}(-x) = \rmi \zeta \sigma_{3} Y(-x) + Q_{0}(-x)Y(-x)                                                                                                \\
+                                                      & \implies -Y_{-x}^{*}(-x) = -\rmi \zeta^{*} \sigma_{3} Y^{*}(-x) + Q_{0}^{*}(-x)Y^{*}(-x)                                                                          \\
+                                                      & \implies - \alpha \sigma_{1}Y_{-x}^{*}(-x) = -\rmi \alpha \sigma_{1} \zeta^{*} \sigma_{3} Y^{*}(-x) - \alpha \sigma_{1} (\sigma_{1}^{-1}Q_{0}\sigma_{1})Y^{*}(-x) \\
+                                                      & \implies \alpha \sigma_{1}Y_{-x}^{*}(-x) = \alpha \left[\rmi  (-\zeta^{*}) \sigma_{3} Y^{*}(-x) + Q_{0} \right]\sigma_{1}Y^{*}(-x)                                \\
         \end{aligned}
     \end{equation}
-    则 $ \hat{Y}_{x} = \rmi \hat{\zeta}\sigma_{3} \hat{Y} + Q \hat{Y} $, 其中 
+    则 $ \hat{Y}_{x} = \rmi \hat{\zeta}\sigma_{3} \hat{Y} + Q \hat{Y} $, 其中
     \begin{equation}
         \hat{\zeta} = - \zeta^{*}, \quad \hat{Y} = \alpha \sigma_{1}Y^{*}(-x) , \quad \forall \alpha \in \mathbb{C} \label{symmetry-reverse-x}
     \end{equation}
     由此可得, 若 $ \zeta_{k} \in \mathbb{C}_{+} $ 是特征值问题\eqref{eq:reverse-x-NLS-eigenvalue}的特征值, 则 $ \hat{\zeta}_{k} = - \zeta_{k}^{*} \in \mathbb{C}_{+} $ 也是其特征值. 另外将 $(\hat{Y}_{k}, \hat{\zeta}_{k})$ 带入 \eqref{eq:large-x-asymptotics-of-reverse-x-NLS-eigenfunction} 可得\footnote{这里疑似存在问题 [2025.11.12]}
     \begin{equation}
-            \begin{bmatrix} \hat{a}_{k} \rme^{-\rmi \hat{\zeta}_{k} x} \\ 0 \end{bmatrix} 
-             \leftarrow \hat{Y}_{k}(x) = \alpha \sigma_{1} Y_{k}(-x) \to \begin{bmatrix} 0 \\ -b_{k} \rme^{\rmi \zeta_{k} (-x)} \end{bmatrix}, (x \to -\infty)
+        \begin{bmatrix} \hat{a}_{k} \rme^{-\rmi \hat{\zeta}_{k} x} \\ 0 \end{bmatrix}
+        \leftarrow \hat{Y}_{k}(x) = \alpha \sigma_{1} Y_{k}(-x) \to \begin{bmatrix} 0 \\ -b_{k} \rme^{\rmi \zeta_{k} (-x)} \end{bmatrix}, (x \to -\infty)
     \end{equation}
 
     类似的可得 $ -\hat{b}_{k} = \alpha a_{k}^{*} $, 故有
@@ -160,40 +162,40 @@
 
     若 $\Re(\zeta_{k}) = 0 \implies \hat{\zeta}_{k} = -\zeta^{*}_{k} = \zeta_{k} $. 则 $ \hat{v}_{k0} = v_{k0} $, 不失一般性, 可将特征向量 $ v_{k0} $ 进行缩放, 令 $ a_{k} = 1 $, 将其带入 \eqref{eq:reverse-x-NLS-eigenvector}, 则有 $ |\alpha| = 1, v_{k0} = (1, -\alpha)^{T}$, 记 $ -\alpha = e^{\rmi \theta_{k}}, \theta_{k} \in \mathbb{R}$, 则有 $ v_{k0} = (1, e^{\rmi \theta_{k}})^{T} $, 故第二部分得证.
 
-    类似地, 对于 $ \bar{\zeta}_{k} \in \mathbb{C}_{-} $ 的情形同理可得. 
+    类似地, 对于 $ \bar{\zeta}_{k} \in \mathbb{C}_{-} $ 的情形同理可得.
 \end{proof}
 \begin{remark}
-    注意到对于逆空间方程, 我们有 $Q_{0}^{\dagger}(-x) = -Q_{0}(-x) = \sigma_{1} Q_{0} \sigma_{1}^{-1}$, 我们可得到 $\bar{\zeta} = -\zeta^{*}$ 和 $\bar{Y} = \sigma_{1} Y^{\dagger}(-x)$. 然而, 这种方法得到的是相对半平面之间散射数据的关系, 不如在相同半平面的对称关系更有价值. 
+    注意到对于逆空间方程, 我们有 $Q_{0}^{\dagger}(-x) = -Q_{0}(-x) = \sigma_{1} Q_{0} \sigma_{1}^{-1}$, 我们可得到 $\bar{\zeta} = -\zeta^{*}$ 和 $\bar{Y} = \sigma_{1} Y^{\dagger}(-x)$. 然而, 这种方法得到的是相对半平面之间散射数据的关系, 不如在相同半平面的对称关系更有价值.
 \end{remark}
 \subsection{逆时间 NLS 方程}
 \begin{theorem}\label{thm:NLS-inverse-t}
-    对于逆时间 NLS 方程\eqref{eq:reverse-t-NLS}, 若 $ \zeta_{k} \in \mathbb{C}_{+} $ 是原谱问题\eqref{eq:reverse-x-NLS-eigenvalue}的特征值, 则 $ \bar{\zeta}_{k} = -\zeta_{k} \in \mathbb{C}_{-} $ 也是伴随谱问题\eqref{eq:reverse-x-NLS-adjoint-eigenvalue}的特征值. 因此特征值总是成对出现, 且分别位于复平面的相对半平面上, 即 $(\zeta_{k}, -\zeta_{k})$. 它们对应的特征向量满足 $ \bar{v}_{k0} = v_{k0}^{T} $. 
+    对于逆时间 NLS 方程\eqref{eq:reverse-t-NLS}, 若 $ \zeta_{k} \in \mathbb{C}_{+} $ 是原谱问题\eqref{eq:reverse-x-NLS-eigenvalue}的特征值, 则 $ \bar{\zeta}_{k} = -\zeta_{k} \in \mathbb{C}_{-} $ 也是伴随谱问题\eqref{eq:reverse-x-NLS-adjoint-eigenvalue}的特征值. 因此特征值总是成对出现, 且分别位于复平面的相对半平面上, 即 $(\zeta_{k}, -\zeta_{k})$. 它们对应的特征向量满足 $ \bar{v}_{k0} = v_{k0}^{T} $.
 \end{theorem}
 \begin{proof}
     逆空间 NLS 方程\eqref{eq:reverse-t-NLS} 是从耦合薛定谔方程\eqref{eq:coupled-NLS} 在约化条件\eqref{eq:reverse-t-NLS-reduction} 下导出的, 位势矩阵 $ Q_{0} $ 为
     \begin{equation}
         Q_{0} = \begin{pmatrix}
-            0 & q(x,0) \\
+            0       & q(x,0) \\
             -q(x,0) & 0
         \end{pmatrix}
     \end{equation}
     注意到 $ Q_{0}^{T}(x) = -Q_{0}(x) $, 对 \eqref{eq:reverse-x-NLS-eigenvalue} 两边同时取转置, 得
     \begin{equation}
-            Y_{x} = \rmi \zeta \sigma_{3} Y + _{0} Y \implies 
-            Y_{x}^{T} = \rmi \zeta Y^{T} \sigma_{3} + Y^{T} Q_{0}^{T} \implies 
-            Y_{x}^{T} = \rmi \zeta Y^{T} \sigma_{3} - Y^{T}Q_{0}
+        Y_{x} = \rmi \zeta \sigma_{3} Y + _{0} Y \implies
+        Y_{x}^{T} = \rmi \zeta Y^{T} \sigma_{3} + Y^{T} Q_{0}^{T} \implies
+        Y_{x}^{T} = \rmi \zeta Y^{T} \sigma_{3} - Y^{T}Q_{0}
     \end{equation}
     则有 $ \bar{Y}_{x} = \rmi \bar{Y} \Lambda - Y^{T}Q_{0} $, 其中
     \begin{equation}
         \bar{\zeta} = -\zeta, \quad \bar{Y}(x) = Y^{T}(x)
-    \end{equation} 
+    \end{equation}
     这意味着 $ (\bar{\zeta}, \bar{Y}(x)) $ 满足伴随特征值问题\eqref{eq:reverse-x-NLS-adjoint-eigenvalue}.
 
     因此若 $ \zeta_{k} \in \mathbb{C}_{+} $ 是原谱问题\eqref{eq:reverse-x-NLS-eigenvalue}的特征值, 则 $ \bar{\zeta}_{k} = -\zeta_{k} \in \mathbb{C}_{-} $ 也是伴随谱问题\eqref{eq:reverse-x-NLS-adjoint-eigenvalue}的特征值. 利用特征值的关系和特征函数的渐近行为\eqref{eq:large-x-asymptotics-of-reverse-x-NLS-eigenfunction}-\eqref{eq:large-x-asymptotics-of-reverse-x-NLS-adjoint-eigenfunction}, 我们很容易得到 $ \bar{a}_{k} = a_{k}, \bar{b}_{k} = b_{k} $ 和 $ \bar{v}_{k0} = v_{k0}^{T} $.
-   \end{proof}
+\end{proof}
 \subsection{逆时空 NLS 方程}
 \begin{theorem}\label{thm:NLS-inverse-x-t}
-    对于逆时空 NLS 方程 \eqref{eq:reverse-x-t-NLS}, 特征值 $ \zeta $ 可以位于 $ \mathbb{C}_{+} $ 的任意位置, 而特征值 $ \bar{\zeta}_{k} $ 可以位于 $ \mathbb{C}_{-} $ 的任意位置. 然而, 它们的特征向量必须具有以下形式  
+    对于逆时空 NLS 方程 \eqref{eq:reverse-x-t-NLS}, 特征值 $ \zeta $ 可以位于 $ \mathbb{C}_{+} $ 的任意位置, 而特征值 $ \bar{\zeta}_{k} $ 可以位于 $ \mathbb{C}_{-} $ 的任意位置. 然而, 它们的特征向量必须具有以下形式
     \begin{equation}
         v_{k0} = (1, \omega_{k})^{T}, \quad \bar{v}_{k0} = (1, \bar{\omega}_{k})
     \end{equation}
@@ -203,17 +205,17 @@
     逆时空 NLS 方程\eqref{eq:reverse-x-t-NLS} 是从耦合薛定谔方程\eqref{eq:coupled-NLS} 在约化条件\eqref{eq:reverse-x-t-NLS-reduction} 下导出的, 位势矩阵 $ Q_{0} $ 为
     \begin{equation}
         Q_{0} = \begin{pmatrix}
-            0 & q(x,0) \\
+            0        & q(x,0) \\
             -q(-x,0) & 0
         \end{pmatrix}
     \end{equation}
     注意到 $ Q_{0}(-x) = -\sigma_{1}^{-1}Q_{0}(x)\sigma_{1} $, 则对 \eqref{eq:reverse-x-NLS-eigenvalue} 两边同时取 $ x \to -x $, 得
     \begin{equation}
         \begin{aligned}
-        Y_{x} = \rmi \zeta \sigma_{3} Y + Q_{0}Y 
-        &\implies -Y_{x}(-x) = \rmi \zeta \sigma_{3} Y(-x) + Q_{0}(-x)Y(-x) \\
-        &\implies -\sigma_{1} Y_{x}(-x)= \rmi \zeta \sigma_{1}\sigma_{3} Y(-x) - \sigma_{1}Q_{0}(-x)Y(-x) \\
-        &\implies \sigma_{1}Y_{x}(-x) = \left[\rmi \zeta \sigma_{3} + Q_{0}(-x) \right]\sigma_{1}Y(-x)
+            Y_{x} = \rmi \zeta \sigma_{3} Y + Q_{0}Y
+             & \implies -Y_{x}(-x) = \rmi \zeta \sigma_{3} Y(-x) + Q_{0}(-x)Y(-x)                               \\
+             & \implies -\sigma_{1} Y_{x}(-x)= \rmi \zeta \sigma_{1}\sigma_{3} Y(-x) - \sigma_{1}Q_{0}(-x)Y(-x) \\
+             & \implies \sigma_{1}Y_{x}(-x) = \left[\rmi \zeta \sigma_{3} + Q_{0}(-x) \right]\sigma_{1}Y(-x)
         \end{aligned}
     \end{equation}
     则有 $ \hat{Y}_{x}(x) = \rmi \hat{\zeta}  \sigma_{3} \hat{Y}(x) + Q_{0}(x)\hat{Y}(x) $, 其中
@@ -227,10 +229,10 @@
     其中 $ \omega_{k} $ 是某个常数. 利用这个关系和特征函数 $ Y_{k}(x) $ 的渐近行为 \eqref{eq:large-x-asymptotics-of-reverse-x-NLS-eigenfunction}, 我们很容易得到 $ a_{k} = \omega_{k} b_{k}, b_{k} = \omega_{k} a_{k} $, 故 $ \omega_{k} = \pm 1 $. 不失一般性, 我们记 $ a_{k} = 1$, 则 $ v_{k0} = (1, \omega_{k})^{T} $.
 \end{proof}
 
-对于 $2 \times 2 $ Lax 对导出的逆空间和逆时空 NLS 方程, 散射数据的对称关系可以通过初等变换得到, 这是二阶矩阵的优势. 然而, 对于更高阶的 Lax 对, 如 $3 \times 3$ Lax 对导出的四分量非局部 NLS 方程, 就只能通过转置或 Hermitian 转置, 我们将在下一章讨论. 
+对于 $2 \times 2 $ Lax 对导出的逆空间和逆时空 NLS 方程, 散射数据的对称关系可以通过初等变换得到, 这是二阶矩阵的优势. 然而, 对于更高阶的 Lax 对, 如 $3 \times 3$ Lax 对导出的四分量非局部 NLS 方程, 就只能通过转置或 Hermitian 转置, 我们将在下一章讨论.
 
 \begin{remark}
-    实际上我们也可以直接解\eqref{eq:soliton-coupled-NLS}施加约化条件\eqref{eq:reverse-x-NLS-reduction}-\eqref{eq:reverse-x-t-NLS-reduction}, 提取散射数据 $ \{\zeta_{k}, \bar{\zeta}_{k}, v_{k0}, \bar{v}_{k0}, 1 \leq k \leq N\} $ 的对称关系. 然而, 上面对这些关系的推导更为简单. 此外, 这种推导在逆散射和 Riemann-Hilbert 框架下更具启发性. 
+    实际上我们也可以直接解\eqref{eq:soliton-coupled-NLS}施加约化条件\eqref{eq:reverse-x-NLS-reduction}-\eqref{eq:reverse-x-t-NLS-reduction}, 提取散射数据 $ \{\zeta_{k}, \bar{\zeta}_{k}, v_{k0}, \bar{v}_{k0}, 1 \leq k \leq N\} $ 的对称关系. 然而, 上面对这些关系的推导更为简单. 此外, 这种推导在逆散射和 Riemann-Hilbert 框架下更具启发性.
 \end{remark}
 
 \section{动力学分析}
@@ -247,13 +249,13 @@
 其中 \begin{equation}
     \Delta_{1} = -\left(2 \rmi \eta_{1}x + 4 \rmi \eta_{1}^{2} t - \rmi \theta_{1}\right), \quad \bar{\Delta}_{1} = -\left(2 \bar{\eta}_{1} x + 4 \rmi \bar{\eta}_{1}^{2} t + \rmi \bar{\theta}_{1}\right)
 \end{equation}
-很容易发现 $\Delta_{1}$ 和 $\bar{\Delta}_{1} $ 中的 $\theta_{1} $ 和 $\bar{\theta}_{1}$ 符号不同, 这导致二($N$)孤子解与单孤子解的动力系统完全不同, 不为单孤子的非线性叠加. 故其与局部 NLS 方程的孤子解的动力系统完全不同. 
+很容易发现 $\Delta_{1}$ 和 $\bar{\Delta}_{1} $ 中的 $\theta_{1} $ 和 $\bar{\theta}_{1}$ 符号不同, 这导致二($N$)孤子解与单孤子解的动力系统完全不同, 不为单孤子的非线性叠加. 故其与局部 NLS 方程的孤子解的动力系统完全不同.
 \subsection{逆时间 NLS 方程的动力学分析}
-对于逆时间情形, 取 $ N=1 $, 则有 
+对于逆时间情形, 取 $ N=1 $, 则有
 \begin{equation}
     q(x,t) = -4\rmi \zeta_{1} b_{1} \frac{e^{-4 \rmi \zeta_{1}^{2} t}}{e^{-2 \rmi \zeta_{1}x} + b_{1}^{2} e^{2 \rmi \zeta_{1} x}} \label{eq:one-soliton-reverse-t-NLS}
 \end{equation}
-可以发现, 不论 $ \zeta_{1} $ 取何值, 孤子解始终是静止的, 且不会坍缩. 而 $ N=2 $ 时, 若 $\Im(\zeta_{1}) \neq \Im(\zeta_{2})$, 则解会反复坍缩, 所以双孤子解并非单孤子的简单叠加. 这种坍缩现象在局部 NLS 方程中是不存在的, 这说明逆时间 NLS 方程的动力学行为与局部 NLS 方程有本质的不同. 
+可以发现, 不论 $ \zeta_{1} $ 取何值, 孤子解始终是静止的, 且不会坍缩. 而 $ N=2 $ 时, 若 $\Im(\zeta_{1}) \neq \Im(\zeta_{2})$, 则解会反复坍缩, 所以双孤子解并非单孤子的简单叠加. 这种坍缩现象在局部 NLS 方程中是不存在的, 这说明逆时间 NLS 方程的动力学行为与局部 NLS 方程有本质的不同.
 \subsection{逆时空 NLS 方程的动力学分析}
 对于逆时空情形, 取 $N=1$ 时,
 \begin{equation}
@@ -261,14 +263,14 @@
 \end{equation}
 很容易发现逆时空情形的多孤子解为简单孤子的非线性叠加, 这是因为特征值 $(\zeta_{k},\bar{\zeta}_{k})$ 是完全独立的, 且对应的特征向量 $v_{k0} = (1,\omega_{k})^{T}, \bar{v}_{k0} = (1,\bar{\omega}_{k})$ 仅有四种可能的组合, 且几乎不会发生复杂耦合, 这限制了孤子间的相互作用.
 
-另外, 这是唯一可以移动的孤子解, 其速度为 $V = -2 \Im(\bar{\zeta}_{1}^{2}-\zeta_{1}^{2})/\Im(\bar{\zeta}_{1} - \zeta_{1})$. 在直线 $x = Vt$ 上模取得最大值, 
+另外, 这是唯一可以移动的孤子解, 其速度为 $V = -2 \Im(\bar{\zeta}_{1}^{2}-\zeta_{1}^{2})/\Im(\bar{\zeta}_{1} - \zeta_{1})$. 在直线 $x = Vt$ 上模取得最大值,
 \begin{equation}
     |q(x,t)| = 2 |\bar{\zeta}_{1} - \zeta_{1} | \frac{e^{\beta t}}{1+ \omega_{1} \bar{\omega}_{1}e^{\rmi \gamma t}}
 \end{equation}
-其中 
+其中
 \begin{align}
-    \beta &= 2 V \Im(\bar{\zeta}_{1}) + 4 \Im(\bar{\zeta}_{1}^{2}) = - 8 \frac{\Im(\zeta_{1}) \Im(\bar{\zeta}_{1}) \Re(\bar{\zeta}_{1} - \zeta_{1})}{\Im(\bar{\zeta}_{1} - \zeta_{1})}, \label{eq:beta} \\
-    \gamma &= -2 V \Re(\bar{\zeta}_{1} - \zeta_{1}) - 4 \Re(\bar{\zeta}_{1}^{2} - \zeta_{1}^{2}) = -4 |\zeta_{1} - \bar{\zeta}_{1}|^{2} \frac{\Im(\zeta_{1} + \bar{\zeta}_{1})}{\Im(\zeta_{1} - \bar{\zeta}_{1})} \label{eq:gamma}
+    \beta  & = 2 V \Im(\bar{\zeta}_{1}) + 4 \Im(\bar{\zeta}_{1}^{2}) = - 8 \frac{\Im(\zeta_{1}) \Im(\bar{\zeta}_{1}) \Re(\bar{\zeta}_{1} - \zeta_{1})}{\Im(\bar{\zeta}_{1} - \zeta_{1})}, \label{eq:beta}                           \\
+    \gamma & = -2 V \Re(\bar{\zeta}_{1} - \zeta_{1}) - 4 \Re(\bar{\zeta}_{1}^{2} - \zeta_{1}^{2}) = -4 |\zeta_{1} - \bar{\zeta}_{1}|^{2} \frac{\Im(\zeta_{1} + \bar{\zeta}_{1})}{\Im(\zeta_{1} - \bar{\zeta}_{1})} \label{eq:gamma}
 \end{align}
-如果 $\Im(\zeta_{1} + \bar{\zeta}_{1}) \neq 0 $, 则 $\gamma \neq 0$, 孤子解会反复坍缩, 坍缩周期为 $ T = 2 \pi/|\gamma|$. 若 $\Re(\zeta_{1} - \bar{\zeta}_{1}) \neq 0 \implies \beta \neq 0 $, 则孤子解会增加或减小, 具体取决于 $\beta$ 的正负号. 只有当 $\Im(\zeta_{1} + \bar{\zeta}_{1}) = 0 $ 时, 孤子解才不会坍缩, 且当 $\Re(\zeta_{1} - \bar{\zeta}_{1}) = 0 $ 时, 孤子解的幅值保持不变. 
+如果 $\Im(\zeta_{1} + \bar{\zeta}_{1}) \neq 0 $, 则 $\gamma \neq 0$, 孤子解会反复坍缩, 坍缩周期为 $ T = 2 \pi/|\gamma|$. 若 $\Re(\zeta_{1} - \bar{\zeta}_{1}) \neq 0 \implies \beta \neq 0 $, 则孤子解会增加或减小, 具体取决于 $\beta$ 的正负号. 只有当 $\Im(\zeta_{1} + \bar{\zeta}_{1}) = 0 $ 时, 孤子解才不会坍缩, 且当 $\Re(\zeta_{1} - \bar{\zeta}_{1}) = 0 $ 时, 孤子解的幅值保持不变.
 
