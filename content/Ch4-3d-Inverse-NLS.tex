@@ -207,7 +207,7 @@ q 取值同上.
 \end{equation}
 至此, 我们推导出所有可能的约化情况.
 
-\section{利用 RH 方法求解广义耦合非线性 NLS 方程}
+\section{利用 RH 方法求解广义耦合 NLS 方程}
 本部分我们将利用 RH 方法求解零边界的耦合 NLS 方程 \eqref{ch4-eq:Coupled-NLS-p}, \eqref{ch4-eq:Coupled-NLS-q}. 故 $ x, t \to \pm \infty $ 时, $ p, q \to 0 $, 则 Jost 渐近解为 $ \phi = J e^{\theta}$, 其中 $ \theta = -\rmi \lambda \Lambda x + 2 \rmi \lambda^{2} t \Lambda $, $ J $ 为在无穷远处与 $ (x,t) $ 的无关的函数, 将其带入 Lax 对 \eqref{ch4-eq:AKNS-Lax-Pair-x}-\eqref{ch4-eq:AKNS-Lax-Pair-t} 得
 \begin{equation}
     J_{x} = -\rmi \lambda [\Lambda, J] + Q J, \quad J_{t} = 2 \rmi \lambda^{2} [\Lambda, J] + R J, \label{ch4-eq:ANKS-Lax-mod}
@@ -231,7 +231,7 @@ q 取值同上.
 \begin{equation}
     J_{+}(x,\lambda) \to I, \quad x \to +\infty, \quad J_{-}(x,\lambda) \to I, \quad x \to -\infty \label{ch4-eq:Jost-boundary}
 \end{equation}
-利用 $\tr(Q) = 0 $ 及 Abel 定理 \cref{ch1-thm:Abel} 我们有
+利用 $\tr(Q) = 0 $ 及 Abel 定理我们有
 \begin{equation}
     \det(J_{\pm}) = 1, \forall x \in \mathbb{R} \label{ch4-eq:det-Jost}
 \end{equation}
@@ -359,7 +359,7 @@ q 取值同上.
     p(x,t) = 2 \rmi \sum_{j,k=1}^{N} \alpha_{k} \rme^{-(\theta_{k}^{*}-\theta_{j})}(M^{-1})_{jk},
 \end{equation}
 
-\section{三种逆时空约化下的散射数据对称性}
+\section{三种约化下的散射数据对称性}
 本节我们仿照上一章节, 先考虑 \eqref{ch4-eq:reduction-reverse-x}-\eqref{ch4-eq:reduction-reverse-x-t} 三种约化下的散射数据对称性. 下一节进一步考虑增加 \eqref{ch4-eq:reduction-q1}-\eqref{ch4-eq:reduction-q3} 时的散射数据对称性.
 \subsection{三种约化对称性}
 为表示方便, 不妨设 $ \zeta_{k} \in \mathbb{C}_{+}, \bar{\zeta}_{k} \in \mathbb{C}_{-} $ 为离散特征值, $ v_{k0}, \bar{v}_{k0} $ 为对应的特征向量. 则有一下三个定理:
@@ -541,5 +541,5 @@ q 取值同上.
 \end{align}
 则若 $ \Re(\omega_{1}) \neq 0 $, 则解在 $ t \to \infty $ 时爆炸; 若 $ \Re(\omega_{2}) \neq 0 $, 则解会周期性的坍塌.
 
-\section{进一步考虑 12 种逆时空约化情形}
+\section{进一步考虑二重约化情形}
 接下来考虑 $ p, q $ 的约化关系, 占位,

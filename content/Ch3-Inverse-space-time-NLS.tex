@@ -1,4 +1,4 @@
-\chapter{逆时空 NLS 方程}
+\chapter{利用 RH 对称性求解非局部 NLS 方程}
 本章节我们考虑非局部 NLS 方程的三种逆问题, 主要参考杨建科老师的文章\cite{YANG2019328}. 在正式开始之前, 我们需要先介绍耦合方程(coupled equations) 和非局部方程(nonlocal equations) 的定义.
 
 \begin{definition}[耦合方程]
@@ -46,7 +46,7 @@
 
 \section{耦合 NLS 方程的 N 孤子解}
 
-我们推导反空间, 反时间和反时空 NLS 方程\eqref{eq:reverse-x-NLS}-\eqref{eq:reverse-x-t-NLS} 的 N 孤子解的基本思路是承认这些方程是耦合NLS\eqref{eq:coupled-NLS} 的约化形式. 为此我们只需利用 RH 方法先求出耦合 NLS 方程 $N$ 孤子解的形式, 然后对 Lax 对施加对应的约化条件, 则可得到对应的非局部 NLS 方程的 $N$ 孤子解. 具体地, 我们考虑耦合 NLS 方程\eqref{eq:coupled-NLS}, 其 Lax 对为:
+我们推导反空间, 反时间和反时空 NLS 方程 \eqref{eq:reverse-x-NLS}-\eqref{eq:reverse-x-t-NLS} 的 N 孤子解的基本思路是承认这些方程是耦合NLS \eqref{eq:coupled-NLS} 的约化形式. 为此我们只需利用 RH 方法先求出耦合 NLS 方程 $N$ 孤子解的形式, 然后对 Lax 对施加对应的约化条件, 则可得到对应的非局部 NLS 方程的 $N$ 孤子解. 具体地, 我们考虑耦合 NLS 方程 \eqref{eq:coupled-NLS}, 其 Lax 对为:
 
 \begin{align}
     Y_{x} & = MY = \rmi \zeta \sigma_{3} + Q,        \\
@@ -59,7 +59,7 @@
         r(x,t) & 0
     \end{pmatrix},
 \end{equation}
-利用 RH 方法, 我们得到耦合 NLS 方程\eqref{eq:coupled-NLS} 的 N 孤子解可以显式地写为
+利用 RH 方法, 我们得到耦合 NLS 方程 \eqref{eq:coupled-NLS} 的 N 孤子解可以显式地写为
 \begin{equation}
     q(x,t) = -2 \rmi \frac{\det F}{\det M}, \quad r(x,t) = 2 \rmi \frac{\det G}{\det M} \label{eq:soliton-coupled-NLS}
 \end{equation}
@@ -96,7 +96,7 @@
         \item 若 $ \bar{\zeta_{k}} \in i\mathbb{R}_{-} $, 其特征向量为 $\bar{v}_{k0} = (1 ,e^{\rmi\bar{\theta}_{k}})$, 其中 $ \bar{\theta}_{k} $ 为实常数.
     \end{enumerate}
 \end{theorem}
-为了证明上述定理, 我们先考虑局部 NLS 方程\eqref{eq:local-NLS}, 它是在约化 \eqref{eq:local-NLS-reduction}下得到的, 在第二章我们得到它的反散射数据为 $ \bar{\zeta_{k}} = \zeta^{*}_{k} $, $\bar{v}_{k0} = v_{k0}^{*T} $.
+为了证明上述定理, 我们先考虑局部 NLS 方程 \eqref{eq:local-NLS}, 它是在约化 \eqref{eq:local-NLS-reduction} 下得到的, 在第二章我们得到它的反散射数据为 $ \bar{\zeta_{k}} = \zeta^{*}_{k} $, $\bar{v}_{k0} = v_{k0}^{*T} $.
 
 因此我们可以看到非局部 NLS 和局部 NLS 方程的散射数据的对称关系是不同的. 特别地, 对于逆空间和逆时空 NLS 方程, 上下半平面的特征值是完全独立的. 这种独立性允许出现新的特征值配置, 从而产生新的多孤子解类型. 我们将在下一节详细讨论这些新的类型.
 
@@ -124,7 +124,7 @@
 利用上面渐近行为, 以及对应特征问题 \eqref{eq:reverse-x-NLS-eigenvalue}-\eqref{eq:reverse-x-NLS-adjoint-eigenvalue}, 我们可以利用对称关系求解\cref{thm:NLS-inverse-x}-\cref{thm:NLS-inverse-x-t}
 
 \begin{proof}
-    逆空间 NLS 方程\eqref{eq:reverse-x-NLS} 是从耦合薛定谔方程\eqref{eq:coupled-NLS} 在约化条件\eqref{eq:reverse-x-NLS-reduction} 下导出的, 位势矩阵 $ Q_{0} $ 为
+    逆空间 NLS 方程 \eqref{eq:reverse-x-NLS} 是从耦合薛定谔方程 \eqref{eq:coupled-NLS} 在约化条件 \eqref{eq:reverse-x-NLS-reduction} 下导出的, 位势矩阵 $ Q_{0} $ 为
     \begin{equation}
         Q_{0} = \begin{pmatrix}
             0            & q(x,0) \\
@@ -144,7 +144,7 @@
     \begin{equation}
         \hat{\zeta} = - \zeta^{*}, \quad \hat{Y} = \alpha \sigma_{1}Y^{*}(-x) , \quad \forall \alpha \in \mathbb{C} \label{symmetry-reverse-x}
     \end{equation}
-    由此可得, 若 $ \zeta_{k} \in \mathbb{C}_{+} $ 是特征值问题\eqref{eq:reverse-x-NLS-eigenvalue}的特征值, 则 $ \hat{\zeta}_{k} = - \zeta_{k}^{*} \in \mathbb{C}_{+} $ 也是其特征值. 另外将 $(\hat{Y}_{k}, \hat{\zeta}_{k})$ 带入 \eqref{eq:large-x-asymptotics-of-reverse-x-NLS-eigenfunction} 可得\footnote{这里疑似存在问题 [2025.11.12]}
+    由此可得, 若 $ \zeta_{k} \in \mathbb{C}_{+} $ 是特征值问题 \eqref{eq:reverse-x-NLS-eigenvalue} 的特征值, 则 $ \hat{\zeta}_{k} = - \zeta_{k}^{*} \in \mathbb{C}_{+} $ 也是其特征值. 另外将 $(\hat{Y}_{k}, \hat{\zeta}_{k})$ 带入 \eqref{eq:large-x-asymptotics-of-reverse-x-NLS-eigenfunction} 可得\footnote{这里疑似存在问题 [2025.11.12]}
     \begin{equation}
         \begin{bmatrix} \hat{a}_{k} \rme^{-\rmi \hat{\zeta}_{k} x} \\ 0 \end{bmatrix}
         \leftarrow \hat{Y}_{k}(x) = \alpha \sigma_{1} Y_{k}(-x) \to \begin{bmatrix} 0 \\ -b_{k} \rme^{\rmi \zeta_{k} (-x)} \end{bmatrix}, (x \to -\infty)
@@ -172,7 +172,7 @@
     对于逆时间 NLS 方程\eqref{eq:reverse-t-NLS}, 若 $ \zeta_{k} \in \mathbb{C}_{+} $ 是原谱问题\eqref{eq:reverse-x-NLS-eigenvalue}的特征值, 则 $ \bar{\zeta}_{k} = -\zeta_{k} \in \mathbb{C}_{-} $ 也是伴随谱问题\eqref{eq:reverse-x-NLS-adjoint-eigenvalue}的特征值. 因此特征值总是成对出现, 且分别位于复平面的相对半平面上, 即 $(\zeta_{k}, -\zeta_{k})$. 它们对应的特征向量满足 $ \bar{v}_{k0} = v_{k0}^{T} $.
 \end{theorem}
 \begin{proof}
-    逆空间 NLS 方程\eqref{eq:reverse-t-NLS} 是从耦合薛定谔方程\eqref{eq:coupled-NLS} 在约化条件\eqref{eq:reverse-t-NLS-reduction} 下导出的, 位势矩阵 $ Q_{0} $ 为
+    逆空间 NLS 方程 \eqref{eq:reverse-t-NLS} 是从耦合薛定谔方程 \eqref{eq:coupled-NLS} 在约化条件 \eqref{eq:reverse-t-NLS-reduction} 下导出的, 位势矩阵 $ Q_{0} $ 为
     \begin{equation}
         Q_{0} = \begin{pmatrix}
             0       & q(x,0) \\
@@ -191,7 +191,7 @@
     \end{equation}
     这意味着 $ (\bar{\zeta}, \bar{Y}(x)) $ 满足伴随特征值问题\eqref{eq:reverse-x-NLS-adjoint-eigenvalue}.
 
-    因此若 $ \zeta_{k} \in \mathbb{C}_{+} $ 是原谱问题\eqref{eq:reverse-x-NLS-eigenvalue}的特征值, 则 $ \bar{\zeta}_{k} = -\zeta_{k} \in \mathbb{C}_{-} $ 也是伴随谱问题\eqref{eq:reverse-x-NLS-adjoint-eigenvalue}的特征值. 利用特征值的关系和特征函数的渐近行为\eqref{eq:large-x-asymptotics-of-reverse-x-NLS-eigenfunction}-\eqref{eq:large-x-asymptotics-of-reverse-x-NLS-adjoint-eigenfunction}, 我们很容易得到 $ \bar{a}_{k} = a_{k}, \bar{b}_{k} = b_{k} $ 和 $ \bar{v}_{k0} = v_{k0}^{T} $.
+    因此若 $ \zeta_{k} \in \mathbb{C}_{+} $ 是原谱问题 \eqref{eq:reverse-x-NLS-eigenvalue}的特征值, 则 $ \bar{\zeta}_{k} = -\zeta_{k} \in \mathbb{C}_{-} $ 也是伴随谱问题 \eqref{eq:reverse-x-NLS-adjoint-eigenvalue}的特征值. 利用特征值的关系和特征函数的渐近行为 \eqref{eq:large-x-asymptotics-of-reverse-x-NLS-eigenfunction}-\eqref{eq:large-x-asymptotics-of-reverse-x-NLS-adjoint-eigenfunction}, 我们很容易得到 $ \bar{a}_{k} = a_{k}, \bar{b}_{k} = b_{k} $ 和 $ \bar{v}_{k0} = v_{k0}^{T} $.
 \end{proof}
 \subsection{逆时空 NLS 方程}
 \begin{theorem}\label{thm:NLS-inverse-x-t}
@@ -202,7 +202,7 @@
     其中 $ \omega_{k} = \pm 1, \bar{\omega}_{k} = \pm 1 $
 \end{theorem}
 \begin{proof}
-    逆时空 NLS 方程\eqref{eq:reverse-x-t-NLS} 是从耦合薛定谔方程\eqref{eq:coupled-NLS} 在约化条件\eqref{eq:reverse-x-t-NLS-reduction} 下导出的, 位势矩阵 $ Q_{0} $ 为
+    逆时空 NLS 方程 \eqref{eq:reverse-x-t-NLS} 是从耦合NLS 方程 \eqref{eq:coupled-NLS} 在约化条件\eqref{eq:reverse-x-t-NLS-reduction} 下导出的, 位势矩阵 $ Q_{0} $ 为
     \begin{equation}
         Q_{0} = \begin{pmatrix}
             0        & q(x,0) \\
@@ -232,7 +232,7 @@
 对于 $2 \times 2 $ Lax 对导出的逆空间和逆时空 NLS 方程, 散射数据的对称关系可以通过初等变换得到, 这是二阶矩阵的优势. 然而, 对于更高阶的 Lax 对, 如 $3 \times 3$ Lax 对导出的四分量非局部 NLS 方程, 就只能通过转置或 Hermitian 转置, 我们将在下一章讨论.
 
 \begin{remark}
-    实际上我们也可以直接解\eqref{eq:soliton-coupled-NLS}施加约化条件\eqref{eq:reverse-x-NLS-reduction}-\eqref{eq:reverse-x-t-NLS-reduction}, 提取散射数据 $ \{\zeta_{k}, \bar{\zeta}_{k}, v_{k0}, \bar{v}_{k0}, 1 \leq k \leq N\} $ 的对称关系. 然而, 上面对这些关系的推导更为简单. 此外, 这种推导在逆散射和 Riemann-Hilbert 框架下更具启发性.
+    实际上我们也可以直接解 \eqref{eq:soliton-coupled-NLS}施加约化条件 \eqref{eq:reverse-x-NLS-reduction}-\eqref{eq:reverse-x-t-NLS-reduction}, 提取散射数据 $ \{\zeta_{k}, \bar{\zeta}_{k}, v_{k0}, \bar{v}_{k0}, 1 \leq k \leq N\} $ 的对称关系. 然而, 上面对这些关系的推导更为简单. 此外, 这种推导在逆散射和 Riemann-Hilbert 框架下更具启发性.
 \end{remark}
 
 \section{动力学分析}

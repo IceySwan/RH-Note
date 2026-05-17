@@ -3,26 +3,26 @@
 \section{聚焦 NLS 方程}
 对于二阶 AKNS 系统, 为表示方便, 我们引入 Pauli 矩阵
 \begin{equation}
-	\sigma_{1} = \begin{pmatrix}
-		0 & 1 \\
-		1 & 0
-	\end{pmatrix}, \quad
-	\sigma_{2} = \begin{pmatrix}
-		0    & -\rmi \\
-		\rmi & 0
-	\end{pmatrix}, \quad
-	\sigma_{3} = \begin{pmatrix}
-		1 & 0  \\
-		0 & -1
-	\end{pmatrix}
+    \sigma_{1} = \begin{pmatrix}
+        0 & 1 \\
+        1 & 0
+    \end{pmatrix}, \quad
+    \sigma_{2} = \begin{pmatrix}
+        0    & -\rmi \\
+        \rmi & 0
+    \end{pmatrix}, \quad
+    \sigma_{3} = \begin{pmatrix}
+        1 & 0  \\
+        0 & -1
+    \end{pmatrix}
 \end{equation}
 下文如无特别声明, 默认 $ \sigma_{i}, i = 1,2,3 $ 表示 Pauli 矩阵.
 \subsection{特征函数}
 
 考虑聚焦 NLS 方程的初值问题
 \begin{align}
-	\rmi q_{t}(x,t) + q_{xx}(x,t) + 2q(x,t)|q(x,t)|^{2} = 0 \label{ch2-eq:Focus-NLS} \\
-	q(x,0) = q_{0}(x) \in \mathcal{S}(\mathbb{R})
+    \rmi q_{t}(x,t) + q_{xx}(x,t) + 2q(x,t)|q(x,t)|^{2} = 0 \label{ch2-eq:Focus-NLS} \\
+    q(x,0) = q_{0}(x) \in \mathcal{S}(\mathbb{R})
 \end{align}
 其中 $ \mathcal{S}(\mathbb{R}) $ 表示 Schwartz 空间.
 %\begin{equation}
@@ -30,407 +30,407 @@
 %\end{equation}
 NLS 方程 \eqref{ch2-eq:Focus-NLS} 具有如下矩阵形式的 Lax 对
 \begin{align}
-	\psi_{x} & = -\rmi z \sigma_{3} \psi + P \psi \label{ch2-eq:Focus-NLS-Lax-x}     \\
-	\psi_{t} & = -2 \rmi z^2 \sigma_{3} \psi + Q \psi \label{ch2-eq:Focus-NLS-Lax-t}
+    \psi_{x} & = -\rmi z \sigma_{3} \psi + P \psi \label{ch2-eq:Focus-NLS-Lax-x}     \\
+    \psi_{t} & = -2 \rmi z^2 \sigma_{3} \psi + Q \psi \label{ch2-eq:Focus-NLS-Lax-t}
 \end{align}
 其中
 \begin{equation*}
-	P = \begin{pmatrix}
-		 & q \\ -q^{*} &
-	\end{pmatrix}, \quad
-	Q = \begin{pmatrix}
-		\rmi |q|^2 & \rmi q_{x} \\ \rmi q_{x}^{*} & -\rmi |q|^2
-	\end{pmatrix} + 2 z P
+    P = \begin{pmatrix}
+         & q \\ -q^{*} &
+    \end{pmatrix}, \quad
+    Q = \begin{pmatrix}
+        \rmi |q|^2 & \rmi q_{x} \\ \rmi q_{x}^{*} & -\rmi |q|^2
+    \end{pmatrix} + 2 z P
 \end{equation*}
 满足零曲率方程 $U_{t} - V_{x} + [U, V] = 0 $, 即
 \begin{equation}
-	\left(P - \rmi z \sigma_{3}\right)_{t} - \left(Q - 2 \rmi z^2 \sigma_{3}\right)_{x} + \left[P - \rmi z \sigma_{3}, Q - 2 \rmi z^2 \sigma_{3} \right] = 0
+    \left(P - \rmi z \sigma_{3}\right)_{t} - \left(Q - 2 \rmi z^2 \sigma_{3}\right)_{x} + \left[P - \rmi z \sigma_{3}, Q - 2 \rmi z^2 \sigma_{3} \right] = 0
 \end{equation}
 
 \subsection{渐进性}
 
 由于 $ q_{0}(x) \in \mathcal{S}(\mathbb{R}) $, 且 $ q(x,t), q_{x}(x,t) \to 0, (x \to \infty) $, 故 x 足够大时, $ P, Q $ 可忽略, 从而 Lax 对 \eqref{ch2-eq:Focus-NLS-Lax-x} - \eqref{ch2-eq:Focus-NLS-Lax-t} 可近似为
 \begin{equation*}
-	\psi_{x} \sim - \rmi z \sigma_{3} \psi, \quad \psi_{t} \sim - 2\rmi z^2 \sigma_{3} \psi
+    \psi_{x} \sim - \rmi z \sigma_{3} \psi, \quad \psi_{t} \sim - 2\rmi z^2 \sigma_{3} \psi
 \end{equation*}
 可得渐进形式的 Jost 解 $ \psi = e^{- \rmi \theta(z) \sigma_{3}}, (x \to \infty) $, 其中 $ \theta(z) = z x + 2z^2 t $. 下面为表示方便, 不妨记 $ E := e^{ \rmi \theta(z) \sigma_{3}} $, 做变换 $ \mu(x,t,z) = \psi(x,t,z)E $, 则有
 \begin{equation}
-	% 这里有问题!!!
-	E^{-1} = e^{-\rmi \theta(z) \sigma_{3}}, \quad \mu(x,t,z) \to I( x \to \infty) \label{ch2-eq:mu-asymptomatic}
+    % 这里有问题!!!
+    E^{-1} = e^{-\rmi \theta(z) \sigma_{3}}, \quad \mu(x,t,z) \to I( x \to \infty) \label{ch2-eq:mu-asymptomatic}
 \end{equation}
 则可得
 \begin{align}
-	\mu_{x} = \psi_{x}E + \psi E (\rmi \sigma_{3} z) \\
-	\mu_{t} = \psi_{t}E + \psi E (2 \rmi \sigma_{3} z^2)
+    \mu_{x} = \psi_{x}E + \psi E (\rmi \sigma_{3} z) \\
+    \mu_{t} = \psi_{t}E + \psi E (2 \rmi \sigma_{3} z^2)
 \end{align}
 带入 Lax 对 \eqref{ch2-eq:Focus-NLS-Lax-x} - \eqref{ch2-eq:Focus-NLS-Lax-t} 可得
 \begin{align}
-	\mu_{x} = (P \psi - \rmi z \sigma_{3} \psi)E + \psi E(\rmi \sigma_{3} z) \\
-	\mu_{t} = (Q \psi - 2 \rmi z^2 \sigma_{3} \psi)E + \psi E (2 \rmi \hat{\sigma}_{3} z^2)
+    \mu_{x} = (P \psi - \rmi z \sigma_{3} \psi)E + \psi E(\rmi \sigma_{3} z) \\
+    \mu_{t} = (Q \psi - 2 \rmi z^2 \sigma_{3} \psi)E + \psi E (2 \rmi \hat{\sigma}_{3} z^2)
 \end{align}
 故有
 \begin{equation}
-	\mu_{x} = P\mu -\rmi z [\sigma_{3}, \mu] \implies \mu_{x} + \rmi z [\sigma_{3}, \mu] = P \mu \label{ch2-eq:Focus-NLS-Lax-x-Asymptotic}
+    \mu_{x} = P\mu -\rmi z [\sigma_{3}, \mu] \implies \mu_{x} + \rmi z [\sigma_{3}, \mu] = P \mu \label{ch2-eq:Focus-NLS-Lax-x-Asymptotic}
 \end{equation}
 同理可得
 \begin{equation}
-	\mu_{t} + 2 \rmi z^2 [\sigma_{3}, \mu] = Q \mu \label{ch2-eq:Focus-NLS-Lax-t-Asymptotic}
+    \mu_{t} + 2 \rmi z^2 [\sigma_{3}, \mu] = Q \mu \label{ch2-eq:Focus-NLS-Lax-t-Asymptotic}
 \end{equation}
 由 \eqref{ch2-eq:Focus-NLS-Lax-x-Asymptotic} 式可得
 \begin{align}
-	\mu_{x} + \rmi z \hat{\sigma} \mu                                                                             & = P \mu                                     \\
-	e^{\rmi \theta(z) \hat{\sigma_{3}}} \mu_{x} + \rmi z \hat{\sigma}_{3} e^{\rmi \theta(z) \hat{\sigma_{3}}} \mu & = e^{\rmi \theta(z) \hat{\sigma}_{3}} P \mu
+    \mu_{x} + \rmi z \hat{\sigma} \mu                                                                             & = P \mu                                     \\
+    e^{\rmi \theta(z) \hat{\sigma_{3}}} \mu_{x} + \rmi z \hat{\sigma}_{3} e^{\rmi \theta(z) \hat{\sigma_{3}}} \mu & = e^{\rmi \theta(z) \hat{\sigma}_{3}} P \mu
 \end{align}
 其中 $ \hat{\sigma}_{3}X = [\sigma_{3}, X], e^{\rmi \theta(z) \hat{\sigma}_{3}} X = E X E^{-1} $, 为表示方便不妨记 $ \hat{E} = e^{\rmi \theta(z) \hat{\sigma}_{3}} $.
 易得 Lax 对的全微分形式
 \begin{equation}
-	\rmd (\hat{E} \mu) = \hat{E} [ (P \rmd x + Q \rmd t) \mu ] \label{ch2-eq:diffision-mu}
+    \rmd (\hat{E} \mu) = \hat{E} [ (P \rmd x + Q \rmd t) \mu ] \label{ch2-eq:diffision-mu}
 \end{equation}
 为构造规范的 Riemann-Hilbert 问题, 即其解在 $ z \to \infty $ 时渐进于单位阵, 现只需证明 $ \mu \to I (z \to \infty) $.
 
 \begin{proof}
-	将 $ \mu $ 在无穷远点 Taylor 展开
-	\begin{equation}
-		\mu = \mu^{(0)} + \frac{1}{z} \mu^{(1)} + \cdots = \mu^{(0)} + O(z^{-1}) \label{ch2-eq:mu-Taylor}
-	\end{equation}
-	其中 $ \mu^{(0)}, \mu^{(1)} $ 与 $ z $ 无关, 将上式代入 \eqref{ch2-eq:Focus-NLS-Lax-x-Asymptotic}, \eqref{ch2-eq:Focus-NLS-Lax-t-Asymptotic} 比较 $ z $ 的次数可得
-	\begin{equation}
-		\begin{aligned}
-			\left[\mu^{(0)} + O(z^{-1})\right]_{x} + \rmi z \left[\sigma_{3}, \mu^{(0)} + \frac{\mu^{(1)}}{z} + O(z^{-2})\right] & = P\left[\mu^{(0)} + O(z^{-1})\right]    \\
-			[\mu^{(0)} + O(z^{-1})]_{t} + 2 \rmi z^2 \left[\sigma_{3}, \mu^{(0)} + \frac{\mu^{(1)}}{z} + O(z^{-2})\right]        & = (Q_{0} + 2 z P)[\mu^{(0)} + O(z^{-1})]
-		\end{aligned}
-	\end{equation}
-	可得 $ x $ 部分:
-	\begin{equation}
-		\begin{aligned}
-			z:     & \quad[\sigma_{3}, \mu^{(0)}] = 0                                 \\
-			z^{0}: & \quad \mu^{(0)} + 2 \rmi z [\sigma_{3}, \mu^{(1)}] = P \mu^{(0)}
-		\end{aligned}
-		\implies \mu^{(0)} \text{为对角阵}
-	\end{equation}
-	$ t $ 部分:
-	\begin{equation}
-		\begin{aligned}
-			z^{2}: & \quad [\sigma_{3}, \mu^{(0)}] = 0                                              \\
-			z:     & \quad \rmi [\sigma_{3}, \mu^{(1)}] =  P \mu^{(0)} \label{ch2-eq:mu-Taylor-t-z}
-		\end{aligned}
-		\implies \mu^{(0)}_x = 0
-	\end{equation}
-	故 $ \mu^{(0)} $ 为与 $ x $ 无关的对角矩阵, 因此 \eqref{ch2-eq:mu-Taylor} 式对 $ x, z $ 同时取极限, 并交换极限顺序可得
-	\begin{equation}
-		\lim_{z \to \infty} \lim_{x \to \infty} \mu = \lim_{x \to \infty} \lim_{z \to \infty} \left( \mu^{(0)} + O(z^{(-1)}) \right)
-	\end{equation}
-	利用 \eqref{ch2-eq:mu-asymptomatic}, \eqref{ch2-eq:mu-Taylor} 式可得 $ \mu^{(0)} = I $, 故 $ \mu \to I (z \to \infty) $.
+    将 $ \mu $ 在无穷远点 Taylor 展开
+    \begin{equation}
+        \mu = \mu^{(0)} + \frac{1}{z} \mu^{(1)} + \cdots = \mu^{(0)} + O(z^{-1}) \label{ch2-eq:mu-Taylor}
+    \end{equation}
+    其中 $ \mu^{(0)}, \mu^{(1)} $ 与 $ z $ 无关, 将上式代入 \eqref{ch2-eq:Focus-NLS-Lax-x-Asymptotic}, \eqref{ch2-eq:Focus-NLS-Lax-t-Asymptotic} 比较 $ z $ 的次数可得
+    \begin{equation}
+        \begin{aligned}
+            \left[\mu^{(0)} + O(z^{-1})\right]_{x} + \rmi z \left[\sigma_{3}, \mu^{(0)} + \frac{\mu^{(1)}}{z} + O(z^{-2})\right] & = P\left[\mu^{(0)} + O(z^{-1})\right]    \\
+            [\mu^{(0)} + O(z^{-1})]_{t} + 2 \rmi z^2 \left[\sigma_{3}, \mu^{(0)} + \frac{\mu^{(1)}}{z} + O(z^{-2})\right]        & = (Q_{0} + 2 z P)[\mu^{(0)} + O(z^{-1})]
+        \end{aligned}
+    \end{equation}
+    可得 $ x $ 部分:
+    \begin{equation}
+        \begin{aligned}
+            z:     & \quad[\sigma_{3}, \mu^{(0)}] = 0                                 \\
+            z^{0}: & \quad \mu^{(0)} + 2 \rmi z [\sigma_{3}, \mu^{(1)}] = P \mu^{(0)}
+        \end{aligned}
+        \implies \mu^{(0)} \text{为对角阵}
+    \end{equation}
+    $ t $ 部分:
+    \begin{equation}
+        \begin{aligned}
+            z^{2}: & \quad [\sigma_{3}, \mu^{(0)}] = 0                                              \\
+            z:     & \quad \rmi [\sigma_{3}, \mu^{(1)}] =  P \mu^{(0)} \label{ch2-eq:mu-Taylor-t-z}
+        \end{aligned}
+        \implies \mu^{(0)}_x = 0
+    \end{equation}
+    故 $ \mu^{(0)} $ 为与 $ x $ 无关的对角矩阵, 因此 \eqref{ch2-eq:mu-Taylor} 式对 $ x, z $ 同时取极限, 并交换极限顺序可得
+    \begin{equation}
+        \lim_{z \to \infty} \lim_{x \to \infty} \mu = \lim_{x \to \infty} \lim_{z \to \infty} \left( \mu^{(0)} + O(z^{(-1)}) \right)
+    \end{equation}
+    利用 \eqref{ch2-eq:mu-asymptomatic}, \eqref{ch2-eq:mu-Taylor} 式可得 $ \mu^{(0)} = I $, 故 $ \mu \to I (z \to \infty) $.
 \end{proof}
 再将 $ \mu^{(0)} = I $ 带入 \eqref{ch2-eq:mu-Taylor-t-z} 式比较矩阵对角元素得
 \begin{equation}
-	q(x,t) = 2 \rmi (\mu^{(1)})_{12} = 2 \rmi \lim_{z \to \infty} (z\mu)_{12}
+    q(x,t) = 2 \rmi (\mu^{(1)})_{12} = 2 \rmi \lim_{z \to \infty} (z\mu)_{12}
 \end{equation}
 \begin{remark}
-	上式可将 NLS 方程与特征函数联系起来, 接下来将特征函数与 RH 问题建立联系. 从而 NLS 方程的解可用 RH 问题的解表示, 然后通过 RH 问题反接触 NLS 方程的解, 即
-	\begin{equation*}
-		NLS \rightleftharpoons \text{特征函数} \rightleftharpoons RH \text{问题}
-	\end{equation*}
+    上式可将 NLS 方程与特征函数联系起来, 接下来将特征函数与 RH 问题建立联系. 从而 NLS 方程的解可用 RH 问题的解表示, 然后通过 RH 问题反接触 NLS 方程的解, 即
+    \begin{equation*}
+        NLS \rightleftharpoons \text{特征函数} \rightleftharpoons RH \text{问题}
+    \end{equation*}
 \end{remark}
 
 \section{解析性与对称性}\label{ch2-sec:analytic-symmetry}
 由于 \eqref{ch2-eq:diffision-mu} 为全微分形式, 积分与路径无关, 故选择两个特殊路径:
 \begin{equation*}
-	(- \infty, t) \to(x,t) , \quad (+ \infty, t) \to(x,t)
+    (- \infty, t) \to(x,t) , \quad (+ \infty, t) \to(x,t)
 \end{equation*}
 因此可获得 Lax 对 \eqref{ch2-eq:Focus-NLS-Lax-x-Asymptotic}, \eqref{ch2-eq:Focus-NLS-Lax-t-Asymptotic} 的两个特征函数
 \begin{equation}
-	\mu_{1} = I + \int^{x}_{-\infty} e^{- \rmi z (x - y) \sigma_{3}} P \mu_{1}\rmd x, \quad \mu_{2} = I - \int^{x}_{+\infty} e^{- \rmi z (x - y) \sigma_{3}} P \mu_{2}\rmd x \label{ch2-eq:integral-mu}
+    \mu_{1} = I + \int^{x}_{-\infty} e^{- \rmi z (x - y) \sigma_{3}} P \mu_{1}\rmd x, \quad \mu_{2} = I - \int^{x}_{+\infty} e^{- \rmi z (x - y) \sigma_{3}} P \mu_{2}\rmd x \label{ch2-eq:integral-mu}
 \end{equation}
 \begin{proof}
-	由 \eqref{ch2-eq:diffision-mu} 式, 由 $ (\hat{E} \mu)_{x} = \hat{E} P \mu $ 可得
-	\begin{subequations}
-		\begin{align}
-			\hat{E} \mu |_{-\infty}^{x}     & = \int_{-\infty}^{x} \hat{E} P \mu \rmd y                                           \\
-			LHS = \hat{E} \mu - \hat{E} I , & \quad RHS = \int_{-\infty}^{x} e^{ \rmi (zy + z^2 t )\hat{\sigma}_{3}} P \mu \rmd y
-		\end{align}
-	\end{subequations}
-	两边同时乘以 $ \hat{E}^{-1} $, 即得 $ \mu_{1} $, 同理可得 $ \mu_{2} $ .
+    由 \eqref{ch2-eq:diffision-mu} 式, 由 $ (\hat{E} \mu)_{x} = \hat{E} P \mu $ 可得
+    \begin{subequations}
+        \begin{align}
+            \hat{E} \mu |_{-\infty}^{x}     & = \int_{-\infty}^{x} \hat{E} P \mu \rmd y                                           \\
+            LHS = \hat{E} \mu - \hat{E} I , & \quad RHS = \int_{-\infty}^{x} e^{ \rmi (zy + z^2 t )\hat{\sigma}_{3}} P \mu \rmd y
+        \end{align}
+    \end{subequations}
+    两边同时乘以 $ \hat{E}^{-1} $, 即得 $ \mu_{1} $, 同理可得 $ \mu_{2} $ .
 \end{proof}
 
 显然, 其仍具有如下性质
 \begin{equation}
-	\mu_{1}, \mu_{2} \to I (x \to \pm \infty), \quad  \mu_{1}, \mu_{2} \to I (z \to + \infty)
+    \mu_{1}, \mu_{2} \to I (x \to \pm \infty), \quad  \mu_{1}, \mu_{2} \to I (z \to + \infty)
 \end{equation}
 由于 $ \psi_{1} = \mu_{1} E^{-1}, \psi_{2} = \mu_{2} E^{-1} $, 为 Lax 对的两个解, 而 Lax 对为一节齐次线性方程组, 故这两个解线性相关, 故有
 \begin{equation}
-	\mu_{1}(x,t,z) = \mu_{2}(x,t,z) \hat{E} S(z), \label{ch2-eq:eig-mu-relationship} \quad
-	S(z) =
-	\begin{pmatrix}
-		S_{11}(z) & S_{12}(z) \\ S_{21}(z) & S_{22}(z)
-	\end{pmatrix}
+    \mu_{1}(x,t,z) = \mu_{2}(x,t,z) \hat{E} S(z), \label{ch2-eq:eig-mu-relationship} \quad
+    S(z) =
+    \begin{pmatrix}
+        S_{11}(z) & S_{12}(z) \\ S_{21}(z) & S_{22}(z)
+    \end{pmatrix}
 \end{equation}
 其中矩阵 $ S(z) $ 与 $ x,t $ 无关, 称为谱函数矩阵.
 
 再由 $ \mu = \psi E $ 可知 $ \det(\mu_{j}) = \det(\psi_{j}) $. 又因为 $ tr(P - \rmi z \sigma_{3}) = tr(Q - 2 \rmi z^2 \sigma_{3}) = 0 $, 由 Abel 定理可得
 \begin{equation}
-	\det(\psi_{j})_{x} = \det(\psi_{j})_{t} = 0
+    \det(\psi_{j})_{x} = \det(\psi_{j})_{t} = 0
 \end{equation}
 故有 $ \det(\mu_{j})_x = \det(\mu_{j})_{t} = 0 $, 这说明 $ \det(\mu_{j}) $ 与 $ x,t $ 无关, 再由渐进性可得
 \begin{equation}
-	\det(\mu_{j}) = \lim_{|x| \to \infty} \det(\mu_{j}) = 1, \quad(j = 1,2) \label{ch2-eq:mu-det}
+    \det(\mu_{j}) = \lim_{|x| \to \infty} \det(\mu_{j}) = 1, \quad(j = 1,2) \label{ch2-eq:mu-det}
 \end{equation}
 故对 \eqref{ch2-eq:eig-mu-relationship} 两边取行列式有 $ \det S(z) = 1 $.
 
 \subsection{解析性}
 下面我们考虑特征函数 $ \mu_{1}, \mu_{1} $ 和谱矩阵 $ S(z) $ 的解析性, 记 $ \mu_{1} $ 的第一二列分别为
 \begin{equation}
-	\mu_{1} =
-	\begin{pmatrix}
-		\mu_{1}^{11} & \mu_{1}^{12} \\ \mu_{1}^{21} & \mu_{1}^{22}
-	\end{pmatrix} = (\mu_{1}^{+}, \mu_{1}^{-}) \label{ch2-eq:mu-1-matrix}
+    \mu_{1} =
+    \begin{pmatrix}
+        \mu_{1}^{11} & \mu_{1}^{12} \\ \mu_{1}^{21} & \mu_{1}^{22}
+    \end{pmatrix} = (\mu_{1}^{+}, \mu_{1}^{-}) \label{ch2-eq:mu-1-matrix}
 \end{equation}
 则由积分方程 \eqref{ch2-eq:integral-mu} 可得如下 Voltarra 积分方程
 \begin{align}
-	\mu_{1}^{+}(x,t,z) & = (1,0)^T - \int^{x}_{-\infty}  \begin{pmatrix} 1 &  \\  & e^{ \rmi z (x - y)} \end{pmatrix} P \mu_{1}^{+} \rmd y \label{ch2-eq:Voltarra-mu-1} \\
-	\mu_{1}^{-}(x,t,z) & = (0,1)^T - \int^{x}_{-\infty}  \begin{pmatrix} e^{-\rmi z (x - y)} &  \\  & 1 \end{pmatrix} P \mu_{1}^{-} \rmd y \label{ch2-eq:Voltarra-mu-2}
+    \mu_{1}^{+}(x,t,z) & = (1,0)^T - \int^{x}_{-\infty}  \begin{pmatrix} 1 &  \\  & e^{ \rmi z (x - y)} \end{pmatrix} P \mu_{1}^{+} \rmd y \label{ch2-eq:Voltarra-mu-1} \\
+    \mu_{1}^{-}(x,t,z) & = (0,1)^T - \int^{x}_{-\infty}  \begin{pmatrix} e^{-\rmi z (x - y)} &  \\  & 1 \end{pmatrix} P \mu_{1}^{-} \rmd y \label{ch2-eq:Voltarra-mu-2}
 \end{align}
 对于上面两方程, 由于积分变量 $ y < x $, 可得
 \begin{equation*}
-	e^{2 \rmi Z (x-y)} = e^{2 \rmi (x-y)\Re(z)}  e^{-2 \rmi (x-y)\Im(z)}, \quad   e^{- 2 \rmi Z (x-y)} = e^{- 2 \rmi (x-y)\Re(z)}  e^{2 \rmi (x-y)\Im(z)}
+    e^{2 \rmi Z (x-y)} = e^{2 \rmi (x-y)\Re(z)}  e^{-2 \rmi (x-y)\Im(z)}, \quad   e^{- 2 \rmi Z (x-y)} = e^{- 2 \rmi (x-y)\Re(z)}  e^{2 \rmi (x-y)\Im(z)}
 \end{equation*}
 因此当 $ q(x) \in L^{1}(\mathbb{R}) $ 时, 通过构造序列与 Neumann 级数, 可得 $ \mu_{1}^{+}, \mu_{1}^{-} $ 分别在 $ \mathbb{C}_{\pm} $ 解析性.
 
 \begin{remark}
-	上面 Voltarra 积分的推导: 考虑到 $ e^{\hat{\sigma}_{3}} X = e^{\sigma_{3}} X e^{-\sigma_{3}} $ ,故有
-	\begin{equation*}
-		\begin{aligned}
-			\mu_{1} & = I + \int_{-\infty}^{x} e^{- \rmi z(x-y) \hat{\sigma}_{3}} P \mu_{1} \rmd y = I + \int_{-\infty}^{x} e^{- \rmi z(x-y) \sigma_{3}} P e^{\rmi z(x-y) \sigma_{3}} \mu_{1} \rmd y \\
-			        & = I + \int_{-\infty}^{x} \begin{pmatrix}
-				                                    & qe^{2\rmi z(x-y)} \\ - q^{*}e^{-2\rmi z(x-y)}  &
-			                                   \end{pmatrix} \mu \rmd y
-		\end{aligned}
-	\end{equation*}
-	故 $ \mu_{1}^{+} = , \quad \mu_{1}^{-} = $
+    上面 Voltarra 积分的推导: 考虑到 $ e^{\hat{\sigma}_{3}} X = e^{\sigma_{3}} X e^{-\sigma_{3}} $ ,故有
+    \begin{equation*}
+        \begin{aligned}
+            \mu_{1} & = I + \int_{-\infty}^{x} e^{- \rmi z(x-y) \hat{\sigma}_{3}} P \mu_{1} \rmd y = I + \int_{-\infty}^{x} e^{- \rmi z(x-y) \sigma_{3}} P e^{\rmi z(x-y) \sigma_{3}} \mu_{1} \rmd y \\
+                    & = I + \int_{-\infty}^{x} \begin{pmatrix}
+                                                    & qe^{2\rmi z(x-y)} \\ - q^{*}e^{-2\rmi z(x-y)}  &
+                                               \end{pmatrix} \mu \rmd y
+        \end{aligned}
+    \end{equation*}
+    故 $ \mu_{1}^{+} = , \quad \mu_{1}^{-} = $
 \end{remark}
 \begin{proof}
-	下证 $ \mu_{1}^{+} $ 的解析性.
+    下证 $ \mu_{1}^{+} $ 的解析性.
 
-	Step1. 解的存在性: 事实上方程 \eqref{ch2-eq:Voltarra-mu-1} 有如下 Neumann 级数分解
-	\begin{equation}
-		\mu_{1}^{+} = \sum_{n=0}^{\infty} c_{n}(x,z), \quad c_{n+1} = \int_{-\infty}^{x} \begin{pmatrix} 1 &  \\  & e^{ \rmi z (x - y)} \end{pmatrix} P c_{n}(y,z) \rmd y \label{ch2-eq:Neumann-series-mu-1+}
-	\end{equation}
-	其分量形式为
-	\begin{equation}
-		c_{n+1}^{(1)}(x,z) = \int_{-\infty}^{x} q(y) c_{n}^{(2)}(y,z) \rmd y, \quad c_{n+1}^{(2)}(x,z) = \int_{-\infty}^{x} e^{2 \rmi z(x-y)} p(y) c_{n}^{(1)}(y,z) \rmd y
-	\end{equation}
-	其中  $c_{n+1} = (c_{n+1}^{(1)}, c_{n+1}^{(2)})^T, p = -q^{*} $.
-	由 $ c_{0}^{(2)} = 0 \implies c_{2n+1}^{(1)} = c_{2n}^{(2)} = 0 $, 故上面方程可简化为
-	\begin{equation}
-		c_{2n}^{(1)}(x,z) = \int_{-\infty}^{x} q(y) c_{2n-1}^{(2)}(y,z) \rmd y, \quad c_{2n+1}^{(2)}(x,z) = \int_{-\infty}^{x} e^{2 \rmi z(x-y)} p(y) c_{2n}^{(1)}(y,z) \rmd y \label{ch2-eq:Neumann-series-coefficient}
-	\end{equation}
-	对上面方程组进一步简化, 引入如下恒等式
-	\begin{equation}
-		\begin{aligned}
-			  & \frac{1}{j!} \int_{-\infty}^{x} | f(\xi) | \left[\int_{-\infty}^{\xi} | f(\eta) | \right]^{j} \rmd \xi = \frac{1}{(j+1)!} \int_{-\infty}^{x} \frac{d}{d \xi} \left[\int_{-\infty}^{\xi} | f(\eta) | \right]^{j+1} \rmd \xi \\
-			= & \frac{1}{(j+1)!} \left[\int_{-\infty}^{x} | f(\xi) | d \xi \right]^{j+1} \quad (f \in L^{1}(\mathbb{R}))
-		\end{aligned} \label{ch2-eq:Neumann-series-coefficient-identity}
-	\end{equation}
-	利用归纳法可证明当 $ \Im(z) > 0 $ 时, 有
-	\begin{equation}
-		|c_{2n+1}^{(2)} | = \frac{u^{n+1}(x)}{(n+1)!} \frac{v^{n}(x)}{n!} , \quad |c_{2n}^{(1)} | = \frac{u^{n}(x)}{n!} \frac{v^{n}(x)}{n!} \label{ch2-eq:Recurrence-relation}
-	\end{equation}
-	其中
-	\begin{equation}
-		u(x) = \int_{-\infty}^{x} |p(y)| \rmd y, \quad v(x) = \int_{-\infty}^{x} |q(y)| \rmd y
-	\end{equation}
-	事实上, 当 $ \Im(z) > 0 $ 时, $ |e^{2 \rmi z (x-y)} | \leq 1 $, 利用 $ c_{0}^{(1)} = 1 $, 由 \eqref{ch2-eq:Recurrence-relation} 可得
-	\begin{equation}
-		c_{1}^{(2)}(x,y) = \int_{-\infty}^{x} e^{2 \rmi z(x-y)} p(y) \rmd y, \quad c_{2}^{(1)}(x,y) = \int_{-\infty}^{x} e^{2 \rmi z(x-y)} q(y) c_{1}^{(2)} \rmd y
-	\end{equation}
-	又由 $ u(x) \geq 0, v(x) \geq 0 $, 有 $ c_{1}^{(2)} \leq v(x) $
-	\begin{equation}
-		\begin{aligned}
-			|  c_{2}^{(1)}(x,y) & \leq \int_{-\infty}^{x} | q |  c_{1}^{(2)}(y,z) \rmd y \leq  \int_{-\infty}^{x} | q | v(y) \rmd y = \int_{-\infty}^{x} v'(y) u(y) \rmd y \\
-			                    & = u(x) v(x) - \int_{-\infty}^{x} u'(y) v(y) \rmd y \leq u(x)v(x)
-		\end{aligned}
-	\end{equation}
-	进而可得
-	\begin{equation}
-		\begin{aligned}
-			| c_{3}^{(2)}(x,z) | & \leq \int_{-\infty}^{x} | p | c_{2}^{(1)}(y,z) \rmd y \leq \int_{-\infty}^{x} | p | u(y) v(y) \rmd y                                                        \\
-			                     & \leq \int_{-\infty}^{x} u'(y) u(y) v(y) \rmd y = \frac{1}{2}u^2(x) v(x) - \int_{-\infty}^{x} \frac{1}{2}u^2(x) v'(x)  \rmd y \leq \frac{1}{2} u^{2}(x) v(x)
-		\end{aligned}
-	\end{equation}
-	不妨设对于 $ k \leq l $ 时满足 $  | c_{2l+1}^{(2)} | \leq \frac{u^{l+1}(x)}{(l+1)!} \frac{v^{l}(x)}{l!}, | c_{2l}^{(1)} | \leq \frac{u^{l}(x)}{l!} \frac{v^{l}(x)}{l!} $, 下证对于 $ k = l +1 $ 仍成立, 利用 \eqref{ch2-eq:Neumann-series-coefficient-identity} 式可得
-	\begin{equation}
-		| c_{2l+2}^{(1)} | \leq \int_{-\infty}^{x} | q(y) | \frac{u^{l+1}(y)}{(l+1)!} \frac{v^{l}(y)}{l!} \rmd y \leq \int_{-\infty}^{x} v'(y) \frac{u^{l+1}(y)}{(l+1)!} \frac{v^{l}(y)}{l!} \rmd y = \frac{u^{l+1}}{(l+1)!}  \frac{v^{l+1}}{(l+1)!}
-	\end{equation}
-	及
-	\begin{equation}
-		| c_{2l+3}^{(2)} | \leq \int_{-\infty}^{x} | p(y) | \frac{u^{l+1}(y)}{(l+1)!} \frac{v^{l}(y)}{l!} \rmd y \leq \int_{-\infty}^{x} u'(y) \frac{u^{l+1}(y)}{(l+1)!} \frac{v^{l}(y)}{l!} \rmd y = \frac{u^{l+2}}{(l+2)!}  \frac{v^{l+1}}{(l+1)!}
-	\end{equation}
-	从而上述 \eqref{ch2-eq:Neumann-series-coefficient} 式得证. 注意到 $ | q(x) |  = | p(x) |$, 则 $ v(x) = u(x) $, 故 \eqref{ch2-eq:Neumann-series-coefficient} 式可化简为
-	\begin{equation}
-		| c_{2n+1}^{(2)} | \leq \frac{u^{2n+1}}{n!(n+1)!}, \quad | c_{2n}^{(1)} | \leq \frac{u^{2n}}{n!n!}
-	\end{equation}
-	当 $ q \in L^1(\mathbb{R}) $ 时, 有 $ u(x) $ 的上述级数均收敛, 故 Neumann 级数 $ \sum_{n=1}^{\infty} c_{n}(x,z) $ 绝对收敛, 此时 $ \mu_{1}^{+} $ 在 $ Im z > 0 $ 上解析, 且在 $ Im z \geq 0 $ 上连续.
+    Step1. 解的存在性: 事实上方程 \eqref{ch2-eq:Voltarra-mu-1} 有如下 Neumann 级数分解
+    \begin{equation}
+        \mu_{1}^{+} = \sum_{n=0}^{\infty} c_{n}(x,z), \quad c_{n+1} = \int_{-\infty}^{x} \begin{pmatrix} 1 &  \\  & e^{ \rmi z (x - y)} \end{pmatrix} P c_{n}(y,z) \rmd y \label{ch2-eq:Neumann-series-mu-1+}
+    \end{equation}
+    其分量形式为
+    \begin{equation}
+        c_{n+1}^{(1)}(x,z) = \int_{-\infty}^{x} q(y) c_{n}^{(2)}(y,z) \rmd y, \quad c_{n+1}^{(2)}(x,z) = \int_{-\infty}^{x} e^{2 \rmi z(x-y)} p(y) c_{n}^{(1)}(y,z) \rmd y
+    \end{equation}
+    其中  $c_{n+1} = (c_{n+1}^{(1)}, c_{n+1}^{(2)})^T, p = -q^{*} $.
+    由 $ c_{0}^{(2)} = 0 \implies c_{2n+1}^{(1)} = c_{2n}^{(2)} = 0 $, 故上面方程可简化为
+    \begin{equation}
+        c_{2n}^{(1)}(x,z) = \int_{-\infty}^{x} q(y) c_{2n-1}^{(2)}(y,z) \rmd y, \quad c_{2n+1}^{(2)}(x,z) = \int_{-\infty}^{x} e^{2 \rmi z(x-y)} p(y) c_{2n}^{(1)}(y,z) \rmd y \label{ch2-eq:Neumann-series-coefficient}
+    \end{equation}
+    对上面方程组进一步简化, 引入如下恒等式
+    \begin{equation}
+        \begin{aligned}
+              & \frac{1}{j!} \int_{-\infty}^{x} | f(\xi) | \left[\int_{-\infty}^{\xi} | f(\eta) | \right]^{j} \rmd \xi = \frac{1}{(j+1)!} \int_{-\infty}^{x} \frac{d}{d \xi} \left[\int_{-\infty}^{\xi} | f(\eta) | \right]^{j+1} \rmd \xi \\
+            = & \frac{1}{(j+1)!} \left[\int_{-\infty}^{x} | f(\xi) | d \xi \right]^{j+1} \quad (f \in L^{1}(\mathbb{R}))
+        \end{aligned} \label{ch2-eq:Neumann-series-coefficient-identity}
+    \end{equation}
+    利用归纳法可证明当 $ \Im(z) > 0 $ 时, 有
+    \begin{equation}
+        |c_{2n+1}^{(2)} | = \frac{u^{n+1}(x)}{(n+1)!} \frac{v^{n}(x)}{n!} , \quad |c_{2n}^{(1)} | = \frac{u^{n}(x)}{n!} \frac{v^{n}(x)}{n!} \label{ch2-eq:Recurrence-relation}
+    \end{equation}
+    其中
+    \begin{equation}
+        u(x) = \int_{-\infty}^{x} |p(y)| \rmd y, \quad v(x) = \int_{-\infty}^{x} |q(y)| \rmd y
+    \end{equation}
+    事实上, 当 $ \Im(z) > 0 $ 时, $ |e^{2 \rmi z (x-y)} | \leq 1 $, 利用 $ c_{0}^{(1)} = 1 $, 由 \eqref{ch2-eq:Recurrence-relation} 可得
+    \begin{equation}
+        c_{1}^{(2)}(x,y) = \int_{-\infty}^{x} e^{2 \rmi z(x-y)} p(y) \rmd y, \quad c_{2}^{(1)}(x,y) = \int_{-\infty}^{x} e^{2 \rmi z(x-y)} q(y) c_{1}^{(2)} \rmd y
+    \end{equation}
+    又由 $ u(x) \geq 0, v(x) \geq 0 $, 有 $ c_{1}^{(2)} \leq v(x) $
+    \begin{equation}
+        \begin{aligned}
+            |  c_{2}^{(1)}(x,y) & \leq \int_{-\infty}^{x} | q |  c_{1}^{(2)}(y,z) \rmd y \leq  \int_{-\infty}^{x} | q | v(y) \rmd y = \int_{-\infty}^{x} v'(y) u(y) \rmd y \\
+                                & = u(x) v(x) - \int_{-\infty}^{x} u'(y) v(y) \rmd y \leq u(x)v(x)
+        \end{aligned}
+    \end{equation}
+    进而可得
+    \begin{equation}
+        \begin{aligned}
+            | c_{3}^{(2)}(x,z) | & \leq \int_{-\infty}^{x} | p | c_{2}^{(1)}(y,z) \rmd y \leq \int_{-\infty}^{x} | p | u(y) v(y) \rmd y                                                        \\
+                                 & \leq \int_{-\infty}^{x} u'(y) u(y) v(y) \rmd y = \frac{1}{2}u^2(x) v(x) - \int_{-\infty}^{x} \frac{1}{2}u^2(x) v'(x)  \rmd y \leq \frac{1}{2} u^{2}(x) v(x)
+        \end{aligned}
+    \end{equation}
+    不妨设对于 $ k \leq l $ 时满足 $  | c_{2l+1}^{(2)} | \leq \frac{u^{l+1}(x)}{(l+1)!} \frac{v^{l}(x)}{l!}, | c_{2l}^{(1)} | \leq \frac{u^{l}(x)}{l!} \frac{v^{l}(x)}{l!} $, 下证对于 $ k = l +1 $ 仍成立, 利用 \eqref{ch2-eq:Neumann-series-coefficient-identity} 式可得
+    \begin{equation}
+        | c_{2l+2}^{(1)} | \leq \int_{-\infty}^{x} | q(y) | \frac{u^{l+1}(y)}{(l+1)!} \frac{v^{l}(y)}{l!} \rmd y \leq \int_{-\infty}^{x} v'(y) \frac{u^{l+1}(y)}{(l+1)!} \frac{v^{l}(y)}{l!} \rmd y = \frac{u^{l+1}}{(l+1)!}  \frac{v^{l+1}}{(l+1)!}
+    \end{equation}
+    及
+    \begin{equation}
+        | c_{2l+3}^{(2)} | \leq \int_{-\infty}^{x} | p(y) | \frac{u^{l+1}(y)}{(l+1)!} \frac{v^{l}(y)}{l!} \rmd y \leq \int_{-\infty}^{x} u'(y) \frac{u^{l+1}(y)}{(l+1)!} \frac{v^{l}(y)}{l!} \rmd y = \frac{u^{l+2}}{(l+2)!}  \frac{v^{l+1}}{(l+1)!}
+    \end{equation}
+    从而上述 \eqref{ch2-eq:Neumann-series-coefficient} 式得证. 注意到 $ | q(x) |  = | p(x) |$, 则 $ v(x) = u(x) $, 故 \eqref{ch2-eq:Neumann-series-coefficient} 式可化简为
+    \begin{equation}
+        | c_{2n+1}^{(2)} | \leq \frac{u^{2n+1}}{n!(n+1)!}, \quad | c_{2n}^{(1)} | \leq \frac{u^{2n}}{n!n!}
+    \end{equation}
+    当 $ q \in L^1(\mathbb{R}) $ 时, 有 $ u(x) $ 的上述级数均收敛, 故 Neumann 级数 $ \sum_{n=1}^{\infty} c_{n}(x,z) $ 绝对收敛, 此时 $ \mu_{1}^{+} $ 在 $ Im z > 0 $ 上解析, 且在 $ Im z \geq 0 $ 上连续.
 
-	Step2. 解的唯一性: 不妨设 $ \tilde{\mu}_{1}^{+} $ 为方程 \eqref{ch2-eq:Voltarra-mu-1} 的另一个解, 不妨设 $ h = \mu_{1}^{+} - \tilde{\mu}_{1}^{+} $, 则有
-	\begin{equation}
-		\| h(x,t,z) \| = \left\| \int_{-\infty}^{x} \begin{pmatrix} 1 &  \\  & e^{ \rmi z (x - y)} \end{pmatrix} P h \rmd y \right\| \leq 2 \int_{-\infty}^{x} | q | \|  h \| \rmd y \implies \| h(x,t,z) \| \equiv  0
-	\end{equation}
-	故 $ \mu_{1}^{+} $ 为方程的唯一解, 同理可得 $ \mu_{1}^{-} $ 的解析性.
+    Step2. 解的唯一性: 不妨设 $ \tilde{\mu}_{1}^{+} $ 为方程 \eqref{ch2-eq:Voltarra-mu-1} 的另一个解, 不妨设 $ h = \mu_{1}^{+} - \tilde{\mu}_{1}^{+} $, 则有
+    \begin{equation}
+        \| h(x,t,z) \| = \left\| \int_{-\infty}^{x} \begin{pmatrix} 1 &  \\  & e^{ \rmi z (x - y)} \end{pmatrix} P h \rmd y \right\| \leq 4 \int_{-\infty}^{x} | q | \|  h \| \rmd y
+    \end{equation}
+    由 Grönwall 不等式可得 $ h = 0 $, 故 $ \mu_{1}^{+} $ 为方程的唯一解, 同理可得 $ \mu_{1}^{-} $ 的解析性.
 \end{proof}
 
 所以可得 $ \mu_{1}^{+}, \mu_{1}^{-} $ 分别在 $ \mathbb{C}_{+}, \mathbb{C}_{-} $ 上解析. 同理可得 $ \mu_{2} $ 的第一二列分别在 $ \mathbb{C}_{-}, \mathbb{C}_{+} $ 上解析. 记作
 \begin{equation*}
-	\mu_{2} =
-	\begin{pmatrix}
-		\mu_{2}^{(11)} & \mu_{2}^{(12)} \\ \mu_{2}^{(21)} & \mu_{2}^{(22)}
-	\end{pmatrix} = (\mu_{2}^{-}, \mu_{2}^{+})
+    \mu_{2} =
+    \begin{pmatrix}
+        \mu_{2}^{(11)} & \mu_{2}^{(12)} \\ \mu_{2}^{(21)} & \mu_{2}^{(22)}
+    \end{pmatrix} = (\mu_{2}^{-}, \mu_{2}^{+})
 \end{equation*}
 由 \eqref{ch2-eq:mu-det} 可知, $ \mu_{1}, \mu_{2} $ 可逆, 且逆矩阵为其伴随阵, 另外基于 $ \mu_{1}, \mu_{2} $ 的列向量函数的解析性, 可得 $ \mu_{1}^{-1} $ 的第一二行在 $ \mathbb{C}_{-}, \mathbb{C}_{+} $ 上解析, $ \mu_{2}^{-1} $ 的第一二行在 $ \mathbb{C}_{+}, \mathbb{C}_{-} $ 上解析. 记为
 \begin{equation}
-	\mu_{1}^{-1} =
-	\begin{pmatrix}
-		\mu_{1}^{(22)} & - \mu_{1}^{(21)} \\ - \mu_{1}^{(12)} & \mu_{1}^{(11)}
-	\end{pmatrix} = \begin{pmatrix}
-		- \hat{\mu_{1}^{-}} \\ \hat{\mu_{1}^{+}}
-	\end{pmatrix}
-	, \quad
-	\mu_{2}^{-1} =
-	\begin{pmatrix}
-		\mu_{2}^{(22)} & - \mu_{2}^{(21)} \\ - \mu_{2}^{(12)} & \mu_{2}^{(11)}
-	\end{pmatrix} = \begin{pmatrix}
-		- \hat{\mu_{2}^{+}} \\ \hat{\mu_{2}^{-}}
-	\end{pmatrix} \label{ch2-eq:mu-1-2-inverse-matrix}
+    \mu_{1}^{-1} =
+    \begin{pmatrix}
+        \mu_{1}^{(22)} & - \mu_{1}^{(21)} \\ - \mu_{1}^{(12)} & \mu_{1}^{(11)}
+    \end{pmatrix} = \begin{pmatrix}
+        - \hat{\mu_{1}^{-}} \\ \hat{\mu_{1}^{+}}
+    \end{pmatrix}
+    , \quad
+    \mu_{2}^{-1} =
+    \begin{pmatrix}
+        \mu_{2}^{(22)} & - \mu_{2}^{(21)} \\ - \mu_{2}^{(12)} & \mu_{2}^{(11)}
+    \end{pmatrix} = \begin{pmatrix}
+        - \hat{\mu_{2}^{+}} \\ \hat{\mu_{2}^{-}}
+    \end{pmatrix} \label{ch2-eq:mu-1-2-inverse-matrix}
 \end{equation}
 利用 \eqref{ch2-eq:eig-mu-relationship}, \eqref{ch2-eq:mu-1-matrix}, \eqref{ch2-eq:mu-1-2-inverse-matrix} 可得谱函数 $ S(z) $ 的解析性
 \begin{equation}
-	S(z) = \mu_{2}^{-1} \mu_{1} = \begin{pmatrix} - \hat{\mu_{2}^{+}} \\ \hat{\mu_{2}^{-}} \end{pmatrix} (\mu_{1}^{+}, \mu_{1}^{-})
-	= \begin{pmatrix} - \hat{\mu_{2}^{+}} \mu_{1}^{+} & - \hat{\mu_{2}^{+}} \mu_{1}^{-} \\ \hat{\mu_{2}^{-}} \mu_{1}^{+} & \hat{\mu_{2}^{-}} \mu_{1}^{-} \end{pmatrix}
+    S(z) = \mu_{2}^{-1} \mu_{1} = \begin{pmatrix} - \hat{\mu_{2}^{+}} \\ \hat{\mu_{2}^{-}} \end{pmatrix} (\mu_{1}^{+}, \mu_{1}^{-})
+    = \begin{pmatrix} - \hat{\mu_{2}^{+}} \mu_{1}^{+} & - \hat{\mu_{2}^{+}} \mu_{1}^{-} \\ \hat{\mu_{2}^{-}} \mu_{1}^{+} & \hat{\mu_{2}^{-}} \mu_{1}^{-} \end{pmatrix}
 \end{equation}
 可见 $ S_{11}(z) $ 在 $ \mathbb{C}_{+} $ 解析, $ S_{22}(z) $ 在 $ \mathbb{C}_{-} $ 解析, $ S_{12}, S_{21} $ 在 $ \mathbb{C}_{+}, \mathbb{C}_{-} $ 均不解析, 但连续到边界.
 
 \subsection{对称性}
 \begin{theorem}
-	如上构造的特征函数 $ \mu_{1}, \mu_{2} $ 与谱函数 $ S(z) $ 具有如下对称性
-	\begin{equation}
-		\mu_{j}^{\dagger}(x,t,z^{*}) = \mu_{j}^{-1}(x,t,z), \quad S^{\dagger}(z^{*}) = S^{-1}(z) \quad( j = 1,2 )
-	\end{equation}
+    如上构造的特征函数 $ \mu_{1}, \mu_{2} $ 与谱函数 $ S(z) $ 具有如下对称性
+    \begin{equation}
+        \mu_{j}^{\dagger}(x,t,z^{*}) = \mu_{j}^{-1}(x,t,z), \quad S^{\dagger}(z^{*}) = S^{-1}(z) \quad( j = 1,2 )
+    \end{equation}
 \end{theorem}
 \begin{proof}
-	由 \eqref{ch2-eq:Focus-NLS-Lax-x-Asymptotic} 有
-	\begin{equation}
-		\mu_{j,x}(x,t,z) = \rmi z [\sigma_{3}, \mu_{j}(x,t,z)] = P \mu_{j}(x,t,z) \label{ch2-eq:mu-diff-x}
-	\end{equation}
-	将 $ z $ 替换为 $ z^{*} $, 并在两边同时取 Hermite 共轭, 则有
-	\begin{equation}
-		\mu_{j,x}^{\dagger}(x,t,z^{*}) + \rmi z [\sigma_{3}, \mu_{j}^{\dagger}(X,t,z^{*})] = \mu_{j}^{\dagger}(x,t,z^{*}) P^{\dagger}
-	\end{equation}
-	由于 $ P^{\dagger} = -P $, 故上式可化为
-	\begin{equation}
-		\mu_{j,x}^{\dagger}(x,t,z^{*}) + \rmi z [\sigma_{3}, \mu_{j}^{\dagger}(X,t,z^{*})] = - \mu_{j}^{\dagger}(x,t,z^{*}) P
-	\end{equation}
-	另外对于 $ \mu_{j} \cdot \mu_{j}^{-1} = I $ 对 $ x $ 求偏导有
-	\begin{equation}
-		\mu_{j,x} \mu_{j}^{-1} + \mu_{j} \mu_{j,x}^{-1} = 0 \implies \mu_{j,x}^{-1}  = - \mu_{j}^{-1} \mu_{j,x} \mu_{j}^{-1}
-	\end{equation}
-	将 \eqref{ch2-eq:mu-diff-x} 带入上式有
-	\begin{equation}
-		\mu_{j,x}^{-1} = - \mu_{j}^{-1} ( P \mu_{j}(x,t,z) - \rmi z [\sigma_{3}, \mu_{j}(x,t,z)] \mu_{j}^{-1}(x,t,z) \implies \mu_{j,x}^{-1} + \rmi z [\sigma_{3},\mu_{j}^{-1}] = \mu_{j}^{-1} P
-	\end{equation}
-	由 \eqref{ch2-eq:Voltarra-mu-1}, \eqref{ch2-eq:Neumann-series-mu-1+} 可得 $ \mu_{j}^{\dagger}, \mu_{j}^{-1} $ 满足相同的一次线性微分方程, 具有相同的渐进性, 又因为
-	\begin{equation}
-		\mu_{j}^{\dagger}(x,t,z^{*}) , \mu_{j}^{-1}(x,t,z) \to I , \quad | x | \to \infty \label{ch2-eq:mu-Hermitian-asymptotic}
-	\end{equation}
-	因此两者相等, 得到对称关系 $ \mu_{j}^{\dagger}(x,t,z^{*}) = \mu_{j}^{-1}(x,t,z), (j = 1,2) $. 接下来考虑 $ S $ 的对称性, 将 \eqref{ch2-eq:eig-mu-relationship} 式改写为
-	\begin{equation}
-		S(z) = e^{\rmi \theta(z) \hat{\sigma}_{3}} (\mu_{2}^{-1}\mu_{1}) = \hat{E}(\mu_{2}^{-1}\mu_{1})
-	\end{equation}
-	由 \eqref{ch2-eq:mu-Hermitian-asymptotic} 可得如下
-	\begin{equation}
-		S(z^{*})^{\dagger} = e^{\rmi \theta(z^{*}) \sigma_{3}} (\mu_{2}^{-1}\mu_{1})  e^{-\rmi \theta(z^{*})} = E \mu_{2}^{-1}\mu_{1} E^{-1} = E \mu_{1}^{\dagger} (\mu_{2}^{-1})^{\dagger} E^{-1} = E \mu_{1}^{\dagger} \mu_{2} E^{-1} = S(z)^{-1}
-	\end{equation}
-	比较对应元素, 有
-	\begin{equation}
-		S_{11}^{*}(z^{*}) = S_{22}(z), S_{12}^{*}(z^{*}) = - S_{21}(z) \label{ch2-eq:S-symmetry}
-	\end{equation}
+    由 \eqref{ch2-eq:Focus-NLS-Lax-x-Asymptotic} 有
+    \begin{equation}
+        \mu_{j,x}(x,t,z) = \rmi z [\sigma_{3}, \mu_{j}(x,t,z)] = P \mu_{j}(x,t,z) \label{ch2-eq:mu-diff-x}
+    \end{equation}
+    将 $ z $ 替换为 $ z^{*} $, 并在两边同时取 Hermite 共轭, 则有
+    \begin{equation}
+        \mu_{j,x}^{\dagger}(x,t,z^{*}) + \rmi z [\sigma_{3}, \mu_{j}^{\dagger}(X,t,z^{*})] = \mu_{j}^{\dagger}(x,t,z^{*}) P^{\dagger}
+    \end{equation}
+    由于 $ P^{\dagger} = -P $, 故上式可化为
+    \begin{equation}
+        \mu_{j,x}^{\dagger}(x,t,z^{*}) + \rmi z [\sigma_{3}, \mu_{j}^{\dagger}(X,t,z^{*})] = - \mu_{j}^{\dagger}(x,t,z^{*}) P
+    \end{equation}
+    另外对于 $ \mu_{j} \cdot \mu_{j}^{-1} = I $ 对 $ x $ 求偏导有
+    \begin{equation}
+        \mu_{j,x} \mu_{j}^{-1} + \mu_{j} \mu_{j,x}^{-1} = 0 \implies \mu_{j,x}^{-1}  = - \mu_{j}^{-1} \mu_{j,x} \mu_{j}^{-1}
+    \end{equation}
+    将 \eqref{ch2-eq:mu-diff-x} 带入上式有
+    \begin{equation}
+        \mu_{j,x}^{-1} = - \mu_{j}^{-1} ( P \mu_{j}(x,t,z) - \rmi z [\sigma_{3}, \mu_{j}(x,t,z)] \mu_{j}^{-1}(x,t,z) \implies \mu_{j,x}^{-1} + \rmi z [\sigma_{3},\mu_{j}^{-1}] = \mu_{j}^{-1} P
+    \end{equation}
+    由 \eqref{ch2-eq:Voltarra-mu-1}, \eqref{ch2-eq:Neumann-series-mu-1+} 可得 $ \mu_{j}^{\dagger}, \mu_{j}^{-1} $ 满足相同的一次线性微分方程, 具有相同的渐进性, 又因为
+    \begin{equation}
+        \mu_{j}^{\dagger}(x,t,z^{*}) , \mu_{j}^{-1}(x,t,z) \to I , \quad | x | \to \infty \label{ch2-eq:mu-Hermitian-asymptotic}
+    \end{equation}
+    因此两者相等, 得到对称关系 $ \mu_{j}^{\dagger}(x,t,z^{*}) = \mu_{j}^{-1}(x,t,z), (j = 1,2) $. 接下来考虑 $ S $ 的对称性, 将 \eqref{ch2-eq:eig-mu-relationship} 式改写为
+    \begin{equation}
+        S(z) = e^{\rmi \theta(z) \hat{\sigma}_{3}} (\mu_{2}^{-1}\mu_{1}) = \hat{E}(\mu_{2}^{-1}\mu_{1})
+    \end{equation}
+    由 \eqref{ch2-eq:mu-Hermitian-asymptotic} 可得如下
+    \begin{equation}
+        S(z^{*})^{\dagger} = e^{\rmi \theta(z^{*}) \sigma_{3}} (\mu_{2}^{-1}\mu_{1})  e^{-\rmi \theta(z^{*})} = E \mu_{2}^{-1}\mu_{1} E^{-1} = E \mu_{1}^{\dagger} (\mu_{2}^{-1})^{\dagger} E^{-1} = E \mu_{1}^{\dagger} \mu_{2} E^{-1} = S(z)^{-1}
+    \end{equation}
+    比较对应元素, 有
+    \begin{equation}
+        S_{11}^{*}(z^{*}) = S_{22}(z), S_{12}^{*}(z^{*}) = - S_{21}(z) \label{ch2-eq:S-symmetry}
+    \end{equation}
 \end{proof}
 
 \section{相关的 RH 问题}
 \subsection{规范 RH 问题}
 基于 \eqref{ch2-sec:analytic-symmetry} 节的结论, 我们构造 RH 问题, 引入记号
 \begin{equation}
-	H_{1} = \begin{pmatrix}
-		1 & \\ & 0
-	\end{pmatrix}, \quad
-	H_{2} = \begin{pmatrix}
-		0 & \\ & 1
-	\end{pmatrix}
+    H_{1} = \begin{pmatrix}
+        1 & \\ & 0
+    \end{pmatrix}, \quad
+    H_{2} = \begin{pmatrix}
+        0 & \\ & 1
+    \end{pmatrix}
 \end{equation}
 并定义两个矩阵
 \begin{equation}
-	\begin{aligned}
-		P_{+}(x,t,z) = \mu_{1} H_{1} + \mu_{2} H_{2} = \begin{pmatrix}  \mu_{1}^{(11)} & \mu_{2}^{(12)} \\ \mu_{1}^{(21)} & \mu_{2}^{(22)} \end{pmatrix} = (\mu_{1}^{+}, \mu_{2}^{+}) \\
-		P_{-}(x,t,z) =  H_{1} \mu_{1}^{-1} +  H_{2}\mu_{2}^{-1} = \begin{pmatrix}  \mu_{1}^{(22)} & -\mu_{1}^{(12)} \\ -\mu_{2}^{(21)} & \mu_{2}^{(11)} \end{pmatrix} = \begin{pmatrix} \hat{\mu}_{1}^{-} \\ \hat{\mu}_{2}^{-} \end{pmatrix}
-	\end{aligned}
+    \begin{aligned}
+        P_{+}(x,t,z) = \mu_{1} H_{1} + \mu_{2} H_{2} = \begin{pmatrix}  \mu_{1}^{(11)} & \mu_{2}^{(12)} \\ \mu_{1}^{(21)} & \mu_{2}^{(22)} \end{pmatrix} = (\mu_{1}^{+}, \mu_{2}^{+}) \\
+        P_{-}(x,t,z) =  H_{1} \mu_{1}^{-1} +  H_{2}\mu_{2}^{-1} = \begin{pmatrix}  \mu_{1}^{(22)} & -\mu_{1}^{(12)} \\ -\mu_{2}^{(21)} & \mu_{2}^{(11)} \end{pmatrix} = \begin{pmatrix} \hat{\mu}_{1}^{-} \\ \hat{\mu}_{2}^{-} \end{pmatrix}
+    \end{aligned}
 \end{equation}
 则由 $ \mu_{j}, \mu_{j}^{-1} (j=1,2) $ 的解析性与渐进性, 直接可得 $ P_{+} $ 在 $ \mathbb{C}_{+} $ 上解析, $ P_{-} $ 在 $ \mathbb{C}_{-} $ 上解析, 且具有如下渐进性
 \begin{equation}
-	P_{+}, P_{-} \to I \quad | x | \to \infty
+    P_{+}, P_{-} \to I \quad | x | \to \infty
 \end{equation}
 由此可证明如下对称关系
 \begin{theorem}
-	$ P_{+}(x,t,z), P_{-}(x,t,z) $ 具有如下对称性
-	\begin{equation}
-		P_{+}^{\dagger}(x,t,z^{*}) =  P_{-}(x,t,z) \label{ch2-eq:P-symmetry}
-	\end{equation}
+    $ P_{+}(x,t,z), P_{-}(x,t,z) $ 具有如下对称性
+    \begin{equation}
+        P_{+}^{\dagger}(x,t,z^{*}) =  P_{-}(x,t,z) \label{ch2-eq:P-symmetry}
+    \end{equation}
 \end{theorem}
 \begin{proof}
-	利用 \eqref{ch2-eq:mu-Hermitian-asymptotic} 可得
-	\begin{equation}
-		\begin{aligned}
-			P_{+}^{\dagger}(x,t,z^{*}) & = (\mu_{1}(x,t,z) H_{1} + \mu_{2}(x,t,z) H_{2} )^{\dagger} = H_{1} \mu_{1}^{\dagger}(z^{*}) + H_{2}\mu_{2}^{\dagger}(z^{*}) \\
-			                           & = H_{1}\mu_{1}^{-1}(x,t,z) + H_{2} \mu_{2}^{-1}(x,t,z) = P_{-}(x,t,z)
-		\end{aligned}
-	\end{equation}
+    利用 \eqref{ch2-eq:mu-Hermitian-asymptotic} 可得
+    \begin{equation}
+        \begin{aligned}
+            P_{+}^{\dagger}(x,t,z^{*}) & = (\mu_{1}(x,t,z) H_{1} + \mu_{2}(x,t,z) H_{2} )^{\dagger} = H_{1} \mu_{1}^{\dagger}(z^{*}) + H_{2}\mu_{2}^{\dagger}(z^{*}) \\
+                                       & = H_{1}\mu_{1}^{-1}(x,t,z) + H_{2} \mu_{2}^{-1}(x,t,z) = P_{-}(x,t,z)
+        \end{aligned}
+    \end{equation}
 \end{proof}
 
 \begin{definition}
-	概括上面结果, 我们可以得到下面 RH 问题
-	\begin{align}
-		P_{\pm}(x,t,z) \in C(\mathbb{C}_{\pm})  \label{ch2-eq:RHP-1}      \\
-		P_{-}P_{+} = G(x,t,z) \quad z \in \mathbb{R} \label{ch2-eq:RHP-2} \\
-		P_{\pm} \to I \quad z \to \infty \label{ch2-eq:RHP-3}
-	\end{align}
-	其中跳跃矩阵为
-	\begin{equation}
-		G(x,t,z) = \hat{E}^{-1} \begin{pmatrix}
-			1 & -S_{12}(z) \\ S_{21}(z) & 1
-		\end{pmatrix}
-	\end{equation}
-	进一步 NLS 方程的解 $ q(x,t) $ 可由 RH 问题的解给出
-	\begin{equation}
-		q(x,t) = 2 \rmi \lim_{z \to \infty} (z P_{+})_{12} = 2 \rmi (P_{+}^{(1)})_{12}
-	\end{equation}
-	其中 $ P_{+} = I + \frac{P_{+}^{(1)}}{z} + O(z^{-2}) $
+    概括上面结果, 我们可以得到下面 RH 问题
+    \begin{align}
+        P_{\pm}(x,t,z) \in C(\mathbb{C}_{\pm})  \label{ch2-eq:RHP-1}      \\
+        P_{-}P_{+} = G(x,t,z) \quad z \in \mathbb{R} \label{ch2-eq:RHP-2} \\
+        P_{\pm} \to I \quad z \to \infty \label{ch2-eq:RHP-3}
+    \end{align}
+    其中跳跃矩阵为
+    \begin{equation}
+        G(x,t,z) = \hat{E}^{-1} \begin{pmatrix}
+            1 & -S_{12}(z) \\ S_{21}(z) & 1
+        \end{pmatrix}
+    \end{equation}
+    进一步 NLS 方程的解 $ q(x,t) $ 可由 RH 问题的解给出
+    \begin{equation}
+        q(x,t) = 2 \rmi \lim_{z \to \infty} (z P_{+})_{12} = 2 \rmi (P_{+}^{(1)})_{12}
+    \end{equation}
+    其中 $ P_{+} = I + \frac{P_{+}^{(1)}}{z} + O(z^{-2}) $
 \end{definition}
 \begin{proof}
-	只需证明跳跃关系即可, 注意到 $ \hat{E} H_{j} = H_{j}, (j=1,2) $ 可得
-	\begin{equation}
-		\begin{aligned}
-			G & = P_{-}P_{+} = (H_{1} \mu_{1}^{-1} + H_{2} \mu_{2}^{-1})(\mu_{1} H_{1} + \mu_{2} H_{2})                                                                     \\
-			  & \overset{\eqref{ch2-eq:eig-mu-relationship}}{=} [H_{1}(\hat{E}^{-1} S^{-1})\mu_{2}^{-1} + H_{2}\mu_{2}^{-1}]  [\mu_{2}(\hat{E}^{-1} S)H_{1} + \mu_{2}H_{2}] \\
-			  & = \hat{E}^{-1} [(H_{1}S^{-1} + H_2)(SH_{1} + H_{2})] = \hat{E}^{-1} \begin{pmatrix}
-				                                                                        1 & -S_{12}(z) \\ S_{21}(z) & 1
-			                                                                        \end{pmatrix}
-		\end{aligned}
-	\end{equation}
-	直接计算可得
-	\begin{equation}
-		\begin{aligned}
-			\det(P_{+}) & = \det(\mu_{1}H_{1} + \mu_{2} H_{2}) = \det(\mu_{2} \hat{E}^{-1} S) H_{1} + \mu_{2}H_{2}) \\
-			            & =\det(\mu_{2}) \det((\hat{E}^{-1} S) H_{1} + \mu_{2}H_{2}) = S_{11}(z)
-		\end{aligned}
-	\end{equation}
-	同理, 有 $ \det(P_{-}) = S_{22}(z) $
+    只需证明跳跃关系即可, 注意到 $ \hat{E} H_{j} = H_{j}, (j=1,2) $ 可得
+    \begin{equation}
+        \begin{aligned}
+            G & = P_{-}P_{+} = (H_{1} \mu_{1}^{-1} + H_{2} \mu_{2}^{-1})(\mu_{1} H_{1} + \mu_{2} H_{2})                                                                     \\
+              & \overset{\eqref{ch2-eq:eig-mu-relationship}}{=} [H_{1}(\hat{E}^{-1} S^{-1})\mu_{2}^{-1} + H_{2}\mu_{2}^{-1}]  [\mu_{2}(\hat{E}^{-1} S)H_{1} + \mu_{2}H_{2}] \\
+              & = \hat{E}^{-1} [(H_{1}S^{-1} + H_2)(SH_{1} + H_{2})] = \hat{E}^{-1} \begin{pmatrix}
+                                                                                        1 & -S_{12}(z) \\ S_{21}(z) & 1
+                                                                                    \end{pmatrix}
+        \end{aligned}
+    \end{equation}
+    直接计算可得
+    \begin{equation}
+        \begin{aligned}
+            \det(P_{+}) & = \det(\mu_{1}H_{1} + \mu_{2} H_{2}) = \det(\mu_{2} \hat{E}^{-1} S) H_{1} + \mu_{2}H_{2}) \\
+                        & =\det(\mu_{2}) \det((\hat{E}^{-1} S) H_{1} + \mu_{2}H_{2}) = S_{11}(z)
+        \end{aligned}
+    \end{equation}
+    同理, 有 $ \det(P_{-}) = S_{22}(z) $
 \end{proof}
 
 \subsection{RH 问题的可解性}
@@ -438,322 +438,322 @@ NLS 方程 \eqref{ch2-eq:Focus-NLS} 具有如下矩阵形式的 Lax 对
 
 Case1. 如果
 \begin{equation}
-	\det P_{\pm} (z) \neq 0 (\forall z \in \mathbb{C}), \label{ch2-eq:RHP-regular}
+    \det P_{\pm} (z) \neq 0 (\forall z \in \mathbb{C}), \label{ch2-eq:RHP-regular}
 \end{equation}
 则称 RH 问题 \eqref{ch2-eq:RHP-1} - \eqref{ch2-eq:RHP-3} 为正则的, 将方程 \eqref{ch2-eq:RHP-2} 改写为
 \begin{equation}
-	P^{-1}_{+} - P_{-} = (I - G)P^{-1}_{+} := \hat{C} P^{-1}_{+}
+    P^{-1}_{+} - P_{-} = (I - G)P^{-1}_{+} := \hat{C} P^{-1}_{+}
 \end{equation}
 由 Plemelj 公式可得
 \begin{equation}
-	P_{+} = I + \frac{1}{2 \pi \rmi} \int_{-\infty}^{\infty} \frac{\hat{C}(x,t,z) P_{+}^{-1}(x,t,z)}{s - z} \rmd s, \quad z \in \mathbb{C}_{+}
+    P_{+} = I + \frac{1}{2 \pi \rmi} \int_{-\infty}^{\infty} \frac{\hat{C}(x,t,z) P_{+}^{-1}(x,t,z)}{s - z} \rmd s, \quad z \in \mathbb{C}_{+}
 \end{equation}
 
 Case2. 如果条件 \eqref{ch2-eq:RHP-regular} 不满足, 则称 RH 问题为非正则的, 假设 $ \det P_{\pm} $ 在某些离散的点处为零, 由谱函数对称性 \eqref{ch2-eq:S-symmetry} 有
 \begin{equation}
-	\det P_{+}(z) = S_{11}(z) = S_{22}^{*}(z^{*}) = \det P_{-}^{*}(z^{*}) = \det P_{-}(z^{*})
+    \det P_{+}(z) = S_{11}(z) = S_{22}^{*}(z^{*}) = \det P_{-}^{*}(z^{*}) = \det P_{-}(z^{*})
 \end{equation}
 故
 \begin{equation}
-	\det P_{+}(z) = 0 \iff \det P_{-}(Z^{*}) = 0,
+    \det P_{+}(z) = 0 \iff \det P_{-}(Z^{*}) = 0,
 \end{equation}
 因此 $ \det P_{+}(z) $ 与 $ \det P_{-}(z) $ 有相同的零点个数, 且彼此共轭. 即若设 $ z_{j} (j = 1,2, \dots , N) $ 为 $ \det P_{+}(z) $ 在 $ \mathbb{C}_{+} $ 上的单零点, 则 $ z^{*}_{j} (j = 1,2, \dots , N) $ 为 $ \det P_{-}(z) $ 在 $ \mathbb{C}_{-} $ 上的单零点.
 
 由于 $ \det P_{+}(z_{j}) = \det P_{-}(z^{*}_{j}) = 0 $, 假设 $ w_{j}, w_{j}^{*} $ 分别为下列线性方程组的解
 \begin{equation}
-	P_{+}(z_{j}) w_{j}(z_{j}) = 0, \quad w_{j}^{*}(z_{j}^{*}) P_{-}(z_{j}^{*})  = 0 \label{ch2-eq:RHP-singular}
+    P_{+}(z_{j}) w_{j}(z_{j}) = 0, \quad w_{j}^{*}(z_{j}^{*}) P_{-}(z_{j}^{*})  = 0 \label{ch2-eq:RHP-singular}
 \end{equation}
 对上式取共轭转置, 则有 $ w_{j}^{\dagger}(z_{j}) P_{+}^{\dagger}(z_{j})  = 0 $, 再利用对称性 \eqref{ch2-eq:P-symmetry} 有
 \begin{equation}
-	w_{j}^{\dagger}(z_{j}) P_{-}(z_{j}^{*})  = 0 \label{ch2-eq:RHP-singular-Hermitian}
+    w_{j}^{\dagger}(z_{j}) P_{-}(z_{j}^{*})  = 0 \label{ch2-eq:RHP-singular-Hermitian}
 \end{equation}
 比较可得 $ w_{j}^{\dagger}(z) = w_{j}^{*}(z^{*}) $.
 
 非正则 RH 问题 \eqref{ch2-eq:RHP-1} - \eqref{ch2-eq:RHP-3} 的解可由下面定理给出
 \begin{theorem}{Zakharov, Shabat, 1979}
-	带有零点结构 \eqref{ch2-eq:RHP-singular} 的非正则 RH 问题 \eqref{ch2-eq:RHP-1} - \eqref{ch2-eq:RHP-3} 可分解为
-	\begin{equation}
-		P_{+}(z) = \hat{P_{+}}(z) \Gamma(z) , \quad P_{-}(z) = \Gamma^{-1}(z) \hat{P_{-}}(z) \label{ch2-eq:RHP-decomposition}
-	\end{equation}
-	其中
-	\begin{equation}
-		\Gamma(z) = I + \sum_{k,j = 1}^{N} \frac{w_{k}(M^{-1})_{kj} w_{j}^{*}}{z - z_{j}^{*}}, \quad \Gamma(z)^{-} = I - \sum_{k,j = 1}^{N} \frac{w_{k}(M^{-1})_{kj} w_{j}^{*}}{z - z_{k}} \label{ch2-eq:Gamma}
-	\end{equation}
-	这里 $ M $ 为 $ N \times N $ 矩阵, 其 $ (k.j) $ 元素由下式给定
-	\begin{equation}
-		M_{kj} = \frac{w_{k}^{*}w_{j}}{z_{k}^{*} - z_{j}}, \quad k,j = 1,2, \dots, N, \quad \det \Gamma(z) = \prod_{k=1}^{N} \frac{z - z_{k}}{z - z_{k}^{*}}
-	\end{equation}
-	而 $ \hat{P_{\pm}} $ 为正则 RH 问题的唯一解, 且
-	\begin{enumerate}
-		\item $ \hat{P_{\pm}} $ 在 $ \mathbb{C_{+}} $ 上解析,
-		\item $ \hat{P_{-}} \hat{P_{+}} = \Gamma(z) G \Gamma^{-1}(z), z \in \mathbb{R} $
-		\item $ \hat{P_{\pm}}(z) \to I, \quad z \to \infty $,
-	\end{enumerate}
+    带有零点结构 \eqref{ch2-eq:RHP-singular} 的非正则 RH 问题 \eqref{ch2-eq:RHP-1} - \eqref{ch2-eq:RHP-3} 可分解为
+    \begin{equation}
+        P_{+}(z) = \hat{P_{+}}(z) \Gamma(z) , \quad P_{-}(z) = \Gamma^{-1}(z) \hat{P_{-}}(z) \label{ch2-eq:RHP-decomposition}
+    \end{equation}
+    其中
+    \begin{equation}
+        \Gamma(z) = I + \sum_{k,j = 1}^{N} \frac{w_{k}(M^{-1})_{kj} w_{j}^{*}}{z - z_{j}^{*}}, \quad \Gamma(z)^{-} = I - \sum_{k,j = 1}^{N} \frac{w_{k}(M^{-1})_{kj} w_{j}^{*}}{z - z_{k}} \label{ch2-eq:Gamma}
+    \end{equation}
+    这里 $ M $ 为 $ N \times N $ 矩阵, 其 $ (k.j) $ 元素由下式给定
+    \begin{equation}
+        M_{kj} = \frac{w_{k}^{*}w_{j}}{z_{k}^{*} - z_{j}}, \quad k,j = 1,2, \dots, N, \quad \det \Gamma(z) = \prod_{k=1}^{N} \frac{z - z_{k}}{z - z_{k}^{*}}
+    \end{equation}
+    而 $ \hat{P_{\pm}} $ 为正则 RH 问题的唯一解, 且
+    \begin{enumerate}
+        \item $ \hat{P_{\pm}} $ 在 $ \mathbb{C_{+}} $ 上解析,
+        \item $ \hat{P_{-}} \hat{P_{+}} = \Gamma(z) G \Gamma^{-1}(z), z \in \mathbb{R} $
+        \item $ \hat{P_{\pm}}(z) \to I, \quad z \to \infty $,
+    \end{enumerate}
 \end{theorem}
 \begin{proof}
-	非正则 RH 问题  \eqref{ch2-eq:RHP-1} - \eqref{ch2-eq:RHP-3} 是由于 $ 2N $ 个离散谱上的 $ \det P_{+}(z_{j}) = \det P_{-}(Z_{j^{*}}) = 0 (j = 1,2, \dots N) $ 造成的. 所以主要任务是消除这些零点结构, 并且去除 $ P_{+}(z_{j}), P_{-}(z_{j}^{*}) $ 在 $ z_{j}, z_{j}^{*} $ 上的零点结构, 为此需定义单极点矩阵
-	\begin{equation}
-		\Gamma_{1}(z) = I + \frac{z^{*}_{1} - z_{1}}{z - z_{1}^{*}} \cdot \frac{w_{1}w^{*}_{1}}{w^{*}_{1} w_{1}}
-	\end{equation}
-	其具有如下性质
-	\begin{equation}
-		\begin{aligned}
-			F_{1}^{-1}(z)                       & = I - \frac{z_{1}^{*} - z_{1}}{z - z_{1}} \cdot \frac{w_{1}w^{*}_{1}}{w^{*}_{1} w_{1}}                                                                                                                           \\
-			\det \Gamma_{1}(z)                  & = \frac{z - z_{1}}{z - z_{1}^{*}}, \quad \det \Gamma_{1}^{-1}(z) = \frac{z - z_{1}^{*}}{z - z_{1}}                                                                                                               \\
-			\Gamma_{1}(z_{1}) w_{1}             & = w_{1} + \frac{z^{*}_{1} - z_{1}}{z_{1} - z_{1}^{*}} \cdot \frac{w_{1}w_{1}^{*}}{w^{*}_{1}w_{1}} \cdot w_{1} = \frac{z^{*} - z_{1}}{z - z^{*}_{1}} \frac{w_{1}(w_{1}^{*}w_{1})}{w^{*}w_{1}} = w_{1} - w_{1} = 0 \\
-			w_{1}^{*}\Gamma_{1}^{-1}(z^{*}_{1}) & = w_{1}^{*} - \frac{z_{1}^{*} - z_{1}}{z^{*} - z_{1}} \cdot \frac{w_{1}^{*}w_{1}}{w_{1}^{*}w_{1}} \cdot w_{1}^{*} = w_{1}^{*} - w_{1}^{*} = 0
-		\end{aligned}
-	\end{equation}
-	令 $ x_{j} = \frac{w_{1}w_{1}^{*}}{w_{1}^{*}w_{1}} $, 则 $ x_{j} $ 为投影算子, 即 $ x_{j}^{2} = x_{j} $, 由上定义知 $ x_{j} $ 为一阶矩阵, 故与矩阵 $ \text{diga}\{1,0\} $ 相似, 既有可逆阵 $ T_{j} $ 使得 $ T_{j}^{-1} x_{j} T_{j} = \textrm{diag}\{1,0\} $, 从而有
-	\begin{equation}
-		\Gamma_{1}(z) = \det \left(I + \frac{z_{1}^{*} - z_{1}}{z - z_{1}^{*}} T_{j}^{-1}X_{j}T_{j}\right) = \begin{vmatrix}
-			1 + \frac{z_{1}^{*} - z_{1}}{z - z_{1}^{*}} & 0 \\ 0 & 1
-		\end{vmatrix} = \frac{z - z_{1}}{z - z^{*}_{1}}
-	\end{equation}
-	定义矩阵函数 $ R_{1}^{+}(z) = P_{+}(z) \Gamma_{+}^{-1}(z), R_{1}^{-1}= \Gamma_{1}(z) P_{-}(z) $, 由 \eqref{ch2-eq:RHP-singular} - \eqref{ch2-eq:RHP-singular-Hermitian} 知
-	\begin{equation}
-		\begin{aligned}
-			\Res_{z = z_1} R_{1}^{+}(z)        & = \Res_{z = z_{1}} \left(P_{+}(z) - P_{+}(z) \frac{z_{1}^{*} - z_{1}}{z - z_{1}} \frac{w_{1}w_{1}^{*}}{w_{1}^{*}w_{1}}\right) = - \frac{z_{1}^{*}-z_{1} }{w_{1}w_{1}^{*}}(P_{+}(z) w_{1}) w_{1}^{*} = 0               \\
-			\Res_{z = z_{1}^{*}} R_{1}^{-1}(z) & = \Res_{z = z_{!}^{*}} \left(P_{1}(z) + \frac{z_{1}^{*} - z_{1}}{z - z_{1}} \frac{w_{1}w_{1}^{*}}{w_{1}^{*}w_{1}} P_{-}(z)\right) = - \frac{z_{1}^{*} - z_{1}}{w_{1}^{*}w_{1}} w_{1} (w_{1}^{*} P_{-}(z_{1}^{*})) = 0
-		\end{aligned}
-	\end{equation}
-	因此 $ R_{1}^{+}(z), R_{1}^{-}(z) $ 分别在 $ \mathbb{C_{+}}, \mathbb{C_{-}} $ 上解析, 且
-	\begin{equation}
-		\begin{aligned}
-			\det R_{1}^{+}(z_{1})      & = \lim_{z \to z_{1}} \left[ \det P_{+}(z) \cdot \det \Gamma_{1}^{-1}(z)\right] = \lim_{z \to z_{1}} S_{11}(z) \frac{z - z_{1}^{*}}{z-z_{1}}                                                          \\
-			                           & = \lim_{z \to z_{1}} \frac{S_{11}(z) - S_{11}(z_{1})}{z - z_{1}} (z - z^{*}) \Leftarrow (S_{11}(z) = 0)                                                                                              \\
-			                           & = \lim_{z \to z_{1}} S_{11}'(z) (z - z_{1}^{*}) = 0                                                                                                                                                  \\
-			\det R_{1}^{-1}(z_{1}^{*}) & = \lim_{z \to z_{1}^{*}} \left[ \det \Gamma_{1}(z) \cdot \det P_{-}(z)\right] = \lim_{z \to z_{1}^{*}} \frac{z - z_{1}}{z - z_{1}^{*}} S_{22}(z) = \lim_{z \to z_{1}^{*}} S_{22}'(z) (z - z_{1}) = 0
-		\end{aligned}
-	\end{equation}
-	这说明 $ R_{1}^{+}(z), R_{1}^{-}(z) $ 分别在 $ z = z_{1}, z= z_{1}^{*} $ 不再具有零点结构, 然后去除其在 $ z_{2}, z_{2}^{*} $ 上的零点结构, 由于
-	\begin{equation}
-		\begin{aligned}
-			\det R_{1}^{+}(z_{2})      & = \det P_{+}(z_{2}) \det \Gamma_{1}^{-1}(z_{2}) = S_{11}(z_{2}) \frac{z_{2} - z_{1}^{*}}{z_{2} - z_{1}} = 0            \\
-			\det R_{1}^{-1}(z_{2}^{*}) & = \det \Gamma_{1}(z_{2}^{*}) \det P_{-}(z_{2}^{*}) = \frac{z_{2}^{*} - z_{1}}{z_{2}^{*} - z_{1}} S_{22}(z_{2}^{*}) = 0
-		\end{aligned}
-	\end{equation}
-	因此, 下列齐次线性方程组有非零解, 即存在 $ v_{2}(z_{2}), v_{2}^{*}(z_{2}^{*}) $, 使得
-	\begin{equation}
-		R_{1}^{+}(z_{2}) v(z_{2}) = P_{+}(z_{2}) \Gamma_{1}^{-1}(z_{2})v_{2}(z_{2}) = 0, \quad v_{2}^{*}(z_{2}^{*}) R_{1}^{-1}(z_{2}^{*}) = v_{2}^{*}(z_{2}^{*}) \Gamma_{1}(z_{2}^{*}) P_{-}(z_{2}^{*}) = 0
-	\end{equation}
-	与 \eqref{ch2-eq:RHP-singular} 比较可得
-	\begin{equation}
-		w_{2}(z_{2}) = \Gamma_{1}^{-1}(z_{2}) v_{2}(z_{2}), \quad w_{2}^{*}(z_{2}^{*}) = v_{2}^{*}(z_{2}^{*}) \Gamma_{1}(z_{2}^{*})
-	\end{equation}
-	为去除 $ R_{1}^{+}(z_{2}), R_{1}^{-}(z_{2}^{*}) $ 在 $ z_{2}, z_{2}^{*} $ 上的零点结构, 令
-	\begin{equation}
-		\begin{aligned}
-			\Gamma_{2}(z)      & = I + \frac{z_{2}^{*} - z_{2}}{z - z_{2}^{*}}\cdot \frac{v_{2}v_{2}^{*}}{v_{2}^{*}v_{2}}, \quad \det \Gamma_{2}(z) = \frac{z - z_{2}}{z - z_{2}^{*}} \\
-			\Gamma_{2}^{-1}(z) & = I - \frac{z_{2}^{*} - z_{2}}{z - z_{2}} \cdot \frac{v_{2}v_{2}^{*}}{v_{2}^{*}v_{2}}, \quad  \det \Gamma_{2}^{-1} = \frac{z - z_{2}^{*}}{z - z_{2}} \\
-			R_{2}^{+}(z)       & = P_{1}^{+}(z) \Gamma_{2}^{-1}(z) = P_{1}^{+}(z) \Gamma_{1}^{-1}(z) \Gamma_{2}^{-1}(z)                                                               \\
-			R_{2}^{-1}(z)      & = \Gamma_{2}(z) P_{1}^{-1}(z) = \Gamma_{2}(z) \Gamma_{1}(z) P_{1}^{-1}(z)
-		\end{aligned}
-	\end{equation}
-	则
-	\begin{equation}
-		\Res_{z = z_{2}} R_{2}^{+}(z) = \Res_{z = z_{2}} \left[ \left(P_{+}(z) - P_{+}(z) \frac{z_{1}^{*} - z_{1}}{z - z_{1}} \cdot \frac{w_{1}w_{1}^{*}}{w_{2}^{*}w_{1}}\right) \left( I -\frac{z_{1}^{*} - z_{1}}{z - z_{1}} \cdot \frac{w_{1}w_{1}^{*}}{v_{2}^{*}v_{1}} \right)\right] = - \frac{z_{2}^{*} - z_{1}R_{1}(z_{2})v_{2}v_{2}^{*}}{v_{2}^{*}v_{2}}
-	\end{equation}
-	同理 $ \Res_{z = z_{2}^{*}} R_{2}^{-1}(z) = 0 $, 由此可得 $ R_{2}^{+}(z), R_{2}^{-1}(z) $ 分别在在 $ z=z_{1}, z_{2}, z=z_{1}^{*}, z_{2}^{*} $ 上无零点结构, 则
-	\begin{equation}
-		\begin{aligned}
-			\det R_{2}^{+}(z_{j})     & = \lim_{z \to z_{j}} \left[ \det P_{+}(z) \det \Gamma_{1}^{-1}(z) \det \Gamma_{2}^{-1}(z)\right]     \\
-			                          & = \lim_{z \to z_{j}} S_{11}(z) \frac{z - z_{1}^{*}}{z - z_{1}} \cdot \frac{z - z_{2}^{*}}{z - z_{2}} \\
-			                          & = s'_{11}(z_{j}) \frac{(z_{j} - z_{1}^{*})(z_{j} - z_{2}^{*})}{z_{j} - z_{k}} \neq 0                 \\
-			\det R_{2}^{-}(z_{j}^{*}) & \neq 0 \quad (k = 1, 2, k \neq z)
-		\end{aligned}
-	\end{equation}
-	更一般的, 可得
-	\begin{equation}
-		\begin{aligned}
-			w_{j}         & = \Gamma_{1}^{-1}(z_{j}) \cdots \Gamma_{j-1}^{-1}(z_{j}) \cdot v_{j}(z_{j})       \\
-			w_{j}^{*}     & = v_{j}^{*}(z_{j}^{*}) \cdot \Gamma_{1}(z_{j}^{*}) \cdots \Gamma_{j-1}(z_{j}^{*}) \\
-			R_{j}^{+}(z)  & = P_{+}(z) \cdot \Gamma_{1}^{-1}(z) \cdots \Gamma_{j}^{-1}(z)                     \\
-			R_{j}^{-1}(z) & = \Gamma_{j}(z) \cdots \Gamma_{1}(z) \cdot P_{-}(z)
-		\end{aligned}
-	\end{equation}
-	其中
-	\begin{equation}
-		\Gamma_{j}(z) = I + \frac{z_{j}^{*} - z_{j}}{z - z_{j}^{*}} \cdot \frac{v_{j}v_{j}^{*}}{v_{j}^{*}v_{j}}, \quad \Gamma_{j}^{-1}(z) = I - \frac{z_{j}^{*} - z_{j}}{z - z_{j}} \cdot \frac{v_{j}v_{j}^{*}}{v_{j}^{*}v_{j}} \label{ch2-eq:Gamma-j}
-	\end{equation}
-	则 $ R_{j}^{+}(z), R_{j}^{-1}(z) $ 在 $ \mathbb{C_{+}}, \mathbb{C_{-}} $ 上解析, 且在 $ z_{k}, z_{k}^{*} (k = 1,2, \ldots j) $ 上无零点结构, 即
-	\begin{equation}
-		\begin{aligned}
-			\det R_{j}^{+}(z_{k}) = s'_{11}(z_{k}) \frac{\prod_{l = 1}^{j}(z_{k} - z_{l}^{*})}{\prod_{l = 1, l \neq k }^{j}(z_{k} - z_{l})} \neq 0 \\
-			\det R_{j}^{-1}(z_{k}^{*}) = s'_{22}(z_{k}^{*}) \frac{\prod_{l = 1}^{j}(z_{k}^{*} - z_{l})}{\prod_{l = 1, l \neq k }^{j}(z_{k}^{*} - z_{l})} \neq 0
-		\end{aligned}  \quad (k = 1, 2, \dots, j)
-	\end{equation}
-	而
-	\begin{equation}
-		\begin{aligned}
-			\det R_{j}^{+}(z_{j+1})      & = S_{11}(z_{j+1}) \prod_{j = 1}^{j} \frac{z_{j+1} - z_{k}^{*}}{z_{j+1} - z_{k}} = 0         \\
-			\det R_{j}^{-1}(z_{j+1}^{*}) & = S_{22}(z_{j+1}^{*}) \prod_{j = 1}^{j} \frac{z_{j+1}^{*} - z_{k}}{z_{j+1}^{*} - z_{k}} = 0
-		\end{aligned}
-	\end{equation}
-	最后令
-	\begin{equation}
-		\begin{aligned}
-			\Gamma_{z} = \Gamma_{N}(z) \cdots \Gamma_{1}(z), & \quad \Gamma_{z}^{-1} = \Gamma_{1}^{-1}(z) \cdots \Gamma_{N}^{-1}(z) \label{ch2-eq:Gamma-composition} \\
-			\hat{P_{+}}(z) = P_{+}(z) \Gamma_{z}^{-1}(z),    & \quad \hat{P_{-}}(z) = \Gamma_{z}(z) P_{-}(z)
-		\end{aligned}
-	\end{equation}
-	则 $ \hat{P_{+}}(z), \hat{P_{-}}(z) $ 在 $ \mathbb{C_{+}}, \mathbb{C_{-}} $ 上解析, 且在 $ z_{j}, z_{j}^{*} (j = 1,2, \dots, N) $ 上无零点结构 (实际上在解析区域内无零点结构), 即
-	\begin{equation}
-		\det \hat{P_{+}}(z_{k}) \neq 0, \quad \det \hat{P_{-}}(z_{k}^{*}) \neq 0 \quad (k = 1,2, \dots, N)
-	\end{equation}
-	得到分解 \eqref{ch2-eq:RHP-decomposition}. 下证 \eqref{ch2-eq:Gamma}. 注意到 $ \Gamma(z), \Gamma^{-1}(z) $ 分别为具有单极点 $ z_{j}, z_{j}^{*} (1 \leq j \leq N)$ 的亚纯函数, 以及分解 \eqref{ch2-eq:Gamma-j}, \eqref{ch2-eq:Gamma-composition}, 寻找的向量使得
-	\begin{equation}
-		\Gamma(Z) = i + \sum_{j=1}^{N} \frac{\xi_{j}w_{j}^{*}}{z-z_{j}^{*}}, \quad \Gamma^{-1}(z) = I - \sum_{j=1}^{N} \frac{w_{j}^{*}\xi_{j}}{z - z_{j}} \label{ch2-eq:Gamma-expRession}
-	\end{equation}
-	注意到 $ \Gamma(z) \Gamma^{-1}(z) = I $ 对任意 $ z $ 都成立, 当然也在 $ z = z_{k} $ 处成立, 即 $ \Gamma(z) \Gamma^{-1}(z) = I $ 在 $ z = z_{k} $ 处正则, 为保证 $ \Gamma(z) \Gamma^{-1}(z) = I $ 在 $ z = z_{k} $ 处成立, 只需让其留数为 $ 0 $, 因此利用 \eqref{ch2-eq:Gamma-expRession} 可得
-	\begin{equation}
-		\begin{aligned}
-			0 & = \Res_{z = z_{k}} [\Gamma(z)\Gamma^{-1}(z)] = \Res_{z = z_{k}} \left( \Gamma(z) - \sum_{j = 1}^{N} \Gamma(z)\frac{w_{j}\xi_{j}^{*}}{z- z_{j}} \right) = - \Gamma(z_{k}) w_{k} \xi_{k}^{*}                      \\
-			  & - \left( I + \sum_{j = 1}^{N} \frac{\xi_{j}w_{j}^{*}}{z_{k} - z_{j}^{*}} \right) w_{k} \xi_{k}^{*} = \left( - w_{k} + \sum_{j = 1}^{N} \frac{w_{j}^{*}w_{k}}{z_{j}^{*} - z_{k}} \xi_{j}^{*} \right) \xi_{k}^{*}
-		\end{aligned}
-	\end{equation}
-	对上式两边同时作用 $ \xi_{k} $, 则有
-	\begin{equation}
-		\left( - w_{k} + \sum_{j = 1}^{N} \frac{w_{j}^{*}w_{k}}{z_{j}^{*} - z_{k}} \xi_{j} \right) | \xi_{k} |^{2} = 0 \implies  - w_{k} + \sum_{j = 1}^{N} \frac{w_{j}^{*}w_{k}}{z_{j}^{*} - z_{k}} \xi_{j} = 0 \quad (1 \leq k \leq N)
-	\end{equation}
-	将上式改写为 $ \xi_{1}, \xi_{2}, \dots, \xi_{N} $ 的分块矩阵形式的线性方程组, 则有
-	\begin{equation}
-		(\xi_{1}, \xi_{2}, \dots, \xi_{N}) M =  (w_{1}^{*}, w_{2}^{*}, \dots, w_{N}^{*})
-	\end{equation}
-	其中 $ M = (M_{kj})_{N \times N} $, 其中 $ M_{kj} = \frac{w_{k}^{*}w_{j}}{z_{k}^{*} - z_{j}} $ 则
-	\begin{equation}
-		\begin{cases}
-			\frac{w_{1}^{*}w_{1}}{z_{1}^{*}- z_{1}} \xi_{1} + \frac{w_{2}^{*}w_{1}}{z_{2}^{*} - z_{1}} \xi_{2} + \dots + \frac{w_{N}^{*}w_{1}}{z_{N}^{*} - z_{1}} \xi_{N} = w_{1} \\
-			\frac{w_{1}^{*}w_{2}}{z_{1}^{*}- z_{2}} \xi_{1} + \frac{w_{2}^{*}w_{2}}{z_{2}^{*} - z_{2}} \xi_{2} + \dots + \frac{w_{N}^{*}w_{2}}{z_{N}^{*} - z_{2}} \xi_{N} = w_{2} \\
-			\vdots                                                                                                                                                                \\
-			\frac{w_{1}^{*}w_{N}}{z_{1}^{*}- z_{N}} \xi_{1} + \frac{w_{2}^{*}w_{N}}{z_{2}^{*} - z_{N}} \xi_{2} + \dots + \frac{w_{N}^{*}w_{N}}{z_{N}^{*} - z_{N}} \xi_{N} = w_{N}
-		\end{cases}
-		\implies M = \begin{pmatrix}
-			\frac{w_{1}^{*}w_{1}}{z_{1}^{*} - z_{1}} & \frac{w_{1}^{*}w_{2}}{z_{1}^{*} - z_{2}} & \dots  & \frac{w_{1}^{*}w_{N}}{z_{1}^{*} - z_{N}} \\
-			\frac{w_{2}^{*}w_{1}}{z_{2}^{*} - z_{1}} & \frac{w_{2}^{*}w_{2}}{z_{2}^{*} - z_{2}} & \dots  & \frac{w_{2}^{*}w_{N}}{z_{2}^{*} - z_{2}} \\
-			\vdots                                   & \vdots                                   & \ddots & \vdots                                   \\
-			\frac{w_{N}^{*}w_{1}}{z_{N}^{*} - z_{1}} & \frac{w_{N}^{*}w_{2}}{z_{N}^{*} - z_{2}} & \dots  & \frac{w_{N}^{*}w_{N}}{z_{N}^{*} - z_{N}}
-		\end{pmatrix}
-	\end{equation}
-	可得 $ \xi_{j} = \sum_{k =1}^{N}(M^{-1})_{kj} w_{k} $. 最后将其带入 \eqref{ch2-eq:Gamma-expRession}得到 \eqref{ch2-eq:Gamma}
+    非正则 RH 问题  \eqref{ch2-eq:RHP-1} - \eqref{ch2-eq:RHP-3} 是由于 $ 2N $ 个离散谱上的 $ \det P_{+}(z_{j}) = \det P_{-}(Z_{j^{*}}) = 0 (j = 1,2, \dots N) $ 造成的. 所以主要任务是消除这些零点结构, 并且去除 $ P_{+}(z_{j}), P_{-}(z_{j}^{*}) $ 在 $ z_{j}, z_{j}^{*} $ 上的零点结构, 为此需定义单极点矩阵
+    \begin{equation}
+        \Gamma_{1}(z) = I + \frac{z^{*}_{1} - z_{1}}{z - z_{1}^{*}} \cdot \frac{w_{1}w^{*}_{1}}{w^{*}_{1} w_{1}}
+    \end{equation}
+    其具有如下性质
+    \begin{equation}
+        \begin{aligned}
+            F_{1}^{-1}(z)                       & = I - \frac{z_{1}^{*} - z_{1}}{z - z_{1}} \cdot \frac{w_{1}w^{*}_{1}}{w^{*}_{1} w_{1}}                                                                                                                           \\
+            \det \Gamma_{1}(z)                  & = \frac{z - z_{1}}{z - z_{1}^{*}}, \quad \det \Gamma_{1}^{-1}(z) = \frac{z - z_{1}^{*}}{z - z_{1}}                                                                                                               \\
+            \Gamma_{1}(z_{1}) w_{1}             & = w_{1} + \frac{z^{*}_{1} - z_{1}}{z_{1} - z_{1}^{*}} \cdot \frac{w_{1}w_{1}^{*}}{w^{*}_{1}w_{1}} \cdot w_{1} = \frac{z^{*} - z_{1}}{z - z^{*}_{1}} \frac{w_{1}(w_{1}^{*}w_{1})}{w^{*}w_{1}} = w_{1} - w_{1} = 0 \\
+            w_{1}^{*}\Gamma_{1}^{-1}(z^{*}_{1}) & = w_{1}^{*} - \frac{z_{1}^{*} - z_{1}}{z^{*} - z_{1}} \cdot \frac{w_{1}^{*}w_{1}}{w_{1}^{*}w_{1}} \cdot w_{1}^{*} = w_{1}^{*} - w_{1}^{*} = 0
+        \end{aligned}
+    \end{equation}
+    令 $ x_{j} = \frac{w_{1}w_{1}^{*}}{w_{1}^{*}w_{1}} $, 则 $ x_{j} $ 为投影算子, 即 $ x_{j}^{2} = x_{j} $, 由上定义知 $ x_{j} $ 为一阶矩阵, 故与矩阵 $ \text{diga}\{1,0\} $ 相似, 既有可逆阵 $ T_{j} $ 使得 $ T_{j}^{-1} x_{j} T_{j} = \textrm{diag}\{1,0\} $, 从而有
+    \begin{equation}
+        \Gamma_{1}(z) = \det \left(I + \frac{z_{1}^{*} - z_{1}}{z - z_{1}^{*}} T_{j}^{-1}X_{j}T_{j}\right) = \begin{vmatrix}
+            1 + \frac{z_{1}^{*} - z_{1}}{z - z_{1}^{*}} & 0 \\ 0 & 1
+        \end{vmatrix} = \frac{z - z_{1}}{z - z^{*}_{1}}
+    \end{equation}
+    定义矩阵函数 $ R_{1}^{+}(z) = P_{+}(z) \Gamma_{+}^{-1}(z), R_{1}^{-1}= \Gamma_{1}(z) P_{-}(z) $, 由 \eqref{ch2-eq:RHP-singular} - \eqref{ch2-eq:RHP-singular-Hermitian} 知
+    \begin{equation}
+        \begin{aligned}
+            \Res_{z = z_1} R_{1}^{+}(z)        & = \Res_{z = z_{1}} \left(P_{+}(z) - P_{+}(z) \frac{z_{1}^{*} - z_{1}}{z - z_{1}} \frac{w_{1}w_{1}^{*}}{w_{1}^{*}w_{1}}\right) = - \frac{z_{1}^{*}-z_{1} }{w_{1}w_{1}^{*}}(P_{+}(z) w_{1}) w_{1}^{*} = 0               \\
+            \Res_{z = z_{1}^{*}} R_{1}^{-1}(z) & = \Res_{z = z_{!}^{*}} \left(P_{1}(z) + \frac{z_{1}^{*} - z_{1}}{z - z_{1}} \frac{w_{1}w_{1}^{*}}{w_{1}^{*}w_{1}} P_{-}(z)\right) = - \frac{z_{1}^{*} - z_{1}}{w_{1}^{*}w_{1}} w_{1} (w_{1}^{*} P_{-}(z_{1}^{*})) = 0
+        \end{aligned}
+    \end{equation}
+    因此 $ R_{1}^{+}(z), R_{1}^{-}(z) $ 分别在 $ \mathbb{C_{+}}, \mathbb{C_{-}} $ 上解析, 且
+    \begin{equation}
+        \begin{aligned}
+            \det R_{1}^{+}(z_{1})      & = \lim_{z \to z_{1}} \left[ \det P_{+}(z) \cdot \det \Gamma_{1}^{-1}(z)\right] = \lim_{z \to z_{1}} S_{11}(z) \frac{z - z_{1}^{*}}{z-z_{1}}                                                          \\
+                                       & = \lim_{z \to z_{1}} \frac{S_{11}(z) - S_{11}(z_{1})}{z - z_{1}} (z - z^{*}) \Leftarrow (S_{11}(z) = 0)                                                                                              \\
+                                       & = \lim_{z \to z_{1}} S_{11}'(z) (z - z_{1}^{*}) = 0                                                                                                                                                  \\
+            \det R_{1}^{-1}(z_{1}^{*}) & = \lim_{z \to z_{1}^{*}} \left[ \det \Gamma_{1}(z) \cdot \det P_{-}(z)\right] = \lim_{z \to z_{1}^{*}} \frac{z - z_{1}}{z - z_{1}^{*}} S_{22}(z) = \lim_{z \to z_{1}^{*}} S_{22}'(z) (z - z_{1}) = 0
+        \end{aligned}
+    \end{equation}
+    这说明 $ R_{1}^{+}(z), R_{1}^{-}(z) $ 分别在 $ z = z_{1}, z= z_{1}^{*} $ 不再具有零点结构, 然后去除其在 $ z_{2}, z_{2}^{*} $ 上的零点结构, 由于
+    \begin{equation}
+        \begin{aligned}
+            \det R_{1}^{+}(z_{2})      & = \det P_{+}(z_{2}) \det \Gamma_{1}^{-1}(z_{2}) = S_{11}(z_{2}) \frac{z_{2} - z_{1}^{*}}{z_{2} - z_{1}} = 0            \\
+            \det R_{1}^{-1}(z_{2}^{*}) & = \det \Gamma_{1}(z_{2}^{*}) \det P_{-}(z_{2}^{*}) = \frac{z_{2}^{*} - z_{1}}{z_{2}^{*} - z_{1}} S_{22}(z_{2}^{*}) = 0
+        \end{aligned}
+    \end{equation}
+    因此, 下列齐次线性方程组有非零解, 即存在 $ v_{2}(z_{2}), v_{2}^{*}(z_{2}^{*}) $, 使得
+    \begin{equation}
+        R_{1}^{+}(z_{2}) v(z_{2}) = P_{+}(z_{2}) \Gamma_{1}^{-1}(z_{2})v_{2}(z_{2}) = 0, \quad v_{2}^{*}(z_{2}^{*}) R_{1}^{-1}(z_{2}^{*}) = v_{2}^{*}(z_{2}^{*}) \Gamma_{1}(z_{2}^{*}) P_{-}(z_{2}^{*}) = 0
+    \end{equation}
+    与 \eqref{ch2-eq:RHP-singular} 比较可得
+    \begin{equation}
+        w_{2}(z_{2}) = \Gamma_{1}^{-1}(z_{2}) v_{2}(z_{2}), \quad w_{2}^{*}(z_{2}^{*}) = v_{2}^{*}(z_{2}^{*}) \Gamma_{1}(z_{2}^{*})
+    \end{equation}
+    为去除 $ R_{1}^{+}(z_{2}), R_{1}^{-}(z_{2}^{*}) $ 在 $ z_{2}, z_{2}^{*} $ 上的零点结构, 令
+    \begin{equation}
+        \begin{aligned}
+            \Gamma_{2}(z)      & = I + \frac{z_{2}^{*} - z_{2}}{z - z_{2}^{*}}\cdot \frac{v_{2}v_{2}^{*}}{v_{2}^{*}v_{2}}, \quad \det \Gamma_{2}(z) = \frac{z - z_{2}}{z - z_{2}^{*}} \\
+            \Gamma_{2}^{-1}(z) & = I - \frac{z_{2}^{*} - z_{2}}{z - z_{2}} \cdot \frac{v_{2}v_{2}^{*}}{v_{2}^{*}v_{2}}, \quad  \det \Gamma_{2}^{-1} = \frac{z - z_{2}^{*}}{z - z_{2}} \\
+            R_{2}^{+}(z)       & = P_{1}^{+}(z) \Gamma_{2}^{-1}(z) = P_{1}^{+}(z) \Gamma_{1}^{-1}(z) \Gamma_{2}^{-1}(z)                                                               \\
+            R_{2}^{-1}(z)      & = \Gamma_{2}(z) P_{1}^{-1}(z) = \Gamma_{2}(z) \Gamma_{1}(z) P_{1}^{-1}(z)
+        \end{aligned}
+    \end{equation}
+    则
+    \begin{equation}
+        \Res_{z = z_{2}} R_{2}^{+}(z) = \Res_{z = z_{2}} \left[ \left(P_{+}(z) - P_{+}(z) \frac{z_{1}^{*} - z_{1}}{z - z_{1}} \cdot \frac{w_{1}w_{1}^{*}}{w_{2}^{*}w_{1}}\right) \left( I -\frac{z_{1}^{*} - z_{1}}{z - z_{1}} \cdot \frac{w_{1}w_{1}^{*}}{v_{2}^{*}v_{1}} \right)\right] = - \frac{z_{2}^{*} - z_{1}R_{1}(z_{2})v_{2}v_{2}^{*}}{v_{2}^{*}v_{2}}
+    \end{equation}
+    同理 $ \Res_{z = z_{2}^{*}} R_{2}^{-1}(z) = 0 $, 由此可得 $ R_{2}^{+}(z), R_{2}^{-1}(z) $ 分别在在 $ z=z_{1}, z_{2}, z=z_{1}^{*}, z_{2}^{*} $ 上无零点结构, 则
+    \begin{equation}
+        \begin{aligned}
+            \det R_{2}^{+}(z_{j})     & = \lim_{z \to z_{j}} \left[ \det P_{+}(z) \det \Gamma_{1}^{-1}(z) \det \Gamma_{2}^{-1}(z)\right]     \\
+                                      & = \lim_{z \to z_{j}} S_{11}(z) \frac{z - z_{1}^{*}}{z - z_{1}} \cdot \frac{z - z_{2}^{*}}{z - z_{2}} \\
+                                      & = s'_{11}(z_{j}) \frac{(z_{j} - z_{1}^{*})(z_{j} - z_{2}^{*})}{z_{j} - z_{k}} \neq 0                 \\
+            \det R_{2}^{-}(z_{j}^{*}) & \neq 0 \quad (k = 1, 2, k \neq z)
+        \end{aligned}
+    \end{equation}
+    更一般的, 可得
+    \begin{equation}
+        \begin{aligned}
+            w_{j}         & = \Gamma_{1}^{-1}(z_{j}) \cdots \Gamma_{j-1}^{-1}(z_{j}) \cdot v_{j}(z_{j})       \\
+            w_{j}^{*}     & = v_{j}^{*}(z_{j}^{*}) \cdot \Gamma_{1}(z_{j}^{*}) \cdots \Gamma_{j-1}(z_{j}^{*}) \\
+            R_{j}^{+}(z)  & = P_{+}(z) \cdot \Gamma_{1}^{-1}(z) \cdots \Gamma_{j}^{-1}(z)                     \\
+            R_{j}^{-1}(z) & = \Gamma_{j}(z) \cdots \Gamma_{1}(z) \cdot P_{-}(z)
+        \end{aligned}
+    \end{equation}
+    其中
+    \begin{equation}
+        \Gamma_{j}(z) = I + \frac{z_{j}^{*} - z_{j}}{z - z_{j}^{*}} \cdot \frac{v_{j}v_{j}^{*}}{v_{j}^{*}v_{j}}, \quad \Gamma_{j}^{-1}(z) = I - \frac{z_{j}^{*} - z_{j}}{z - z_{j}} \cdot \frac{v_{j}v_{j}^{*}}{v_{j}^{*}v_{j}} \label{ch2-eq:Gamma-j}
+    \end{equation}
+    则 $ R_{j}^{+}(z), R_{j}^{-1}(z) $ 在 $ \mathbb{C_{+}}, \mathbb{C_{-}} $ 上解析, 且在 $ z_{k}, z_{k}^{*} (k = 1,2, \ldots j) $ 上无零点结构, 即
+    \begin{equation}
+        \begin{aligned}
+            \det R_{j}^{+}(z_{k}) = s'_{11}(z_{k}) \frac{\prod_{l = 1}^{j}(z_{k} - z_{l}^{*})}{\prod_{l = 1, l \neq k }^{j}(z_{k} - z_{l})} \neq 0 \\
+            \det R_{j}^{-1}(z_{k}^{*}) = s'_{22}(z_{k}^{*}) \frac{\prod_{l = 1}^{j}(z_{k}^{*} - z_{l})}{\prod_{l = 1, l \neq k }^{j}(z_{k}^{*} - z_{l})} \neq 0
+        \end{aligned}  \quad (k = 1, 2, \dots, j)
+    \end{equation}
+    而
+    \begin{equation}
+        \begin{aligned}
+            \det R_{j}^{+}(z_{j+1})      & = S_{11}(z_{j+1}) \prod_{j = 1}^{j} \frac{z_{j+1} - z_{k}^{*}}{z_{j+1} - z_{k}} = 0         \\
+            \det R_{j}^{-1}(z_{j+1}^{*}) & = S_{22}(z_{j+1}^{*}) \prod_{j = 1}^{j} \frac{z_{j+1}^{*} - z_{k}}{z_{j+1}^{*} - z_{k}} = 0
+        \end{aligned}
+    \end{equation}
+    最后令
+    \begin{equation}
+        \begin{aligned}
+            \Gamma_{z} = \Gamma_{N}(z) \cdots \Gamma_{1}(z), & \quad \Gamma_{z}^{-1} = \Gamma_{1}^{-1}(z) \cdots \Gamma_{N}^{-1}(z) \label{ch2-eq:Gamma-composition} \\
+            \hat{P_{+}}(z) = P_{+}(z) \Gamma_{z}^{-1}(z),    & \quad \hat{P_{-}}(z) = \Gamma_{z}(z) P_{-}(z)
+        \end{aligned}
+    \end{equation}
+    则 $ \hat{P_{+}}(z), \hat{P_{-}}(z) $ 在 $ \mathbb{C_{+}}, \mathbb{C_{-}} $ 上解析, 且在 $ z_{j}, z_{j}^{*} (j = 1,2, \dots, N) $ 上无零点结构 (实际上在解析区域内无零点结构), 即
+    \begin{equation}
+        \det \hat{P_{+}}(z_{k}) \neq 0, \quad \det \hat{P_{-}}(z_{k}^{*}) \neq 0 \quad (k = 1,2, \dots, N)
+    \end{equation}
+    得到分解 \eqref{ch2-eq:RHP-decomposition}. 下证 \eqref{ch2-eq:Gamma}. 注意到 $ \Gamma(z), \Gamma^{-1}(z) $ 分别为具有单极点 $ z_{j}, z_{j}^{*} (1 \leq j \leq N)$ 的亚纯函数, 以及分解 \eqref{ch2-eq:Gamma-j}, \eqref{ch2-eq:Gamma-composition}, 寻找的向量使得
+    \begin{equation}
+        \Gamma(Z) = i + \sum_{j=1}^{N} \frac{\xi_{j}w_{j}^{*}}{z-z_{j}^{*}}, \quad \Gamma^{-1}(z) = I - \sum_{j=1}^{N} \frac{w_{j}^{*}\xi_{j}}{z - z_{j}} \label{ch2-eq:Gamma-expRession}
+    \end{equation}
+    注意到 $ \Gamma(z) \Gamma^{-1}(z) = I $ 对任意 $ z $ 都成立, 当然也在 $ z = z_{k} $ 处成立, 即 $ \Gamma(z) \Gamma^{-1}(z) = I $ 在 $ z = z_{k} $ 处正则, 为保证 $ \Gamma(z) \Gamma^{-1}(z) = I $ 在 $ z = z_{k} $ 处成立, 只需让其留数为 $ 0 $, 因此利用 \eqref{ch2-eq:Gamma-expRession} 可得
+    \begin{equation}
+        \begin{aligned}
+            0 & = \Res_{z = z_{k}} [\Gamma(z)\Gamma^{-1}(z)] = \Res_{z = z_{k}} \left( \Gamma(z) - \sum_{j = 1}^{N} \Gamma(z)\frac{w_{j}\xi_{j}^{*}}{z- z_{j}} \right) = - \Gamma(z_{k}) w_{k} \xi_{k}^{*}                      \\
+              & - \left( I + \sum_{j = 1}^{N} \frac{\xi_{j}w_{j}^{*}}{z_{k} - z_{j}^{*}} \right) w_{k} \xi_{k}^{*} = \left( - w_{k} + \sum_{j = 1}^{N} \frac{w_{j}^{*}w_{k}}{z_{j}^{*} - z_{k}} \xi_{j}^{*} \right) \xi_{k}^{*}
+        \end{aligned}
+    \end{equation}
+    对上式两边同时作用 $ \xi_{k} $, 则有
+    \begin{equation}
+        \left( - w_{k} + \sum_{j = 1}^{N} \frac{w_{j}^{*}w_{k}}{z_{j}^{*} - z_{k}} \xi_{j} \right) | \xi_{k} |^{2} = 0 \implies  - w_{k} + \sum_{j = 1}^{N} \frac{w_{j}^{*}w_{k}}{z_{j}^{*} - z_{k}} \xi_{j} = 0 \quad (1 \leq k \leq N)
+    \end{equation}
+    将上式改写为 $ \xi_{1}, \xi_{2}, \dots, \xi_{N} $ 的分块矩阵形式的线性方程组, 则有
+    \begin{equation}
+        (\xi_{1}, \xi_{2}, \dots, \xi_{N}) M =  (w_{1}^{*}, w_{2}^{*}, \dots, w_{N}^{*})
+    \end{equation}
+    其中 $ M = (M_{kj})_{N \times N} $, 其中 $ M_{kj} = \frac{w_{k}^{*}w_{j}}{z_{k}^{*} - z_{j}} $ 则
+    \begin{equation}
+        \begin{cases}
+            \frac{w_{1}^{*}w_{1}}{z_{1}^{*}- z_{1}} \xi_{1} + \frac{w_{2}^{*}w_{1}}{z_{2}^{*} - z_{1}} \xi_{2} + \dots + \frac{w_{N}^{*}w_{1}}{z_{N}^{*} - z_{1}} \xi_{N} = w_{1} \\
+            \frac{w_{1}^{*}w_{2}}{z_{1}^{*}- z_{2}} \xi_{1} + \frac{w_{2}^{*}w_{2}}{z_{2}^{*} - z_{2}} \xi_{2} + \dots + \frac{w_{N}^{*}w_{2}}{z_{N}^{*} - z_{2}} \xi_{N} = w_{2} \\
+            \vdots                                                                                                                                                                \\
+            \frac{w_{1}^{*}w_{N}}{z_{1}^{*}- z_{N}} \xi_{1} + \frac{w_{2}^{*}w_{N}}{z_{2}^{*} - z_{N}} \xi_{2} + \dots + \frac{w_{N}^{*}w_{N}}{z_{N}^{*} - z_{N}} \xi_{N} = w_{N}
+        \end{cases}
+        \implies M = \begin{pmatrix}
+            \frac{w_{1}^{*}w_{1}}{z_{1}^{*} - z_{1}} & \frac{w_{1}^{*}w_{2}}{z_{1}^{*} - z_{2}} & \dots  & \frac{w_{1}^{*}w_{N}}{z_{1}^{*} - z_{N}} \\
+            \frac{w_{2}^{*}w_{1}}{z_{2}^{*} - z_{1}} & \frac{w_{2}^{*}w_{2}}{z_{2}^{*} - z_{2}} & \dots  & \frac{w_{2}^{*}w_{N}}{z_{2}^{*} - z_{2}} \\
+            \vdots                                   & \vdots                                   & \ddots & \vdots                                   \\
+            \frac{w_{N}^{*}w_{1}}{z_{N}^{*} - z_{1}} & \frac{w_{N}^{*}w_{2}}{z_{N}^{*} - z_{2}} & \dots  & \frac{w_{N}^{*}w_{N}}{z_{N}^{*} - z_{N}}
+        \end{pmatrix}
+    \end{equation}
+    可得 $ \xi_{j} = \sum_{k =1}^{N}(M^{-1})_{kj} w_{k} $. 最后将其带入 \eqref{ch2-eq:Gamma-expRession}得到 \eqref{ch2-eq:Gamma}
 \end{proof}
 
 \section{NLS 方程的 N 孤子解}
 \subsection{矩阵向量解的时空演化}
 对方程 \eqref{ch2-eq:RHP-singular} 第一个式子两边分别对 $ x, t $ 求导, 可得
 \begin{equation}
-	P_{+, x} w_{j} + P_{+} w_{j, x} = 0, \quad P_{+, t} w_{j} + P_{+} w_{j, t} = 0 \label{ch2-eq:Focus-NLS-Lax-x-t-Asymptotic}
+    P_{+, x} w_{j} + P_{+} w_{j, x} = 0, \quad P_{+, t} w_{j} + P_{+} w_{j, t} = 0 \label{ch2-eq:Focus-NLS-Lax-x-t-Asymptotic}
 \end{equation}
 利用 $ P_{+} $ 的定义与 Lax 对\eqref{ch2-eq:Focus-NLS-Lax-x-Asymptotic}, \eqref{ch2-eq:Focus-NLS-Lax-t-Asymptotic} 可得
 \begin{equation}
-	\begin{aligned}
-		P_{+,x} & = \mu_{1,x} H_{1} + \mu_{2,x} H_{2} = \left( \rmi z_{j} [\sigma_{3},\mu_{1}] + P\mu_{1} \right) H_{1} + \left( - \rmi z_{j} [\sigma_{3}, \mu_{2}] + P \mu_{2} \right) H_{2} \\
-		        & - \rmi z_{j} \left( \mu_{1} \sigma_{3} H_{1} - \mu_{2} \sigma_{3} H_{2} + \sigma_{3} \mu_{1} H_{1} + \sigma_{3} \mu_{2} H_{2} \right) + P \mu_{1} H_{1} + P \mu_{2} H_{2}   \\
-		        & = - \rmi z [\sigma_{3}, p_{+}] + P P_{+}
-	\end{aligned} \label{ch2-eq:P-x}
+    \begin{aligned}
+        P_{+,x} & = \mu_{1,x} H_{1} + \mu_{2,x} H_{2} = \left( \rmi z_{j} [\sigma_{3},\mu_{1}] + P\mu_{1} \right) H_{1} + \left( - \rmi z_{j} [\sigma_{3}, \mu_{2}] + P \mu_{2} \right) H_{2} \\
+                & - \rmi z_{j} \left( \mu_{1} \sigma_{3} H_{1} - \mu_{2} \sigma_{3} H_{2} + \sigma_{3} \mu_{1} H_{1} + \sigma_{3} \mu_{2} H_{2} \right) + P \mu_{1} H_{1} + P \mu_{2} H_{2}   \\
+                & = - \rmi z [\sigma_{3}, p_{+}] + P P_{+}
+    \end{aligned} \label{ch2-eq:P-x}
 \end{equation}
 同理有
 \begin{equation}
-	P_{+,t} = - \rmi z_{j}^{2} [\sigma_{3}, P_{+}] + Q P_{+} \label{ch2-eq:P-t}
+    P_{+,t} = - \rmi z_{j}^{2} [\sigma_{3}, P_{+}] + Q P_{+} \label{ch2-eq:P-t}
 \end{equation} 将 \eqref{ch2-eq:P-x}, \eqref{ch2-eq:P-t} 代入 \eqref{ch2-eq:Focus-NLS-Lax-x-t-Asymptotic} 且由于 $ P_{+}w_{j} = 0, w_{j}P = 0 $, 有
 \begin{equation}
-	( - \rmi z_{j} [\sigma_{3}, P_{+}] + P P_{+})w_{j} + P_{+}w_{j,x} = 0 \implies \rmi z_{j} P_{+} \sigma_{3} w_{j} + P_{+} w_{j,x} = 0 \implies P_{+}(w_{j,x} + \rmi z_{j} \sigma_{3}w_{j}) = 0
+    ( - \rmi z_{j} [\sigma_{3}, P_{+}] + P P_{+})w_{j} + P_{+}w_{j,x} = 0 \implies \rmi z_{j} P_{+} \sigma_{3} w_{j} + P_{+} w_{j,x} = 0 \implies P_{+}(w_{j,x} + \rmi z_{j} \sigma_{3}w_{j}) = 0
 \end{equation}
 同理有 $ P_{+}(w_{j,t} + \rmi z_{j}^{2} \sigma_{3} w_{j}) = 0 $.
 \begin{equation}
-	\begin{cases}
-		w_{j,x} + \rmi z_{j} \sigma_{3} w_{j} = 0 \\
-		w_{j,t} + \rmi z_{j}^{2} \sigma_{3} w_{j} = 0
-	\end{cases} \implies w_{j} = e^{- \rmi \theta(z_{j}) \sigma_{3}} w_{j,0}, \quad (j = 1,2, \dots, N)
+    \begin{cases}
+        w_{j,x} + \rmi z_{j} \sigma_{3} w_{j} = 0 \\
+        w_{j,t} + \rmi z_{j}^{2} \sigma_{3} w_{j} = 0
+    \end{cases} \implies w_{j} = e^{- \rmi \theta(z_{j}) \sigma_{3}} w_{j,0}, \quad (j = 1,2, \dots, N)
 \end{equation}
 其中 $ w_{j,0} $ 为 2 维常向量, 从而 $ w_{j}^{*} = w_{j,0}^{\dagger} e^{\rmi \theta(z_{j}^{*}) \sigma_{3}} $.
 
 \subsection{N 维孤子解公式}
 已知 $ P_{-} P_{+} = G \implies P_{+}^{-1} - P_{-} = \hat{G}P_{+} $(其中 $ I - G = \hat{G} $), 且 $ \hat{P_{-}}(z) \hat{P_{+}}(z)  = \Gamma(z) G \Gamma^{-1}(z) (z \in \mathbb{R})$, 可得
 \begin{equation}
-	\begin{aligned}
-		\hat{P_{+}^{-1}}- \hat{P_{-}} & = (I - \hat{P_{-}} \hat{P_{+}}) \hat{P_{+}^{-1}} = \left(I - \Gamma (z) G \Gamma^{-1}(z) \right) \hat{P_{+}^{-1}} = (\Gamma(z)\Gamma^{-1}(z) - \Gamma(z) G \Gamma^{-1}(z)) \hat{P_{+}^{-1}} \\
-		                              & = \Gamma(z) (I-G) \Gamma^{-1}(z)\hat{P_{+}^{-1}} = \Gamma(z) \hat{G} \Gamma^{-1}(z) \hat{P_{+}^{-1}}
-	\end{aligned}
+    \begin{aligned}
+        \hat{P_{+}^{-1}}- \hat{P_{-}} & = (I - \hat{P_{-}} \hat{P_{+}}) \hat{P_{+}^{-1}} = \left(I - \Gamma (z) G \Gamma^{-1}(z) \right) \hat{P_{+}^{-1}} = (\Gamma(z)\Gamma^{-1}(z) - \Gamma(z) G \Gamma^{-1}(z)) \hat{P_{+}^{-1}} \\
+                                      & = \Gamma(z) (I-G) \Gamma^{-1}(z)\hat{P_{+}^{-1}} = \Gamma(z) \hat{G} \Gamma^{-1}(z) \hat{P_{+}^{-1}}
+    \end{aligned}
 \end{equation}
 由 Taylor 公式 $ \frac{1}{s - z} = - \frac{1}{z} (\frac{1}{1- s/z}) = - \frac{1}{z} \left(1 + \frac{s}{z} + \cdots\right) $, 故 Plemelj 公式可写为
 \begin{equation}
-	\begin{aligned}
-		\hat{P_{+}^{-1}} & = I + \frac{1}{2 \pi \rmi } \int_{-\infty}^{+\infty} \frac{\Gamma(z) \hat{G} \Gamma^{-1}(z) \hat{P_{+}^{-1}} }{s - z} \rmd s                                               \\
-		                 & = I - \frac{1}{2 \pi \rmi z} \int_{-\infty}^{+\infty} \left( 1 + \frac{s}{z} + (\frac{s}{z})^{2} + \cdots \right) \Gamma(z) \hat{G} \Gamma^{-1}(z) \hat{P_{+}^{-1}} \rmd s \\
-		                 & = I - \frac{1}{2 \pi \rmi z} \int_{-\infty}^{+\infty}  \Gamma(z) \hat{G} \Gamma^{-1}(z) \hat{P_{+}^{-1}} \rmd s + O(z^{-2})                                                \\
-	\end{aligned}
+    \begin{aligned}
+        \hat{P_{+}^{-1}} & = I + \frac{1}{2 \pi \rmi } \int_{-\infty}^{+\infty} \frac{\Gamma(z) \hat{G} \Gamma^{-1}(z) \hat{P_{+}^{-1}} }{s - z} \rmd s                                               \\
+                         & = I - \frac{1}{2 \pi \rmi z} \int_{-\infty}^{+\infty} \left( 1 + \frac{s}{z} + (\frac{s}{z})^{2} + \cdots \right) \Gamma(z) \hat{G} \Gamma^{-1}(z) \hat{P_{+}^{-1}} \rmd s \\
+                         & = I - \frac{1}{2 \pi \rmi z} \int_{-\infty}^{+\infty}  \Gamma(z) \hat{G} \Gamma^{-1}(z) \hat{P_{+}^{-1}} \rmd s + O(z^{-2})                                                \\
+    \end{aligned}
 \end{equation}
 由 $ (I - A)^{-1} = I + A + A^{2} + \cdots, (P^{-1} = I + \frac{A}{z} + \dots, P = \frac{B}{z} + \dots) $, 可得
 \begin{equation}
-	\hat{P_{+}} = I + \frac{1}{2 \pi \rmi z} \int_{-\infty}^{+\infty} \Gamma(z) \hat{G} \Gamma^{-1}(z) \hat{P_{+}} \rmd s + O(z^{-2})
+    \hat{P_{+}} = I + \frac{1}{2 \pi \rmi z} \int_{-\infty}^{+\infty} \Gamma(z) \hat{G} \Gamma^{-1}(z) \hat{P_{+}} \rmd s + O(z^{-2})
 \end{equation}
 再由
 \begin{equation}
-	\Gamma(z) = i + \sum_{k,j = 1}^{N} \frac{w_{k}(M^{-1})_{kj}w_{j}^{*}}{z-z_{j}^{*}} \implies \Gamma(z) = I + \frac{1}{z} \sum_{k,j = 1}^{N} w_{k}(M^{-1})_{kj}w_{j}^{*} + O(z^{-2}) \label{ch2-eq:Gamma-Asymptotic}
+    \Gamma(z) = i + \sum_{k,j = 1}^{N} \frac{w_{k}(M^{-1})_{kj}w_{j}^{*}}{z-z_{j}^{*}} \implies \Gamma(z) = I + \frac{1}{z} \sum_{k,j = 1}^{N} w_{k}(M^{-1})_{kj}w_{j}^{*} + O(z^{-2}) \label{ch2-eq:Gamma-Asymptotic}
 \end{equation}
 将上渐进式带入 \eqref{ch2-eq:RHP-decomposition}, 比较 $ z^{-1} $ 的次数可得
 \begin{equation}
-	P_{+}^{(1)} = \frac{1}{2 \pi \rmi} \int_{-\infty}^{+\infty} \Gamma(z) \hat{G} \Gamma^{-1}(z) \hat{P_{+}^{-1}} \rmd s = \sum_{k,j = 1}^{N} w_{k} (M^{-1})_{kj} w_{j}^{*} \label{ch2-eq:P-+-1}
+    P_{+}^{(1)} = \frac{1}{2 \pi \rmi} \int_{-\infty}^{+\infty} \Gamma(z) \hat{G} \Gamma^{-1}(z) \hat{P_{+}^{-1}} \rmd s = \sum_{k,j = 1}^{N} w_{k} (M^{-1})_{kj} w_{j}^{*} \label{ch2-eq:P-+-1}
 \end{equation}
 特别的, 当散射数据 $ S_{12} = S_{21} = 0 $ 时, 有 $ \hat{G} = I - G = 0 $. 故上式\eqref{ch2-eq:P-+-1} 可简化为
 \begin{equation}
-	P_{+}^{-1} = \sum_{k,j = 1}^{N} w_{k}(M^{-1})_{kj} w_{j}^{*}
+    P_{+}^{-1} = \sum_{k,j = 1}^{N} w_{k}(M^{-1})_{kj} w_{j}^{*}
 \end{equation}
 不妨取 $ \lambda_{j} = - \rmi (z_{j}x + 2 z_{j}^{2} t) $, 并取 $ w_{j,0} = (c_{j},1)^{T} $, 则有
 \begin{equation}
-	w_{j} = \begin{pmatrix}
-		e^{\lambda_{j}} & \\ & e^{-\lambda_{j}}
-	\end{pmatrix} \begin{pmatrix}
-		c_{j} \\ 1
-	\end{pmatrix} = \begin{pmatrix}
-		c_{j} e^{\lambda_{j}} \\ e^{-\lambda_{j}}
-	\end{pmatrix}
+    w_{j} = \begin{pmatrix}
+        e^{\lambda_{j}} & \\ & e^{-\lambda_{j}}
+    \end{pmatrix} \begin{pmatrix}
+        c_{j} \\ 1
+    \end{pmatrix} = \begin{pmatrix}
+        c_{j} e^{\lambda_{j}} \\ e^{-\lambda_{j}}
+    \end{pmatrix}
 \end{equation}
 从而 $ w_{j}^{*} = w_{j,0}^{*} \cdot e^\lambda_{j} \sigma_{3} = (c_{j}^{*}e^{\lambda_{j}^{*}}, e^{-\lambda_{j}})$. 故
 \begin{equation}
-	M_{k.j} = \frac{w_{k}^{*}w_{j}}{z_{k}^{*}- z_{j}} = \frac{1}{z_{k}^{*} - z_{j}} (c_{k}^{*}c_{j} e^{\lambda_{k}^{*} + \lambda_{j}} + e^{-\lambda_{k} - \lambda_{j}})
+    M_{k.j} = \frac{w_{k}^{*}w_{j}}{z_{k}^{*}- z_{j}} = \frac{1}{z_{k}^{*} - z_{j}} (c_{k}^{*}c_{j} e^{\lambda_{k}^{*} + \lambda_{j}} + e^{-\lambda_{k} - \lambda_{j}})
 \end{equation}
 再由 \eqref{ch2-eq:Gamma-Asymptotic}
 \begin{equation}
-	\begin{aligned}
-		q(x,t) & = 2 \rmi \lim_{z \to \infty} (zP_{+})_{12} = 2 \rmi (P_{+}^{(1)})_{12}                                                                                             \\
-		       & = 2 \rmi \sum_{k,j}^{N}(w_{k}w_{j}^{*})_{12}(M^{-1})_{kj} = 2 \rmi \sum_{k,j}^{N} c_{k}e^{\lambda_{k} - \lambda_{j}^{*}}(M^{-1})_{kj} \label{ch2-eq:NLS-N-soliton}
-	\end{aligned}
+    \begin{aligned}
+        q(x,t) & = 2 \rmi \lim_{z \to \infty} (zP_{+})_{12} = 2 \rmi (P_{+}^{(1)})_{12}                                                                                             \\
+               & = 2 \rmi \sum_{k,j}^{N}(w_{k}w_{j}^{*})_{12}(M^{-1})_{kj} = 2 \rmi \sum_{k,j}^{N} c_{k}e^{\lambda_{k} - \lambda_{j}^{*}}(M^{-1})_{kj} \label{ch2-eq:NLS-N-soliton}
+    \end{aligned}
 \end{equation}
 令
 \begin{equation}
-	R = \begin{pmatrix}
-		0                    & c_{1}e^{\lambda_{1}} & \cdots & c_{N}e^{\lambda_{N}} \\
-		e^{-\lambda_{1}^{*}} & M_{11}               & \cdots & M_{1N}               \\
-		\vdots               & \vdots               & \ddots & \vdots               \\
-		e^{-\lambda_{N}^{*}} & M_{N1}               & \cdots & M_{NN}
-	\end{pmatrix}
+    R = \begin{pmatrix}
+        0                    & c_{1}e^{\lambda_{1}} & \cdots & c_{N}e^{\lambda_{N}} \\
+        e^{-\lambda_{1}^{*}} & M_{11}               & \cdots & M_{1N}               \\
+        \vdots               & \vdots               & \ddots & \vdots               \\
+        e^{-\lambda_{N}^{*}} & M_{N1}               & \cdots & M_{NN}
+    \end{pmatrix}
 \end{equation}
 则
 \begin{equation}
-	\begin{aligned}
-		\det R & = \sum_{k=1}^{N}(-1)^{k+2} c_{k} e^{\lambda_{k}} \det \begin{pmatrix}
-			                                                               e^{-\lambda_{1}^{*}} & M_{11} & \cdots & M_{1,k-1} & M_{1,k+1} & \cdots & M_{1N} \\
-			                                                               \vdots               & \vdots & \ddots & \vdots    & \vdots    & \ddots & \vdots \\
-			                                                               e^{-\lambda_{N}^{*}} & M_{N1} & \cdots & M_{N,k-1} & M_{N,k+1} & \cdots & M_{NN}
-		                                                               \end{pmatrix}                  \\
-		       & = \sum_{k=1}^{N} (-1)^{k+2} c_{k} e^{\lambda_{k}} \sum_{j=1}^{N} e^{-\lambda_{j}^{*}} \det \underline{\begin{pmatrix}
-				                                                                                                               M_{11} & \cdots & M_{1,k-1} & M_{1,k+1} & \cdots & M_{1N} \\
-				                                                                                                               \vdots & \ddots & \vdots    & \vdots    & \ddots & \vdots \\
-				                                                                                                               M_{N1} & \cdots & M_{N,k-1} & M_{N,k+1} & \cdots & M_{NN}
-			                                                                                                               \end{pmatrix}} := \Delta \\
-		       & = \sum_{k=1}^{N}(-1)^{k+j+3}c_{k} e^{\lambda_{k} - \lambda_{j}^{*}} \det(\Delta)                                                                                \\
-		%\overset{\mathclap{\text{这是较长的文本，需要等号自适应}}}{=} \\
-		       & = -c_{k} e^{\lambda_{k} - \lambda_{j}^{*} (M^{*})_{jk}} \qquad \Leftarrow \left((M^{*})_{jk} - (-1)^{k+j} \det(\Delta) \right)                                  \\
-		       & = -\det M \sum c_{k}e^{\lambda_{k} - \lambda_{j}^{*}} \qquad \Leftarrow \left( (M^{-1})_{jk} (M^{*}) = |M| M^{-1} \right)
-	\end{aligned}
+    \begin{aligned}
+        \det R & = \sum_{k=1}^{N}(-1)^{k+2} c_{k} e^{\lambda_{k}} \det \begin{pmatrix}
+                                                                           e^{-\lambda_{1}^{*}} & M_{11} & \cdots & M_{1,k-1} & M_{1,k+1} & \cdots & M_{1N} \\
+                                                                           \vdots               & \vdots & \ddots & \vdots    & \vdots    & \ddots & \vdots \\
+                                                                           e^{-\lambda_{N}^{*}} & M_{N1} & \cdots & M_{N,k-1} & M_{N,k+1} & \cdots & M_{NN}
+                                                                       \end{pmatrix}                  \\
+               & = \sum_{k=1}^{N} (-1)^{k+2} c_{k} e^{\lambda_{k}} \sum_{j=1}^{N} e^{-\lambda_{j}^{*}} \det \underline{\begin{pmatrix}
+                                                                                                                               M_{11} & \cdots & M_{1,k-1} & M_{1,k+1} & \cdots & M_{1N} \\
+                                                                                                                               \vdots & \ddots & \vdots    & \vdots    & \ddots & \vdots \\
+                                                                                                                               M_{N1} & \cdots & M_{N,k-1} & M_{N,k+1} & \cdots & M_{NN}
+                                                                                                                           \end{pmatrix}} := \Delta \\
+               & = \sum_{k=1}^{N}(-1)^{k+j+3}c_{k} e^{\lambda_{k} - \lambda_{j}^{*}} \det(\Delta)                                                                                \\
+        %\overset{\mathclap{\text{这是较长的文本，需要等号自适应}}}{=} \\
+               & = -c_{k} e^{\lambda_{k} - \lambda_{j}^{*} (M^{*})_{jk}} \qquad \Leftarrow \left((M^{*})_{jk} - (-1)^{k+j} \det(\Delta) \right)                                  \\
+               & = -\det M \sum c_{k}e^{\lambda_{k} - \lambda_{j}^{*}} \qquad \Leftarrow \left( (M^{-1})_{jk} (M^{*}) = |M| M^{-1} \right)
+    \end{aligned}
 \end{equation}
 因此
 \begin{equation}
-	\sum_{k=1}^{N} c_{k} e^{\lambda_{k} - \lambda_{j}^{*}}(M^{-1})_{jk} = - \frac{\det R}{\det M} \label{ch2-eq:q}
+    \sum_{k=1}^{N} c_{k} e^{\lambda_{k} - \lambda_{j}^{*}}(M^{-1})_{jk} = - \frac{\det R}{\det M} \label{ch2-eq:q}
 \end{equation}
 将 \eqref{ch2-eq:q} 带入 \eqref{ch2-eq:NLS-N-soliton} 可得 NLS 方程的 N 孤子解
 \begin{equation}
-	q = -2 \rmi \frac{\det R}{ \det M}
+    q = -2 \rmi \frac{\det R}{ \det M}
 \end{equation}

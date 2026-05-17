@@ -22,6 +22,16 @@
 	其中 $ \alpha, \beta $ 为多重指标, $ \partial_{\beta} = \partial_{x_{1}}^{\beta_{1}} \cdots \partial_{x_{n}}^{\beta_{n}} $. $ f $ 称为速降函数或 Schwartz 函数.
 \end{definition}
 简单来说，速降函数是指当 $ x \to \infty $ 时趋近于零的速度比所有的多项式的倒数都快，并且任意阶的导数都有这种性质的函数。
+\begin{definition}[Bellmann-Gronwall 不等式]\label{ch1-def-Gronwall}
+	设 $ u(t) $ 和 $ g(t) $ 是定义在区间 $ [t_{0}, T] $ 上的非负连续函数, 且满足
+	\begin{equation}
+		u(t) \leq A + \int_{t_{0}}^{t} g(s) u(s) \rmd s, \quad t \in [t_{0}, T]
+	\end{equation}
+	其中 $ A $ 为常数, 则
+	\begin{equation}
+		u(t) \leq A \exp{\int_{t_{0}}^{t} g(s) \rmd s}, \quad t \in [t_{0}, T]
+	\end{equation}
+\end{definition}
 \begin{theorem}{Painleve 开拓定理}\label{Thm-Painleve}
 	设 $ D_{1}, D_{2} $ 为两个没有公共点的区域, 边界为 $ \Gamma $, 并设 $ f_{1}(z), f_{2}(z) $ 分别在 $ D_{1}, D_{2} $ 内解析, 在 $ D_{1} + \Gamma, D_{2} + \Gamma $ 上连续, 且 $ f_{1}(z) = f_{2}(z), \forall z \in \Gamma $, 则
 	\begin{equation}
@@ -34,7 +44,7 @@
 	在 $ D_{1} + D_{2} + \Gamma $ 内解析.
 \end{theorem}
 \begin{proof}
-	显然 $ f(Z) $ 在 $ D_{1} + D_{2} + \Gamma $ 上连续, 根据定理 \cref{Thm-Morera}, 只需证明 $ f(z) $ 沿任何闭曲线 $ \sum $ 的积分为 $ 0 $.
+	显然 $ f(Z) $ 在 $ D_{1} + D_{2} + \Gamma $ 上连续, 根据 Morera 定理, 只需证明 $ f(z) $ 沿任何闭曲线 $ \sum $ 的积分为 $ 0 $.
 
 	如果 $ \sum \subset D_{1} $, 或 $ \sum \subset D_{1} $, 则由 $ f(z) $ 的解析性可得
 	\begin{equation}
