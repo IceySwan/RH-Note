@@ -41,7 +41,7 @@
     为表示方便, 我们仍然记 $ \hat{q}=q, \hat{\Phi} = \Phi$ , 但需要注意变换前后 $ q, \Phi $ 的含义不同。求解渐进矩阵 $X_{\pm}$ 的特征值, 会得到 $\pm \rmi \lambda$, 其中 $\lambda = \sqrt{k^2 + q_0^2}$.
 
     Step3: %引入仿射变换 $ z = k + \lambda$ (逆变换为 Joukowsky 变换), 在 Riemann 面上消去多值问题, 然后即可进入零边界问题的 RH 求解流程.
-    $\lambda$ 是关于 $k$ 的多值函数, 直接在 $k$-平面上讨论解析性极为困难. 因此引入两叶 Riemann 面使其单值化,  利用仿射变换 $ z = k + \lambda$ 将 Riemann 面映射到标准的复 $z$-平面上 (其逆变换即为 Joukowsky 变换).
+    $\lambda$ 是关于 $k$ 的多值函数, 直接在 $k$-复平面上讨论解析性极为困难. 因此引入 Riemann 面使其单值化,  利用仿射变换 $ z = k + \lambda$ 将 Riemann 面映射到标准的复 $z$-平面上 (其逆变换即为 Joukowsky 变换).
 
     至此, 即可完全套用零边界问题的 RH 求解流程.
 \end{outline}
@@ -685,11 +685,11 @@
     \begin{equation}
         \frac{\rmi}{2} [\mu_{1}^{\pm}, \sigma_{3}] = Q.
     \end{equation}
-    易知微扰项 $\mu_{1}^{\pm}$ 对角元素为 $0$, 又 $\sigma_{3} \mu_{1}^{\pm} = -\mu_{1}^{\pm} \sigma_{3}$, 故 $[\mu_{1}^{\pm}, \sigma_{3}] = 2\mu_{1}^{\pm} \sigma_{3}$. 代入上式解得：
+    易知微扰项 $\mu_{1}^{\pm}$ 对角元素为 $0$, 又 $\sigma_{3} \mu_{1}^{\pm} = -\mu_{1}^{\pm} \sigma_{3}$, 故 $[\mu_{1}^{\pm}, \sigma_{3}] = 2\mu_{1}^{\pm} \sigma_{3}$. 代入上式解得:
     \begin{equation}
         \rmi \mu_{1}^{\pm} \sigma_{3} = Q \implies \mu_{1}^{\pm} = -\rmi Q \sigma_{3} = \rmi \sigma_{3} Q.
     \end{equation}
-    至此 \eqref{ch5-eq-mu-zinf} 证明完毕。进一步比较 $(1,2)$ 矩阵元，即可得到重构公式：
+    至此 \eqref{ch5-eq-mu-zinf} 证明完毕. 进一步比较矩阵 12 位置，即可得到重构公式:
     \begin{equation}
         q(x,t) = -\rmi (\mu_{1}^{\pm})_{12} = -\rmi \lim_{z \to \infty} z (\mu_{\pm})_{12}.
     \end{equation}
@@ -879,7 +879,7 @@
 \end{equation}
 则
 \begin{equation}
-    \beta^{+} \beta^{-} = s_{11} s_{22} = \frac{1}{1 + \rho(z) \rho^{*}(z^{*})} \implies \ln{\beta^{+}} - (- \ln{\beta^{-}}) = - \ln{(1 + \rho(z) \rho^{*}(z^{*}))}, \quad z \in \sum.
+    \beta^{+} \beta^{-} = s_{11} s_{22} = \frac{1}{1 + \rho(z) \rho^{*}(z^{*})} \implies \ln{\beta^{+}} + \ln{\beta^{-}} = - \ln{(1 + \rho(z) \rho^{*}(z^{*}))}, \quad z \in \sum.
     \label{ch5-eq-beta-jump}
 \end{equation}
 由 Plemelj 公式可得
@@ -889,8 +889,8 @@
 \end{equation}
 将上式带入 \eqref{ch5-eq-beta} 可得迹公式
 \begin{align}
-    s_{11}(z) & = \exp{\left[ - \frac{1}{2 \pi \rmi} \int_{\sum} \frac{ln{(1+\rho(z) \rho^{*}(z^{*}))}}{s-z} \rmd s \right]} \prod_{j=1}^{2N} \frac{z - \xi_{j}}{z - \xi_{j}^{*}}, \quad z \in D^{+}, \label{ch5-eq-trace-s11} \\
-    s_{22}(z) & = \exp{\left[ \frac{1}{2 \pi \rmi} \int_{\sum} \frac{ln{(1+\rho(z) \rho^{*}(z^{*}))}}{s-z} \rmd s \right]} \prod_{j=1}^{2N} \frac{z - \xi_{j}^{*}}{z - \xi_{j}}, \quad z \in D^{-}.
+    s_{11}(z) & = \exp{\left[ - \frac{1}{2 \pi \rmi} \int_{\sum} \frac{\ln{(1+\rho(z) \rho^{*}(z^{*}))}}{s-z} \rmd s \right]} \prod_{j=1}^{2N} \frac{z - \xi_{j}}{z - \xi_{j}^{*}}, \quad z \in D^{+}, \label{ch5-eq-trace-s11} \\
+    s_{22}(z) & = \exp{\left[ \frac{1}{2 \pi \rmi} \int_{\sum} \frac{\ln{(1+\rho(z) \rho^{*}(z^{*}))}}{s-z} \rmd s \right]} \prod_{j=1}^{2N} \frac{z - \xi_{j}^{*}}{z - \xi_{j}}, \quad z \in D^{-}.
     \label{ch5-eq-trace-s22}
 \end{align}
 特别的, 无反射情形下, $s_{12} = s_{21} = 0$, 则上述迹公式可简化为
@@ -971,3 +971,4 @@
         0 & Y \\ B & M
     \end{pmatrix}, \quad Y = (Y_{1}, Y_{2}, \cdots, Y_{2N}).
 \end{equation}
+至此, 非零边界的 NLS 问题 已被解决, 接下来的时间笔者要将注意力转移至利用 RH 方法激发怪波的研究上, 故该笔记暂缓更新. 2026.05.18

@@ -20,45 +20,37 @@
     \end{pmatrix}
 \end{equation}
 其中 $ r_{1} = ap_{1} + bq_{1}, r_{2} = cp_{1} + dq_{1}$, 这里 $ p_{1} $ 可能为 $ p, p(-x), p(-t), p(-x,-t)$ 及其共轭, $ q_{1} $同理, 且 $ a, b, c, d \in \mathbb{C} $ 为任意复数. 由零曲率方程得
-\begin{subequations}
-    \begin{align}
-        (13): \quad & \rmi p_{t} + p_{xx} + 2p(pr_{1} + qr_{2}) = 0,        \\
-        (23): \quad & \rmi q_{t} + q_{xx} + 2q(pr_{1} + qr_{2}) = 0,        \\
-        (31): \quad & -\rmi r_{1t} + r_{1xx} + 2r_{1}(pr_{1} + qr_{2}) = 0, \\
-        (32): \quad & -\rmi r_{2t} + r_{2xx} + 2r_{2}(pr_{1} + qr_{2}) = 0.
-    \end{align} \label{ch4-eq:4-component-AKNS-components}
-\end{subequations}
+\begin{align}
+    (13): \quad & \rmi p_{t} + p_{xx} + 2p(pr_{1} + qr_{2}) = 0,    \label{ch4-eq:4-component-AKNS-components-13}     \\
+    (23): \quad & \rmi q_{t} + q_{xx} + 2q(pr_{1} + qr_{2}) = 0,   \label{ch4-eq:4-component-AKNS-components-23}      \\
+    (31): \quad & -\rmi r_{1t} + r_{1xx} + 2r_{1}(pr_{1} + qr_{2}) = 0, \label{ch4-eq:4-component-AKNS-components-31} \\
+    (32): \quad & -\rmi r_{2t} + r_{2xx} + 2r_{2}(pr_{1} + qr_{2}) = 0. \label{ch4-eq:4-component-AKNS-components-32}
+\end{align}
 由上面得到的四分量方程, 考虑相容性条件. 我们有 $ p_{1} $ 只可能为 $ p^{*}(x,t), p^{*}(-x,t), p(x,-t), p(-x,-t) $, $ q_1 $ 同理. 则得到如下四种约化
-\begin{subequations}
-    \begin{align}
-        r_{1} & = a p^{*}(x,t) + b q^{*}(x,t), \quad r_{2} = b^{*} p^{*}(x,t) + d q^{*}(x,t), \quad a, d \in \mathbb{R} \label{ch4-eq:reduction-local},         \\
-        r_{1} & = a p^{*}(-x,t) + b q^{*}(-x,t), \quad r_{2} = b^{*} p^{*}(-x,t) + d q^{*}(-x,t), \quad a, d \in \mathbb{R} \label{ch4-eq:reduction-reverse-x}, \\
-        r_{1} & = a p(x,-t) + b q(x,-t), \quad r_{2} = b p(x,-t) + d q(x,-t), \label{ch4-eq:reduction-reverse-t}                                                \\
-        r_{1} & = a p(-x,-t) + b q(-x,-t) , \quad r_{2} = c p(-x,-t) + d q(-x,-t), \label{ch4-eq:reduction-reverse-x-t}
-    \end{align}
-\end{subequations}
+\begin{align}
+    r_{1} & = a p^{*}(x,t) + b q^{*}(x,t), \quad r_{2} = b^{*} p^{*}(x,t) + d q^{*}(x,t), \quad a, d \in \mathbb{R} \label{ch4-eq:reduction-local},         \\
+    r_{1} & = a p^{*}(-x,t) + b q^{*}(-x,t), \quad r_{2} = b^{*} p^{*}(-x,t) + d q^{*}(-x,t), \quad a, d \in \mathbb{R} \label{ch4-eq:reduction-reverse-x}, \\
+    r_{1} & = a p(x,-t) + b q(x,-t), \quad r_{2} = b p(x,-t) + d q(x,-t), \label{ch4-eq:reduction-reverse-t}                                                \\
+    r_{1} & = a p(-x,-t) + b q(-x,-t) , \quad r_{2} = c p(-x,-t) + d q(-x,-t), \label{ch4-eq:reduction-reverse-x-t}
+\end{align}
 \begin{remark}
-    这里的相容性条件指通过 \eqref{ch4-eq:4-component-AKNS-components} 划分为两份量方程, 考虑利用 (13), (23) 式化为 (31) 式, 要将 $\rmi p_{t} $ 变为 $ - \rmi r_{1t} $, 则要么 $ t \to -t $, 要么做共轭. 由于对 $ t $ 求导, 故与 $ x $ 无关, 只能选择 上述四种情形.
+    这里的相容性条件指通过 \eqref{ch4-eq:4-component-AKNS-components-13}-\eqref{ch4-eq:4-component-AKNS-components-32} 划分为两份量方程, 考虑利用 (13), (23) 式化为 (31) 式, 要将 $\rmi p_{t} $ 变为 $ - \rmi r_{1t} $, 则要么 $ t \to -t $, 要么做共轭. 由于对 $ t $ 求导, 故与 $ x $ 无关, 只能选择 上述四种情形.
 \end{remark}
 若进一步考虑将其约化为单分量方程, 则有如下三种可能
-\begin{subequations}
-    \begin{align}
-        q(x,t) & = p(-x,t), \quad a = d, \label{ch4-eq:reduction-q1}          \\
-        q(x,t) & = p^{*}(x,-t), \quad a = d^{*} \label{ch4-eq:reduction-q2},  \\
-        q(x,t) & = p^{*}(-x,-t), \quad a = d^{*} \label{ch4-eq:reduction-q3},
-    \end{align}
-\end{subequations}
+\begin{align}
+    q(x,t) & = p(-x,t), \quad a = d, \label{ch4-eq:reduction-q1}          \\
+    q(x,t) & = p^{*}(x,-t), \quad a = d^{*} \label{ch4-eq:reduction-q2},  \\
+    q(x,t) & = p^{*}(-x,-t), \quad a = d^{*} \label{ch4-eq:reduction-q3},
+\end{align}
 接下来我们讨论可能的约化情况, 为表示方便, 记 $ \Delta = pr_{1} + qr_{2} $.
 \subsection*{情形 1. $p_{1} = p^{*}, q_{1} = q^{*}$}
-此时我们有 $ r_1 = ap^{*} + bq^{*}, r_2 = cp^{*} + dq^{*} $, 带入 \eqref{ch4-eq:4-component-AKNS-components}, 得到
-\begin{subequations}
-    \begin{align}
-        (13): & \quad ip_{t} + p_{xx} + 2p \Delta = 0                                                                           \\
-        (23): & \quad iq_{t} + q_{xx} + 2q \Delta = 0                                                                           \\
-        (31): & \quad a(- \rmi p^{*}_{t} + p_{xx}^{*} + 2 p^{*} \Delta) + b(- \rmi q^{*}_{t} + q_{xx}^{*} + 2 q^{*} \Delta) = 0 \\
-        (32): & \quad c(- \rmi p^{*}_{t} + p_{xx}^{*} + 2 p^{*} \Delta) + d(- \rmi q^{*}_{t} + q_{xx}^{*} + 2 q^{*} \Delta) = 0
-    \end{align}
-\end{subequations}
+此时我们有 $ r_1 = ap^{*} + bq^{*}, r_2 = cp^{*} + dq^{*} $, 带入 \eqref{ch4-eq:4-component-AKNS-components-13}-\eqref{ch4-eq:4-component-AKNS-components-32}, 得到
+\begin{align}
+    (13): & \quad ip_{t} + p_{xx} + 2p \Delta = 0                                                                           \\
+    (23): & \quad iq_{t} + q_{xx} + 2q \Delta = 0                                                                           \\
+    (31): & \quad a(- \rmi p^{*}_{t} + p_{xx}^{*} + 2 p^{*} \Delta) + b(- \rmi q^{*}_{t} + q_{xx}^{*} + 2 q^{*} \Delta) = 0 \\
+    (32): & \quad c(- \rmi p^{*}_{t} + p_{xx}^{*} + 2 p^{*} \Delta) + d(- \rmi q^{*}_{t} + q_{xx}^{*} + 2 q^{*} \Delta) = 0
+\end{align}
 要利用 (13), (23) 式消去 (31), (32) 式, 则需要 $\Delta = \Delta^{*} $,
 \begin{align}
     \Delta     & = a p p^{*} + b p q^{*} + c p^{*} q + d q q^{*}                 \\
@@ -94,7 +86,7 @@
 \end{equation}
 
 \subsection*{情形 2. $ p_1 = p^{*}(-x), q_1 = q^{*}(-x) $}
-此时 $ r_1 = ap^{*}(-x) + bq^{*}(-x), r_2 = cp^{*}(-x) + dq^{*}(-x) $, 要消去 \eqref{ch4-eq:4-component-AKNS-components} 中 $(31), (32)$ 式, 只需 $ \Delta = \Delta^{*}(-x) $, 其中
+此时 $ r_1 = ap^{*}(-x) + bq^{*}(-x), r_2 = cp^{*}(-x) + dq^{*}(-x) $, 要消去 \eqref{ch4-eq:4-component-AKNS-components-13}-\eqref{ch4-eq:4-component-AKNS-components-32} 中 $(31), (32)$ 式, 只需 $ \Delta = \Delta^{*}(-x) $, 其中
 \begin{align}
     \Delta         & = ap^{*}(-x)p + bq^{*}(-x)p + c^{*}p^{*}(-x)q + dq^{*}(-x)q             \\
     \Delta^{*}(-x) & = a^{*}pp^{*}(-x) + b^{*}qp^{*}(-x) + c^{*}pq^{*}(-x) + d^{*}qq^{*}(-x)
@@ -104,7 +96,7 @@
     (31) & = a(13)^{*}(-x) + b(23)^{*}(-x), \\
     (32) & = b^{*}(13)(-x) + d(23)^{*}(-x),
 \end{align}
-方程 \eqref{ch4-eq:4-component-AKNS-components} 约化为
+方程 \eqref{ch4-eq:4-component-AKNS-components-13}-\eqref{ch4-eq:4-component-AKNS-components-32} 约化为
 \begin{align}
     \rmi p_{t} + p_{xx} + 2p \left[ a p p^{*}(-x) + b p q^{*}(-x) + b^{*}p^{*}(-x)q + d q^{*}(-x) q \right] & = 0, \label{ch4-eq:reduction-inverse-x-p} \\
     \rmi q_{t} + q_{xx} + 2q \left[ a p p^{*}(-x) + b p q^{*}(-x) + b^{*}p^{*}(-x)q + d q^{*}(-x) q \right] & = 0\label{ch4-eq:reduction-inverse-x-q}
