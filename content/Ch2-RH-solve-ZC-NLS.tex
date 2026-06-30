@@ -162,7 +162,7 @@ NLS 方程 \eqref{ch2-eq:Focus-NLS} 具有如下矩阵形式的 Lax 对
     \mu_{1}(x,t,z) = \mu_{2}(x,t,z) \hat{E} S(z), \label{ch2-eq:eig-mu-relationship} \quad
     S(z) =
     \begin{pmatrix}
-        S_{11}(z) & S_{12}(z) \\ S_{21}(z) & S_{22}(z)
+        s_{11}(z) & s_{12}(z) \\ s_{21}(z) & s_{22}(z)
     \end{pmatrix}
 \end{equation}
 其中矩阵 $ S(z) $ 与 $ x,t $ 无关, 称为谱函数矩阵.
@@ -306,7 +306,7 @@ NLS 方程 \eqref{ch2-eq:Focus-NLS} 具有如下矩阵形式的 Lax 对
     S(z) = \mu_{2}^{-1} \mu_{1} = \begin{pmatrix} - \hat{\mu_{2}^{+}} \\ \hat{\mu_{2}^{-}} \end{pmatrix} (\mu_{1}^{+}, \mu_{1}^{-})
     = \begin{pmatrix} - \hat{\mu_{2}^{+}} \mu_{1}^{+} & - \hat{\mu_{2}^{+}} \mu_{1}^{-} \\ \hat{\mu_{2}^{-}} \mu_{1}^{+} & \hat{\mu_{2}^{-}} \mu_{1}^{-} \end{pmatrix}
 \end{equation}
-可见 $ S_{11}(z) $ 在 $ \mathbb{C}_{+} $ 解析, $ S_{22}(z) $ 在 $ \mathbb{C}_{-} $ 解析, $ S_{12}, S_{21} $ 在 $ \mathbb{C}_{+}, \mathbb{C}_{-} $ 均不解析, 但连续到边界.
+可见 $ s_{11}(z) $ 在 $ \mathbb{C}_{+} $ 解析, $ s_{22}(z) $ 在 $ \mathbb{C}_{-} $ 解析, $ s_{12}, s_{21} $ 在 $ \mathbb{C}_{+}, \mathbb{C}_{-} $ 均不解析, 但连续到边界.
 
 \subsection{对称性}
 \begin{theorem}
@@ -350,7 +350,7 @@ NLS 方程 \eqref{ch2-eq:Focus-NLS} 具有如下矩阵形式的 Lax 对
     \end{equation}
     比较对应元素, 有
     \begin{equation}
-        S_{11}^{*}(z^{*}) = S_{22}(z), S_{12}^{*}(z^{*}) = - S_{21}(z) \label{ch2-eq:S-symmetry}
+        s_{11}^{*}(z^{*}) = s_{22}(z), s_{12}^{*}(z^{*}) = - s_{21}(z) \label{ch2-eq:S-symmetry}
     \end{equation}
 \end{proof}
 
@@ -427,10 +427,10 @@ NLS 方程 \eqref{ch2-eq:Focus-NLS} 具有如下矩阵形式的 Lax 对
     \begin{equation}
         \begin{aligned}
             \det(P_{+}) & = \det(\mu_{1}H_{1} + \mu_{2} H_{2}) = \det(\mu_{2} \hat{E}^{-1} S) H_{1} + \mu_{2}H_{2}) \\
-                        & =\det(\mu_{2}) \det((\hat{E}^{-1} S) H_{1} + \mu_{2}H_{2}) = S_{11}(z)
+                        & =\det(\mu_{2}) \det((\hat{E}^{-1} S) H_{1} + \mu_{2}H_{2}) = s_{11}(z)
         \end{aligned}
     \end{equation}
-    同理, 有 $ \det(P_{-}) = S_{22}(z) $
+    同理, 有 $ \det(P_{-}) = s_{22}(z) $
 \end{proof}
 
 \subsection{RH 问题的可解性}
@@ -451,7 +451,7 @@ Case1. 如果
 
 Case2. 如果条件 \eqref{ch2-eq:RHP-regular} 不满足, 则称 RH 问题为非正则的, 假设 $ \det P_{\pm} $ 在某些离散的点处为零, 由谱函数对称性 \eqref{ch2-eq:S-symmetry} 有
 \begin{equation}
-    \det P_{+}(z) = S_{11}(z) = S_{22}^{*}(z^{*}) = \det P_{-}^{*}(z^{*}) = \det P_{-}(z^{*})
+    \det P_{+}(z) = s_{11}(z) = s_{22}^{*}(z^{*}) = \det P_{-}^{*}(z^{*}) = \det P_{-}(z^{*})
 \end{equation}
 故
 \begin{equation}
@@ -520,17 +520,17 @@ Case2. 如果条件 \eqref{ch2-eq:RHP-regular} 不满足, 则称 RH 问题为非
     因此 $ R_{1}^{+}(z), R_{1}^{-}(z) $ 分别在 $ \mathbb{C_{+}}, \mathbb{C_{-}} $ 上解析, 且
     \begin{equation}
         \begin{aligned}
-            \det R_{1}^{+}(z_{1})      & = \lim_{z \to z_{1}} \left[ \det P_{+}(z) \cdot \det \Gamma_{1}^{-1}(z)\right] = \lim_{z \to z_{1}} S_{11}(z) \frac{z - z_{1}^{*}}{z-z_{1}}                                                          \\
-                                       & = \lim_{z \to z_{1}} \frac{S_{11}(z) - S_{11}(z_{1})}{z - z_{1}} (z - z^{*}) \Leftarrow (S_{11}(z) = 0)                                                                                              \\
-                                       & = \lim_{z \to z_{1}} S_{11}'(z) (z - z_{1}^{*}) = 0                                                                                                                                                  \\
-            \det R_{1}^{-1}(z_{1}^{*}) & = \lim_{z \to z_{1}^{*}} \left[ \det \Gamma_{1}(z) \cdot \det P_{-}(z)\right] = \lim_{z \to z_{1}^{*}} \frac{z - z_{1}}{z - z_{1}^{*}} S_{22}(z) = \lim_{z \to z_{1}^{*}} S_{22}'(z) (z - z_{1}) = 0
+            \det R_{1}^{+}(z_{1})      & = \lim_{z \to z_{1}} \left[ \det P_{+}(z) \cdot \det \Gamma_{1}^{-1}(z)\right] = \lim_{z \to z_{1}} s_{11}(z) \frac{z - z_{1}^{*}}{z-z_{1}}                                                          \\
+                                       & = \lim_{z \to z_{1}} \frac{s_{11}(z) - s_{11}(z_{1})}{z - z_{1}} (z - z^{*}) \Leftarrow (s_{11}(z) = 0)                                                                                              \\
+                                       & = \lim_{z \to z_{1}} s_{11}'(z) (z - z_{1}^{*}) = 0                                                                                                                                                  \\
+            \det R_{1}^{-1}(z_{1}^{*}) & = \lim_{z \to z_{1}^{*}} \left[ \det \Gamma_{1}(z) \cdot \det P_{-}(z)\right] = \lim_{z \to z_{1}^{*}} \frac{z - z_{1}}{z - z_{1}^{*}} s_{22}(z) = \lim_{z \to z_{1}^{*}} s_{22}'(z) (z - z_{1}) = 0
         \end{aligned}
     \end{equation}
     这说明 $ R_{1}^{+}(z), R_{1}^{-}(z) $ 分别在 $ z = z_{1}, z= z_{1}^{*} $ 不再具有零点结构, 然后去除其在 $ z_{2}, z_{2}^{*} $ 上的零点结构, 由于
     \begin{equation}
         \begin{aligned}
-            \det R_{1}^{+}(z_{2})      & = \det P_{+}(z_{2}) \det \Gamma_{1}^{-1}(z_{2}) = S_{11}(z_{2}) \frac{z_{2} - z_{1}^{*}}{z_{2} - z_{1}} = 0            \\
-            \det R_{1}^{-1}(z_{2}^{*}) & = \det \Gamma_{1}(z_{2}^{*}) \det P_{-}(z_{2}^{*}) = \frac{z_{2}^{*} - z_{1}}{z_{2}^{*} - z_{1}} S_{22}(z_{2}^{*}) = 0
+            \det R_{1}^{+}(z_{2})      & = \det P_{+}(z_{2}) \det \Gamma_{1}^{-1}(z_{2}) = s_{11}(z_{2}) \frac{z_{2} - z_{1}^{*}}{z_{2} - z_{1}} = 0            \\
+            \det R_{1}^{-1}(z_{2}^{*}) & = \det \Gamma_{1}(z_{2}^{*}) \det P_{-}(z_{2}^{*}) = \frac{z_{2}^{*} - z_{1}}{z_{2}^{*} - z_{1}} s_{22}(z_{2}^{*}) = 0
         \end{aligned}
     \end{equation}
     因此, 下列齐次线性方程组有非零解, 即存在 $ v_{2}(z_{2}), v_{2}^{*}(z_{2}^{*}) $, 使得
@@ -586,8 +586,8 @@ Case2. 如果条件 \eqref{ch2-eq:RHP-regular} 不满足, 则称 RH 问题为非
     而
     \begin{equation}
         \begin{aligned}
-            \det R_{j}^{+}(z_{j+1})      & = S_{11}(z_{j+1}) \prod_{j = 1}^{j} \frac{z_{j+1} - z_{k}^{*}}{z_{j+1} - z_{k}} = 0         \\
-            \det R_{j}^{-1}(z_{j+1}^{*}) & = S_{22}(z_{j+1}^{*}) \prod_{j = 1}^{j} \frac{z_{j+1}^{*} - z_{k}}{z_{j+1}^{*} - z_{k}} = 0
+            \det R_{j}^{+}(z_{j+1})      & = s_{11}(z_{j+1}) \prod_{j = 1}^{j} \frac{z_{j+1} - z_{k}^{*}}{z_{j+1} - z_{k}} = 0         \\
+            \det R_{j}^{-1}(z_{j+1}^{*}) & = s_{22}(z_{j+1}^{*}) \prod_{j = 1}^{j} \frac{z_{j+1}^{*} - z_{k}}{z_{j+1}^{*} - z_{k}} = 0
         \end{aligned}
     \end{equation}
     最后令
