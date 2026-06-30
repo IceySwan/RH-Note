@@ -1200,3 +1200,4 @@
 \renewcommand{\Re}{\operatorname{Re}} % 用 \operatorname 替代 \mathrm 以获得正确间距
 \renewcommand{\Im}{\operatorname{Im}}
 \newcommand{\diag}{\operatorname{diag}}
+\newcommand{\hb}[1]{\hat{\bar{#1}}}
