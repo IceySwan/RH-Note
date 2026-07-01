@@ -1,5 +1,5 @@
 \chapter{RH 方法求解非零边界 NLS 方程}
-本章节对应范恩贵第六章, 本章节和 \ref{ch2-ZC-NLS} 有很多部分极为相似, 读者可反复对比阅读.
+本章节对应范恩贵第六章, 非零背景的求解和第 \ref{ch2-ZC-NLS} 章有很多部分极为相似, 读者可反复对比阅读.
 
 相比于零边界问题, 非零边界在求解渐进谱问题时除了谱参数 $k$, 对角化谱参数矩阵还会出现特征值 $\lambda$, 通常其为 $ k $ 的多值函数, 为了避免在 Riemann 面上讨论反散射的复杂性, Zakharov 和 Shabat 注意到可通过仿射变换 $ z = k + \lambda $, 其中 $ k = k(z) $, $ \lambda = \lambda(z) $ 为 $ z $ 的单值函数, 从而在 $ z $ 平面上讨论反散射或 RH 问题, 本部分和范恩贵第六章行文思路类似, 但修改符号使其更加易读.
 
@@ -126,7 +126,7 @@
 \begin{equation}
     \lim_{x \to \pm \infty} u(x,t) = u_{\pm}, \label{ch5-eq-bc-alpha}
 \end{equation}
-其中 $u_{\pm}$ 为与 $x,t$ 无关的常数, 且 $ | u_{\pm} = u_{0} > 0$, 因此 $u_{\pm} = u_{0} e^{\rmi \theta_{\pm}}$, 即两端渐近状态仅差一个相位. 基于此, 渐近 Lax 对为
+其中 $u_{\pm}$ 为与 $x,t$ 无关的常数, 且 $ |u_{\pm}| = u_{0} > 0$, 因此 $u_{\pm} = u_{0} e^{\rmi \theta_{\pm}}$, 即两端渐近状态仅差一个相位. 基于此, 渐近 Lax 对为
 \begin{align}
     \tilde{\Phi}_{x} & = \begin{pmatrix}
                              \rmi k & u_{\pm} \\ -u_{\pm}^{*} & -\rmi k
@@ -152,7 +152,7 @@
 \end{equation}
 对 $ X_{\pm} $ 求特征值, 可得特征方程
 \begin{equation}
-    |\zeta I - X_{\pm}| = (\zeta - \rmi k)(\zeta + \rmi k) + q_{0}^{2} = 0 \implies -\zeta^{2} = k^{2} + q_{0}^{2}
+    \det(\zeta I - X_{\pm}) = (\zeta - \rmi k)(\zeta + \rmi k) + q_{0}^{2} = 0 \implies -\zeta^{2} = k^{2} + q_{0}^{2}
 \end{equation}
 易见 $ X_{\pm} $ 存在两个特征值 $ \zeta= \pm \rmi \lambda $, 其中 $ \lambda^{2} = k^{2}+ q_{0}^{2}$. 这里面临两个问题
 \begin{enumerate}
@@ -246,7 +246,7 @@
 % ]
 
 \begin{equation}
-    \lambda(z) = \frac{z^{2} + q_{0}^{*}}{2 z} = \frac{|z|^{2} z + q_{0}^{2} z^{*}}{2 |z^{2}|} = \frac{(|z|^{2}-q_{0}^{2})z + q_{0}^{2}(z + z^{*})}{2 |z|^{2}} = \frac{1}{2|z|^{2}}\left[(|z|^{2}-q_{0}^{2})z + 2 q_{0}^{2} \Re(z)\right].
+    \lambda(z) = \frac{z^{2} + q_{0}^{2}}{2 z} = \frac{|z|^{2} z + q_{0}^{2} z^{*}}{2 |z^{2}|} = \frac{(|z|^{2}-q_{0}^{2})z + q_{0}^{2}(z + z^{*})}{2 |z|^{2}} = \frac{1}{2|z|^{2}}\left[(|z|^{2}-q_{0}^{2})z + 2 q_{0}^{2} \Re(z)\right].
 \end{equation}
 故
 \begin{equation}
@@ -728,7 +728,7 @@
     \end{equation}
     则有
     \begin{equation}
-        M_{1}^{+} = M_{1}^{-} + \rho e^{-2 \rmi\theta} M_{2}^{+}, \quad M_{2}^{-} = \tilde{\rho} e^{2i\theta} M_{1}^{-} + M_{2}^{+}
+        M_{1}^{+} = M_{1}^{-} + \rho e^{-2 \rmi\theta} M_{2}^{+}, \quad M_{2}^{-} = \tilde{\rho} e^{2\rmi\theta} M_{1}^{-} + M_{2}^{+}
         \label{ch5-eq-M-minus-1}
     \end{equation}
     将散射关系 \eqref{ch5-eq-scatter-mu1}-\eqref{ch5-eq-scatter-mu2} 两边分别同除 $s_{11}, s_{22}$, 并利用反射系数的定义得:
@@ -830,7 +830,7 @@
 \end{equation}
 上述方程左边前四项在 $D^{-}$ 上解析, 且第五项极点为 $z = \xi \in D^{+}$, 因此在 $D^{-}$ 上解析. 于是 \eqref{ch5-eq-mu-plemelj} 左边在 $D^{-}$ 上解析且渐近于 $O(1/z), (z \to \infty)$. 同理 \eqref{ch5-eq-mu-plemelj} 右边前五项 $D^{+}$ 上解析, 且 $O(1/z), (z \to \infty)$. 于是由 Plemelj 公式可得
 \begin{equation}
-    M(x,t,z) = I + \frac{\rmi}{z} \sigma_{3} Q_{-} + \sum_{n=1}^{2N} \frac{\Res_{z = \xi_{n}^{*}} M^{-}}{z - \xi_{n}^{*}} + \sum_{n=1}^{2N} \frac{\Res_{z=\xi_{n}} M^{+}}{z - \xi_{n}} + \frac{1}{2\pi \rmi} \int_{\sum} \frac{M(s) G(x,t,s)}{s - z} \rmd s. \quad z \in \mathbb{C} \setminus \sum
+    M(x,t,z) = I + \frac{\rmi}{z} \sigma_{3} Q_{-} + \sum_{n=1}^{2N} \frac{\Res_{z = \xi_{n}^{*}} M^{-}}{z - \xi_{n}^{*}} + \sum_{n=1}^{2N} \frac{\Res_{z=\xi_{n}} M^{+}}{z - \xi_{n}} + \frac{1}{2\pi \rmi} \int_{\Sigma} \frac{M(s) G(x,t,s)}{s - z} \rmd s. \quad z \in \mathbb{C} \setminus \Sigma
     \label{ch5-eq-mu-plemelj-sol}
 \end{equation}
 \begin{remark}

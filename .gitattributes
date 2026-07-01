@@ -1,0 +1,12 @@
+* text=auto
+.gitignore text eol=lf
+.latexmkrc text eol=lf
+*.tex text eol=lf
+*.sty text eol=lf
+*.cls text eol=lf
+*.typ text eol=lf
+*.md text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.py text eol=lf
+*.bib text eol=lf
