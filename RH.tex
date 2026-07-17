@@ -1,11 +1,11 @@
 \documentclass[
-    lang=cn, 
-    newtx,10pt, 
-    scheme=english, 
+    lang=cn,
+    newtx,10pt,
+    scheme=english,
     %device=pad,
     color=blue,
-    oneside, 
-%    citestyle=gb7714-2015, 
+    oneside,
+%    citestyle=gb7714-2015,
 %    bibstyle=gb7714-2015
 ]{elegantbook}
 %\ExecuteBibliographyOptions{sorting=none}
@@ -24,13 +24,24 @@
 \cover{Cover-wave.jpg}
 
 % 本文档命令
-\usepackage{ulem} 
+\usepackage{ulem}
 \usepackage{array}
-\crefname{tcb@cnt@theorem}{\theoremname}{\theoremname}
-\Crefname{tcb@cnt@theorem}{\theoremname}{\theoremname}
 %\usepackage{extarrows}
 \newcommand{\ccr}[1]{\makecell{{\color{#1}\rule{1cm}{1cm}}}}
+\renewcommand{\theequation}{\thesection.\arabic{equation}} % 修改 equation 计数方式
+% 数学常数与微分符号 (直立体)
+\newcommand{\rme}{\mathrm{e}}
+\newcommand{\rmi}{\mathrm{i}}
+\newcommand{\rmd}{\mathop{}\!\mathrm{d}} % \mathop{}\! 能自动处理微分符号前的间距
 
+% 算符定义
+\DeclareMathOperator*{\tr}{tr}
+\DeclareMathOperator*{\Res}{Res}
+\DeclareMathOperator{\adj}{\operatorname{adj}}
+\renewcommand{\Re}{\operatorname{Re}} % 用 \operatorname 替代 \mathrm 以获得正确间距
+\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\hb}[1]{\hat{\bar{#1}}}
 % 修改标题页的橙色带
 \definecolor{customcolor}{RGB}{32,178,170}
 \colorlet{coverlinecolor}{customcolor}
@@ -43,20 +54,20 @@
 %\frontmatter
 
 %\input{content/Ch0-preface.tex}
-
+%
 %\tableofcontents
-
-\mainmatter
-
+%
+%\mainmatter
+%
 %\input{content/Ch1-pre-knowledges.tex}
 %\input{content/Ch2-RH-solve-ZC-NLS.tex}
 %\input{content/Ch3-Inverse-space-time-NLS.tex}
-%\include{corrected/Ch4-3d-Inverse-NLS-section-1.3}
+%\include{fix/Ch4-3d-Inverse-NLS-fix}
 \input{content/Ch4-3d-Inverse-NLS.tex}
-%\include{content/Ch5-NZC-NLS}
+%\input{content/Ch5-NZC-NLS.tex}
 % Add citation command
 %\nocite{*}
 %\printbibliography[heading=bibintoc, title=\ebibname]
-%\appendix
+\appendix
 %\input{content/Ch99-Acknowledgment.tex}
 \end{document}

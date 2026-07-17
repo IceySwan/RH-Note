@@ -1,0 +1,4 @@
+interface:
+  display_name: "LaTeX Git Commit"
+  short_description: "Generate concise LaTeX commits and structured changelogs"
+  default_prompt: "Use $latex-git-commit to inspect my LaTeX changes and draft a commit message and changelog."
