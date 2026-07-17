@@ -1,0 +1,29 @@
+# Project-wide latexindent configuration.
+# Run manually with: latexindent -w -m -l=.latexindent.yaml file.tex
+
+defaultIndent: "    "
+onlyOneBackUp: 1
+
+removeTrailingWhitespace:
+    beforeProcessing: 1
+    afterProcessing: 1
+
+# Keep source files compact without reflowing prose or equations.
+modifyLineBreaks:
+    preserveBlankLines: 1
+    condenseMultipleBlankLinesInto: 1
+
+# Do not align delimiters automatically; this avoids large, surprising diffs
+# in long mathematical expressions and tables.
+lookForAlignDelims:
+    align: 0
+    alignat: 0
+    aligned: 0
+    alignedat: 0
+    array: 0
+    bmatrix: 0
+    cases: 0
+    matrix: 0
+    pmatrix: 0
+    tabular: 0
+    vmatrix: 0

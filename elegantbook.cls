@@ -330,7 +330,7 @@
 \ifdefstring{\ELEGANT@titlestyle}{hang}{\def\style{hang}}{\relax}
 \ifdefstring{\ELEGANT@titlestyle}{display}{\def\style{display}}{\relax}
 
-% reference: 
+% reference:
 % https://tex.stackexchange.com/questions/58506/how-to-make-a-new-command-similar-to-author
 % https://pastebin.com/C8W4axzV
 \newcommand\email[1]{\href{mailto:#1}{\nolinkurl{#1}}}
@@ -501,7 +501,7 @@
 		\newcommand{\xchaptertitle}{第\zhnumber{\arabic{chapter}}章} }{
 		\newcommand{\xchaptertitle}{第 \thechapter{} 章}}
 	% Hyperref 2022/05/16's changelog.txt said
-	% * nameref is loaded always and earlier (issue#235) 
+	% * nameref is loaded always and earlier (issue#235)
 	\AtBeginDocument{
 		\ifELEGANT@Hy@later
 			\patchcmd{\NR@chapter}%
@@ -535,8 +535,8 @@
 
 
 
-%%define the 
-%%definition theorem postulate axiom corollary lemma proposition 
+%%define the
+%%definition theorem postulate axiom corollary lemma proposition
 %%and proof environment
 \RequirePackage{pifont,manfnt,bbding}
 \RequirePackage[many]{tcolorbox}
@@ -672,7 +672,7 @@
 				},
 		}
 		}
-		% define several environment 
+		% define several environment
 		% we define headers like \definitionname before
 		\ELEGANT@newtheorem{theorem}{thm}{thmstyle}
 		\ELEGANT@newtheorem{definition}{def}{defstyle}
@@ -720,7 +720,7 @@
 				\newtheorem*{#1*}{\csname #1name\endcsname}
 			}
 
-			% define several environment 
+			% define several environment
 			% we define headers like \definitionname before
 			\ELEGANT@newtheorem{theorem}{thmstyle}
 			\ELEGANT@newtheorem{definition}{defstyle}
@@ -799,7 +799,7 @@
 		}
 
 		% main（green-def): example exercise problem solution
-		% second（orange-thm）: proof note remark  
+		% second（orange-thm）: proof note remark
 		% third（blue-prop):  assumptions property conclusion custom
 
 		%% Example with counter
@@ -839,7 +839,7 @@
 		\newenvironment{proof}{
 			\par\noindent\textbf{\color{second}\proofname\;}
 			\color{black!90}\cfs}{
-			% \hfill$\Box$\quad
+			\hfill$\Box$\quad
 			\par}
 
 		\newenvironment{solution}{\par\noindent\textbf{\color{main}\solutionname} \citshape}{\par}
@@ -1168,36 +1168,3 @@
 		\end{multicols}
 	\end{tcolorbox}}
 
-\renewcommand{\theequation}{\thesection.\arabic{equation}} % 修改 equation 计数方式
-\@addtoreset{equation}{section}
-
-
-\RequirePackage[capitalize,noabbrev]{cleveref}
-
-% ================= 中文引用名称配置 =================
-% 格式：\crefname{类型}{单数小写}{复数小写}  \Crefname{类型}{单数首字母大写}{复数首字母大写}
-% 中文无单复数变化，故两参数填相同内容即可
-\crefname{equation}{公式}{公式}      \Crefname{equation}{公式}{公式}
-\crefname{figure}{图}{图}            \Crefname{figure}{图}{图}
-\crefname{table}{表}{表}             \Crefname{table}{表}{表}
-\crefname{section}{节}{节}           \Crefname{section}{第~节}{第~节}
-\crefname{chapter}{章}{章}           \Crefname{chapter}{第~章}{第~章}
-\crefname{theorem}{定理}{定理}       \Crefname{theorem}{定理}{定理}
-\crefname{lemma}{引理}{引理}         \Crefname{lemma}{引理}{引理}
-\crefname{definition}{定义}{定义}    \Crefname{definition}{定义}{定义}
-\crefname{corollary}{推论}{推论}     \Crefname{corollary}{推论}{推论}
-\crefname{appendix}{附录}{附录}      \Crefname{appendix}{附录}{附录}
-\crefname{algorithm}{算法}{算法}     \Crefname{algorithm}{算法}{算法}
-\crefname{listing}{代码}{代码}       \Crefname{listing}{代码}{代码}
-% 数学常数与微分符号 (直立体)
-\newcommand{\rme}{\mathrm{e}}
-\newcommand{\rmi}{\mathrm{i}}
-\newcommand{\rmd}{\mathop{}\!\mathrm{d}} % \mathop{}\! 能自动处理微分符号前的间距
-
-% 算符定义
-\DeclareMathOperator*{\tr}{tr}
-\DeclareMathOperator*{\Res}{Res}
-\renewcommand{\Re}{\operatorname{Re}} % 用 \operatorname 替代 \mathrm 以获得正确间距
-\renewcommand{\Im}{\operatorname{Im}}
-\newcommand{\diag}{\operatorname{diag}}
-\newcommand{\hb}[1]{\hat{\bar{#1}}}

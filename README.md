@@ -67,4 +67,9 @@ $x + y = 1$, $x \times y = 1$, $f(x,y) = x \ln(y) $
 
 ## License
 
-MIT
+除特别说明外，本仓库中由作者编写的构建脚本、转换工具和项目样式代码使用 MIT License 发布。
+
+笔记正文内容使用 Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
+（CC BY-NC-SA 4.0）发布，包括 `content/`、`typst/content/` 以及由这些源码生成的 PDF 文档。
+
+`elegantbook.cls` 遵循上游的 LPPL 1.3c；该许可证不受本仓库其他 MIT 或 CC 声明覆盖。
