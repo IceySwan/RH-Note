@@ -224,13 +224,13 @@ Jost 渐近解为 $ J = \phi E^{-1} $, 则有 $J \to I, x \to \pm \infty$. 将�
 同理有 $\tr(J^{-1} J_{t}) = 0$, 由 Abel 定理有 $\det(J)_{x} = \det(J) \tr(J^{-1} J_{x}) = 0, \det(J)_{t} = \det(J) \tr(J^{-1} J_{t}) = 0$, 则 $\det(J) = 1$. 对上式变换有
 \begin{equation}
     \begin{aligned}
-        \hat{E} J_{x} + \rmi \zeta \hat{E} [\Lambda, J]   & = \hat{E} Q J, \\
-        \hat{E} J_{t} - 2 \rmi \zeta \hat{E} [\Lambda, J] & = \hat{E} R J.
+        \hat{E}^{-1} J_{x} + \rmi \zeta \hat{E}^{-1} [\Lambda, J]   & = \hat{E}^{-1} Q J, \\
+        \hat{E}^{-1} J_{t} - 2 \rmi \zeta \hat{E}^{-1} [\Lambda, J] & = \hat{E}^{-1} R J.
     \end{aligned}
 \end{equation}
-其中 $\hat{E} X = E^{-1} X E$, 则易得全微分形式
+其中 $\hat{E}^{-1} X = E^{-1} X E$, 则易得全微分形式
 \begin{equation}
-    \rmd(\hat{E} J) = \hat{E} [(Q \rmd x + R \rmd t) J]. \label{ch4-eq-reverse-x-volterra}
+    \rmd(\hat{E}^{-1} J) = \hat{E}^{-1} [(Q \rmd x + R \rmd t) J]. \label{ch4-eq-reverse-x-volterra}
 \end{equation}
 \subsection{解析性}
 利用全微分形式 \eqref{ch4-eq-reverse-x-volterra}, 可得 Volterra 积分形式为
@@ -244,26 +244,24 @@ Jost 渐近解为 $ J = \phi E^{-1} $, 则有 $J \to I, x \to \pm \infty$. 将�
     这里仅证明 $J_{-}$, $J_{+}$ 同理对 \eqref{ch4-eq-reverse-x-volterra} 沿 $ -\infty \to x $ 积分, 可得
     \begin{equation}
         \begin{aligned}
-            \hat{E} J_{-}(x, t, \zeta)|_{-\infty}^{x} & = \int_{-\infty}^{x} \hat{E}(y,t) Q(y, t) J_{-}(y, t, \zeta) \rmd y                                                   \\
-            \implies J_{-}                            & = I + \int_{-\infty}^{x} E(x,t) E^{-1}(y, t) Q(y, t) J_{-}(y, t, \zeta) E(y, t) E^{-1}(x, t) \rmd y                   \\
-                                                      & = I + \int_{-\infty}^{x} e^{\rmi \zeta (y-x) \Lambda} Q(y, t) J_{-}(y, t, \zeta) e^{-\rmi \zeta (y-x) \Lambda} \rmd y
+            \hat{E}^{-1} J_{-}(x, t, \zeta)|_{-\infty}^{x} & = \int_{-\infty}^{x} \hat{E}^{-1}(y,t) Q(y, t) J_{-}(y, t, \zeta) \rmd y                                              \\
+            \implies J_{-}                                 & = I + \int_{-\infty}^{x} E(x,t) E^{-1}(y, t) Q(y, t) J_{-}(y, t, \zeta) E(y, t) E^{-1}(x, t) \rmd y                   \\
+                                                           & = I + \int_{-\infty}^{x} e^{\rmi \zeta (y-x) \Lambda} Q(y, t) J_{-}(y, t, \zeta) e^{-\rmi \zeta (y-x) \Lambda} \rmd y
         \end{aligned}
         \label{ch4-eq-volterra-J}
     \end{equation}
-    若设 $J_{-} = (J_{-,1}, J_{-,2}, J_{-,3})$, 现考虑 $J_{-,1}$, 由上式得
+    若设 $J_{-} = ([J_{-}]_{1}, [J_{-}]_{2}, [J_{-}]_{3})$, 现考虑 $[J_{-}]_{1}$, 由上式得
     \begin{equation}
         \begin{aligned}
-            J_{-,1}(x, t, \zeta) & = (1,0,0)^{T} + \int_{-\infty}^{x} e^{\rmi \zeta (y-x) \Lambda} Q(y, t) J_{-}(y, t, \zeta) e^{\rmi \zeta (y-x)}(1,0,0)^{T} \rmd y \\
-                                 & = (1,0,0)^{T} + \int_{-\infty}^{x} D_{1}(x,y,\zeta) Q(y, t) J_{-,1}(y, t, \zeta)\rmd y
+            \relax  [J_{-}]_{1}(x, t, \zeta) & = (1,0,0)^{T} + \int_{-\infty}^{x} e^{\rmi \zeta (y-x) \Lambda} Q(y, t) J_{-}(y, t, \zeta) e^{\rmi \zeta (y-x)}(1,0,0)^{T} \rmd y \\
+                                             & = (1,0,0)^{T} + \int_{-\infty}^{x} D_{1}(x,y,\zeta) Q(y, t) J_{-,1}(y, t, \zeta)\rmd y
         \end{aligned}
     \end{equation}
     其中 $D_{1}(x,y,\zeta) = \diag( 1,1,e^{2\rmi\zeta(y-x)})$.
     定义 Neumann 级数及递推序列
     \begin{equation}
-        \begin{aligned}
-            J_{-,1}(x,t,\zeta) = \sum_{n=0}^{\infty}c_{n},      \quad
-            c_{0} = (1,0,0)^{T}, \quad c_{n+1}  = \int_{-\infty}^{x} D_{1}(x,y,\zeta) Q(y,t)c_{n}(y,t,\zeta) \rmd y.
-        \end{aligned}
+        [J_{-}]_{1}(x,t,\zeta) = \sum_{n=0}^{\infty}c_{n},      \quad
+        c_{0} = (1,0,0)^{T}, \quad c_{n+1}  = \int_{-\infty}^{x} D_{1}(x,y,\zeta) Q(y,t)c_{n}(y,t,\zeta) \rmd y.
         \label{ch4-eq-J-minus-Neumann-series}
     \end{equation}
     对向量取 $\ell^{1}$ 范数 $\|v\|_{1}=\sum_{j=1}^{3}|v_{j}|$, 对矩阵取诱导范数 $\|A\|=\max_{1\leq k\leq3}\sum_{j=1}^{3}|A_{jk}|$.若 $\zeta \in \mathbb{C}_{-}$, 有 $\|D(x,y,\zeta)\|\leq 1$, 则
@@ -276,7 +274,7 @@ Jost 渐近解为 $ J = \phi E^{-1} $, 则有 $J \to I, x \to \pm \infty$. 将�
     \end{equation}
     由 $Q \in L^{1}$, 则任意固定 $x \in \mathbb{R}$, 上述积分存在, 且 $\omega_{x} = \| Q \|$.
 
-    易见 $\| c_{1} \| \leq \omega$, 由数学归纳法, 不妨设 $\| c_{n} \| \leq \omega^{n}/n!$, 则
+    易见 $\|c_{0}\| \leq \omega^{0}/0!, \| c_{1} \| \leq \omega^{1}/1!$, 由数学归纳法, 不妨设 $\| c_{n} \| \leq \omega^{n}/n!$, 则
     \begin{equation}
         \|c_{n+1}\| \leq \int_{-\infty}^{x} \omega_{x} \frac{\omega^{n}}{n!} \rmd y = \frac{\omega^{n+1}}{(n+1)!}.
     \end{equation}
@@ -315,15 +313,15 @@ Jost 渐近解为 $ J = \phi E^{-1} $, 则有 $J \to I, x \to \pm \infty$. 将�
 \end{equation}
 并设 $ J_{\pm}^{-1} $ 为伴随问题的 Jost 矩阵, 若记
 \begin{equation}
-    \phi_{\pm}^{-1} = (\hat{\phi}_{\pm,1}, \hat{\phi}_{\pm,2}, \hat{\phi}_{\pm,3})^{T},
+    \phi_{\pm}^{-1} = ([\hat{\phi}_{\pm}]_{1}, [\hat{\phi}_{\pm}]_{2}, [\hat{\phi}_{\pm}]_{3})^{T},
 \end{equation}
 重复上述步骤有
 \begin{equation}
-    \hat{\phi}_{+,1}, \hat{\phi}_{+,2}, \hat{\phi}_{-,3} \in \mathbb{C}_{-}, \quad \hat{\phi}_{-,1}, \hat{\phi}_{-,2}, \hat{\phi}_{+,3} \in \mathbb{C}_{+}
+    [\hat{\phi}_{+}]_{1}, [\hat{\phi}_{+}]_{2}, [\hat{\phi}_{-}]_{3} \in \mathbb{C}_{-}, \quad [\hat{\phi}_{-}]_{1}, [\hat{\phi}_{-}]_{2}, [\hat{\phi}_{+}]_{3} \in \mathbb{C}_{+}
 \end{equation}
 可得
 \begin{equation}
-    P^{-} = E (\hat{\phi}_{-,1}, \hat{\phi}_{-,2}, \hat{\phi}_{+,3})^{T} = H_{2}J_{+}^{-1} + H_{1} J_{-}^{-1}, \quad \zeta \in \mathbb{C}_{-} \label{ch4-eq-RHP-P-minus}
+    P^{-} = E ([\hat{\phi}_{-}]_{1}, [\hat{\phi}_{-}]_{2}, [\hat{\phi}_{+}]_{3})^{T} = H_{2}J_{+}^{-1} + H_{1} J_{-}^{-1}, \quad \zeta \in \mathbb{C}_{-} \label{ch4-eq-RHP-P-minus}
 \end{equation}
 同理有 $P^{-}(x,\zeta) \to I(\zeta \in \mathbb{C}_{-})$. 接下来我们考虑对称性, 为表示方便记
 \begin{equation}
@@ -353,33 +351,35 @@ Jost 渐近解为 $ J = \phi E^{-1} $, 则有 $J \to I, x \to \pm \infty$. 将�
     两边做 Hermitian 转置, 有
     \begin{equation}
         \begin{aligned}
-            J_{x}^{\dagger}(\zeta^{*}) = \rmi \zeta [\Lambda, J^{\dagger}(\zeta^{*})] + J^{\dagger}(\zeta^{*}) Q^{\dagger} =  \rmi \zeta [\Lambda, J^{\dagger}(\zeta^{*})] + J^{\dagger}(\zeta^{*}) M_{0} Q M_{0}^{-1} \\
-            \implies J_{x}^{\dagger} M_{0} = \rmi \zeta [\Lambda, J^{\dagger}(\zeta^{*}) M_{0}] + J^{\dagger}(\zeta^{*}) M_{0} Q,
+            J_{x}^{\dagger}(\zeta^{*}) = -\rmi \zeta [\Lambda, J^{\dagger}(\zeta^{*})] + J^{\dagger}(\zeta^{*}) Q^{\dagger} =  -\rmi \zeta [\Lambda, J^{\dagger}(\zeta^{*})] - J^{\dagger}(\zeta^{*}) M_{0} Q M_{0}^{-1} \\
+            \implies J_{x}^{\dagger}(\zeta^{*}) M_{0} = -\rmi \zeta [\Lambda, J^{\dagger}(\zeta^{*}) M_{0}] - J^{\dagger}(\zeta^{*}) M_{0} Q,
         \end{aligned}
     \end{equation}
-    与伴随问题 \eqref{ch4-eq-Lax-adjoint} 对比可得 $J^{\dagger}(\zeta^{*}) M_{0} = C J^{-1}(\zeta)$, 其中 $C$ 为常数矩阵, 由边界条件可得 $C = M_{0}$.
-
+    由 Volterra 积分的唯一性, 与伴随问题 \eqref{ch4-eq-Lax-adjoint} 对比可得 $J^{\dagger}(\zeta^{*}) M_{0} = C J^{-1}(\zeta)$, 其中 $C$ 为常数矩阵, 由边界条件可得 $x \to \pm \infty$ 时
+    \begin{equation}
+        J_{\pm}^{\dagger}(\zeta^{*}) M_{0} \to M_{0}, \quad J_{\pm}^{-1}(\zeta) \to C \implies C = M_{0}.
+    \end{equation}
     利用 $J_{-} E = J_{+} E S(\zeta)$ 及 $E(\zeta^{*})^{\dagger} = E^{-1}$ 可得
     \begin{equation}
-        S^{\dagger}(\zeta^{*}) = [E^{-1}(\zeta^{*}) J_{+}^{-1}(\zeta^{*}) J_{-}(\zeta^{*}) E(\zeta^{*})]^{\dagger} = E^{-1} M_{0} J_{-}^{-1} J_{+} M_{0}^{-1} E = M_{0} S^{-1}(\zeta) M_{0}^{-1}.
+        S^{\dagger}(\zeta^{*}) = \left( E^{-1}(\zeta^{*}) J_{+}^{-1}(\zeta^{*}) J_{-}(\zeta^{*}) E(\zeta^{*}) \right)^{\dagger} = E^{-1} M_{0} J_{-}^{-1} J_{+} M_{0}^{-1} E = M_{0} S^{-1}(\zeta) M_{0}^{-1}.
     \end{equation}
 \end{proof}
 进一步可得
 \begin{equation}
-    [P^{+}(\zeta^{*})]^{\dagger} M_{0} = M_{0} P^{-}(\zeta),
+    \left(P^{+}(\zeta^{*}) \right)^{\dagger} M_{0} = M_{0} P^{-}(\zeta),
 \end{equation}
 \begin{proof}
     \begin{equation}
         \begin{aligned}
-            (P^{+}(\zeta^{*}))^{\dagger} M_{0} & = (J_{+}(\zeta^{*}) H_{2} + J_{-}(\zeta^{*}) H_{1})^{\dagger} M_{0} = H_{2} J_{+}^{\dagger}(\zeta^{*}) M_{0} + H_{1} J_{-}^{\dagger}(\zeta^{*}) M_{0} \\
-                                               & = H_{2} M_{0} J_{+}^{-1}(\zeta) + H_{1} M_{0} J_{-}^{-1}(\zeta) = M_{0}[H_{2} J_{+}^{-1}(\zeta) + H_{1} J_{-}^{-1}(\zeta)] = M_{0} P^{-}(\zeta).
+            (P^{+}(\zeta^{*}))^{\dagger} M_{0} & = \left(J_{+}(\zeta^{*}) H_{2} + J_{-}(\zeta^{*}) H_{1} \right)^{\dagger} M_{0} = H_{2} J_{+}^{\dagger}(\zeta^{*}) M_{0} + H_{1} J_{-}^{\dagger}(\zeta^{*}) M_{0} \\
+                                               & = H_{2} M_{0} J_{+}^{-1}(\zeta) + H_{1} M_{0} J_{-}^{-1}(\zeta) = M_{0} \left(H_{2} J_{+}^{-1}(\zeta) + H_{1} J_{-}^{-1}(\zeta) \right) = M_{0} P^{-}(\zeta).
         \end{aligned}
     \end{equation}
 \end{proof}
 由 \eqref{ch4-eq-RHP-P1} 及 $J_{\pm}$ 定义易见
 \begin{equation}
     \det P^{+} = \det(J_{+,1}, J_{+,2}, J_{-,3}) = \det J_{+} \times \begin{vmatrix}
-        1 & 0 & s_{13} \\ 0 & 1 & s_{23} \\ 0 & 0 & s_{33}
+        1 & 0 & e^{-2\theta} s_{13} \\ 0 & 1 & e^{-2\theta} s_{23} \\ 0 & 0 & s_{33}
     \end{vmatrix} = s_{33}.\label{ch4-eq-det-P-s}
 \end{equation}
 同理有 $\det(P^{-}) = \hat{s}_{33}$, 其中 $\hat{s}_{33} = (S^{-1})_{33}$.
@@ -401,7 +401,15 @@ Jost 渐近解为 $ J = \phi E^{-1} $, 则有 $J \to I, x \to \pm \infty$. 将�
     \end{equation}
 \end{definition}
 \begin{proof}
-    由 $P^{\pm}$ 的定义
+    由 $P^{-} = ([J_{-}]_{1}, [J_{-}]_{2}, [J_{+}]_{3})$, 考虑 $[J_{-}]_{1}$ 的 Neumann 级数有
+    \begin{equation}
+        c_{1} = \int_{-\infty}^{x} D_{1}(x,y,\zeta) Q(y,t) c_{0} \rmd y = \int_{-\infty}^{x} D_{1}(x,y,\zeta) (0,0,-r_{1}) \rmd y = \int_{-\infty}^{x} (0,0,-r_{1} e^{2 \rmi \zeta (y-x)}) \rmd y
+    \end{equation}
+    由 Riemann-Lebesuge 引理, $r_{1} \in L_{1}(\mathbb{R})$, 则 $c_{1} \to 0, \zeta \to \infty$. 同理可得 $c_{n} \to 0, \zeta \to \infty$, 又由 $\|c_{n} \| \leq \omega^{n}/n!$, 故极限和求和可交换
+    \begin{equation}
+        \lim_{\zeta \to \infty}[J_{-}]_{1} = \lim_{\zeta \to \infty} \sum_{n=0}^{\infty} c_{n} = \sum_{n=0}^{\infty} \lim_{\zeta \to \infty} c_{n} = (1,0,0)^{T}
+    \end{equation}
+    同理可得$[J]_{-}]_{2}, [J_{+}]_{3}$, 故 \eqref{ch4-eq-RHP-normalization} 成立. 下证跳跃矩阵:
     \begin{equation}
         \begin{aligned}
             G & = (H_{2} J_{+}^{-1} + H_{1} J_{-}^{-1})(J_{+}H_{2} + J_{-} H_{1})                                                \\
@@ -438,91 +446,55 @@ Jost 渐近解为 $ J = \phi E^{-1} $, 则有 $J \to I, x \to \pm \infty$. 将�
     \Gamma^{-1}(\zeta) = I - \sum_{j,k = 1}^{N} \frac{v_{j} (M^{-1})_{jk} \bar{v}_{k}}{\zeta - \zeta_{j}}.
     \label{ch4-eq-Gamma-N}
 \end{equation}
-由 \eqref{ch4-eq-RHP-kernel} 可得
+由 \eqref{ch4-eq-RHP-kernel} 可得 $\forall l \in 1, 2, \ldots, N$,
 \begin{equation}
-    \Gamma(\zeta_{l}) v_{l} = v_{k} + \sum_{j,k}^{N} v_{j} (M^{-1})_{jk} M_{kl} = 0, \quad \bar{v}_{l} \Gamma^{-1}(\bar{\zeta}_{l}) \sum_{j,k}^{N} M_{lj} (M^{-1})_{jk} \bar{v}_{k} = 0, l \in 1, 2, \ldots, N.
+    \Gamma(\zeta_{l}) v_{l} = v_{l} - \sum_{j,k}^{N} v_{j} (M^{-1})_{jk} M_{kl} = 0, \quad
+    \bar{v}_{l} \Gamma^{-1}(\bar{\zeta}_{l}) = \bar{v}_{l} - \sum_{j,k}^{N} M_{lj} (M^{-1})_{jk} \bar{v}_{k} = 0,
     \label{ch4-eq-Gamma-kernel}
 \end{equation}
 易见 $\Gamma \Gamma^{-1}$ 可能的极点仅为 $\zeta_{l}, \bar{\zeta}_{l}$, 且均为一阶极点. 由留数条件
 \begin{equation}
     \Res_{\zeta = \zeta_{l}}(\Gamma \Gamma^{-1}) = - \Gamma v_{l} \sum_{j,k = 1}^{N} (M^{-1})_{jk} \bar{v}_{k} = 0, \quad \Res_{\zeta = \bar{\zeta}_{l}}(\Gamma \Gamma^{-1}) = \sum_{j,k = 1}^{N} v_{j} (M^{-1})_{jk} \bar{v}_{k} \Gamma^{-1}(\bar{\zeta}_{l}) = 0,
 \end{equation}
-且
+由 \eqref{ch4-eq-Gamma-kernel} 可得: $\det \Gamma$ 在 $\zeta_{l}$ 处有简单零点, 在 $\bar{\zeta}_{l}$ 处有简单极点, 若记
 \begin{equation}
-    \Gamma \Gamma^{-1} \to I, \quad \zeta \to \infty.
-    \label{ch4-eq-Gamma-infinity}
+    h = \det \Gamma(\zeta) \prod_{l=1}^{N} \frac{\zeta - \bar{\zeta}_{l}}{\zeta - \zeta_{l}},
 \end{equation}
-由 Liouville 定理可得 $\Gamma \Gamma^{-1} \equiv I$, 则 $\forall (x,t) \in \Omega, \det(\Gamma) \neq 0$. 由 \eqref{ch4-eq-Gamma-kernel} 可得: $\det \Gamma$ 在 $\zeta_{l}$ 处有简单零点, 在 $\bar{\zeta}_{l}$ 处有简单极点. 结合无穷远处归一化条件有
+则 $h$ 恰好消去所有可能的零点和极点, 故为整函数. 由 $\Gamma \to I, \zeta \to \infty$ 可得 $h \to 1$, 由 Liouville 定理, $h \equiv 1$, 故
 \begin{equation}
     \det F(\zeta) = \prod_{l=1}^{N} \frac{\zeta - \zeta_{l}}{\zeta - \bar{\zeta}_{l}}.
 \end{equation}
-定义
-\begin{equation}
-    \hat{P}^{+} = P^{+} \Gamma^{-1}, \quad \hat{P}^{-} = \Gamma P^{-}, \quad P^{+} = \hat{P}^{+} \Gamma, \quad P^{-} = \Gamma^{-1} \hat{P}^{-}.
-    \label{ch4-eq-RHP-decomposition}
-\end{equation}
-易见它们在 $\zeta_{l}, \bar{\zeta}_{l}$ 处无奇点, 且满足
+定义 $\hat{P}^{+} = P^{+} \Gamma^{-1}, \quad \hat{P}^{-} = \Gamma P^{-}$, 易见它们在 $\zeta_{l}, \bar{\zeta}_{l}$ 处无奇点, 且满足
 \begin{equation}
     \Res_{\zeta = \zeta_{l}}\hat{P}^{+} = -P^{+}(\zeta_{l})v_{l} \sum_{k = 1}^{N}(M^{-1})_{lk}\bar{v}_{k} = 0, \quad
     \Res_{\zeta = \bar{\zeta}_{l}}\hat{P}^{-} = \sum_{j = 1}^{N}v_{j}(M^{-1})_{jl}\bar{v}_{l} P^{-}(\bar{\zeta}_{l}) = 0.
 \end{equation}
 且
 \begin{equation}
-    \det\hat{P}^{+} = s_{33}(\zeta) \prod_{k = 1}^{N} \frac{\zeta - \bar{\zeta}_{k}}{\zeta - \zeta_{k}},  \quad
+    \det\hat{P}^{+} = \det P^{+} \det \Gamma^{-1} = s_{33}(\zeta) \prod_{k = 1}^{N} \frac{\zeta - \bar{\zeta}_{k}}{\zeta - \zeta_{k}},  \quad
     \det\hat{P}^{-} = \hat{s}_{33}(\zeta) \prod_{k = 1}^{N} \frac{\bar{\zeta} - \zeta_{k}}{\bar{\zeta} - \bar{\zeta}_{k}}.
 \end{equation}
 在各自零点取极限可得
 \begin{equation}
-    \det \hat{P}^{+}(\zeta_{l}) = s'(\zeta_{l}) (\zeta_{l} - \bar{\zeta}_{l}) \prod_{k \neq l} \frac{\zeta_{l} - \bar{\zeta}_{k}}{\zeta_{l} - \zeta_{k}} \neq 0, \quad
-    \det \hat{P}^{-}(\zeta_{l}) = \hat{s}'(\zeta_{l}) (\zeta_{l} - \bar{\zeta}_{l}) \prod_{k \neq l} \frac{\zeta_{l} - \zeta_{k}}{\zeta_{l} - \bar{\zeta}_{k}} \neq 0.
+    \det \hat{P}^{+}(\zeta_{l}) = s_{33}'(\zeta_{l}) (\zeta_{l} - \bar{\zeta}_{l}) \prod_{k \neq l} \frac{\zeta_{l} - \bar{\zeta}_{k}}{\zeta_{l} - \zeta_{k}} \neq 0, \quad
+    \det \hat{P}^{-}(\zeta_{l}) = \hat{s}_{33}'(\zeta_{l}) (\zeta_{l} - \bar{\zeta}_{l}) \prod_{k \neq l} \frac{\zeta_{l} - \zeta_{k}}{\zeta_{l} - \bar{\zeta}_{k}} \neq 0.
 \end{equation}
-其中 $s'(\zeta_{l})$ 表示在 $\zeta = \zeta_{l}$ 处的导数. 故 $\hat{P}^{\pm}$ 在 $\mathbb{C}_{\pm}$ 中解析无奇点, 连续到实轴, 且满足 $\hat{P}^{\pm} \to I$. 由 $P^{-} P^{+} = G$ 可得
+其中 $s_{33}'(\zeta_{l})$ 表示在 $\zeta = \zeta_{l}$ 处的导数. 故 $\hat{P}^{\pm}$ 在 $\mathbb{C}_{\pm}$ 中解析无奇点, 连续到实轴, 且满足
 \begin{equation}
-    \hat{P}^{-} \hat{P}^{+} = \Gamma G \Gamma^{-1} = \hat{G}, \quad \zeta \in \mathbb{R}.
+    \begin{aligned}
+        \hat{P}^{\pm} \to I, \quad \zeta \to \infty, \quad \zeta \in \mathbb{C}_{\pm}, \\
+        \hat{P}^{-} \hat{P}^{+} = \Gamma G \Gamma^{-1} := \hat{G}, \quad \zeta \in \mathbb{R}.
+    \end{aligned}
 \end{equation}
-由 \eqref{ch4-eq-Gamma-infinity} 可得 $I - \hat{G} = \Gamma (I - G) \Gamma^{-1}$, 则 $\hat{G} - I \in L^{2}(\mathbb{R}) \cap L^{\infty}(\mathbb{R})$. 由正则 RH 问题的唯一性可得 $\hat{P}^{\pm}$ 唯一存在, 同样有 Plemelj 公式
+由上式可得 $I - \hat{G} = \Gamma (I - G) \Gamma^{-1} \in L^{2}(\mathbb{R}) \cap L^{\infty}(\mathbb{R})$. 由正则 RH 问题的唯一性可得 $\hat{P}^{\pm}$ 唯一存在, 同样有 Plemelj 公式
 \begin{equation}
     (\hat{P}^{+})^{-1}(\zeta) = I + \frac{1}{2 \pi \rmi} \int_{\mathbb{R}} \frac{(I - \hat{G}(\lambda)) (\hat{P}^{+}(\lambda))^{-1}}{\lambda - \zeta} \rmd \lambda, \quad \zeta \in \mathbb{C}_{+}.
 \end{equation}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-若 RHP \eqref{ch4-eq-RHP-jump} 满足 \eqref{ch4-eq-det-P-s} 及零边界条件, 则可解出所有零点. 注意到 $ P^{+} $ 为 \eqref{ch4-eq-AKNS-Lax-Pair-x} 的解, 利用 Taylor 展开
+对 $P^{+}$ 利用 Taylor 展开
 \begin{equation}
     P^{+}(x,\zeta) = I + \frac{1}{\zeta} P_{1}^{+}(\zeta) + O(\zeta^{-2}), \quad \zeta \to \infty
 \end{equation}
-将其带入 \eqref{ch4-eq-AKNS-Lax-Pair-x} 比较 $\zeta^{0}$ 的系数可得
+将其带入 \eqref{ch4-eq-Lax-mod-x} 比较 $\zeta^{0}$ 的系数可得
 \begin{equation}
     Q = \rmi [\Lambda, P_{1}^{+}] = - \begin{pmatrix}
         0 & 0 & 2 \rmi P_{13} \\ 0 & 0 & 2 \rmi P_{23} \\ -2 \rmi P_{31} & -2 \rmi P_{32} & 0
@@ -532,11 +504,12 @@ Jost 渐近解为 $ J = \phi E^{-1} $, 则有 $J \to I, x \to \pm \infty$. 将�
 
 \subsection{$N$ 孤子解}
 
-为找到孤子解, 考虑无反射势情形, 即令 $G = I $, 有 $\hat{G} = I$. 此时 $\hat{P}^{+} \hat{P}^{-} = I$, 则 $P^{+} = \Gamma$, $P^{-} = \Gamma^{-1}$, 故
+为找到孤子解, 考虑无反射势情形, 即令 $G = I $, 有 $\hat{G} = I$. 此时 $\hat{P}^{-} = I, (\zeta \in \mathbb{C}_{-})$, 和 $\hat{P}^{+} = I, (\zeta \in \mathbb{C}_{+})$, 则 $P^{+} = \Gamma$, $P^{-} = \Gamma^{-1}$, 故
 \begin{equation}
     P^{+}(\zeta) = I + \sum_{j,k=1}^{N} \frac{v_{j} \left(M^{-1}\right)_{jk} \bar{v}_{k}}{\zeta - \bar{\zeta}_{k}}, \quad M_{jk} = \frac{\bar{v}_{j} v_{k}}{\bar{\zeta}_{j} - \zeta_{k}}
+    \label{ch4-eq-RHP-nonreflection}
 \end{equation}
-为找出 $ v_{k}(x,t, \zeta) $, 将 $ P^{+}v_{k} = 0 $ 带入 \eqref{ch4-eq-AKNS-Lax-Pair-x}-\eqref{ch4-eq-AKNS-Lax-Pair-t} 得
+为找出 $ v_{k}(x,t, \zeta) $, 将 $ P^{+}v_{k} = 0 $ 带入 \eqref{ch4-eq-Lax-mod-x}-\eqref{ch4-eq-Lax-mod-t} 得
 \begin{equation}
     \begin{aligned}
         P^{+}_{x} = - \rmi \zeta [\Lambda, P^{+}] + Q P^{+}, \\
@@ -544,8 +517,8 @@ Jost 渐近解为 $ J = \phi E^{-1} $, 则有 $J \to I, x \to \pm \infty$. 将�
     \end{aligned}
     \implies
     \begin{aligned}
-        P^{+}(\zeta_{k},x) (\frac{d v_{k}}{dx}+ \rmi \zeta_{k} \Lambda v_{k}) = 0, \\
-        P^{+}(\zeta_{k},x) (\frac{d v_{k}}{dt} - 2 \rmi \zeta_{k}^{2} \Lambda v_{k}) = 0,
+        P^{+}(\zeta_{k},x) (\frac{\partial v_{k}}{\partial x}+ \rmi \zeta_{k} \Lambda v_{k}) = 0, \\
+        P^{+}(\zeta_{k},x) (\frac{\partial v_{k}}{\partial t} - 2 \rmi \zeta_{k}^{2} \Lambda v_{k}) = 0,
     \end{aligned}
     \implies
     \begin{aligned}
@@ -561,13 +534,9 @@ Jost 渐近解为 $ J = \phi E^{-1} $, 则有 $J \to I, x \to \pm \infty$. 将�
 \begin{equation}
     p(x,t) = - 2 \rmi \sum_{j,k=1}^{N} \alpha_{k} \rme^{-(\theta_{k}^{*}-\theta_{j})}(M^{-1})_{jk},
 \end{equation}
-不失一般性, 可取 $ v_{k0} = (\vec{a}, 1) = (\alpha_{k}, \beta_{k}, 1)^{T} $, 则
-\begin{equation}
-    p(x,t) = - 2 \rmi \sum_{j,k=1}^{N} \alpha_{k} \rme^{-(\theta_{k}^{*}-\theta_{j})}(M^{-1})_{jk},
-\end{equation}
 
 \section{逆空间约化情形}
-或许读者会问, 相较于上一章节 $2 \times 2$ 在原方程做变换, 对 $3 \times 3$ 情形在原方程和伴随问题下做变换, 并直接取等价是否正确? 我们将以逆空间情形为例, 利用传统 RH 方法进行求解, 并最后证明二者的等价性并回答问题 \ref{ch3-question-RH-and-eigenvalue-problem}. 然后在下节直接给出三个定理及简要证明.
+或许读者会问, 相较于上一章节 $2 \times 2$ 在原方程做变换, 对 $3 \times 3$ 情形在原方程和伴随问题下做变换, 并直接取等价是否正确? 我们将以逆空间情形为例, 利用传统 RH 方法进行求解, 并最后证明二者的等价性, 然后在下节直接给出三个定理及简要证明.
 
 \subsection{对称性}
 % 实际上, coupled NLS 和 reverse-space NLS 仅对称性不同, 其余内容完全相同, 故我们仅给出对称性证明, 其余内容可参考上一节.
@@ -578,8 +547,8 @@ Jost 渐近解为 $ J = \phi E^{-1} $, 则有 $J \to I, x \to \pm \infty$. 将�
 \end{equation}
 则由于 $\det(J_{\pm}) = 1$, 则 $\det(S(\zeta)) = 1$. 且
 \begin{align}
-    P_{o}^{+} & = (\phi_{+,1}, \phi_{+,2}, \phi_{-,3}) E^{-1} = (J_{+,1}, J_{+,2}, J_{-,3}) = J_{+} H_{2} + J_{-} H_{1}, \quad \zeta \in \mathbb{C}_{+}, \\
-    P_{o}^{-} & = (\phi_{-,1}, \phi_{-,2}, \phi_{+,3}) E^{-1} = (J_{-,1}, J_{-,2}, J_{+,3}) = J_{-} H_{2} + J_{+} H_{1}, \quad \zeta \in \mathbb{C}_{-}
+    P_{o}^{+} & = (\phi_{+,1}, \phi_{+,2}, \phi_{-,3}) E^{-1} = ([J_{+}]_{1}, [J_{+}]_{2}, [J_{-}]_{3}) = J_{+} H_{2} + J_{-} H_{1}, \quad \zeta \in \mathbb{C}_{+}, \\
+    P_{o}^{-} & = (\phi_{-,1}, \phi_{-,2}, \phi_{+,3}) E^{-1} = ([J_{-}]_{1}, [J_{-}]_{2}, [J_{+}]_{3}) = J_{-} H_{2} + J_{+} H_{1}, \quad \zeta \in \mathbb{C}_{-}
 \end{align}
 这里不同于耦合 NLS, 我们约定记号 $P_{o}^{\pm}$ 表示为原谱问题的列解组成的矩阵. $P_{a}^{\pm}$ 表示为伴随谱问题的行解组成的矩阵.
 
@@ -614,8 +583,8 @@ Jost 渐近解为 $ J = \phi E^{-1} $, 则有 $J \to I, x \to \pm \infty$. 将�
     对 \eqref{ch4-eq-Lax-mod-x} 两边做 $ x \to -x, \zeta \to -\zeta^{*}$, 有
     \begin{equation}
         \begin{aligned}
-            LHS & = (J_{+}(-x, t, -\zeta^{+}))_{x} = \frac{\partial J(g,t,-\zeta^{*})}{\partial g} \frac{\partial g}{\partial x} = -J_{+,x}(-x, t, -\zeta^{*}), \quad g = -x, \\
-            RHS & = -\rmi \zeta^{*} [\Lambda, J_{+}(-x,t,-\zeta^{*})] + Q(-x) J_{+}(-x,t,-\zeta^{*}).
+            LHS & = (J_{+}(-x, t, -\zeta^{*}))_{x} = \frac{\partial J(g,t,-\zeta^{*})}{\partial g} \frac{\partial g}{\partial x} = -J_{+,x}(-x, t, -\zeta^{*}), \quad g = -x, \\
+            RHS & = \rmi \zeta^{*} [\Lambda, J_{+}(-x,t,-\zeta^{*})] + Q(-x) J_{+}(-x,t,-\zeta^{*}).
         \end{aligned}
     \end{equation}
     两边同时做 Hermitian 转置,
@@ -629,7 +598,7 @@ Jost 渐近解为 $ J = \phi E^{-1} $, 则有 $J \to I, x \to \pm \infty$. 将�
             \implies J_{+,x}^{\dagger}(-x,t,-\zeta^{*})M_{1} & = -\rmi \zeta [\Lambda, J_{+}^{\dagger}(-x,t,-\zeta^{*})M_{1}] + J_{+}^{\dagger}(-x,t,-\zeta^{*}) M_{1} Q(x),
         \end{aligned}
     \end{equation}
-    与 \eqref{ch4-eq-reverse-x-Lax-adjoint} 作比较, 可得 $J_{+}^{\dagger}(-x,t,-\zeta^{*}) M_{1} = C J_{-}^{-1}(x,t,\zeta)$, 其中 $C$ 为常数矩阵, 不失一般性, 取 $C = M_{1}$, 则
+    与 \eqref{ch4-eq-reverse-x-Lax-adjoint} 作比较, 可得 $J_{+}^{\dagger}(-x,t,-\zeta^{*}) M_{1} = C J_{-}^{-1}(x,t,\zeta)$, 其中 $C$ 为常数矩阵, 由边界条件, 不失一般性可取 $C = M_{1}$, 则
     \begin{equation}
         M_{1} J_{+}^{-1}(x,t,\zeta) = J_{-}^{\dagger}(-x,t,-\zeta^{*}) M_{1}.
     \end{equation}
@@ -670,6 +639,7 @@ Jost 渐近解为 $ J = \phi E^{-1} $, 则有 $J \to I, x \to \pm \infty$. 将�
 \end{equation}
 为表示方便, 我们接下来仍以 $P^{\pm}$ 表示.
 
+同样的, 我们仍可得到类似于 \eqref{ch4-eq-RHP-kernel} 的对称关系, 但请注意其对称性仅限 $P_{o}^{\pm}$ 与 $P_{a}^{\pm}$, 仅限于同半平面,
 \begin{equation}
     \begin{aligned}
         P_{o}^{+}(\zeta_{k}) v_{k} = 0, \quad \hat{v}_{k} P_{a}^{+}(\hat{\zeta}_{k})  = 0,          \\
@@ -690,37 +660,39 @@ Jost 渐近解为 $ J = \phi E^{-1} $, 则有 $J \to I, x \to \pm \infty$. 将�
     v_{k}(-x,t,-\zeta^{*})^{\dagger} (P_{o}^{+}(-x,t,-\zeta^{*}))^{\dagger} = v_{k}^{\dagger}(-x,t,-\zeta^{*}) M_{1} P_{a}^{+}(x,t,\zeta) = 0
 \end{equation}
 与 $\hat{v}_{k} P_{a}^{+} = 0$ 比较有 $\hat{v}_{k} = v_{k}^{\dagger}(-x,t,-\zeta^{*})M_{1}$. 同理有 $\hb{v}_{k} = M_{1}^{-1} \bar{v}_{k}^{\dagger}(-x,t,-\zeta^{*})$.
-\subsection{RH 问题及 N 孤子解}
-将 $P^{+}$ 在 $\zeta \to \infty$ 处 Taylor 展开有
+\iffalse
+    \subsection{RH 问题及 N 孤子解}
+    将 $P^{+}$ 在 $\zeta \to \infty$ 处 Taylor 展开有
 
-\begin{equation}
-    P^{+} = I + \frac{1}{\zeta} P_{1}^{+}(\zeta) + \mathcal{O}(\zeta^{-2}), \quad \zeta \to \infty
-\end{equation}
-将上式与 Lax 对 \eqref{ch4-eq-AKNS-Lax-Pair-x} 比较有
-\begin{equation}
-    Q = \rmi [\Lambda, P_{1}^{+}] = - \begin{pmatrix}
-        0 & 0 & 2 \rmi P_{13} \\ 0 & 0 & 2 \rmi P_{23} \\ -2 \rmi P_{31} & -2 \rmi P_{32} & 0
-    \end{pmatrix},
-\end{equation}
-其中 $P_{1}^{+} = (P_{ij})_{3 \times 3}$, 接下来考虑无反射势情形, 即令 $G = I$, 得到孤子解情形
-\begin{equation}
-    P^{+}(\zeta) = I + \sum_{j,k = 1}^{N} \frac{v_{j} (M^{-1})_{jk} \bar{v}_{k}}{\zeta - \bar{\zeta}_{k}}
-    \label{ch4-corrected-eq-reflectionless-P-plus}
-\end{equation}
-其中 $M$ 为 $N \times N$ 矩阵, 且
-\begin{equation}
-    M_{jk} = \frac{\bar{v}_{j} v_{k}}{\bar{\zeta}_{j} - \zeta_{k}}.
-\end{equation}
-为找到 $v_{k}(x,t)$ 具体形式, 将 $P^{+} v_{k} = 0$ 带入 Lax 对 \eqref{ch4-eq-AKNS-Lax-Pair-x}-\eqref{ch4-eq-AKNS-Lax-Pair-t}, 可得
-\begin{equation}
-    \begin{aligned}
-        (P^{+}v_{k})_{x} = P_{x}^{+} v_{k} + P^{+} v_{kx} = \rmi \zeta_{k} P^{+} \Lambda v_{k} + P^{+} v_{kx} = 0  \\
-        \implies P^{+}(\rmi \zeta_{k} \Lambda v_{k} + v_{kx}) = 0 \implies v_{kx} = -\rmi \zeta_{k} \Lambda v_{k}. \\
-    \end{aligned}
-\end{equation}
-同理有 $v_{kt} = 2 \rmi \zeta_{k}^{2} \Lambda v_{k}$, 则 $v_{k} = E v_{k0}$, 其中 $v_{k0} = (\alpha_{k}, \beta_{k}, \gamma_{k})^{T}$ 为常向量.
+    \begin{equation}
+        P^{+} = I + \frac{1}{\zeta} P_{1}^{+}(\zeta) + \mathcal{O}(\zeta^{-2}), \quad \zeta \to \infty
+    \end{equation}
+    将上式与 Lax 对 \eqref{ch4-eq-AKNS-Lax-Pair-x} 比较有
+    \begin{equation}
+        Q = \rmi [\Lambda, P_{1}^{+}] = - \begin{pmatrix}
+            0 & 0 & 2 \rmi P_{13} \\ 0 & 0 & 2 \rmi P_{23} \\ -2 \rmi P_{31} & -2 \rmi P_{32} & 0
+        \end{pmatrix},
+    \end{equation}
+    其中 $P_{1}^{+} = (P_{ij})_{3 \times 3}$, 接下来考虑无反射势情形, 即令 $G = I$, 得到孤子解情形
+    \begin{equation}
+        P^{+}(\zeta) = I + \sum_{j,k = 1}^{N} \frac{v_{j} (M^{-1})_{jk} \bar{v}_{k}}{\zeta - \bar{\zeta}_{k}}
+        \label{ch4-corrected-eq-reflectionless-P-plus}
+    \end{equation}
+    其中 $M$ 为 $N \times N$ 矩阵, 且
+    \begin{equation}
+        M_{jk} = \frac{\bar{v}_{j} v_{k}}{\bar{\zeta}_{j} - \zeta_{k}}.
+    \end{equation}
+    为找到 $v_{k}(x,t)$ 具体形式, 将 $P^{+} v_{k} = 0$ 带入 Lax 对 \eqref{ch4-eq-AKNS-Lax-Pair-x}-\eqref{ch4-eq-AKNS-Lax-Pair-t}, 可得
+    \begin{equation}
+        \begin{aligned}
+            (P^{+}v_{k})_{x} = P_{x}^{+} v_{k} + P^{+} v_{kx} = \rmi \zeta_{k} P^{+} \Lambda v_{k} + P^{+} v_{kx} = 0  \\
+            \implies P^{+}(\rmi \zeta_{k} \Lambda v_{k} + v_{kx}) = 0 \implies v_{kx} = -\rmi \zeta_{k} \Lambda v_{k}. \\
+        \end{aligned}
+    \end{equation}
+    同理有 $v_{kt} = 2 \rmi \zeta_{k}^{2} \Lambda v_{k}$, 则 $v_{k} = E v_{k0}$, 其中 $v_{k0} = (\alpha_{k}, \beta_{k}, \gamma_{k})^{T}$ 为常向量.
 
-同理 $\bar{v}_{k} = \bar{v}_{k0} E^{-1}$, 其中 $\bar{v}_{k0} = (\bar{\alpha}_{k}, \bar{\beta}_{k}, \bar{\gamma}_{k})$ 为常向量.
+    同理 $\bar{v}_{k} = \bar{v}_{k0} E^{-1}(\bar{\zeta}_{k}) = \bar{v}_{k} e^{\bar{\theta}_{k}\Lambda}$, 其中 $\bar{\theta} = -\rmi \bar{\zeta} x + 2\rmi \bar{\zeta}^{2} t$, $\bar{v}_{k0} = (\bar{\alpha}_{k}, \bar{\beta}_{k}, \bar{\gamma}_{k})$ 为常向量.
+\fi
 
 利用命题 \ref{ch4-prop:reverse-x-P-symmetry} 的对称关系有 $\hat{v}_{k} = (v_{k}(-x,t,-\zeta^{*}))^{\dagger} M_{1}$, 则
 \begin{equation}
@@ -733,9 +705,9 @@ Jost 渐近解为 $ J = \phi E^{-1} $, 则有 $J \to I, x \to \pm \infty$. 将�
 至此, 我们已使用标准 RH 方法求解逆空间 NLS 方程形式上的 $N$ 孤子解, 但是缺少 $v_{k}, \bar{v}_{k}$ 的具体形式和约束条件, 下面我们考虑这一点.
 
 \subsubsection{特征向量约束关系}\label{ch4-sec-reverse-x-discrete-spectrum-relation}
-现在我们考虑同半平面关系标准无反射公式 \eqref{ch4-corrected-eq-reflectionless-P-plus} 中 $P_{\mathrm o}^{+}$ 的列核 $v_{k}$ 与 $P_{\mathrm a}^{-}$ 的行核 $\bar v_{j}$ 的关系.
+现在我们考虑同半平面关系标准无反射公式 \eqref{ch4-eq-RHP-nonreflection} 中 $P^{+}$ 的列核 $v_{k}$ 与 $P^{-}$ 的行核 $\bar v_{j}$ 的关系.
 
-由于逆空间约化不联系 $\mathbb{C}_{\pm}$, 一般不能将 $\bar v_{j}$ 逐项写成 $v_{j}$ 的某种形式. 离散向量的正确限制应从重构势满足非局域约化这一条件得到, 考虑 \eqref{ch4-corrected-eq-reflectionless-P-plus} 的非对角元
+由于逆空间约化不联系 $\mathbb{C}_{\pm}$, 一般不能将 $\bar v_{j}$ 逐项写成 $v_{j}$ 的某种形式. 离散向量的正确限制应从重构势满足非局域约化这一条件得到, 考虑 $P_{1}^{+}$ 的非对角元
 \begin{equation}
     P_{1,off}^{+} = \begin{pmatrix}
         0 & C_{12} \\ C_{21} & 0
@@ -744,13 +716,13 @@ Jost 渐近解为 $ J = \phi E^{-1} $, 则有 $J \to I, x \to \pm \infty$. 将�
 则
 \begin{equation}
     \begin{aligned}
-        C_{12}(x,t) & = \sum_{j,k=1}^{N} (\alpha_{j}, \beta_{j})^{T} (M^{-1})_{jk} \bar{\gamma}_{k}   \\
-        C_{21}(x,t) & = \sum_{j,k=1}^{N} \gamma_{j} (M^{-1})_{jk} (\bar{\alpha}_{k}, \bar{\beta}_{k})
+        C_{12}(x,t) & = \sum_{j,k=1}^{N} e^{-\theta_{j}} (\alpha_{j}, \beta_{j})^{T} (M^{-1})_{jk} \bar{\gamma}_{k}  e^{\bar{\theta}_{k}}  \\
+        C_{21}(x,t) & = \sum_{j,k=1}^{N} e^{\theta_{j}} \gamma_{j} (M^{-1})_{jk} (\bar{\alpha}_{k}, \bar{\beta}_{k}) e^{-\bar{\theta}_{k}}
     \end{aligned}
 \end{equation}
-由 $Q = \rmi [\Lambda, P_{1}^{+}]$ 可得势矩阵 $Q$ 的非对角块为
+由 $Q = \rmi [\Lambda, P_{1}^{+}]$ 可
 \begin{equation}
-    Q_{off} = \begin{pmatrix}
+    Q = \begin{pmatrix}
         0 & -2 \rmi C_{12} \\ 2 \rmi C_{21} & 0,
     \end{pmatrix}
 \end{equation}
@@ -765,7 +737,7 @@ Jost 渐近解为 $ J = \phi E^{-1} $, 则有 $J \to I, x \to \pm \infty$. 将�
 \end{equation}
 将上式联立可得如下关系
 \begin{equation}
-    \sum_{j,k=1}^{N} \gamma_{j} (M^{-1})_{jk}(x,t) (\bar{\alpha}_{k}, \bar{\beta}_{k}) = - [\sum_{j,k=1}^{N} (\alpha_{j}(-x), \beta_{j}(-x))^{T} (M^{-1})_{jk}^{\dagger}(-x,t) \bar{\gamma}_{k}]^{\dagger} A.
+    \sum_{j,k=1}^{N} \gamma_{j} (M^{-1})_{jk}(x,t) (\bar{\alpha}_{k}, \bar{\beta}_{k}) = - \left(\sum_{j,k=1}^{N} (\alpha_{j}(-x), \beta_{j}(-x))^{T} (M^{-1})_{jk}^{\dagger}(-x,t) \bar{\gamma}_{k} \right)^{\dagger} A.
     \label{ch4-eq-reverse-x-discrete-spectrum-relation-1}
 \end{equation}
 至此我们终于得到同时涉及 $\mathbb{C}_{\pm}$ 的离散谱向量关系.
@@ -800,6 +772,11 @@ Jost 渐近解为 $ J = \phi E^{-1} $, 则有 $J \to I, x \to \pm \infty$. 将�
     \end{aligned}
     \implies \frac{\vec{b}_{1}}{D_{11}(x)} = \frac{\vec{a}_{1}^{\dagger}A}{D_{11}^{*}(-x)}.
 \end{equation}
+
+\begin{remark}
+    这里写为 $D_{11}^{*}(-x)$ 是因为 $\zeta_{1} = -\zeta_{1}^{*}$ 为纯虚数, 故省略. 对于多孤子情形, 存在 $\zeta_{k} = a+b \rmi$ 情形, 故必须写明 $D_{11}(x,t,\zeta_{1})$ 和 $D_{11}^{*}(-x,t,-\zeta_{1}^{*})$ 的关系
+\end{remark}
+
 记 $z = e^{\theta_{1} - \bar{\theta}_{1}}$, 则 $D_{11}(x) = \rho_{11} z^{-1} + z, D_{11}^{*}(-x) = \rho_{11}^{*} z + z^{-1}$, 则有
 \begin{equation}
     \vec{b}_{1} (\rho_{11}^{*} z + z^{-1}) =\vec{a}_{1}^{\dagger}A (\rho_{11} z^{-1} + z)
@@ -832,12 +809,12 @@ Jost 渐近解为 $ J = \phi E^{-1} $, 则有 $J \to I, x \to \pm \infty$. 将�
 \end{equation}
 易见若设 $|\rho_{jk}| = 1$, 则有
 \begin{equation}
-    M_{jk}(-x,t, -\zeta^{*}) = = \frac{e^{\theta(\bar{\zeta}_{j}) + \theta(\zeta_{k})} + e^{-( \theta(\bar{\zeta}_{j}) + \theta(\zeta_{k})}}{-(\bar{\zeta}_{j} - \zeta_{k})} \implies M_{jk} (-x, t, -\zeta^{*}) = - M_{jk}^{*},
+    M_{jk}(-x,t, -\zeta^{*}) = \frac{e^{\theta(\bar{\zeta}_{j}) + \theta(\zeta_{k})} + e^{-( \theta(\bar{\zeta}_{j}) + \theta(\zeta_{k})}}{-(\bar{\zeta}_{j} - \zeta_{k})} \implies \rho_{jk} M_{jk} (-x, t, -\zeta^{*}) = - M_{jk}^{*},
 \end{equation}
 则有
 \begin{equation}
     \begin{aligned}
-        \begin{pmatrix} p^{*}(-x,t) \\ q^{*}(-x,t)) \end{pmatrix} & = 2\rmi C_{12} = 2 \rmi \sum_{j,k=1}^{N} \left(\vec{a}_{k}(-x,t,-\zeta_{k}^{*}) (M^{-1}(-x,t,-\zeta_{j}, \bar{\zeta}_{k}^{*}))_{jk} e^{\bar{\theta}(x, t, -\bar{zeta}^{*})} \right)^{*} \\
+        \begin{pmatrix} p^{*}(-x,t) \\ q^{*}(-x,t)) \end{pmatrix} & = 2\rmi C_{12} = 2 \rmi \sum_{j,k=1}^{N} \left(\vec{a}_{k}(-x,t,-\zeta_{k}^{*}) (M^{-1}(-x,t,-\zeta_{j}^{*}, -\bar{\zeta}_{k}^{*}))_{jk} e^{\bar{\theta}(x, t, -\bar{\zeta}^{*})} \right)^{*} \\
                                                                   & = - 2 \rmi \sum_{j,k=1}^{N} (M^{-1})_{jk} e^{\theta - \bar{\theta}} \begin{pmatrix}
                                                                                                                                             \alpha_{k}^{*} \\ \beta_{k}^{*}
                                                                                                                                         \end{pmatrix}
@@ -901,7 +878,7 @@ Jost 渐近解为 $ J = \phi E^{-1} $, 则有 $J \to I, x \to \pm \infty$. 将�
 \end{equation}
 故 \eqref{ch4-eq-reverse-x-phi-linear-combination} 与 \eqref{ch4-eq-reverse-x-phi-linear-combination-2} 等价, 故 $ v_{k0} = c v_{k0}'$, 不失一般性, 可令 $c=1$, 则 $\alpha_{k} = \alpha_{k}', \beta_{k} = \beta_{k}', \gamma_{k} = \gamma_{k}'$, 也即 RH 方法得到的孤子解与特征函数对称性得到的孤子解等价.
 
-现在我们可以对问题 \ref{ch3-question-RH-and-eigenvalue-problem} 做肯定的回答. 且不但可以对原问题求对称性, 也可联立原问题和伴随问题求解对称性.
+现在我们可以对问题 \ref{ch3-question-RH-and-eigenvalue-problem} 做肯定的回答. 利用特征值问题得到的对称关系和 RH 方法得到的对称关系是相同的, 而且不但可以对原问题求对称性, 也可同时联立原问题和伴随问题求解对称性.
 
 \section{三种约化下的散射数据对称性}
 本节我们仿照上一章节, 先考虑 \eqref{ch4-eq-reduction-reverse-x}-\eqref{ch4-eq-reduction-reverse-x-t} 三种约化下的散射数据对称性. 下一节考虑增加二重约化 \eqref{ch4-eq-reduction-q1}-\eqref{ch4-eq-reduction-q3} 时的散射数据对称性.
@@ -932,7 +909,7 @@ Jost 渐近解为 $ J = \phi E^{-1} $, 则有 $J \to I, x \to \pm \infty$. 将�
     \begin{equation}
         v_{j0} = v_{0} = (\alpha, \beta, 1)^{T}, \quad \bar{v}_{j0} = \bar{v}_{0} = (\bar{\alpha}, \bar{\beta}, 1), \quad \forall j, k \in 1, 2, \dots N
     \end{equation}
-    则满足 $\bar{v}_{j0} = v_{k0}^{\dagger} M_{0}$, 且 $\bar{v}_{j0} v_{j0} = 2$.
+    则满足 $\bar{v}_{j0} = v_{k0}^{\dagger} M_{0}$, 且 $\bar{v}_{j0} v_{j0} = 1 + \rho$, 其中 $\rho = \alpha \bar{\alpha} + \beta \bar{\beta}$, 且 $|\rho| = 1$.
 
     进一步当上下半平面各包含一个纯虚特征值时. 必有
     \begin{equation}
@@ -1012,7 +989,7 @@ Jost 渐近解为 $ J = \phi E^{-1} $, 则有 $J \to I, x \to \pm \infty$. 将�
     这意味着 $ (\hat{\zeta}, \hat{Y}(t)) $ 满足伴随特征值问题. 因此, 若 $ \zeta_{k} \in \mathbb{C_{+}} $ 为原问题的特征值, 则 $ \hat{\zeta}_{k} = -\zeta_{k} \in \mathbb{C}_{-} $ 亦为伴随散射问题的特征值, 故 $ \hat{v}_{k} = v_{k}^{T} M_{2} $.
 \end{proof}
 \begin{remark}
-    因为逆时间得到了上下半平面的对称关系, 所以我们不需要通过全局对称性(约化关系)进行推导, 而逆空间和逆时间仅得到了同半平面的对称关系, 所以需要通过全局对称性得到 $\bar{v}_{k0}$. 因逆时间与上一章节相同, 在此略过具体分析.
+    注意逆时间与其余两种约化最大的不同为: 逆时间得到的特征值为相对半平面对称关系, 故可直接得到 $\zeta_{k}, v_{k}$ 与 $\bar{\zeta}_{k}, \bar{v}_{k}$ 的关系因逆时间与上一章节相同, 在此略过具体分析.
 \end{remark}
 
 \begin{theorem}[逆时空] \label{ch4-thm:inverse-space-time}
@@ -1030,7 +1007,7 @@ Jost 渐近解为 $ J = \phi E^{-1} $, 则有 $J \to I, x \to \pm \infty$. 将�
     \begin{equation}
         \bar{v}_{j0} = \rho_{jk} v_{k0}^{T}M_{2}, \quad \rho v_{j0}^{T} M_{2} v_{k0} = 1+ \rho \label{eq:3-NLS-reverse-x-t-eigenvector-symmetry}
     \end{equation}
-    其中 $\rho = \bar{v}_{0} v_{0} = \pm 1$ 为常数.
+    其中 $\rho = \rho = \alpha \bar{\alpha} + \beta \bar{\beta} = \pm 1$ 为常数.
 \end{theorem}
 \begin{proof}
     对于逆时空方程情形, 易见 $ Q^{T}(-x) = M_{3} Q(x) M_{3}^{-1} $, 则
@@ -1070,7 +1047,7 @@ Jost 渐近解为 $ J = \phi E^{-1} $, 则有 $J \to I, x \to \pm \infty$. 将�
 \end{proof}
 这一部分的三个定理显示: 相比于 $ 2 \times 2 $ NLS 方程, $ 3\times 3 $ NLS 没有那么好的性质, 只能使用转置和共轭转置的方式求解, 尤其是逆空间和逆时空情形相比 $ 2 \times 2 $ NLS 方程的性质更差, 这是因为二阶矩阵存在 Pauli 矩阵基底, 而三阶矩阵不存在类似的完备基底.
 \subsection{三种约化下解的动力学分析}
-逆时空作为限制最严格得到的解, 因此也具有最好的性质, 可移动, 可坍缩, 可以展现出大部分局部方程的性质, 因此本小节我们讨论一下它的性质,
+逆时空作为限制最严格得到的解, 同时也具有最好的性质, 可移动, 可坍缩, 可以展现出大部分局部方程的性质, 因此本小节我们讨论一下它的性质,
 \subsubsection{逆时空}
 考虑函数
 \begin{equation}
@@ -1088,7 +1065,7 @@ Jost 渐近解为 $ J = \phi E^{-1} $, 则有 $J \to I, x \to \pm \infty$. 将�
     \omega_{1} & = 2V \Im(\zeta_{1}) + 4 \Im(\zeta_{1}^{2}),                                         \\
     \omega_{2} & = -2V \Re(\bar{\zeta}_{1} - \zeta_{1}) + 4 \Re(\bar{\zeta}_{1}^{2} - \zeta_{1}^{2})
 \end{align}
-则若 $ \Re(\omega_{1}) \neq 0 $, 则解在 $ t \to \infty $ 时爆炸; 若 $ \Re(\omega_{2}) \neq 0 $, 则解会周期性的坍塌.
+则若 $ \Re(\omega_{1}) \neq 0 $, 则解在 $ t \to \pm \infty $ 时爆炸; 若 $ \Re(\omega_{2}) \neq 0 $, 则解会周期性的坍塌.
 \subsection{原因}
 占位
 \section{进一步考虑二重约化情形}

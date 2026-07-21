@@ -1,4 +1,5 @@
 \chapter{预备知识}
+虽然 RH方法的前置知识仅限于线性代数和复分析, 但鉴于读者水平参差不齐, 本章节将介绍若干常用概念.
 \section{Plemelj 公式}
 \begin{theorem}{Abel 定理} \label{ch1-thm-Abel}
     设 $ A \in \mathbb{C} $, 对矩阵微分方程 $ Y_{x} = AY $, 可得标量微分方程
@@ -366,4 +367,50 @@ RH 方法的关键思想就是改变积分路径, 通过跳跃矩阵的分解情
         \rme^{A x} c'(t) = B \rme^{A x}c(t) = \rme^{A x} B c(t) \implies c'(t)=B c(t) \implies c(t)=\rme^{Bt}c_{0},
     \end{equation}
     则 $y = \rme^{A x} \rme^{B t} c_{0} = \rme^{A x + B t} c_{0}$.
+\end{proof}
+\begin{lemma}{Riemann-Lebesgue 引理}
+    设 $f(x)$ 在区间 $[a,b]$ 上可积, 则
+    \begin{equation}
+        \lim_{k \to \infty} \int_{a}^{b} f(x) \rme^{\rmi k x} \rmd x = 0
+    \end{equation}
+\end{lemma}
+\begin{proof}
+    先证阶梯函数情形. 设
+    \begin{equation}
+        s(x)=\sum_{j=1}^{m} c_{j}\,\chi_{[x_{j-1},x_{j})}(x), \quad a=x_{0}<x_{1}<\cdots <x_{m}=b.
+    \end{equation}
+    则
+    \begin{equation}
+        \int_{a}^{b} s(x)\rme^{\rmi kx}\rmd x
+        =\sum_{j=1}^{m} c_{j}\int_{x_{j-1}}^{x_{j}} \rme^{\rmi kx}\rmd x
+        =\sum_{j=1}^{m} c_{j}\frac{\rme^{\rmi kx_{j}}-\rme^{\rmi kx_{j-1}}}{\rmi k}.
+    \end{equation}
+    因而
+    \begin{equation}
+        \left|\int_{a}^{b} s(x)\rme^{\rmi kx}\rmd x\right|
+        \leq \frac{2}{|k|}\sum_{j=1}^{m}|c_{j}| \xrightarrow[k\to\infty]{} 0.
+    \end{equation}
+
+    现设 $f\in L^{1}([a,b])$. 由阶梯函数在 $L^{1}$ 中的稠密性, 对任意 $\varepsilon>0$, 存在阶梯函数 $s$ 使得
+    \begin{equation}
+        \|f-s\|_{L^{1}(a,b)}<\varepsilon.
+    \end{equation}
+    于是
+    \begin{equation}
+        \begin{aligned}
+            \left|\int_{a}^{b} f(x)\rme^{\rmi kx}\rmd x\right|
+             & \leq \left|\int_{a}^{b} (f(x)-s(x))\rme^{\rmi kx}\rmd x\right| + \left|\int_{a}^{b} s(x)\rme^{\rmi kx}\rmd x\right| \\
+             & \leq \int_{a}^{b} |f(x)-s(x)|\rmd x + \left|\int_{a}^{b} s(x)\rme^{\rmi kx}\rmd x\right|                            \\
+             & < \varepsilon + \left|\int_{a}^{b} s(x)\rme^{\rmi kx}\rmd x\right|.
+        \end{aligned}
+    \end{equation}
+    由前一步, 对该固定 $s$, 存在 $K>0$, 使得当 $|k|\geq K$ 时
+    \begin{equation}
+        \left|\int_{a}^{b} s(x)\rme^{\rmi kx}\rmd x\right|<\varepsilon.
+    \end{equation}
+    故当 $|k|\geq K$ 时,
+    \begin{equation}
+        \left|\int_{a}^{b} f(x)\rme^{\rmi kx}\rmd x\right|<2\varepsilon.
+    \end{equation}
+    由于 $\varepsilon$ 任意, 结论成立.
 \end{proof}

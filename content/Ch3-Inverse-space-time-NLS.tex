@@ -117,11 +117,8 @@
 \begin{equation}
     K_{k}(x) \to \begin{bmatrix} \bar{a}_{k} \rme^{-\rmi \bar{\zeta}_{k} x} & 0 \end{bmatrix}, x \to -\infty, \quad K_{k}(x) \to \begin{bmatrix} 0 & -\bar{b}_{k}\rme^{-\rmi \bar{\zeta}_{k}x} \end{bmatrix}, x \to +\infty \label{ch3-eq-large-x-asymptotics-of-reverse-x-NLS-adjoint-eigenfunction}
 \end{equation}
-利用上面渐近行为, 以及对应特征问题 \eqref{ch3-eq-reverse-x-NLS-eigenvalue}-\eqref{ch3-eq-reverse-x-NLS-adjoint-eigenvalue}, 我们可以利用对称关系求解定理~\ref{thm:NLS-inverse-x}.
+利用上面渐近行为, 以及对应特征问题 \eqref{ch3-eq-reverse-x-NLS-eigenvalue}-\eqref{ch3-eq-reverse-x-NLS-adjoint-eigenvalue}, 我们可以利用对称关系求解定理 \ref{thm:NLS-inverse-x}.
 
-\begin{problem}\label{ch3-question-RH-and-eigenvalue-problem}
-一个问题是为何 RH 问题求解 $P^{+} v_{k} = 0$ 得到的向量 $v_{k}$ 和特征值问题 $Y_{x} = MY$ 的向量相同, 这一点可以参考 Ablowitz 1974 年论文的第二小节, 此处不做证明. 但是在下一章节 ($3 \times 3$ AKNS 系统) 给出详细证明.
-\end{problem}
 \begin{proof}
     逆空间 NLS 方程 \eqref{ch3-eq-reverse-x-NLS} 是从耦合薛定谔方程 \eqref{ch3-eq-coupled-NLS} 在约化条件 \eqref{ch3-eq-reverse-x-NLS-reduction} 下导出的, 位势矩阵 $ Q_{0} $ 为
     \begin{equation}
@@ -233,51 +230,51 @@
 \end{remark}
 % 这里需要改为二阶矩阵情形, todo
 \subsection{特征函数对称性与 RH 方法等价性}
-接下来我们证明利用特征函数对称性得到的特征值和特征向量与 RH 方法得到的结果等价, 也即证明下一节中定理的正确性.
-
-考虑特征值和伴随特征值问题
-\begin{equation}
-    \begin{aligned}
-        Y_{x} & = -\rmi \zeta \Lambda Y + Q Y, \\
-        K_{x} & = \rmi \zeta K \Lambda - K Q.
-    \end{aligned}
-\end{equation}
-的特征向量分别为 $v_{k}'$ 和 $\hat{v}_{k}'$. 不失一般性, 我们仅考虑驻定情形.
-\begin{equation}
-    \begin{aligned}
-        P^{+}(\zeta_{k}) v_{k} & = (\phi_{+,1}, \phi_{+,2}, \phi_{-,3}) E^{-1} v_{k} = (\phi_{+,1}, \phi_{+,2}, \phi_{-,3}) E^{-1} E v_{k0} = 0, \\
-                               & = \alpha_{k} \phi_{+,1} + \beta_{k} \phi_{+,2} + \gamma_{k} \phi_{-,3} = 0.
-    \end{aligned}
-    \label{ch3-eq-reverse-x-phi-linear-combination}
-\end{equation}
-其中
-\begin{equation}
-    \begin{aligned}
-        \phi_{+,1} \sim (e^{\rmi \zeta_{k} x}, 0,0)^{T}, \quad \phi_{+,2} \sim (0, e^{\rmi \zeta_{k} x}, 0)^{T}, \quad x \to +\infty \\
-        \phi_{-,3} \sim (0,0, e^{- \rmi \zeta_{k} x})^{T}, \quad x \to -\infty
-    \end{aligned}
-\end{equation}
-又由于
-\begin{equation}
-    Y_{kx} \sim -\rmi \zeta_{k} \Lambda Y_{k} \implies Y_{k} = e^{-\rmi \zeta_{k} x \Lambda} c_{\pm} \quad x \to \pm \infty
-\end{equation}
-其中 $c_{\pm}$ 为常向量, 利用离散谱条件有
-\begin{equation}
-    Y_{k} \to (\alpha_{k}' e^{\rmi \zeta_{k} x}, \beta_{k}' e^{\rmi \zeta_{k} x},0)^{T}, \quad x \to +\infty \\
-    Y_{k} \to (0,0, -\gamma_{k}' e^{- \rmi \zeta_{k} x})^{T}, \quad x \to -\infty.
-\end{equation}
-可设 $c_{+} = (\alpha_{k}', \beta_{k}', 0)^{T}, c_{-} = (0,0, - \gamma_{k}')^{T}$, 则在 $x \in \mathbb{R}$ 上有
-\begin{equation}
-    Y_{k} = \alpha_{k}' \phi_{+,1} + \beta_{k}' \phi_{+,2} = -\gamma_{k}' \phi_{-,3}
-\end{equation}
-则有
-\begin{equation}
-    \alpha_{k}' \phi_{+,1} + \beta_{k}' \phi_{+,2} + \gamma_{k}' \phi_{-,3} = 0
-    \label{ch3-eq-reverse-x-phi-linear-combination-2}
-\end{equation}
-故 \eqref{ch3-eq-reverse-x-phi-linear-combination} 与 \eqref{ch3-eq-reverse-x-phi-linear-combination-2} 等价, 故 $ v_{k0} = c v_{k0}'$, 不失一般性, 可令 $c=1$, 则 $\alpha_{k} = \alpha_{k}', \beta_{k} = \beta_{k}', \gamma_{k} = \gamma_{k}'$, 也即 RH 方法得到的孤子解与特征函数对称性得到的孤子解等价.
-
+至此, 我们还有一个问题,
+\begin{problem}\label{ch3-question-RH-and-eigenvalue-problem}
+为何特征值问题所给出的离散特征值及特征向量的对称关系可以直接用于 RH 方法构造的 $N$ 孤子解? 具体而言, RH 核条件 $P^{+}(\zeta_{k})v_{k} = 0$ 与特征值问题 $Y_{x} = MY$ 所确定的离散谱数据为何一致?
+\end{problem}
+这一问题可参考 Ablowitz 1974 年论文\cite{ablowitz1974a}第二小节, 这里结合本文的符号体系给出简要证明.
+\begin{proof}
+    不失一般性, 考虑驻定情形, $\phi_{\pm} = J_{\pm}e^{-\rmi \zeta x \sigma_{3}}$, 则上半平面的 RH 矩阵为
+    \begin{equation}
+        P^{+}(\zeta) = (\phi_{-,1},\phi_{+,2})e^{\rmi \zeta x \sigma_{3}}.
+    \end{equation}
+    设 $\zeta_{k} \in \mathbb{C}_{+}$ 是 $\det P^{+}$ 的简单零点, 且
+    \begin{equation}
+        P^{+}(\zeta_{k})v_{k} = 0,\qquad v_{k} = e^{-\rmi \zeta x \sigma_{3}}(x,\zeta_{k})v_{k0},\qquad v_{k0} = (a_{k},b_{k})^{T}.
+    \end{equation}
+    则
+    \begin{equation}
+        P^{+}(\zeta_{k})v_{k} = (\phi_{-,1},\phi_{+,2}) v_{k0} = a_{k}\phi_{-,1} + b_{k}\phi_{+,2} = 0. \label{ch3-eq-reverse-x-phi-linear-combination}
+    \end{equation}
+    其中
+    \begin{equation}
+        \phi_{-,1} \sim \begin{pmatrix}\rme^{- \rmi \zeta_{k}x}\\0\end{pmatrix},\quad x \to -\infty,\qquad \phi_{+,2} \sim \begin{pmatrix}0\\\rme^{\rmi \zeta_{k}x}\end{pmatrix},\quad x \to +\infty.
+    \end{equation}
+    另一方面, 设 $Y_{k}$ 是特征值 $\zeta_{k}$ 对应的离散特征函数, 其渐近系数向量为 $v_{k0}^{\prime} = (a_{k}^{\prime},b_{k}^{\prime})^{T}$. 由离散谱条件有
+    \begin{equation}
+        Y_{k} \to \begin{pmatrix}a_{k}^{\prime}\rme^{- \rmi \zeta_{k}x}\\0\end{pmatrix},\quad x \to -\infty,\qquad Y_{k} \to \begin{pmatrix}0\\-b_{k}^{\prime}\rme^{\rmi \zeta_{k}x}\end{pmatrix},\quad x \to +\infty.
+    \end{equation}
+    由 Jost 解的唯一性,
+    \begin{equation}
+        Y_{k} = a_{k}^{\prime}\phi_{-,1} = -b_{k}^{\prime}\phi_{+,2}, \quad \forall x \in \mathbb{R}.
+    \end{equation}
+    从而
+    \begin{equation}
+        a_{k}^{\prime}\phi_{-,1} + b_{k}^{\prime}\phi_{+,2} = 0. \label{ch3-eq-reverse-x-phi-linear-combination-2}
+    \end{equation}
+    比较 \eqref{ch3-eq-reverse-x-phi-linear-combination} 与 \eqref{ch3-eq-reverse-x-phi-linear-combination-2}, 由于 $\zeta_{k}$ 是简单零点, $\ker P^{+}(\zeta_{k})$ 为一维空间, 故存在 $c_{k} \neq 0$ 使
+    \begin{equation}
+        v_{k0} = c_{k}v_{k0}^{\prime}.
+    \end{equation}
+    选取相同的标量规范可令 $c_{k} = 1$, 因而 $v_{k0} = v_{k0}^{\prime}$. 下半平面的伴随特征值问题可作相同推导, 得到 $\bar{v}_{k0} = \bar{v}_{k0}^{\prime}$.
+\end{proof}
 现在我们可以对问题 \ref{ch3-question-RH-and-eigenvalue-problem} 做肯定的回答. 且不但可以对原问题求对称性, 也可联立原问题和伴随问题求解对称性.
+
+或许读者意识到, 因为 $2 \times 2$ 情形存在Paoli 矩阵可随意切换行列, 使得原问题和伴随问题的特征值问题可以相互转化. 然而, 对于更高阶的 Lax 对, 例如 $3 \times 3$ Lax 对, 其散射数据的对称关系无法通过初等变换得到, 只能通过转置或 Hermitian 转置得到, 是否仍有类似的结果?
+
+为此我们在下一章节将视角转向 $3\times 3$ AKSN 系统导出的逆空间 NLS 方程, 分别采用两种方法求解, 仍可得到与本章三个定理类似的结果.
 
 \section{动力学分析}
 在本节中, 我们将利用前一节中得到的散射数据的对称关系, 分析逆空间, 逆时间和逆时空 NLS 方程的孤子动力学行为. 我们仅考虑 $ N = 1 $ 和 $ N = 2 $ 的情形, 重点在于双孤子是否为单孤子的简单(非线性)叠加, 或是表现出更复杂的相互作用行为. 为此我们需要先考虑局部 NLS 方程孤子解的动力系统. 当 $N=1$ 时, 局部 NLS 方程的孤子解为
